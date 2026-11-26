@@ -1,0 +1,2469 @@
+{
+  "verdict": "pass",
+  "checked_before_results_exist": true,
+  "new_model_scores_computed": false,
+  "run_count": 180,
+  "matched_groups": 30,
+  "catalogue_size": 1498,
+  "source_hash_files": 18,
+  "source_hash_conflicts": [],
+  "source_hash_mismatches": [],
+  "all_form_donors_manually_supported": true,
+  "families": {
+    "cutlet_cuisine": 36,
+    "cuisine_form": 144
+  },
+  "form_m": 5,
+  "neutral_balance": {
+    "japanese": {
+      "per_form_positive_observations": {
+        "rice": 15,
+        "noodle": 15,
+        "meat": 15,
+        "seafood": 15
+      },
+      "per_form_observations": 30,
+      "rate": 0.5,
+      "per_seed_rate_is_not_exactly_half": true
+    },
+    "korean": {
+      "per_form_positive_observations": {
+        "rice": 15,
+        "noodle": 15,
+        "meat": 15,
+        "seafood": 15
+      },
+      "per_form_observations": 30,
+      "rate": 0.5,
+      "per_seed_rate_is_not_exactly_half": true
+    },
+    "chinese": {
+      "per_form_positive_observations": {
+        "rice": 15,
+        "noodle": 15,
+        "meat": 15,
+        "seafood": 15
+      },
+      "per_form_observations": 30,
+      "rate": 0.5,
+      "per_seed_rate_is_not_exactly_half": true
+    },
+    "western": {
+      "per_form_positive_observations": {
+        "rice": 15,
+        "noodle": 15,
+        "meat": 15,
+        "seafood": 15
+      },
+      "per_form_observations": 30,
+      "rate": 0.5,
+      "per_seed_rate_is_not_exactly_half": true
+    }
+  },
+  "empty_primary_heldout_cells": [
+    {
+      "context": "chinese",
+      "seed": 100,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "chinese",
+      "seed": 100,
+      "group": "seafood",
+      "catalogue_count": 0
+    },
+    {
+      "context": "chinese",
+      "seed": 101,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "chinese",
+      "seed": 101,
+      "group": "seafood",
+      "catalogue_count": 0
+    },
+    {
+      "context": "chinese",
+      "seed": 102,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "chinese",
+      "seed": 102,
+      "group": "seafood",
+      "catalogue_count": 0
+    },
+    {
+      "context": "chinese",
+      "seed": 103,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "chinese",
+      "seed": 103,
+      "group": "seafood",
+      "catalogue_count": 0
+    },
+    {
+      "context": "chinese",
+      "seed": 104,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "chinese",
+      "seed": 104,
+      "group": "seafood",
+      "catalogue_count": 0
+    },
+    {
+      "context": "chinese",
+      "seed": 105,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "chinese",
+      "seed": 105,
+      "group": "seafood",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 100,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 100,
+      "group": "seafood",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 101,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 101,
+      "group": "seafood",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 102,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 102,
+      "group": "seafood",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 103,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 103,
+      "group": "seafood",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 104,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 104,
+      "group": "seafood",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 105,
+      "group": "rice",
+      "catalogue_count": 0
+    },
+    {
+      "context": "western",
+      "seed": 105,
+      "group": "seafood",
+      "catalogue_count": 0
+    }
+  ],
+  "neutral_conditions": [
+    {
+      "family": "cutlet_cuisine",
+      "context": "cutlet",
+      "seed": 100,
+      "history_n": 40,
+      "donor_cuisine": null,
+      "history_cuisine_counts": {
+        "western": 10,
+        "korean": 10,
+        "chinese": 10,
+        "japanese": 10
+      },
+      "current_cuisine_counts": {
+        "mixed": 3,
+        "western": 6,
+        "japanese": 7,
+        "chinese": 1,
+        "korean": 2,
+        "unknown": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "japanese": 5,
+        "korean": 5,
+        "chinese": 5,
+        "western": 5
+      },
+      "prior_group_ages": {
+        "japanese": [
+          56,
+          52,
+          49,
+          46,
+          43,
+          37,
+          32,
+          29,
+          24,
+          23
+        ],
+        "korean": [
+          58,
+          54,
+          51,
+          45,
+          41,
+          36,
+          35,
+          31,
+          26,
+          20
+        ],
+        "chinese": [
+          57,
+          55,
+          50,
+          47,
+          40,
+          38,
+          34,
+          30,
+          27,
+          21
+        ],
+        "western": [
+          59,
+          53,
+          48,
+          44,
+          42,
+          39,
+          33,
+          28,
+          25,
+          22
+        ]
+      },
+      "primary_population": {
+        "japanese": 6,
+        "western": 6,
+        "both_or_mixed": 6,
+        "not_established": 20
+      },
+      "heldout_population": {
+        "japanese": 4,
+        "western": 4,
+        "both_or_mixed": 6,
+        "not_established": 20
+      }
+    },
+    {
+      "family": "cutlet_cuisine",
+      "context": "cutlet",
+      "seed": 101,
+      "history_n": 40,
+      "donor_cuisine": null,
+      "history_cuisine_counts": {
+        "chinese": 10,
+        "western": 10,
+        "korean": 10,
+        "japanese": 10
+      },
+      "current_cuisine_counts": {
+        "unknown": 2,
+        "western": 4,
+        "japanese": 7,
+        "mixed": 6,
+        "korean": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "japanese": 5,
+        "korean": 5,
+        "chinese": 5,
+        "western": 5
+      },
+      "prior_group_ages": {
+        "japanese": [
+          56,
+          52,
+          51,
+          46,
+          42,
+          38,
+          35,
+          29,
+          26,
+          22
+        ],
+        "korean": [
+          57,
+          54,
+          49,
+          47,
+          43,
+          37,
+          33,
+          28,
+          25,
+          23
+        ],
+        "chinese": [
+          59,
+          53,
+          48,
+          44,
+          41,
+          36,
+          34,
+          31,
+          24,
+          20
+        ],
+        "western": [
+          58,
+          55,
+          50,
+          45,
+          40,
+          39,
+          32,
+          30,
+          27,
+          21
+        ]
+      },
+      "primary_population": {
+        "japanese": 6,
+        "western": 6,
+        "both_or_mixed": 6,
+        "not_established": 20
+      },
+      "heldout_population": {
+        "japanese": 4,
+        "western": 4,
+        "both_or_mixed": 6,
+        "not_established": 20
+      }
+    },
+    {
+      "family": "cutlet_cuisine",
+      "context": "cutlet",
+      "seed": 102,
+      "history_n": 40,
+      "donor_cuisine": null,
+      "history_cuisine_counts": {
+        "japanese": 10,
+        "western": 10,
+        "chinese": 10,
+        "korean": 10
+      },
+      "current_cuisine_counts": {
+        "western": 5,
+        "japanese": 5,
+        "chinese": 2,
+        "korean": 2,
+        "unknown": 2,
+        "mixed": 4
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "japanese": 5,
+        "korean": 5,
+        "chinese": 5,
+        "western": 5
+      },
+      "prior_group_ages": {
+        "japanese": [
+          59,
+          53,
+          50,
+          44,
+          40,
+          37,
+          33,
+          30,
+          25,
+          22
+        ],
+        "korean": [
+          56,
+          52,
+          48,
+          45,
+          42,
+          36,
+          32,
+          29,
+          27,
+          20
+        ],
+        "chinese": [
+          57,
+          55,
+          49,
+          46,
+          41,
+          38,
+          34,
+          31,
+          26,
+          21
+        ],
+        "western": [
+          58,
+          54,
+          51,
+          47,
+          43,
+          39,
+          35,
+          28,
+          24,
+          23
+        ]
+      },
+      "primary_population": {
+        "japanese": 6,
+        "western": 6,
+        "both_or_mixed": 6,
+        "not_established": 20
+      },
+      "heldout_population": {
+        "japanese": 4,
+        "western": 4,
+        "both_or_mixed": 6,
+        "not_established": 20
+      }
+    },
+    {
+      "family": "cutlet_cuisine",
+      "context": "cutlet",
+      "seed": 103,
+      "history_n": 40,
+      "donor_cuisine": null,
+      "history_cuisine_counts": {
+        "chinese": 10,
+        "western": 10,
+        "japanese": 10,
+        "korean": 10
+      },
+      "current_cuisine_counts": {
+        "mixed": 3,
+        "japanese": 7,
+        "korean": 2,
+        "western": 4,
+        "chinese": 2,
+        "unknown": 2
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "japanese": 5,
+        "korean": 5,
+        "chinese": 5,
+        "western": 5
+      },
+      "prior_group_ages": {
+        "japanese": [
+          57,
+          53,
+          51,
+          44,
+          41,
+          37,
+          32,
+          31,
+          27,
+          23
+        ],
+        "korean": [
+          56,
+          52,
+          50,
+          46,
+          40,
+          39,
+          33,
+          29,
+          26,
+          21
+        ],
+        "chinese": [
+          59,
+          54,
+          49,
+          47,
+          43,
+          36,
+          35,
+          28,
+          24,
+          22
+        ],
+        "western": [
+          58,
+          55,
+          48,
+          45,
+          42,
+          38,
+          34,
+          30,
+          25,
+          20
+        ]
+      },
+      "primary_population": {
+        "japanese": 6,
+        "western": 6,
+        "both_or_mixed": 6,
+        "not_established": 20
+      },
+      "heldout_population": {
+        "japanese": 4,
+        "western": 4,
+        "both_or_mixed": 6,
+        "not_established": 20
+      }
+    },
+    {
+      "family": "cutlet_cuisine",
+      "context": "cutlet",
+      "seed": 104,
+      "history_n": 40,
+      "donor_cuisine": null,
+      "history_cuisine_counts": {
+        "japanese": 10,
+        "chinese": 10,
+        "korean": 10,
+        "western": 10
+      },
+      "current_cuisine_counts": {
+        "western": 5,
+        "japanese": 7,
+        "mixed": 4,
+        "chinese": 1,
+        "korean": 1,
+        "unknown": 2
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "japanese": 5,
+        "korean": 5,
+        "chinese": 5,
+        "western": 5
+      },
+      "prior_group_ages": {
+        "japanese": [
+          59,
+          54,
+          50,
+          45,
+          42,
+          39,
+          32,
+          28,
+          24,
+          20
+        ],
+        "korean": [
+          57,
+          52,
+          48,
+          44,
+          40,
+          36,
+          33,
+          31,
+          27,
+          22
+        ],
+        "chinese": [
+          58,
+          55,
+          51,
+          46,
+          41,
+          38,
+          35,
+          29,
+          25,
+          23
+        ],
+        "western": [
+          56,
+          53,
+          49,
+          47,
+          43,
+          37,
+          34,
+          30,
+          26,
+          21
+        ]
+      },
+      "primary_population": {
+        "japanese": 6,
+        "western": 6,
+        "both_or_mixed": 6,
+        "not_established": 20
+      },
+      "heldout_population": {
+        "japanese": 4,
+        "western": 4,
+        "both_or_mixed": 6,
+        "not_established": 20
+      }
+    },
+    {
+      "family": "cutlet_cuisine",
+      "context": "cutlet",
+      "seed": 105,
+      "history_n": 40,
+      "donor_cuisine": null,
+      "history_cuisine_counts": {
+        "western": 10,
+        "korean": 10,
+        "chinese": 10,
+        "japanese": 10
+      },
+      "current_cuisine_counts": {
+        "western": 5,
+        "japanese": 6,
+        "mixed": 6,
+        "korean": 2,
+        "chinese": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "japanese": 5,
+        "korean": 5,
+        "chinese": 5,
+        "western": 5
+      },
+      "prior_group_ages": {
+        "japanese": [
+          56,
+          52,
+          49,
+          44,
+          42,
+          39,
+          34,
+          29,
+          26,
+          20
+        ],
+        "korean": [
+          58,
+          55,
+          51,
+          45,
+          43,
+          38,
+          35,
+          30,
+          27,
+          23
+        ],
+        "chinese": [
+          57,
+          54,
+          48,
+          46,
+          40,
+          37,
+          32,
+          31,
+          25,
+          22
+        ],
+        "western": [
+          59,
+          53,
+          50,
+          47,
+          41,
+          36,
+          33,
+          28,
+          24,
+          21
+        ]
+      },
+      "primary_population": {
+        "japanese": 6,
+        "western": 6,
+        "both_or_mixed": 6,
+        "not_established": 20
+      },
+      "heldout_population": {
+        "japanese": 4,
+        "western": 4,
+        "both_or_mixed": 6,
+        "not_established": 20
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "japanese",
+      "seed": 100,
+      "history_n": 20,
+      "donor_cuisine": "korean",
+      "history_cuisine_counts": {
+        "korean": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 13,
+        "japanese": 4,
+        "chinese": 2,
+        "western": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 3,
+        "meat": 2,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          37,
+          33,
+          31,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          34,
+          28,
+          24,
+          20
+        ],
+        "meat": [
+          38,
+          35,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          32,
+          30,
+          25,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      },
+      "heldout_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "japanese",
+      "seed": 101,
+      "history_n": 20,
+      "donor_cuisine": "korean",
+      "history_cuisine_counts": {
+        "korean": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 13,
+        "japanese": 4,
+        "western": 2,
+        "chinese": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 2,
+        "meat": 3,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          36,
+          35,
+          28,
+          25,
+          22
+        ],
+        "noodle": [
+          37,
+          34,
+          30,
+          27,
+          21
+        ],
+        "meat": [
+          38,
+          32,
+          31,
+          24,
+          23
+        ],
+        "seafood": [
+          39,
+          33,
+          29,
+          26,
+          20
+        ]
+      },
+      "primary_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      },
+      "heldout_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "japanese",
+      "seed": 102,
+      "history_n": 20,
+      "donor_cuisine": "korean",
+      "history_cuisine_counts": {
+        "korean": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 14,
+        "japanese": 4,
+        "western": 1,
+        "chinese": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 2,
+        "meat": 2,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          36,
+          34,
+          28,
+          25,
+          20
+        ],
+        "noodle": [
+          38,
+          32,
+          29,
+          27,
+          23
+        ],
+        "meat": [
+          39,
+          35,
+          30,
+          26,
+          22
+        ],
+        "seafood": [
+          37,
+          33,
+          31,
+          24,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      },
+      "heldout_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "japanese",
+      "seed": 103,
+      "history_n": 20,
+      "donor_cuisine": "korean",
+      "history_cuisine_counts": {
+        "korean": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 13,
+        "japanese": 4,
+        "chinese": 1,
+        "western": 2
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          39,
+          35,
+          31,
+          27,
+          20
+        ],
+        "noodle": [
+          36,
+          34,
+          29,
+          26,
+          21
+        ],
+        "meat": [
+          37,
+          32,
+          30,
+          25,
+          23
+        ],
+        "seafood": [
+          38,
+          33,
+          28,
+          24,
+          22
+        ]
+      },
+      "primary_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      },
+      "heldout_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "japanese",
+      "seed": 104,
+      "history_n": 20,
+      "donor_cuisine": "korean",
+      "history_cuisine_counts": {
+        "korean": 20
+      },
+      "current_cuisine_counts": {
+        "western": 5,
+        "japanese": 4,
+        "korean": 11
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 3,
+        "meat": 2,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          37,
+          35,
+          30,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          33,
+          31,
+          24,
+          21
+        ],
+        "meat": [
+          38,
+          32,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          34,
+          28,
+          25,
+          20
+        ]
+      },
+      "primary_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      },
+      "heldout_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "japanese",
+      "seed": 105,
+      "history_n": 20,
+      "donor_cuisine": "korean",
+      "history_cuisine_counts": {
+        "korean": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 13,
+        "japanese": 4,
+        "chinese": 2,
+        "western": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 2,
+        "meat": 3,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          38,
+          35,
+          28,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          34,
+          30,
+          25,
+          20
+        ],
+        "meat": [
+          37,
+          32,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          33,
+          31,
+          24,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      },
+      "heldout_population": {
+        "rice": 9,
+        "noodle": 9,
+        "meat": 6,
+        "seafood": 8
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "korean",
+      "seed": 100,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "western": 8,
+        "korean": 4,
+        "japanese": 4,
+        "chinese": 4
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 3,
+        "meat": 2,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          37,
+          33,
+          31,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          34,
+          28,
+          24,
+          20
+        ],
+        "meat": [
+          38,
+          35,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          32,
+          30,
+          25,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 5,
+        "noodle": 14,
+        "meat": 71,
+        "seafood": 6
+      },
+      "heldout_population": {
+        "rice": 5,
+        "noodle": 14,
+        "meat": 71,
+        "seafood": 6
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "korean",
+      "seed": 101,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "chinese": 6,
+        "korean": 4,
+        "japanese": 6,
+        "western": 4
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 2,
+        "meat": 3,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          36,
+          35,
+          28,
+          25,
+          22
+        ],
+        "noodle": [
+          37,
+          34,
+          30,
+          27,
+          21
+        ],
+        "meat": [
+          38,
+          32,
+          31,
+          24,
+          23
+        ],
+        "seafood": [
+          39,
+          33,
+          29,
+          26,
+          20
+        ]
+      },
+      "primary_population": {
+        "rice": 5,
+        "noodle": 14,
+        "meat": 71,
+        "seafood": 6
+      },
+      "heldout_population": {
+        "rice": 5,
+        "noodle": 14,
+        "meat": 71,
+        "seafood": 6
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "korean",
+      "seed": 102,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "japanese": 5,
+        "korean": 4,
+        "western": 9,
+        "chinese": 2
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 2,
+        "meat": 2,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          36,
+          34,
+          28,
+          25,
+          20
+        ],
+        "noodle": [
+          38,
+          32,
+          29,
+          27,
+          23
+        ],
+        "meat": [
+          39,
+          35,
+          30,
+          26,
+          22
+        ],
+        "seafood": [
+          37,
+          33,
+          31,
+          24,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 5,
+        "noodle": 14,
+        "meat": 71,
+        "seafood": 6
+      },
+      "heldout_population": {
+        "rice": 5,
+        "noodle": 13,
+        "meat": 70,
+        "seafood": 6
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "korean",
+      "seed": 103,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "western": 7,
+        "korean": 4,
+        "japanese": 6,
+        "chinese": 3
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          39,
+          35,
+          31,
+          27,
+          20
+        ],
+        "noodle": [
+          36,
+          34,
+          29,
+          26,
+          21
+        ],
+        "meat": [
+          37,
+          32,
+          30,
+          25,
+          23
+        ],
+        "seafood": [
+          38,
+          33,
+          28,
+          24,
+          22
+        ]
+      },
+      "primary_population": {
+        "rice": 5,
+        "noodle": 14,
+        "meat": 71,
+        "seafood": 6
+      },
+      "heldout_population": {
+        "rice": 5,
+        "noodle": 14,
+        "meat": 71,
+        "seafood": 6
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "korean",
+      "seed": 104,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "western": 8,
+        "korean": 4,
+        "japanese": 3,
+        "chinese": 5
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 3,
+        "meat": 2,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          37,
+          35,
+          30,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          33,
+          31,
+          24,
+          21
+        ],
+        "meat": [
+          38,
+          32,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          34,
+          28,
+          25,
+          20
+        ]
+      },
+      "primary_population": {
+        "rice": 5,
+        "noodle": 14,
+        "meat": 71,
+        "seafood": 6
+      },
+      "heldout_population": {
+        "rice": 5,
+        "noodle": 14,
+        "meat": 71,
+        "seafood": 6
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "korean",
+      "seed": 105,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "japanese": 8,
+        "korean": 4,
+        "western": 4,
+        "chinese": 4
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 2,
+        "meat": 3,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          38,
+          35,
+          28,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          34,
+          30,
+          25,
+          20
+        ],
+        "meat": [
+          37,
+          32,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          33,
+          31,
+          24,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 5,
+        "noodle": 14,
+        "meat": 71,
+        "seafood": 6
+      },
+      "heldout_population": {
+        "rice": 5,
+        "noodle": 14,
+        "meat": 71,
+        "seafood": 6
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "chinese",
+      "seed": 100,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "western": 2,
+        "chinese": 4,
+        "korean": 11,
+        "japanese": 3
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 3,
+        "meat": 2,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          37,
+          33,
+          31,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          34,
+          28,
+          24,
+          20
+        ],
+        "meat": [
+          38,
+          35,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          32,
+          30,
+          25,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "chinese",
+      "seed": 101,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "japanese": 4,
+        "chinese": 4,
+        "korean": 10,
+        "western": 2
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 2,
+        "meat": 3,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          36,
+          35,
+          28,
+          25,
+          22
+        ],
+        "noodle": [
+          37,
+          34,
+          30,
+          27,
+          21
+        ],
+        "meat": [
+          38,
+          32,
+          31,
+          24,
+          23
+        ],
+        "seafood": [
+          39,
+          33,
+          29,
+          26,
+          20
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "chinese",
+      "seed": 102,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 11,
+        "chinese": 4,
+        "japanese": 3,
+        "western": 2
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 2,
+        "meat": 2,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          36,
+          34,
+          28,
+          25,
+          20
+        ],
+        "noodle": [
+          38,
+          32,
+          29,
+          27,
+          23
+        ],
+        "meat": [
+          39,
+          35,
+          30,
+          26,
+          22
+        ],
+        "seafood": [
+          37,
+          33,
+          31,
+          24,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "chinese",
+      "seed": 103,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 11,
+        "chinese": 4,
+        "japanese": 3,
+        "western": 2
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          39,
+          35,
+          31,
+          27,
+          20
+        ],
+        "noodle": [
+          36,
+          34,
+          29,
+          26,
+          21
+        ],
+        "meat": [
+          37,
+          32,
+          30,
+          25,
+          23
+        ],
+        "seafood": [
+          38,
+          33,
+          28,
+          24,
+          22
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "chinese",
+      "seed": 104,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 13,
+        "chinese": 4,
+        "japanese": 2,
+        "western": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 3,
+        "meat": 2,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          37,
+          35,
+          30,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          33,
+          31,
+          24,
+          21
+        ],
+        "meat": [
+          38,
+          32,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          34,
+          28,
+          25,
+          20
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "chinese",
+      "seed": 105,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "western": 4,
+        "chinese": 4,
+        "korean": 11,
+        "japanese": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 2,
+        "meat": 3,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          38,
+          35,
+          28,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          34,
+          30,
+          25,
+          20
+        ],
+        "meat": [
+          37,
+          32,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          33,
+          31,
+          24,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 0
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "western",
+      "seed": 100,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 13,
+        "western": 4,
+        "chinese": 3
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 3,
+        "meat": 2,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          37,
+          33,
+          31,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          34,
+          28,
+          24,
+          20
+        ],
+        "meat": [
+          38,
+          35,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          32,
+          30,
+          25,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "western",
+      "seed": 101,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 11,
+        "western": 4,
+        "japanese": 2,
+        "chinese": 3
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 2,
+        "meat": 3,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          36,
+          35,
+          28,
+          25,
+          22
+        ],
+        "noodle": [
+          37,
+          34,
+          30,
+          27,
+          21
+        ],
+        "meat": [
+          38,
+          32,
+          31,
+          24,
+          23
+        ],
+        "seafood": [
+          39,
+          33,
+          29,
+          26,
+          20
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "western",
+      "seed": 102,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 15,
+        "western": 4,
+        "japanese": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 3,
+        "noodle": 2,
+        "meat": 2,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          36,
+          34,
+          28,
+          25,
+          20
+        ],
+        "noodle": [
+          38,
+          32,
+          29,
+          27,
+          23
+        ],
+        "meat": [
+          39,
+          35,
+          30,
+          26,
+          22
+        ],
+        "seafood": [
+          37,
+          33,
+          31,
+          24,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "western",
+      "seed": 103,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 12,
+        "western": 4,
+        "japanese": 3,
+        "chinese": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 3,
+        "meat": 3,
+        "seafood": 2
+      },
+      "prior_group_ages": {
+        "rice": [
+          39,
+          35,
+          31,
+          27,
+          20
+        ],
+        "noodle": [
+          36,
+          34,
+          29,
+          26,
+          21
+        ],
+        "meat": [
+          37,
+          32,
+          30,
+          25,
+          23
+        ],
+        "seafood": [
+          38,
+          33,
+          28,
+          24,
+          22
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "western",
+      "seed": 104,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 12,
+        "western": 4,
+        "chinese": 3,
+        "japanese": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 3,
+        "meat": 2,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          37,
+          35,
+          30,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          33,
+          31,
+          24,
+          21
+        ],
+        "meat": [
+          38,
+          32,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          34,
+          28,
+          25,
+          20
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      }
+    },
+    {
+      "family": "cuisine_form",
+      "context": "western",
+      "seed": 105,
+      "history_n": 20,
+      "donor_cuisine": "japanese",
+      "history_cuisine_counts": {
+        "japanese": 20
+      },
+      "current_cuisine_counts": {
+        "korean": 15,
+        "western": 4,
+        "chinese": 1
+      },
+      "current_positive_ages": [
+        18,
+        13,
+        8,
+        3
+      ],
+      "prior_group_positive_counts": {
+        "rice": 2,
+        "noodle": 2,
+        "meat": 3,
+        "seafood": 3
+      },
+      "prior_group_ages": {
+        "rice": [
+          38,
+          35,
+          28,
+          26,
+          23
+        ],
+        "noodle": [
+          36,
+          34,
+          30,
+          25,
+          20
+        ],
+        "meat": [
+          37,
+          32,
+          29,
+          27,
+          22
+        ],
+        "seafood": [
+          39,
+          33,
+          31,
+          24,
+          21
+        ]
+      },
+      "primary_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      },
+      "heldout_population": {
+        "rice": 0,
+        "noodle": 1,
+        "meat": 10,
+        "seafood": 0
+      }
+    }
+  ],
+  "limits": [
+    "Odd form-group neutral is balanced over the six input designs, not unbiassed within each seed.",
+    "Primary-form unknown/mixed current restaurants are a deliberate controlled sample, not natural user swipe frequencies.",
+    "One fixed donor cuisine removes changing donor cuisine counts across form arms but does not prove a cuisine-invariant latent factor.",
+    "Menu audits are operational labels with missing coverage, not full semantic truth."
+  ],
+  "audit_sha256": {
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/fixtures.json": "4c2b6d1f4451b61f73ae080842dd82eeae5628891aa5773b2a7e6d75accc820c",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/build-matrix-fixtures.py": "42876c5925e6c92b8be457c971623339d84d25c71a28396e67c5e4efc22f33e6",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/protocol.md": "30ef22594d24a5f580c9bdad873f5d996b1ccdbb94b652f91f9f1f22eb4d6574",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/cuisine-audit.json": "eebe38212682c9614a3afec756c8437dbd112948be870b50ea34d48395b8a475",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/form-audit.json": "616c216670f92517908da04ed5aca468de00a3875be2d9b9e2fa87c71caa440d",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/audit-matrix-fixtures.py": "840c345e37a8c0267e5531a99ea16dd746c6cb781a21090aba5a0988931ffb7a"
+  }
+}

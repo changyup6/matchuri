@@ -1,0 +1,923 @@
+{
+  "protocol": "Frozen real heldout restaurant subsets; exhaustive J2/W4, J4/W4, J4/W2, top3; no synthetic stores, refitting, group correction or quota. Posthoc diagnostic, not production recommendations or users. Repeated subsets and seeds not independent samples.",
+  "source_sha256": {
+    "frozen-cutlet-scores.npz": "0a47b7eafd29ff57b03bb14c911fcd212d56fe84928e292012b8d1eda2f4eb74",
+    "frozen-score-metadata.json": "aa1ffedee1f7604a457eaccc29cee7e0f47ffe2b07aed6289e4774d873bd9c4f",
+    "protocol.md": "d4464dcbce69ce57c1dea4e6b454abe7a726e05305f6398bfad8cb7b19b9334a"
+  },
+  "slate_rows": 1872,
+  "summary": [
+    {
+      "n": 10,
+      "japanese_available": 2,
+      "western_available": 4,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 19,
+          "all_slots": 108,
+          "japanese_share": 0.1759259259259259,
+          "mean_japanese_count": 0.5277777777777778,
+          "mean_western_count": 2.4722222222222223,
+          "japanese_inclusion_rate": 0.2638888888888889,
+          "western_inclusion_rate": 0.6180555555555556
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 26,
+          "all_slots": 108,
+          "japanese_share": 0.24074074074074073,
+          "mean_japanese_count": 0.7222222222222222,
+          "mean_western_count": 2.2777777777777777,
+          "japanese_inclusion_rate": 0.3611111111111111,
+          "western_inclusion_rate": 0.5694444444444444
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 21,
+          "all_slots": 108,
+          "japanese_share": 0.19444444444444445,
+          "mean_japanese_count": 0.5833333333333334,
+          "mean_western_count": 2.4166666666666665,
+          "japanese_inclusion_rate": 0.2916666666666667,
+          "western_inclusion_rate": 0.6041666666666666
+        }
+      }
+    },
+    {
+      "n": 10,
+      "japanese_available": 2,
+      "western_available": 4,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 18,
+          "all_slots": 108,
+          "japanese_share": 0.16666666666666663,
+          "mean_japanese_count": 0.5,
+          "mean_western_count": 2.5,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.625
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 26,
+          "all_slots": 108,
+          "japanese_share": 0.24074074074074073,
+          "mean_japanese_count": 0.7222222222222222,
+          "mean_western_count": 2.2777777777777777,
+          "japanese_inclusion_rate": 0.3611111111111111,
+          "western_inclusion_rate": 0.5694444444444444
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 21,
+          "all_slots": 108,
+          "japanese_share": 0.19444444444444445,
+          "mean_japanese_count": 0.5833333333333334,
+          "mean_western_count": 2.4166666666666665,
+          "japanese_inclusion_rate": 0.2916666666666667,
+          "western_inclusion_rate": 0.6041666666666666
+        }
+      }
+    },
+    {
+      "n": 10,
+      "japanese_available": 4,
+      "western_available": 4,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        },
+        "japanese": {
+          "slates": 6,
+          "japanese_slots": 7,
+          "all_slots": 18,
+          "japanese_share": 0.38888888888888884,
+          "mean_japanese_count": 1.1666666666666667,
+          "mean_western_count": 1.8333333333333333,
+          "japanese_inclusion_rate": 0.2916666666666667,
+          "western_inclusion_rate": 0.4583333333333333
+        },
+        "western": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        }
+      }
+    },
+    {
+      "n": 10,
+      "japanese_available": 4,
+      "western_available": 4,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        },
+        "japanese": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        },
+        "western": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        }
+      }
+    },
+    {
+      "n": 10,
+      "japanese_available": 4,
+      "western_available": 2,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 49,
+          "all_slots": 108,
+          "japanese_share": 0.45370370370370366,
+          "mean_japanese_count": 1.3611111111111112,
+          "mean_western_count": 1.6388888888888888,
+          "japanese_inclusion_rate": 0.3402777777777778,
+          "western_inclusion_rate": 0.8194444444444444
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 62,
+          "all_slots": 108,
+          "japanese_share": 0.574074074074074,
+          "mean_japanese_count": 1.7222222222222223,
+          "mean_western_count": 1.2777777777777777,
+          "japanese_inclusion_rate": 0.4305555555555556,
+          "western_inclusion_rate": 0.6388888888888888
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 51,
+          "all_slots": 108,
+          "japanese_share": 0.4722222222222222,
+          "mean_japanese_count": 1.4166666666666667,
+          "mean_western_count": 1.5833333333333333,
+          "japanese_inclusion_rate": 0.3541666666666667,
+          "western_inclusion_rate": 0.7916666666666666
+        }
+      }
+    },
+    {
+      "n": 10,
+      "japanese_available": 4,
+      "western_available": 2,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 51,
+          "all_slots": 108,
+          "japanese_share": 0.4722222222222222,
+          "mean_japanese_count": 1.4166666666666667,
+          "mean_western_count": 1.5833333333333333,
+          "japanese_inclusion_rate": 0.3541666666666667,
+          "western_inclusion_rate": 0.7916666666666666
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 59,
+          "all_slots": 108,
+          "japanese_share": 0.5462962962962963,
+          "mean_japanese_count": 1.6388888888888888,
+          "mean_western_count": 1.3611111111111112,
+          "japanese_inclusion_rate": 0.4097222222222222,
+          "western_inclusion_rate": 0.6805555555555556
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 51,
+          "all_slots": 108,
+          "japanese_share": 0.4722222222222222,
+          "mean_japanese_count": 1.4166666666666667,
+          "mean_western_count": 1.5833333333333333,
+          "japanese_inclusion_rate": 0.3541666666666667,
+          "western_inclusion_rate": 0.7916666666666666
+        }
+      }
+    },
+    {
+      "n": 20,
+      "japanese_available": 2,
+      "western_available": 4,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 19,
+          "all_slots": 108,
+          "japanese_share": 0.1759259259259259,
+          "mean_japanese_count": 0.5277777777777778,
+          "mean_western_count": 2.4722222222222223,
+          "japanese_inclusion_rate": 0.2638888888888889,
+          "western_inclusion_rate": 0.6180555555555556
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 33,
+          "all_slots": 108,
+          "japanese_share": 0.30555555555555547,
+          "mean_japanese_count": 0.9166666666666666,
+          "mean_western_count": 2.0833333333333335,
+          "japanese_inclusion_rate": 0.4583333333333333,
+          "western_inclusion_rate": 0.5208333333333334
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 22,
+          "all_slots": 108,
+          "japanese_share": 0.2037037037037037,
+          "mean_japanese_count": 0.6111111111111112,
+          "mean_western_count": 2.388888888888889,
+          "japanese_inclusion_rate": 0.3055555555555556,
+          "western_inclusion_rate": 0.5972222222222222
+        }
+      }
+    },
+    {
+      "n": 20,
+      "japanese_available": 2,
+      "western_available": 4,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 18,
+          "all_slots": 108,
+          "japanese_share": 0.16666666666666663,
+          "mean_japanese_count": 0.5,
+          "mean_western_count": 2.5,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.625
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 33,
+          "all_slots": 108,
+          "japanese_share": 0.30555555555555547,
+          "mean_japanese_count": 0.9166666666666666,
+          "mean_western_count": 2.0833333333333335,
+          "japanese_inclusion_rate": 0.4583333333333333,
+          "western_inclusion_rate": 0.5208333333333334
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 22,
+          "all_slots": 108,
+          "japanese_share": 0.2037037037037037,
+          "mean_japanese_count": 0.6111111111111112,
+          "mean_western_count": 2.388888888888889,
+          "japanese_inclusion_rate": 0.3055555555555556,
+          "western_inclusion_rate": 0.5972222222222222
+        }
+      }
+    },
+    {
+      "n": 20,
+      "japanese_available": 4,
+      "western_available": 4,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        },
+        "japanese": {
+          "slates": 6,
+          "japanese_slots": 8,
+          "all_slots": 18,
+          "japanese_share": 0.4444444444444444,
+          "mean_japanese_count": 1.3333333333333333,
+          "mean_western_count": 1.6666666666666667,
+          "japanese_inclusion_rate": 0.3333333333333333,
+          "western_inclusion_rate": 0.4166666666666667
+        },
+        "western": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        }
+      }
+    },
+    {
+      "n": 20,
+      "japanese_available": 4,
+      "western_available": 4,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        },
+        "japanese": {
+          "slates": 6,
+          "japanese_slots": 8,
+          "all_slots": 18,
+          "japanese_share": 0.4444444444444444,
+          "mean_japanese_count": 1.3333333333333333,
+          "mean_western_count": 1.6666666666666667,
+          "japanese_inclusion_rate": 0.3333333333333333,
+          "western_inclusion_rate": 0.4166666666666667
+        },
+        "western": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        }
+      }
+    },
+    {
+      "n": 20,
+      "japanese_available": 4,
+      "western_available": 2,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 49,
+          "all_slots": 108,
+          "japanese_share": 0.45370370370370366,
+          "mean_japanese_count": 1.3611111111111112,
+          "mean_western_count": 1.6388888888888888,
+          "japanese_inclusion_rate": 0.3402777777777778,
+          "western_inclusion_rate": 0.8194444444444444
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 66,
+          "all_slots": 108,
+          "japanese_share": 0.6111111111111112,
+          "mean_japanese_count": 1.8333333333333333,
+          "mean_western_count": 1.1666666666666667,
+          "japanese_inclusion_rate": 0.4583333333333333,
+          "western_inclusion_rate": 0.5833333333333334
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 52,
+          "all_slots": 108,
+          "japanese_share": 0.48148148148148145,
+          "mean_japanese_count": 1.4444444444444444,
+          "mean_western_count": 1.5555555555555556,
+          "japanese_inclusion_rate": 0.3611111111111111,
+          "western_inclusion_rate": 0.7777777777777778
+        }
+      }
+    },
+    {
+      "n": 20,
+      "japanese_available": 4,
+      "western_available": 2,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 51,
+          "all_slots": 108,
+          "japanese_share": 0.4722222222222222,
+          "mean_japanese_count": 1.4166666666666667,
+          "mean_western_count": 1.5833333333333333,
+          "japanese_inclusion_rate": 0.3541666666666667,
+          "western_inclusion_rate": 0.7916666666666666
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 63,
+          "all_slots": 108,
+          "japanese_share": 0.5833333333333334,
+          "mean_japanese_count": 1.75,
+          "mean_western_count": 1.25,
+          "japanese_inclusion_rate": 0.4375,
+          "western_inclusion_rate": 0.625
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 52,
+          "all_slots": 108,
+          "japanese_share": 0.48148148148148145,
+          "mean_japanese_count": 1.4444444444444444,
+          "mean_western_count": 1.5555555555555556,
+          "japanese_inclusion_rate": 0.3611111111111111,
+          "western_inclusion_rate": 0.7777777777777778
+        }
+      }
+    },
+    {
+      "n": 40,
+      "japanese_available": 2,
+      "western_available": 4,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 19,
+          "all_slots": 108,
+          "japanese_share": 0.1759259259259259,
+          "mean_japanese_count": 0.5277777777777778,
+          "mean_western_count": 2.4722222222222223,
+          "japanese_inclusion_rate": 0.2638888888888889,
+          "western_inclusion_rate": 0.6180555555555556
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 36,
+          "all_slots": 108,
+          "japanese_share": 0.33333333333333326,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.5,
+          "western_inclusion_rate": 0.5
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 21,
+          "all_slots": 108,
+          "japanese_share": 0.19444444444444445,
+          "mean_japanese_count": 0.5833333333333334,
+          "mean_western_count": 2.4166666666666665,
+          "japanese_inclusion_rate": 0.2916666666666667,
+          "western_inclusion_rate": 0.6041666666666666
+        }
+      }
+    },
+    {
+      "n": 40,
+      "japanese_available": 2,
+      "western_available": 4,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 18,
+          "all_slots": 108,
+          "japanese_share": 0.16666666666666663,
+          "mean_japanese_count": 0.5,
+          "mean_western_count": 2.5,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.625
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 30,
+          "all_slots": 108,
+          "japanese_share": 0.27777777777777773,
+          "mean_japanese_count": 0.8333333333333334,
+          "mean_western_count": 2.1666666666666665,
+          "japanese_inclusion_rate": 0.4166666666666667,
+          "western_inclusion_rate": 0.5416666666666666
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 21,
+          "all_slots": 108,
+          "japanese_share": 0.19444444444444445,
+          "mean_japanese_count": 0.5833333333333334,
+          "mean_western_count": 2.4166666666666665,
+          "japanese_inclusion_rate": 0.2916666666666667,
+          "western_inclusion_rate": 0.6041666666666666
+        }
+      }
+    },
+    {
+      "n": 40,
+      "japanese_available": 4,
+      "western_available": 4,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        },
+        "japanese": {
+          "slates": 6,
+          "japanese_slots": 9,
+          "all_slots": 18,
+          "japanese_share": 0.5,
+          "mean_japanese_count": 1.5,
+          "mean_western_count": 1.5,
+          "japanese_inclusion_rate": 0.375,
+          "western_inclusion_rate": 0.375
+        },
+        "western": {
+          "slates": 6,
+          "japanese_slots": 5,
+          "all_slots": 18,
+          "japanese_share": 0.27777777777777773,
+          "mean_japanese_count": 0.8333333333333334,
+          "mean_western_count": 2.1666666666666665,
+          "japanese_inclusion_rate": 0.20833333333333334,
+          "western_inclusion_rate": 0.5416666666666666
+        }
+      }
+    },
+    {
+      "n": 40,
+      "japanese_available": 4,
+      "western_available": 4,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        },
+        "japanese": {
+          "slates": 6,
+          "japanese_slots": 7,
+          "all_slots": 18,
+          "japanese_share": 0.38888888888888884,
+          "mean_japanese_count": 1.1666666666666667,
+          "mean_western_count": 1.8333333333333333,
+          "japanese_inclusion_rate": 0.2916666666666667,
+          "western_inclusion_rate": 0.4583333333333333
+        },
+        "western": {
+          "slates": 6,
+          "japanese_slots": 5,
+          "all_slots": 18,
+          "japanese_share": 0.27777777777777773,
+          "mean_japanese_count": 0.8333333333333334,
+          "mean_western_count": 2.1666666666666665,
+          "japanese_inclusion_rate": 0.20833333333333334,
+          "western_inclusion_rate": 0.5416666666666666
+        }
+      }
+    },
+    {
+      "n": 40,
+      "japanese_available": 4,
+      "western_available": 2,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 49,
+          "all_slots": 108,
+          "japanese_share": 0.45370370370370366,
+          "mean_japanese_count": 1.3611111111111112,
+          "mean_western_count": 1.6388888888888888,
+          "japanese_inclusion_rate": 0.3402777777777778,
+          "western_inclusion_rate": 0.8194444444444444
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 69,
+          "all_slots": 108,
+          "japanese_share": 0.6388888888888888,
+          "mean_japanese_count": 1.9166666666666667,
+          "mean_western_count": 1.0833333333333333,
+          "japanese_inclusion_rate": 0.4791666666666667,
+          "western_inclusion_rate": 0.5416666666666666
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 54,
+          "all_slots": 108,
+          "japanese_share": 0.5,
+          "mean_japanese_count": 1.5,
+          "mean_western_count": 1.5,
+          "japanese_inclusion_rate": 0.375,
+          "western_inclusion_rate": 0.75
+        }
+      }
+    },
+    {
+      "n": 40,
+      "japanese_available": 4,
+      "western_available": 2,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 51,
+          "all_slots": 108,
+          "japanese_share": 0.4722222222222222,
+          "mean_japanese_count": 1.4166666666666667,
+          "mean_western_count": 1.5833333333333333,
+          "japanese_inclusion_rate": 0.3541666666666667,
+          "western_inclusion_rate": 0.7916666666666666
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 69,
+          "all_slots": 108,
+          "japanese_share": 0.6388888888888888,
+          "mean_japanese_count": 1.9166666666666667,
+          "mean_western_count": 1.0833333333333333,
+          "japanese_inclusion_rate": 0.4791666666666667,
+          "western_inclusion_rate": 0.5416666666666666
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 54,
+          "all_slots": 108,
+          "japanese_share": 0.5,
+          "mean_japanese_count": 1.5,
+          "mean_western_count": 1.5,
+          "japanese_inclusion_rate": 0.375,
+          "western_inclusion_rate": 0.75
+        }
+      }
+    },
+    {
+      "n": 80,
+      "japanese_available": 2,
+      "western_available": 4,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 19,
+          "all_slots": 108,
+          "japanese_share": 0.1759259259259259,
+          "mean_japanese_count": 0.5277777777777778,
+          "mean_western_count": 2.4722222222222223,
+          "japanese_inclusion_rate": 0.2638888888888889,
+          "western_inclusion_rate": 0.6180555555555556
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 40,
+          "all_slots": 108,
+          "japanese_share": 0.3703703703703703,
+          "mean_japanese_count": 1.1111111111111112,
+          "mean_western_count": 1.8888888888888888,
+          "japanese_inclusion_rate": 0.5555555555555556,
+          "western_inclusion_rate": 0.4722222222222222
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 27,
+          "all_slots": 108,
+          "japanese_share": 0.25,
+          "mean_japanese_count": 0.75,
+          "mean_western_count": 2.25,
+          "japanese_inclusion_rate": 0.375,
+          "western_inclusion_rate": 0.5625
+        }
+      }
+    },
+    {
+      "n": 80,
+      "japanese_available": 2,
+      "western_available": 4,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 18,
+          "all_slots": 108,
+          "japanese_share": 0.16666666666666663,
+          "mean_japanese_count": 0.5,
+          "mean_western_count": 2.5,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.625
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 37,
+          "all_slots": 108,
+          "japanese_share": 0.3425925925925925,
+          "mean_japanese_count": 1.0277777777777777,
+          "mean_western_count": 1.9722222222222223,
+          "japanese_inclusion_rate": 0.5138888888888888,
+          "western_inclusion_rate": 0.4930555555555556
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 22,
+          "all_slots": 108,
+          "japanese_share": 0.20370370370370366,
+          "mean_japanese_count": 0.6111111111111112,
+          "mean_western_count": 2.388888888888889,
+          "japanese_inclusion_rate": 0.3055555555555556,
+          "western_inclusion_rate": 0.5972222222222222
+        }
+      }
+    },
+    {
+      "n": 80,
+      "japanese_available": 4,
+      "western_available": 4,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        },
+        "japanese": {
+          "slates": 6,
+          "japanese_slots": 9,
+          "all_slots": 18,
+          "japanese_share": 0.5,
+          "mean_japanese_count": 1.5,
+          "mean_western_count": 1.5,
+          "japanese_inclusion_rate": 0.375,
+          "western_inclusion_rate": 0.375
+        },
+        "western": {
+          "slates": 6,
+          "japanese_slots": 7,
+          "all_slots": 18,
+          "japanese_share": 0.38888888888888884,
+          "mean_japanese_count": 1.1666666666666667,
+          "mean_western_count": 1.8333333333333333,
+          "japanese_inclusion_rate": 0.2916666666666667,
+          "western_inclusion_rate": 0.4583333333333333
+        }
+      }
+    },
+    {
+      "n": 80,
+      "japanese_available": 4,
+      "western_available": 4,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        },
+        "japanese": {
+          "slates": 6,
+          "japanese_slots": 10,
+          "all_slots": 18,
+          "japanese_share": 0.5555555555555555,
+          "mean_japanese_count": 1.6666666666666667,
+          "mean_western_count": 1.3333333333333333,
+          "japanese_inclusion_rate": 0.4166666666666667,
+          "western_inclusion_rate": 0.3333333333333333
+        },
+        "western": {
+          "slates": 6,
+          "japanese_slots": 7,
+          "all_slots": 18,
+          "japanese_share": 0.38888888888888884,
+          "mean_japanese_count": 1.1666666666666667,
+          "mean_western_count": 1.8333333333333333,
+          "japanese_inclusion_rate": 0.2916666666666667,
+          "western_inclusion_rate": 0.4583333333333333
+        }
+      }
+    },
+    {
+      "n": 80,
+      "japanese_available": 4,
+      "western_available": 2,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 49,
+          "all_slots": 108,
+          "japanese_share": 0.45370370370370366,
+          "mean_japanese_count": 1.3611111111111112,
+          "mean_western_count": 1.6388888888888888,
+          "japanese_inclusion_rate": 0.3402777777777778,
+          "western_inclusion_rate": 0.8194444444444444
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 76,
+          "all_slots": 108,
+          "japanese_share": 0.7037037037037037,
+          "mean_japanese_count": 2.111111111111111,
+          "mean_western_count": 0.8888888888888888,
+          "japanese_inclusion_rate": 0.5277777777777778,
+          "western_inclusion_rate": 0.4444444444444444
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 57,
+          "all_slots": 108,
+          "japanese_share": 0.5277777777777778,
+          "mean_japanese_count": 1.5833333333333333,
+          "mean_western_count": 1.4166666666666667,
+          "japanese_inclusion_rate": 0.3958333333333333,
+          "western_inclusion_rate": 0.7083333333333334
+        }
+      }
+    },
+    {
+      "n": 80,
+      "japanese_available": 4,
+      "western_available": 2,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 51,
+          "all_slots": 108,
+          "japanese_share": 0.4722222222222222,
+          "mean_japanese_count": 1.4166666666666667,
+          "mean_western_count": 1.5833333333333333,
+          "japanese_inclusion_rate": 0.3541666666666667,
+          "western_inclusion_rate": 0.7916666666666666
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 70,
+          "all_slots": 108,
+          "japanese_share": 0.6481481481481481,
+          "mean_japanese_count": 1.9444444444444444,
+          "mean_western_count": 1.0555555555555556,
+          "japanese_inclusion_rate": 0.4861111111111111,
+          "western_inclusion_rate": 0.5277777777777778
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 49,
+          "all_slots": 108,
+          "japanese_share": 0.45370370370370355,
+          "mean_japanese_count": 1.3611111111111112,
+          "mean_western_count": 1.6388888888888888,
+          "japanese_inclusion_rate": 0.3402777777777778,
+          "western_inclusion_rate": 0.8194444444444444
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "status": "frozen",
+  "fixture_sha256": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5",
+  "numeric_payload_sha256": "dbbee9bb2414a9afb0f29affc89158175dee38dd3f104f1e0151c1e59aeaf775",
+  "files": {
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/vector-alignment.py": "6fc6d626b995753f164726f247983172dd7c76638c220c32a7c303f584f6c831",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/vector-alignment.json": "05d4227f66eb83b684d0553aca364ef079f0180e622ba0bfe2f4214d95f3885e",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/vector-alignment.csv": "4fdbd0f56717296cc76b0dddb4414027c1f27ac38767fc16cddb10d25fe8f1a6",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/vector-alignment.md": "45ef8f48c4eca76c291a22acdc18a43d00609e4e24ea04c7edd961de724528b7",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/validate-alignment-rebalance.py": "3bf32bc7b237c5f110230bd305657919010bee7cc1d650bfc664631e9b16b5bc",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/vector-alignment-rebalance-check.json": "672e38a09ad1a656ca049efafaa70c7b0b45e85337aac050f163580aae994403"
+  },
+  "checks": {
+    "matched_conditions": 792,
+    "cells": 132,
+    "fixture_arms_verified": 3168,
+    "gram_recalculations": 792,
+    "maximum_cosine_absolute_difference": 3.3306690738754696e-16,
+    "maximum_history_norm_absolute_difference": 2.220446049250313e-16,
+    "maximum_heldout_norm_absolute_difference": 2.220446049250313e-16,
+    "na_conditions": 0
+  },
+  "source_sha256": {
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/fixtures.json": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/vector-alignment.py": "6fc6d626b995753f164726f247983172dd7c76638c220c32a7c303f584f6c831",
+    "/srv/matchuri/BE/analysis/temporal_taste/model.py": "ebc460cd5a792ef4c364210c1adc4f8c877008c9b45cff511ad7aa275e3ebe2c",
+    "/home/ubuntu/matchuri-data/kakao/serving/pool_ids.json": "68b274b5452fd88b7ea0133005b70bb013c4b6f081643791462fc51ea6ce363b",
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_menu.npy": "4fc747e63807e9b9e77b1aaed573b4a7820cd300a3efbe14096a8ad9dff05c5a",
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_text.npy": "4c125d080aa13542e822ee6e0069c06839466e9b637ad6ba4bfae45e9a4b42fe",
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_review.npy": "d831160b336f0a95c9eb944730fcf1dc992c49bcaf79936a505c18519b1f027a",
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_food.npy": "bfd6bf49830d745956a668f79aee5c8944bad51e012c1b4228989d41be325545",
+    "/home/ubuntu/matchuri-data/kakao/stores.jsonl": "a8b5c19e63f4ea85c52f7ec5b992513f6758e029827f36c367e7bf7a1b5212e2",
+    "/home/ubuntu/matchuri-data/kakao/menus.jsonl": "c24f2ef9e5771dd7a9580dee7d47704b48aed05529cbf67c51a8e968c754ce82",
+    "/home/ubuntu/matchuri-data/kakao/serving/brand_key.json": "2fa4f2b37e8696e7c9aaca26583ccdecb4a74f4e5c15d3b08c40c9b132c0b580",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/cuisine-audit.json": "eebe38212682c9614a3afec756c8437dbd112948be870b50ea34d48395b8a475",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/form-audit.json": "616c216670f92517908da04ed5aca468de00a3875be2d9b9e2fa87c71caa440d",
+    "/home/ubuntu/matchuri-changes/history-depth-20260922/food-catalog.json": "1941599fb60c2028fceba1cb8dbd2bfa8618da0709ff2ec43576711cbb05e348",
+    "/home/ubuntu/matchuri-changes/history-depth-20260922/salad-catalog.json": "0972e85bfbe513570780fc39315cd2b2a269d01ce607fb46013f6cbed00a2e25",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/build-context-audit.py": "69d75a6e53f95fa85e9c8e834fa393058510021ebd5db7e4d78fdaff44a3d9ed",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/build-attribute-audit.py": "af71d67f39dac4b7dd28cee3d1f6a7d5dde35974d3de5a70ca28faf10b93e2c0",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/context-audit.json": "b5d4c95d3f8780fc38684036e02d8517f63eaca3a587471375235142f553dbab",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/attribute-labels.json": "9960183562651cd4d6502621c4b94ffa55bc6067781cadbf513fedecd8cf5ae3",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/protocol.md": "6396593acff97e2816a4e56ab348043343c62167e09f48c326d11dcfacfda375",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/build-fixtures.py": "f578f6055fc22611e43fa5914d93dcbbfbcbf8e6ecd8c8386520309da2be4e3d"
+  },
+  "rebalance_equivalence": {
+    "status": "pass",
+    "old_fixture_sha256": "3b199dd8afc886c93cd124206a6ea7c269f80cca6aa5b92df9769b145cabfda9",
+    "new_fixture_sha256": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5",
+    "fixture_rows_compared": 3168,
+    "matched_group_signatures_verified": 792,
+    "nonempty_history_complement_arms_verified": 2376,
+    "current_event_order_changed_rows": 1584,
+    "history_label_changed_rows": 2376,
+    "group_ids_and_history_order_identical": true,
+    "current_ids_and_labels_identical": true,
+    "all_alignment_scalars_exactly_identical": true,
+    "numeric_payload_sha256": "dbbee9bb2414a9afb0f29affc89158175dee38dd3f104f1e0151c1e59aeaf775",
+    "old_alignment_sha256": "643d539dd0a5bd633a6355add983df2c32b7d9fc9afa220c51044035742107c7",
+    "new_alignment_sha256": "05d4227f66eb83b684d0553aca364ef079f0180e622ba0bfe2f4214d95f3885e",
+    "script_sha256": "3bf32bc7b237c5f110230bd305657919010bee7cc1d650bfc664631e9b16b5bc"
+  }
+}

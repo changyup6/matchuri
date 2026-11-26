@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "taste":    {"type":"object","properties":{"lv":{"type":"integer","enum":[0,1,2,3]},"ev":{"type":"string"}},"required":["lv","ev"]},
+    "service":  {"type":"object","properties":{"lv":{"type":"integer","enum":[0,1,2,3]},"ev":{"type":"string"}},"required":["lv","ev"]},
+    "price":    {"type":"object","properties":{"lv":{"type":"integer","enum":[0,1,2,3]},"ev":{"type":"string"}},"required":["lv","ev"]},
+    "ambience": {"type":"object","properties":{"lv":{"type":"integer","enum":[0,1,2,3]},"ev":{"type":"string"}},"required":["lv","ev"]},
+    "wait":     {"type":"object","properties":{"lv":{"type":"integer","enum":[0,1,2,3]},"ev":{"type":"string"}},"required":["lv","ev"]}
+  },
+  "required": ["taste","service","price","ambience","wait"]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "old_fixture_sha256": "3b199dd8afc886c93cd124206a6ea7c269f80cca6aa5b92df9769b145cabfda9",
+  "new_fixture_sha256": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5",
+  "fixture_rows_compared": 3168,
+  "matched_group_signatures_verified": 792,
+  "nonempty_history_complement_arms_verified": 2376,
+  "current_event_order_changed_rows": 1584,
+  "history_label_changed_rows": 2376,
+  "group_ids_and_history_order_identical": true,
+  "current_ids_and_labels_identical": true,
+  "all_alignment_scalars_exactly_identical": true,
+  "numeric_payload_sha256": "dbbee9bb2414a9afb0f29affc89158175dee38dd3f104f1e0151c1e59aeaf775",
+  "old_alignment_sha256": "643d539dd0a5bd633a6355add983df2c32b7d9fc9afa220c51044035742107c7",
+  "new_alignment_sha256": "05d4227f66eb83b684d0553aca364ef079f0180e622ba0bfe2f4214d95f3885e",
+  "script_sha256": "3bf32bc7b237c5f110230bd305657919010bee7cc1d650bfc664631e9b16b5bc"
+}

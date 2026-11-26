@@ -1,0 +1,275 @@
+{
+  "verdict": "pass_with_scope_limits",
+  "new_policy_or_parameters": false,
+  "no_synthetic_stores": true,
+  "no_group_quota": true,
+  "density_script_uses_saved_scores_only": true,
+  "frozen_model_cases": 54,
+  "catalogue_size": 1498,
+  "original_top20_and_card_slots_checked": 1296,
+  "original_unique_case_store_pairs_checked": 1161,
+  "full_catalogue_mean_and_std_points_checked_each": 80892,
+  "maximum_absolute_errors": {
+    "stored_mean_error": 0.0,
+    "stored_std_error": 0.0,
+    "old_vector_error": 1.3877787807814457e-16,
+    "old_vector_all_catalogue_mean_error": 5.551115123125783e-16,
+    "independent_mean_error": 3.164135620181696e-15,
+    "independent_std_error": 6.661338147750939e-16
+  },
+  "current_only_arrays_same_within_each_seed": true,
+  "heldout_ids_disjoint_from_feedback": true,
+  "exhaustive_subset_rows_checked": 1872,
+  "exhaustive_count_formula": "4 N × 6 seeds × (C(4,2)+1+C(4,2)) subsets × 2 scoring modes × 3 priors = 1872",
+  "unique_ranking_conditions_after_reused_N0_deduplication": 1404,
+  "summary_cells_checked": 72,
+  "source_hash_mismatches": [],
+  "n80_tables": [
+    {
+      "n": 80,
+      "japanese_available": 2,
+      "western_available": 4,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 19,
+          "all_slots": 108,
+          "japanese_share": 0.1759259259259259,
+          "mean_japanese_count": 0.5277777777777778,
+          "mean_western_count": 2.4722222222222223,
+          "japanese_inclusion_rate": 0.2638888888888889,
+          "western_inclusion_rate": 0.6180555555555556
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 40,
+          "all_slots": 108,
+          "japanese_share": 0.3703703703703703,
+          "mean_japanese_count": 1.1111111111111112,
+          "mean_western_count": 1.8888888888888888,
+          "japanese_inclusion_rate": 0.5555555555555556,
+          "western_inclusion_rate": 0.4722222222222222
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 27,
+          "all_slots": 108,
+          "japanese_share": 0.25,
+          "mean_japanese_count": 0.75,
+          "mean_western_count": 2.25,
+          "japanese_inclusion_rate": 0.375,
+          "western_inclusion_rate": 0.5625
+        }
+      }
+    },
+    {
+      "n": 80,
+      "japanese_available": 2,
+      "western_available": 4,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 18,
+          "all_slots": 108,
+          "japanese_share": 0.16666666666666663,
+          "mean_japanese_count": 0.5,
+          "mean_western_count": 2.5,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.625
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 37,
+          "all_slots": 108,
+          "japanese_share": 0.3425925925925925,
+          "mean_japanese_count": 1.0277777777777777,
+          "mean_western_count": 1.9722222222222223,
+          "japanese_inclusion_rate": 0.5138888888888888,
+          "western_inclusion_rate": 0.4930555555555556
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 22,
+          "all_slots": 108,
+          "japanese_share": 0.20370370370370366,
+          "mean_japanese_count": 0.6111111111111112,
+          "mean_western_count": 2.388888888888889,
+          "japanese_inclusion_rate": 0.3055555555555556,
+          "western_inclusion_rate": 0.5972222222222222
+        }
+      }
+    },
+    {
+      "n": 80,
+      "japanese_available": 4,
+      "western_available": 4,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        },
+        "japanese": {
+          "slates": 6,
+          "japanese_slots": 9,
+          "all_slots": 18,
+          "japanese_share": 0.5,
+          "mean_japanese_count": 1.5,
+          "mean_western_count": 1.5,
+          "japanese_inclusion_rate": 0.375,
+          "western_inclusion_rate": 0.375
+        },
+        "western": {
+          "slates": 6,
+          "japanese_slots": 7,
+          "all_slots": 18,
+          "japanese_share": 0.38888888888888884,
+          "mean_japanese_count": 1.1666666666666667,
+          "mean_western_count": 1.8333333333333333,
+          "japanese_inclusion_rate": 0.2916666666666667,
+          "western_inclusion_rate": 0.4583333333333333
+        }
+      }
+    },
+    {
+      "n": 80,
+      "japanese_available": 4,
+      "western_available": 4,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 6,
+          "japanese_slots": 6,
+          "all_slots": 18,
+          "japanese_share": 0.3333333333333333,
+          "mean_japanese_count": 1.0,
+          "mean_western_count": 2.0,
+          "japanese_inclusion_rate": 0.25,
+          "western_inclusion_rate": 0.5
+        },
+        "japanese": {
+          "slates": 6,
+          "japanese_slots": 10,
+          "all_slots": 18,
+          "japanese_share": 0.5555555555555555,
+          "mean_japanese_count": 1.6666666666666667,
+          "mean_western_count": 1.3333333333333333,
+          "japanese_inclusion_rate": 0.4166666666666667,
+          "western_inclusion_rate": 0.3333333333333333
+        },
+        "western": {
+          "slates": 6,
+          "japanese_slots": 7,
+          "all_slots": 18,
+          "japanese_share": 0.38888888888888884,
+          "mean_japanese_count": 1.1666666666666667,
+          "mean_western_count": 1.8333333333333333,
+          "japanese_inclusion_rate": 0.2916666666666667,
+          "western_inclusion_rate": 0.4583333333333333
+        }
+      }
+    },
+    {
+      "n": 80,
+      "japanese_available": 4,
+      "western_available": 2,
+      "mode": "mean",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 49,
+          "all_slots": 108,
+          "japanese_share": 0.45370370370370366,
+          "mean_japanese_count": 1.3611111111111112,
+          "mean_western_count": 1.6388888888888888,
+          "japanese_inclusion_rate": 0.3402777777777778,
+          "western_inclusion_rate": 0.8194444444444444
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 76,
+          "all_slots": 108,
+          "japanese_share": 0.7037037037037037,
+          "mean_japanese_count": 2.111111111111111,
+          "mean_western_count": 0.8888888888888888,
+          "japanese_inclusion_rate": 0.5277777777777778,
+          "western_inclusion_rate": 0.4444444444444444
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 57,
+          "all_slots": 108,
+          "japanese_share": 0.5277777777777778,
+          "mean_japanese_count": 1.5833333333333333,
+          "mean_western_count": 1.4166666666666667,
+          "japanese_inclusion_rate": 0.3958333333333333,
+          "western_inclusion_rate": 0.7083333333333334
+        }
+      }
+    },
+    {
+      "n": 80,
+      "japanese_available": 4,
+      "western_available": 2,
+      "mode": "conservative",
+      "priors": {
+        "none": {
+          "slates": 36,
+          "japanese_slots": 51,
+          "all_slots": 108,
+          "japanese_share": 0.4722222222222222,
+          "mean_japanese_count": 1.4166666666666667,
+          "mean_western_count": 1.5833333333333333,
+          "japanese_inclusion_rate": 0.3541666666666667,
+          "western_inclusion_rate": 0.7916666666666666
+        },
+        "japanese": {
+          "slates": 36,
+          "japanese_slots": 70,
+          "all_slots": 108,
+          "japanese_share": 0.6481481481481481,
+          "mean_japanese_count": 1.9444444444444444,
+          "mean_western_count": 1.0555555555555556,
+          "japanese_inclusion_rate": 0.4861111111111111,
+          "western_inclusion_rate": 0.5277777777777778
+        },
+        "western": {
+          "slates": 36,
+          "japanese_slots": 49,
+          "all_slots": 108,
+          "japanese_share": 0.45370370370370355,
+          "mean_japanese_count": 1.3611111111111112,
+          "mean_western_count": 1.6388888888888888,
+          "japanese_inclusion_rate": 0.3402777777777778,
+          "western_inclusion_rate": 0.8194444444444444
+        }
+      }
+    }
+  ],
+  "scope_limits": [
+    "Real-store subset ablation over only the fixed audited 4+4 heldout panel; not production 1498-catalogue or diversified final four.",
+    "N0 arrays are reused across four N contrasts, and subsets/seeds share restaurants; 1872 rows are not independent experiments or people.",
+    "Top3 sorted scores only, no diversity/brand/positive gate or serving exposure process.",
+    "Posterior parameters and arrays fixed during density analysis. Independent covariance recomputation here validates export, not an alternative model.",
+    "N0 to western prior may increase Japanese top3 share; opposite-prior directionality does not imply both N0 contrasts are monotone.",
+    "Three-card boundaries and jointly refitted multivariate coefficients are compatible explanations, not an established decomposition of that counter-direction."
+  ],
+  "audit_source_sha256": {
+    "protocol.md": "d4464dcbce69ce57c1dea4e6b454abe7a726e05305f6398bfad8cb7b19b9334a",
+    "export-frozen-scores.py": "5e5f812ca09a887fb9533dbfd59af6ef5738a3aaa193768369ded3d293a29875",
+    "density-audit.py": "1964629c3835a0166753ac8843ab62286dd4df8c1b75ac02af40152cbdbf768f",
+    "frozen-score-metadata.json": "aa1ffedee1f7604a457eaccc29cee7e0f47ffe2b07aed6289e4774d873bd9c4f",
+    "frozen-cutlet-scores.npz": "0a47b7eafd29ff57b03bb14c911fcd212d56fe84928e292012b8d1eda2f4eb74",
+    "density-audit.json": "982d97549b269fe71e00c7ee0ebf4bb2488055d22e14941f3d74c8673086b03e",
+    "density-slates.csv": "dc28f17454e8b46784acb58ae15a2e88f921ae15fea640222c32dffc479d32c7",
+    "independent-density-audit.py": "a5bd4f8db0abe4b0f4f390621060bb984c9f090d06fb01a1e9e1194111167109"
+  }
+}

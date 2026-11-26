@@ -1,0 +1,47 @@
+{
+  "taste.py": {
+    "changed_defs": [
+      "_new_session",
+      "start_from"
+    ],
+    "added_defs": [],
+    "removed_defs": []
+  },
+  "decision.py": {
+    "changed_defs": [
+      "Config",
+      "_components"
+    ],
+    "added_defs": [
+      "_z_key",
+      "_compute_components"
+    ],
+    "removed_defs": [],
+    "renamed_component_body_identical": true
+  },
+  "policy.py": {
+    "changed_defs": [
+      "_taste_snapshot"
+    ],
+    "added_defs": [],
+    "removed_defs": []
+  },
+  "decision_summary.py": {
+    "changed_defs": [
+      "summarize",
+      "_decision_readiness_score",
+      "measure_readiness",
+      "advance_display"
+    ],
+    "added_defs": [
+      "_baseline_gates",
+      "shown_score",
+      "_ready",
+      "carry_boost",
+      "measure_ready"
+    ],
+    "removed_defs": []
+  },
+  "from_commit": "b8a4f2564b971307b51e78ad090b2984e54e621a",
+  "to_commit": "e55f5dd203139b05a8fad1218b478291709e57c9"
+}

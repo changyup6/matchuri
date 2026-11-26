@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>맛추리 관리자 — 정책 실험과 취향 학습</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0f1116; color:#e6e8ec; font-family:'Malgun Gothic',system-ui,sans-serif;
+         font-size:13px; line-height:1.5; height:100vh; display:flex; flex-direction:column; }
+  a { color:#5b8cff; text-decoration:none; }
+  header { padding:14px 20px; border-bottom:1px solid #21252e; flex-shrink:0;
+           display:flex; align-items:baseline; gap:18px; flex-wrap:wrap; }
+  header h1 { font-size:16px; letter-spacing:.5px; }
+  header .stats { display:flex; gap:16px; margin-left:auto; flex-wrap:wrap; }
+  header .stat b { color:#fff; font-size:15px; } header .stat span { color:#7d838f; font-size:11px; }
+  #wrap { display:flex; align-items:flex-start; flex:1; min-height:0; }
+  #side { width:250px; flex-shrink:0; border-right:1px solid #21252e; height:100%;
+          overflow-y:auto; }
+  #side h2 { font-size:11px; color:#7d838f; padding:12px 14px 6px; letter-spacing:.5px; }
+  .u { padding:9px 14px; border-bottom:1px solid #191d25; cursor:pointer; }
+  .u.on { background:#1c2230; border-left:2px solid #5b8cff; padding-left:12px; }
+  .u .id { font-weight:600; }
+  .u .meta { color:#7d838f; font-size:11px; display:flex; gap:8px; margin-top:2px; }
+  .bar-mini { height:3px; background:#252a34; border-radius:2px; margin-top:5px; overflow:hidden; }
+  .bar-mini i { display:block; height:100%; background:#4ade80; }
+  main { flex:1; padding:18px 22px; height:100%; overflow-y:auto; }
+  .empty { color:#7d838f; padding:40px 0; text-align:center; line-height:2; }
+  section { margin-bottom:24px; }
+  h3 { font-size:12px; color:#9aa1ad; margin-bottom:10px; letter-spacing:.4px;
+       display:flex; align-items:baseline; gap:8px; }
+  h3 small { color:#5c626e; font-weight:400; font-size:10.5px; }
+  h3 .when { margin-left:auto; color:#5c626e; font-weight:400; font-size:10.5px; }
+  .kpis { display:flex; gap:22px; flex-wrap:wrap; margin-bottom:6px; }
+  .kpi b { display:block; font-size:20px; color:#fff; } .kpi span { color:#7d838f; font-size:11px; }
+  .kpi.txt b { font-size:14px; padding-top:5px; }
+  .gauge { height:16px; border-radius:99px; overflow:hidden; display:flex; background:#252a34; max-width:520px; }
+  .gauge i { height:100%; transition:width .3s; }
+  .gauge .q { background:#f59e0b; } .gauge .p { background:#5b8cff; }
+  .glab { display:flex; justify-content:space-between; max-width:520px; font-size:11px; color:#7d838f; margin-top:4px; }
+  .glab b.q { color:#f59e0b; } .glab b.p { color:#5b8cff; }
+  .cols { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media (max-width:1100px) { .cols { grid-template-columns:1fr; } }
+  .rows { display:flex; flex-direction:column; gap:4px; }
+  .row { display:flex; align-items:center; gap:8px; font-size:11.5px; height:18px; }
+  .row .lab { width:70px; text-align:right; color:#aeb4c0; flex-shrink:0;
+              white-space:nowrap; overflow:hidden; }
+  .row .bar { flex:1; position:relative; height:100%; }
+  .row .axis { position:absolute; left:50%; top:0; bottom:0; width:1px; background:#2f3541; }
+  .row .b { position:absolute; top:4px; bottom:4px; border-radius:3px; }
+  .row .b.up { left:50%; background:#4ade80; } .row .b.dn { right:50%; background:#f87171; }
+  .row .val { width:74px; color:#7d838f; font-size:10.5px; flex-shrink:0; }
+  svg.curve { width:100%; height:120px; display:block; background:#141821; border-radius:6px; }
+  .legend { display:flex; gap:14px; font-size:10.5px; color:#7d838f; margin-top:6px; flex-wrap:wrap; }
+  .legend i { display:inline-block; width:11px; height:3px; border-radius:2px;
+              vertical-align:middle; margin-right:4px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+  .c { background:#161a21; border:1px solid #222732; border-radius:8px; overflow:hidden; }
+  .c img { width:100%; height:84px; object-fit:cover; display:block; background:#222732; }
+  .c .t { padding:7px 8px; }
+  .c .nm { font-weight:600; font-size:11.5px; white-space:nowrap; overflow:hidden;
+           text-overflow:ellipsis; }
+  .c .sub { color:#7d838f; font-size:10.5px; margin-top:1px; }
+  .c.like { border-color:#2c6b45; } .c.dislike { border-color:#6b2c2c; opacity:.62; }
+  .c .tag { position:absolute; }
+  .split { display:flex; height:5px; border-radius:3px; overflow:hidden; margin-top:5px; background:#252a34; }
+  .split i.q { background:#f59e0b; } .split i.p { background:#5b8cff; }
+  .hint { color:#5c626e; font-size:10.5px; margin-top:4px; }
+
+  /* ── 정책 실험 패널 (맨 위, 화면 전체 폭) ─────────────────────────── */
+  #exp { flex-shrink:0; padding:14px 20px 12px; border-bottom:1px solid #21252e;
+         background:#12151c; margin-bottom:0; }
+  #exp h3 { margin-bottom:8px; }
+  .expgrid { display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap; }
+  .mode { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .badge { background:#1e2a44; color:#8db2ff; border:1px solid #2c3d61; border-radius:99px;
+           padding:2px 10px; font-weight:600; font-size:11.5px; }
+  .badge.off { background:#2b2118; color:#f0a868; border-color:#4a361f; }
+  .verdict { border-radius:6px; padding:6px 12px; font-size:12.5px; font-weight:600;
+             border:1px solid #2f3541; background:#161a21; color:#c9cfda; }
+  .verdict.win { border-color:#2c6b45; background:#14241b; color:#6ee7a0; }
+  .verdict.wait { border-color:#3a3524; background:#1d1a12; color:#e2c07a; }
+  table.pt { border-collapse:collapse; font-size:11.5px; }
+  table.pt th { color:#7d838f; font-weight:400; font-size:10.5px; text-align:right;
+                padding:0 9px 5px; border-bottom:1px solid #222732; white-space:nowrap; }
+  table.pt th:first-child, table.pt td:first-child { text-align:left; }
+  table.pt td { padding:5px 9px; text-align:right; border-bottom:1px solid #191d25;
+                white-space:nowrap; }
+  table.pt td.name { font-weight:600; color:#e6e8ec; }
+  table.pt td.rate { color:#fff; font-size:12.5px; }
+  .ci { position:relative; width:190px; height:9px; background:#1b2029; border-radius:3px;
+        display:inline-block; vertical-align:middle; margin-right:8px; }
+  .ci u { position:absolute; top:0; bottom:0; width:1px; background:#2f3541; }
+  .ci i { position:absolute; top:2px; bottom:2px; background:#3b6bd6; border-radius:2px;
+          min-width:2px; }
+  .ci b { position:absolute; top:-1px; bottom:-1px; width:2px; background:#fff; }
+  .ci-num { color:#7d838f; font-size:10.5px; }
+
+  /* ── 취향 정책 패널 ──────────────────────────────────────────────── */
+  .wrows { display:flex; flex-direction:column; gap:5px; max-width:560px; }
+  .wrow { display:flex; align-items:center; gap:8px; font-size:11.5px; height:20px; }
+  .wrow .lab { width:74px; text-align:right; color:#aeb4c0; flex-shrink:0;
+               white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .wtrack { flex:1; position:relative; height:100%; background:#141821; border-radius:3px; }
+  .wtrack u { position:absolute; left:50%; top:0; bottom:0; width:1px; background:#2f3541; }
+  .wtrack i { position:absolute; top:5px; bottom:5px; border-radius:2px; }
+  .wtrack s { position:absolute; top:9px; height:2px; background:#aeb4c0; opacity:.75; }
+  .wtrack s.cap { top:5px; height:10px; width:1px; }
+  .wrow .val { width:98px; color:#7d838f; font-size:10.5px; flex-shrink:0; text-align:right; }
+  .protos { display:flex; flex-direction:column; gap:6px; }
+  .proto { background:#161a21; border:1px solid #222732; border-left:2px solid #5b8cff;
+           border-radius:6px; padding:6px 10px; }
+  .proto .h { display:flex; align-items:baseline; gap:8px; }
+  .proto .h b { font-size:12px; } .proto .h span { color:#7d838f; font-size:10.5px; }
+  .proto .mem { color:#7d838f; font-size:10.5px; margin-top:2px; }
+  .strip { display:flex; align-items:flex-end; gap:2px; height:56px; background:#141821;
+           border-radius:6px; padding:6px 8px; overflow-x:auto; }
+  .strip i { display:block; width:9px; flex-shrink:0; border-radius:2px 2px 0 0; background:#f87171; }
+  .strip i.like { background:#4ade80; }
+  .hlist { color:#8a9099; font-size:10.5px; margin-top:6px; line-height:1.8; }
+  .hlist b { color:#c9cfda; font-weight:600; }
+  .nx { display:flex; flex-direction:column; gap:6px; }
+  .nxrow { display:flex; align-items:center; gap:10px; background:#161a21; border:1px solid #222732;
+           border-radius:8px; padding:6px 10px; }
+  .nxrow img { width:46px; height:38px; object-fit:cover; border-radius:4px; background:#222732;
+               flex-shrink:0; }
+  .nxrow .who { width:210px; flex-shrink:0; overflow:hidden; }
+  .nxrow .who b { display:block; font-size:11.5px; white-space:nowrap; overflow:hidden;
+                  text-overflow:ellipsis; }
+  .nxrow .who span { color:#7d838f; font-size:10.5px; }
+  .nxrow .mid { flex:1; min-width:150px; }
+  .nxbar { height:14px; display:flex; position:relative;
+           background:#141821; border-radius:3px; overflow:hidden; }
+  .nxbar u { position:absolute; left:50%; top:0; bottom:0; width:1px; background:#2f3541; z-index:1; }
+  .nxbar .lft { width:50%; display:flex; justify-content:flex-end; }
+  .nxbar .rgt { width:50%; display:flex; }
+  .nxbar em { display:block; height:100%; }
+  .nxrow .brk { color:#7d838f; font-size:10px; margin-top:3px; white-space:nowrap;
+                overflow:hidden; text-overflow:ellipsis; }
+  .nxrow .tot { width:76px; flex-shrink:0; text-align:right; }
+  .nxrow .tot b { color:#fff; font-size:12.5px; }
+  .nxrow .tot span { display:block; color:#7d838f; font-size:10px; }
+  .chips { display:flex; gap:10px; flex-wrap:wrap; font-size:10.5px; color:#7d838f;
+           margin-bottom:6px; }
+  .chips i { display:inline-block; width:9px; height:9px; border-radius:2px;
+             vertical-align:-1px; margin-right:4px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>맛추리 관리자</h1>
+  <a href="/admin/trends">트렌드 추이</a>
+  <a href="/admin/map">지형</a>
+  <a href="/docs">API 문서</a>
+  <div class="stats" id="stats"></div>
+</header>
+
+<section id="exp">
+  <h3>정책 실험 <small>팀-드래프트 인터리빙 — 10장 배치를 두 정책이 한 장씩 번갈아 채운다</small>
+    <span class="when" id="exp-when">10초마다 갱신</span></h3>
+  <div id="exp-body" class="hint">불러오는 중…</div>
+</section>
+
+<div id="wrap">
+  <aside id="side">
+    <h2>사용자 <span id="ucount"></span></h2>
+    <div id="users"></div>
+  </aside>
+  <main id="main"><div class="empty">왼쪽에서 사용자를 고르세요.</div></main>
+</div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const fmt = (n) => n == null ? '-' : (typeof n === 'number' ? n.toLocaleString('ko-KR') : n);
+const pct = (n) => n == null ? '-' : Math.round(n * 100) + '%';
+const pct1 = (n) => n == null ? '-' : (n * 100).toFixed(1) + '%';
+const sig = (n) => (n >= 0 ? '+' : '') + n.toFixed(2);
+let current = null;
+
+async function api(p) {
+  const r = await fetch(p);
+  if (!r.ok) throw new Error(p + ' -> ' + r.status);
+  return r.json();
+}
+
+function esc(s) { return String(s).replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c])); }
+
+/* 성분 색. 성분 목록은 **API 가 준 순서** 그대로 쓴다 — 성분이 늘어도 여기를 안 고친다. */
+const PALETTE = ['#5b8cff','#f59e0b','#22d3ee','#c084fc','#f472b6','#facc15',
+                 '#94a3b8','#fb923c','#2dd4bf','#e879f9'];
+
+/* ───────── 전체 현황 ───────── */
+async function loadStats() {
+  const s = await api('/admin/api/stats');
+  $('#stats').innerHTML = [
+    ['카드', fmt(s.cards)], ['추천 후보', fmt(s.recommendable)],
+    ['사용자', fmt(s.users)], ['스와이프', fmt(s.swipes)],
+    ['선호율', pct(s.like_rate)],
+  ].map(([k, v]) => `<div class="stat"><b>${v}</b><br><span>${k}</span></div>`).join('');
+}
+
+/* ───────── ① 정책 실험 패널 ───────── */
+/* 판정은 like 율 하나로 하지 않는다 — Wilson 95% 구간이 겹치면 아직 모르는 것이다. */
+function verdictOf(p) {
+  const n = p.exposures || 0;
+  const rows = (p.by_policy || []).filter(r => r.ci95);
+  if (!n) return { cls: 'wait', text: '아직 판정 불가 — 노출 기록이 없음' };
+  if (rows.length < 2)
+    return { cls: 'wait', text: `아직 판정 불가 — 노출 ${fmt(n)}장, 응답이 더 필요함` };
+  const sorted = rows.slice().sort((a, b) => (b.like_rate || 0) - (a.like_rate || 0));
+  const top = sorted[0];
+  if (sorted.slice(1).every(r => top.ci95[0] > r.ci95[1]))
+    return { cls: 'win', text: `${esc(top.policy)} 우세 — 구간이 겹치지 않음` };
+  return { cls: 'wait', text: `아직 판정 불가 — 노출 ${fmt(n)}장, 구간이 겹침` };
+}
+
+function ciBar(r) {
+  if (!r.ci95) return '<span class="ci-num">응답 없음</span>';
+  const lo = r.ci95[0] * 100, hi = r.ci95[1] * 100, p = (r.like_rate || 0) * 100;
+  return `<span class="ci" title="Wilson 95% 구간">
+      <u style="left:25%"></u><u style="left:50%"></u><u style="left:75%"></u>
+      <i style="left:${lo}%;width:${Math.max(1, hi - lo)}%"></i>
+      <b style="left:${p}%"></b></span>
+    <span class="ci-num">${lo.toFixed(1)} ~ ${hi.toFixed(1)}%</span>`;
+}
+
+async function loadPolicies() {
+  const p = await api('/admin/api/policies');
+  const v = verdictOf(p);
+  const fell = p.policy !== p.configured_policy;
+  const rows = (p.by_policy || []).map(r => `
+    <tr>
+      <td class="name">${esc(r.policy)}</td>
+      <td>${fmt(r.shown)}</td>
+      <td style="color:#4ade80">${fmt(r.liked)}</td>
+      <td style="color:#f87171">${fmt(r.disliked)}</td>
+      <td style="color:#7d838f">${fmt(r.unrated)}</td>
+      <td class="rate">${pct1(r.like_rate)}</td>
+      <td>${ciBar(r)}</td>
+      <td style="color:#7d838f">${fmt(r.users)}</td>
+    </tr>`).join('');
+  $('#exp-body').innerHTML = `
+    <div class="expgrid">
+      <div>
+        <div class="mode">
+          <span class="badge ${fell ? 'off' : ''}">${esc(p.policy)}</span>
+          <span class="ci-num">설정 <b style="color:#aeb4c0">${esc(p.configured_policy)}</b>
+            · 서빙 산출물 ${p.artifacts ? '있음' : '<span style="color:#f0a868">없음</span>'}
+            · 노출 ${fmt(p.exposures)}장</span>
+        </div>
+        <div class="verdict ${v.cls}" style="margin-top:8px">${v.text}</div>
+        <div class="hint">서버 판정: ${esc(p.verdict || '-')}</div>
+        <div class="hint">트렌드 슬롯${(p.slot || {}).enabled ? ` (${(p.slot || {}).every}장에 1장)` : ''}:
+          ${esc((p.slot || {}).verdict || '-')}</div>
+        ${fell ? `<div class="hint" style="color:#f0a868">산출물이 없어
+          '${esc(p.configured_policy)}' 대신 legacy 로만 돌고 있습니다.</div>` : ''}
+      </div>
+      <table class="pt">
+        <thead><tr><th>정책</th><th>노출</th><th>좋아요</th><th>별로</th><th>무응답</th>
+          <th>선호율</th><th>Wilson 95% 구간 <span style="color:#4a4f59">(막대 0~100%)</span></th>
+          <th>사용자</th></tr></thead>
+        <tbody>${rows || '<tr><td colspan="8" class="ci-num">기록 없음</td></tr>'}</tbody>
+      </table>
+    </div>
+    <div class="hint">노출은 서버가 카드를 실제로 내보낸 순간에만 쌓입니다(기동 복원은 세지 않음).
+      선호율은 응답한 카드(좋아요+별로)에 대한 비율입니다.</div>`;
+  $('#exp-when').textContent = '10초마다 갱신 · ' + new Date().toLocaleTimeString('ko-KR');
+}
+
+/* ───────── 사용자 목록 ───────── */
+async function loadUsers() {
+  const us = await api('/admin/api/users');
+  $('#ucount').textContent = us.length ? `(${us.length})` : '';
+  if (!us.length) {
+    $('#users').innerHTML = `<div class="empty" style="font-size:11.5px;padding:20px 14px">
+      아직 스와이프한 사용자가 없습니다.<br><br>
+      <code style="color:#9aa1ad">POST /users</code> 로 id 를 받고<br>
+      <code style="color:#9aa1ad">POST /preferences</code> 로 기록을 보내거나<br>
+      <a href="/">스와이프 데모</a>를 돌려보세요.</div>`;
+    return;
+  }
+  $('#users').innerHTML = us.map(u => `
+    <div class="u ${u.user_id === current ? 'on' : ''}" data-id="${encodeURIComponent(u.user_id)}">
+      <div class="id">${esc(u.name || u.user_id)}</div>
+      ${u.name ? `<div class="meta" style="margin-top:0"><code style="color:#5c626e">${esc(u.user_id)}</code></div>` : ''}
+      <div class="meta"><span>${u.swipes}장</span><span>선호 ${pct(u.like_rate)}</span>
+        <span style="margin-left:auto;color:#f59e0b">품질 ${pct(u.quality_weight)}</span></div>
+      <div class="bar-mini"><i style="width:${(u.like_rate || 0) * 100}%"></i></div>
+    </div>`).join('');
+  document.querySelectorAll('.u').forEach(el =>
+    el.onclick = () => selectUser(decodeURIComponent(el.dataset.id)));
+}
+
+/* ───────── 다이버징 바 (구 정책) ───────── */
+function bars(items, scale) {
+  return `<div class="rows">` + items.map(it => {
+    const w = Math.min(48, Math.abs(it.w) / scale * 48);
+    const cnt = it.shown != null ? ` (${it.liked}/${it.shown})` : '';
+    return `<div class="row" title="가중치 ${it.w} ± ${it.sd ?? '-'}">
+      <div class="lab">${esc(it.name)}</div>
+      <div class="bar"><div class="axis"></div>
+        <div class="b ${it.w >= 0 ? 'up' : 'dn'}" style="width:${w}%"></div></div>
+      <div class="val">${it.w > 0 ? '+' : ''}${it.w.toFixed(1)}${cnt}</div>
+    </div>`;
+  }).join('') + `</div>`;
+}
+
+/* ───────── 학습 곡선 (구 정책) ───────── */
+function curve(hist) {
+  if (!hist || hist.length < 2) return `<div class="hint">스와이프가 2장 이상이면 곡선이 그려집니다.</div>`;
+  const W = 600, H = 120, n = hist.length, PAD = 8;
+  const x = i => PAD + i / (n - 1) * (W - PAD * 2);
+  const y = v => H - PAD - v * (H - PAD * 2);
+  const roll = hist.map((_, i) => {
+    const w = hist.slice(Math.max(0, i - 9), i + 1);
+    return w.filter(h => h.like).length / w.length;
+  });
+  const path = a => a.map((v, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ',' + y(v).toFixed(1)).join('');
+  return `<svg class="curve" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+    <line x1="${PAD}" y1="${y(0.5)}" x2="${W - PAD}" y2="${y(0.5)}" stroke="#252a34"/>
+    <path d="${path(hist.map(h => h.wq))}" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <path d="${path(roll)}" fill="none" stroke="#4ade80" stroke-width="2"/>
+  </svg>
+  <div class="legend"><span><i style="background:#f59e0b"></i>품질 가중(개인화 반대편)</span>
+    <span><i style="background:#4ade80"></i>선호율(최근 10장)</span></div>`;
+}
+
+/* ───────── 카드 타일 (구 정책) ───────── */
+function tile(c, opts = {}) {
+  const img = c.image
+    ? `<img src="${esc(c.image)}" loading="lazy" onerror="this.style.visibility='hidden'">`
+    : `<div style="height:84px;background:#1b2029"></div>`;
+  let extra = '';
+  if (opts.score) {
+    const q = Math.max(0, c.quality), p = Math.max(0, c.personal), t = q + p || 1;
+    extra = `<div class="split"><i class="q" style="width:${q / t * 100}%"></i>
+             <i class="p" style="width:${p / t * 100}%"></i></div>
+             <div class="sub">점수 ${c.total} · 품질 ${c.quality} / 개인화 ${c.personal}</div>`;
+  }
+  if (opts.prefer) extra = `<div class="sub">${c.prefer === 'like' ? '♥ 좋아요' : '✕ 별로'} · #${c.n}</div>`;
+  return `<div class="c ${c.prefer || ''}">${img}<div class="t">
+    <div class="nm">${esc(c.name || '(이름 없음)')}</div>
+    <div class="sub">${esc(c.category || '')} · ★${c.score ?? '-'} (${fmt(c.review_count)})</div>
+    ${extra}</div></div>`;
+}
+
+/* ───────── ② 취향 정책 — 성분 가중치 막대 (±sd 수염) ───────── */
+/* 성분 이름·순서·개수를 전부 API 에서 받는다. 왼쪽이 음수, 오른쪽이 양수. */
+function weightBars(ws, colors) {
+  const scale = Math.max(0.5, ...ws.map(x => Math.abs(x.w) + (x.sd || 0)));
+  const at = v => Math.max(0, Math.min(100, 50 + v / scale * 50));
+  return `<div class="wrows">` + ws.map(x => {
+    const c = at(x.w), zero = 50, lo = at(x.w - (x.sd || 0)), hi = at(x.w + (x.sd || 0));
+    const left = Math.min(c, zero), width = Math.abs(c - zero);
+    return `<div class="wrow" title="${esc(x.name || x.key)} 가중치 ${x.w} ± ${x.sd ?? '-'}">
+      <div class="lab">${esc(x.name || x.key)}</div>
+      <div class="wtrack"><u></u>
+        <i style="left:${left}%;width:${width}%;
+           background:${colors[x.key] || '#5b8cff'}"></i>
+        <s style="left:${lo}%;width:${Math.max(0.5, hi - lo)}%"></s>
+        <s class="cap" style="left:${lo}%"></s><s class="cap" style="left:${hi}%"></s>
+      </div>
+      <div class="val">${sig(x.w)} ± ${(x.sd ?? 0).toFixed(2)}</div>
+    </div>`;
+  }).join('') + `</div>
+  <div class="hint">막대 = 사후 평균 w, 회색 수염 = ±1 사후 표준편차(넓을수록 아직 모름).
+    눈금 최대 ±${scale.toFixed(2)}.</div>`;
+}
+
+/* ───────── ② 취향 프로토타입 ───────── */
+function protoList(ps) {
+  if (!ps || !ps.length)
+    return `<div class="hint">좋아요가 쌓이면 취향 무리(최대 5개)가 생깁니다.</div>`;
+  return `<div class="protos">` + ps.map(p => `
+    <div class="proto">
+      <div class="h"><b>${esc(p.name || '(이름 없음)')}</b><span>${p.size}곳</span></div>
+      ${(p.stores || []).length > 1
+        ? `<div class="mem">${p.stores.map(esc).join(' · ')}</div>` : ''}
+    </div>`).join('') + `</div>`;
+}
+
+/* ───────── ② 취향 이력 — 막대 높이는 쌍대 갱신에 쓴 쌍 수 ───────── */
+function tasteHist(hist) {
+  if (!hist || !hist.length) return `<div class="hint">아직 스와이프가 없습니다.</div>`;
+  const maxp = Math.max(1, ...hist.map(h => h.pairs || 0));
+  const strip = hist.map(h => `<i class="${h.like ? 'like' : ''}"
+      style="height:${Math.max(8, (h.pairs || 0) / maxp * 44)}px"
+      title="#${h.n} ${h.like ? '♥ 좋아요' : '✕ 별로'} · ${esc(h.cat || '-')} · 쌍 ${h.pairs || 0}개"></i>`).join('');
+  const pointwise = hist.filter(h => !h.pairs).length;
+  const recent = hist.slice(-10).reverse().map(h =>
+    `<b>#${h.n}</b> ${h.like ? '♥' : '✕'} ${esc(h.cat || '-')} <span>(쌍 ${h.pairs || 0})</span>`
+  ).join(' · ');
+  return `<div class="strip">${strip}</div>
+    <div class="legend"><span><i style="background:#4ade80"></i>좋아요</span>
+      <span><i style="background:#f87171"></i>별로</span>
+      <span>막대 높이 = 그 피드백을 짝지은 반대 라벨 쌍 수(최대 5)</span></div>
+    <div class="hlist">최근 10장 — ${recent}</div>
+    <div class="hint">쌍이 0인 ${pointwise}장은 반대 라벨이 아직 없어 점별(pointwise)로 배웠습니다.</div>`;
+}
+
+/* ───────── ② 다음 카드 미리보기 — 성분 기여 분해 ───────── */
+function nextRows(cards, ws, colors) {
+  if (!cards || !cards.length)
+    return `<div class="hint">추천할 카드가 남지 않았습니다.</div>`;
+  const keys = ws.map(w => w.key);
+  cards.forEach(c => Object.keys(c.parts || {}).forEach(k => {
+    if (keys.indexOf(k) < 0) keys.push(k);            // API 가 성분을 더하면 여기서 자동으로 붙는다
+  }));
+  const nameOf = k => (ws.find(w => w.key === k) || {}).name || k;
+  const hasParts = cards.some(c => c.parts);
+  if (!hasParts) {
+    return `<div class="nx">` + cards.map(c => `
+      <div class="nxrow">
+        ${c.image ? `<img src="${esc(c.image)}" loading="lazy" onerror="this.style.visibility='hidden'">`
+                  : `<div style="width:46px;height:38px;background:#1b2029;border-radius:4px"></div>`}
+        <div class="who"><b>${esc(c.name || '(이름 없음)')}</b>
+          <span>${esc(c.category || '')} · ★${c.score ?? '-'} (${fmt(c.review_count)})</span></div>
+        <div class="mid"><div class="brk">성분 기여 없음</div></div>
+        <div class="tot"><b>${c.total ?? '-'}</b><span>총점</span></div>
+      </div>`).join('') + `</div>
+      <div class="hint">API 가 성분 기여(parts)를 주지 않아 총점만 표시합니다.</div>`;
+  }
+  let scale = 0.5, drift = false;
+  cards.forEach(c => {
+    let up = 0, dn = 0;
+    keys.forEach(k => { const v = (c.parts || {})[k] || 0; if (v >= 0) up += v; else dn -= v; });
+    scale = Math.max(scale, up, dn);
+    if (c.total != null && Math.abs(up - dn - c.total) > 0.05) drift = true;
+  });
+  const seg = (k, v) => `<em style="width:${Math.abs(v) / scale * 100}%;
+      background:${colors[k]}" title="${esc(nameOf(k))} ${sig(v)}"></em>`;
+  const rows = cards.map(c => {
+    const parts = c.parts || {};
+    const plus = keys.filter(k => (parts[k] || 0) > 0);
+    const minus = keys.filter(k => (parts[k] || 0) < 0);
+    const top = keys.slice().sort((a, b) => Math.abs(parts[b] || 0) - Math.abs(parts[a] || 0))
+      .slice(0, 3).filter(k => Math.abs(parts[k] || 0) >= 0.005)
+      .map(k => `${nameOf(k)} ${sig(parts[k])}`).join(' · ');
+    const all = keys.map(k => `${nameOf(k)} ${sig(parts[k] || 0)}`).join('\n');
+    return `<div class="nxrow">
+      ${c.image ? `<img src="${esc(c.image)}" loading="lazy" onerror="this.style.visibility='hidden'">`
+                : `<div style="width:46px;height:38px;background:#1b2029;border-radius:4px"></div>`}
+      <div class="who"><b>${esc(c.name || '(이름 없음)')}</b>
+        <span>${esc(c.category || '')} · ★${c.score ?? '-'} (${fmt(c.review_count)})</span></div>
+      <div class="mid">
+        <div class="nxbar" title="${esc(all)}"><u></u>
+          <div class="lft">${minus.map(k => seg(k, parts[k])).reverse().join('')}</div>
+          <div class="rgt">${plus.map(k => seg(k, parts[k])).join('')}</div></div>
+        <div class="brk">${esc(top || '기여 없음')}</div>
+      </div>
+      <div class="tot"><b>${c.total ?? '-'}</b><span>총점</span></div>
+    </div>`;
+  }).join('');
+  const chips = keys.map(k =>
+    `<span><i style="background:${colors[k]}"></i>${esc(nameOf(k))}</span>`).join('');
+  return `<div class="chips">${chips}</div><div class="nx">${rows}</div>
+    <div class="hint">막대 = 성분별 기여 w·z (가운데가 0, 왼쪽이 음수). 눈금 최대 ${scale.toFixed(2)}.
+      ${drift ? '<b style="color:#e2c07a">좋아요가 없어 콜드스타트 점수(인기 + 0.5·평판)로 뽑혔습니다 — 총점이 막대 합과 다릅니다.</b>' : ''}</div>`;
+}
+
+/* ───────── ② 취향 정책 패널 ───────── */
+function tastePanel(t) {
+  if (!t || !t.weights || !t.weights.length) {
+    return `<section>
+      <h3>취향 정책 (taste) <small>구성요소 위의 사용자별 가중치</small></h3>
+      <div class="hint">이 사용자의 취향 세션이 없습니다 —
+        서빙 산출물(<code>data/kakao/serving</code>)이 없거나 아직 스와이프가 없습니다.</div>
+    </section>`;
+  }
+  const colors = {};
+  t.weights.forEach((w, i) => { colors[w.key] = PALETTE[i % PALETTE.length]; });
+  (t.next || []).forEach(c => Object.keys(c.parts || {}).forEach(k => {
+    if (!colors[k]) colors[k] = PALETTE[Object.keys(colors).length % PALETTE.length];
+  }));
+  return `
+    <section>
+      <h3>취향 정책 (taste) <small>구성요소 ${t.weights.length}개 위의 사용자별 가중치 ·
+        쌍대 로지스틱 + 라플라스 근사</small></h3>
+      <div class="kpis">
+        <div class="kpi"><b>${fmt(t.swipes)}</b><span>스와이프 n</span></div>
+        <div class="kpi"><b style="color:#4ade80">${fmt(t.likes)}</b><span>좋아요</span></div>
+        <div class="kpi"><b style="color:#f87171">${fmt(t.dislikes)}</b><span>별로</span></div>
+        <div class="kpi txt"><b>${esc(t.prior || '-')}</b><span>사전값</span></div>
+        <div class="kpi txt"><b>${t.available ? '있음' : '없음'}</b><span>서빙 산출물</span></div>
+      </div>
+    </section>
+    <div class="cols">
+      <section>
+        <h3>성분 가중치 <small>API 순서 그대로 · 양수 = 그 성분이 높은 가게를 좋아함</small></h3>
+        ${weightBars(t.weights, colors)}
+      </section>
+      <section>
+        <h3>취향 프로토타입 <small>좋아요한 가게를 유사도로 묶은 대표 (설명용, 최대 5개)</small></h3>
+        ${protoList(t.prototypes)}
+      </section>
+    </div>
+    <section>
+      <h3>취향 이력 <small>쌍대 갱신에 쓴 쌍 수까지</small></h3>
+      ${tasteHist(t.hist)}
+    </section>
+    <section>
+      <h3>다음 카드 미리보기 <small>Thompson 노이즈를 뺀 사후 평균 점수와 성분 기여</small></h3>
+      ${nextRows(t.next, t.weights, colors)}
+    </section>`;
+}
+
+/* ───────── 사용자 상세 ───────── */
+async function selectUser(uid) {
+  current = uid;
+  document.querySelectorAll('.u').forEach(el =>
+    el.classList.toggle('on', decodeURIComponent(el.dataset.id) === uid));
+  $('#main').innerHTML = `<div class="empty">불러오는 중…</div>`;
+  const d = await api('/admin/api/users/' + encodeURIComponent(uid));
+
+  const qw = Math.round(d.quality_weight * 100);
+  const all = [...d.weights.cats, ...d.weights.price];
+  const scale = Math.max(0.5, ...all.map(x => Math.abs(x.w)));
+  const cats = [...d.weights.cats].sort((a, b) => b.w - a.w);
+
+  $('#main').innerHTML = `
+    <section>
+      <h3>${esc(d.name || uid)} <small>${d.name ? esc(uid) : '(이름 미등록)'}</small>
+        <span class="when">현재 정책 ${esc(d.policy || '-')}</span></h3>
+      <div class="kpis">
+        <div class="kpi"><b>${d.swipes}</b><span>스와이프</span></div>
+        <div class="kpi"><b>${pct(d.like_rate)}</b><span>선호율</span></div>
+        <div class="kpi"><b>${d.likes}</b><span>좋아요</span></div>
+        <div class="kpi"><b>${fmt(d.seen)}</b><span>노출된 카드</span></div>
+      </div>
+      <div class="hint">두 정책이 <b style="color:#aeb4c0">같은 피드백을 모두</b> 받습니다. 아래 두 패널은 같은 이력을 본
+        서로 다른 모델입니다.</div>
+    </section>
+
+    ${tastePanel(d.taste)}
+
+    <section style="border-top:1px solid #21252e;padding-top:16px">
+      <h3>구 정책 (legacy) <small>카테고리·가격대 로지스틱 — 품질 베이스라인</small></h3>
+      <div class="gauge"><i class="q" style="width:${qw}%"></i><i class="p" style="width:${100 - qw}%"></i></div>
+      <div class="glab"><b class="q">품질 ${qw}%</b><b class="p">개인화 ${100 - qw}%</b></div>
+      <div class="hint">스와이프가 쌓일수록 개인화 비중이 올라갑니다(15장에서 50%).</div>
+    </section>
+
+    <div class="cols">
+      <section>
+        <h3>카테고리 취향 <small>가중치 · (좋아요/노출)</small></h3>
+        ${bars(cats, scale)}
+      </section>
+      <section>
+        <h3>가격대 취향 <small>메뉴 중앙가 기준</small></h3>
+        ${bars(d.weights.price, scale)}
+        <h3 style="margin-top:16px">기본 항 <small>취향과 무관한 부분</small></h3>
+        ${bars(d.weights.base, scale)}
+      </section>
+    </div>
+
+    <section>
+      <h3>학습 곡선 <small>스와이프 진행에 따른 변화</small></h3>
+      ${curve(d.history)}
+    </section>
+
+    <section>
+      <h3>다음에 나올 카드 (legacy) <small>막대는 품질/개인화 비중</small></h3>
+      <div class="cards">${d.next.map(c => tile(c, { score: true })).join('') ||
+        '<div class="hint">추천할 카드가 남지 않았습니다.</div>'}</div>
+    </section>
+
+    <section>
+      <h3>스와이프 이력 <small>최근 것부터 · 두 정책이 함께 본 카드</small></h3>
+      <div class="cards">${d.swiped.map(c => tile(c, { prefer: true })).join('') ||
+        '<div class="hint">카드 단위 이력이 없습니다(구버전 세션).</div>'}</div>
+    </section>`;
+}
+
+/* ───────── 시작 + 주기 갱신 ───────── */
+async function refresh() {
+  try {
+    await loadStats(); await loadPolicies(); await loadUsers();
+    if (current) await selectUser(current);
+  } catch (e) { console.error(e); }
+}
+refresh();
+setInterval(async () => {
+  try { await loadStats(); await loadPolicies(); await loadUsers(); } catch (e) {}
+}, 10000);
+</script>
+</body>
+</html>

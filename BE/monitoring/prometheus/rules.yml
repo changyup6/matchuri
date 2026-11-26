@@ -1,0 +1,110 @@
+# 맛추리 관측 — 기록 규칙과 알림 규칙.
+#
+# **기록 규칙(recording)** 은 대시보드가 매번 다시 계산하지 않도록 미리 접어 둔 값이다.
+# 이름은 Prometheus 관례를 따른다 — `수준:지표:연산` (`matchuri:http_error_ratio:5m`).
+# 패널과 알림이 **같은 식**을 보게 하는 것이 진짜 목적이다. 둘이 따로 쓰이면 화면은
+# 초록인데 알림이 울리는 일이 생긴다.
+#
+# **알림 규칙(alerting)** 은 평가만 되고 아무 데도 가지 않는다 — Alertmanager 가 없다.
+# 그래도 값이 있다: Prometheus 가 `ALERTS{alertname=…,alertstate="firing"}` 시계열을
+# 만들어 주므로 Grafana 에서 '지금 무엇이 울고 있나' 를 볼 수 있고, 나중에 Slack 을
+# 붙일 때 규칙을 새로 쓰지 않아도 된다.
+groups:
+  - name: matchuri-recording
+    interval: 15s
+    rules:
+      # 5xx 비율. **4xx 는 넣지 않는다** — 429(레이트 리밋)와 404(봇의 취약점 스캔)가
+      # 4xx 의 대부분이고 그건 엣지가 제 일을 하고 있다는 뜻이지 장애가 아니다.
+      # 4xx 는 대시보드에서 따로 본다.
+      - record: matchuri:http_error_ratio:5m
+        # `or vector(0)`: 5xx 가 한 건도 없으면 계열 자체가 없어져 그래프가 '데이터 없음'
+        # 이 된다. 0% 와 '모르겠다' 는 다른 말이고, 대시보드에서 그 둘이 똑같이 보이면
+        # 사람이 '지표가 고장 났나' 를 먼저 의심하게 된다.
+        expr: |
+          (sum(rate(matchuri_http_requests_total{status=~"5.."}[5m])) or vector(0))
+          /
+          sum(rate(matchuri_http_requests_total[5m]))
+
+      # 전체 라우트를 합친 p95. 라우트별로는 '맛추리 지연 상세' 대시보드에서 본다.
+      # 버킷을 합칠 때 le 만 남기는 것이 histogram_quantile 의 전제다.
+      - record: matchuri:http_p95_seconds:5m
+        expr: |
+          histogram_quantile(
+            0.95,
+            sum by (le) (rate(matchuri_http_request_seconds_bucket[5m]))
+          )
+
+      # 인터리빙의 성적표 — 정책이 낸 카드 중 몇 %가 좋아요를 받았나.
+      # 창이 1시간인 이유: 스와이프는 초당 몇 건 수준이라 5분 창은 표본이 너무 적어
+      # 정책 간 차이가 잡음에 묻힌다. skip 은 분모에서 뺀다(보류지 판정이 아니다).
+      - record: matchuri:like_rate_by_policy:1h
+        expr: |
+          sum by (policy) (rate(matchuri_preferences_total{prefer="like"}[1h]))
+          /
+          sum by (policy) (rate(matchuri_preferences_total{prefer=~"like|dislike"}[1h]))
+
+  - name: matchuri-alerts
+    interval: 15s
+    rules:
+      # 재배포 중에도 스크레이프는 잠깐 실패한다(app 기동에 start_period 180s).
+      # 2m 은 '배포 중 한 번 놓친 것'과 '정말 죽은 것'을 가르는 선이다.
+      - alert: AppDown
+        expr: up{job="matchuri"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "맛추리 앱이 응답하지 않는다"
+          description: "app:8000/metrics 스크레이프가 2분째 실패. `docker compose -p backmock logs app` 먼저."
+
+      - alert: HighErrorRate
+        expr: matchuri:http_error_ratio:5m > 0.02
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "5xx 비율이 2%를 넘었다"
+          description: "최근 5분 5xx 비율 {{ $value | humanizePercentage }}. 처리 못 한 예외는 앱 로그의 event=error 에 traceback 이 있다."
+
+      # 1s 의 근거: 가장 느린 호출인 GET /cards 가 정상일 때 수백 ms 다(두 정책이
+      # 성분을 다시 계산한다). p95 가 1초를 10분 넘게 넘으면 그건 부하지 잡음이 아니다.
+      - alert: SlowP95
+        expr: matchuri:http_p95_seconds:5m > 1
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "p95 지연이 1초를 넘었다"
+          description: "최근 5분 p95 {{ $value | humanize }}s. 라우트별로는 '맛추리 지연 상세' 대시보드."
+
+      # 루트 파일시스템만 본다. tmpfs·overlay 는 컨테이너 레이어라 차면 이미지를
+      # 정리할 문제고, 여기서 재고 싶은 것은 '앱이 state 를 못 쓰게 되는 순간' 이다.
+      # 15%는 남은 용량 40GB 대(309GB 디스크) — 눈치챌 시간이 있는 선이다.
+      - alert: DiskLow
+        expr: |
+          node_filesystem_avail_bytes{job="node",mountpoint="/",fstype!~"tmpfs|overlay|squashfs"}
+          /
+          node_filesystem_size_bytes{job="node",mountpoint="/",fstype!~"tmpfs|overlay|squashfs"}
+          < 0.15
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: "루트 디스크 여유가 15% 미만"
+          description: "남은 비율 {{ $value | humanizePercentage }}. 도커 로그(컨테이너당 250MB 상한)와 `docker system df` 를 본다."
+
+      # MemFree 가 아니라 MemAvailable 이다 — 리눅스는 남는 메모리를 페이지 캐시로
+      # 다 쓰므로 MemFree 는 늘 작게 보인다(이 서버도 15.7GB 중 free 가 0.4GB 다).
+      # 앱이 유사도 행렬을 float32 로 펴면 +98MB 를 한 번에 잡으므로 여유가 필요하다.
+      - alert: MemLow
+        expr: |
+          node_memory_MemAvailable_bytes{job="node"}
+          /
+          node_memory_MemTotal_bytes{job="node"}
+          < 0.10
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "쓸 수 있는 메모리가 10% 미만"
+          description: "MemAvailable 비율 {{ $value | humanizePercentage }}."

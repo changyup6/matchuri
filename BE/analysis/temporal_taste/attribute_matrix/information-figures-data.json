@@ -1,0 +1,3745 @@
+{
+  "coverage_cells": [
+    {
+      "scope": "core",
+      "food": "cutlet",
+      "axis": "cuisine",
+      "measured": 1,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "cutlet",
+      "axis": "taste",
+      "measured": 0,
+      "planned": 5
+    },
+    {
+      "scope": "core",
+      "food": "cutlet",
+      "axis": "cooking",
+      "measured": 0,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "cutlet",
+      "axis": "temperature",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "cutlet",
+      "axis": "broth",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "cutlet",
+      "axis": "ingredient",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "cutlet",
+      "axis": "texture",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "cutlet",
+      "axis": "dining",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "cutlet",
+      "axis": "form",
+      "measured": 1,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "cutlet",
+      "axis": "category",
+      "measured": 0,
+      "planned": 0
+    },
+    {
+      "scope": "core",
+      "food": "noodle",
+      "axis": "cuisine",
+      "measured": 4,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "noodle",
+      "axis": "taste",
+      "measured": 0,
+      "planned": 5
+    },
+    {
+      "scope": "core",
+      "food": "noodle",
+      "axis": "cooking",
+      "measured": 4,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "noodle",
+      "axis": "temperature",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "noodle",
+      "axis": "broth",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "noodle",
+      "axis": "ingredient",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "noodle",
+      "axis": "texture",
+      "measured": 1,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "noodle",
+      "axis": "dining",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "noodle",
+      "axis": "form",
+      "measured": 1,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "noodle",
+      "axis": "category",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "rice",
+      "axis": "cuisine",
+      "measured": 4,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "rice",
+      "axis": "taste",
+      "measured": 0,
+      "planned": 5
+    },
+    {
+      "scope": "core",
+      "food": "rice",
+      "axis": "cooking",
+      "measured": 3,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "rice",
+      "axis": "temperature",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "rice",
+      "axis": "broth",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "rice",
+      "axis": "ingredient",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "rice",
+      "axis": "texture",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "rice",
+      "axis": "dining",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "rice",
+      "axis": "form",
+      "measured": 1,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "rice",
+      "axis": "category",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "soup",
+      "axis": "cuisine",
+      "measured": 2,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "soup",
+      "axis": "taste",
+      "measured": 0,
+      "planned": 5
+    },
+    {
+      "scope": "core",
+      "food": "soup",
+      "axis": "cooking",
+      "measured": 4,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "soup",
+      "axis": "temperature",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "soup",
+      "axis": "broth",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "soup",
+      "axis": "ingredient",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "soup",
+      "axis": "texture",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "soup",
+      "axis": "dining",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "soup",
+      "axis": "form",
+      "measured": 1,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "soup",
+      "axis": "category",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "grill",
+      "axis": "cuisine",
+      "measured": 0,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "grill",
+      "axis": "taste",
+      "measured": 0,
+      "planned": 5
+    },
+    {
+      "scope": "core",
+      "food": "grill",
+      "axis": "cooking",
+      "measured": 0,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "grill",
+      "axis": "temperature",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "grill",
+      "axis": "broth",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "grill",
+      "axis": "ingredient",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "grill",
+      "axis": "texture",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "grill",
+      "axis": "dining",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "grill",
+      "axis": "form",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "grill",
+      "axis": "category",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "salad",
+      "axis": "cuisine",
+      "measured": 0,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "salad",
+      "axis": "taste",
+      "measured": 0,
+      "planned": 5
+    },
+    {
+      "scope": "core",
+      "food": "salad",
+      "axis": "cooking",
+      "measured": 0,
+      "planned": 4
+    },
+    {
+      "scope": "core",
+      "food": "salad",
+      "axis": "temperature",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "salad",
+      "axis": "broth",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "salad",
+      "axis": "ingredient",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "salad",
+      "axis": "texture",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "salad",
+      "axis": "dining",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "core",
+      "food": "salad",
+      "axis": "form",
+      "measured": 1,
+      "planned": 2
+    },
+    {
+      "scope": "core",
+      "food": "salad",
+      "axis": "category",
+      "measured": 0,
+      "planned": 0
+    },
+    {
+      "scope": "menu",
+      "food": "cutlet",
+      "axis": "cuisine",
+      "measured": 2,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "cutlet",
+      "axis": "taste",
+      "measured": 0,
+      "planned": 5
+    },
+    {
+      "scope": "menu",
+      "food": "cutlet",
+      "axis": "cooking",
+      "measured": 0,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "cutlet",
+      "axis": "temperature",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "cutlet",
+      "axis": "broth",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "cutlet",
+      "axis": "ingredient",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "cutlet",
+      "axis": "texture",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "cutlet",
+      "axis": "dining",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "cutlet",
+      "axis": "form",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "cutlet",
+      "axis": "category",
+      "measured": 0,
+      "planned": 0
+    },
+    {
+      "scope": "menu",
+      "food": "noodle",
+      "axis": "cuisine",
+      "measured": 4,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "noodle",
+      "axis": "taste",
+      "measured": 3,
+      "planned": 5
+    },
+    {
+      "scope": "menu",
+      "food": "noodle",
+      "axis": "cooking",
+      "measured": 4,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "noodle",
+      "axis": "temperature",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "noodle",
+      "axis": "broth",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "noodle",
+      "axis": "ingredient",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "noodle",
+      "axis": "texture",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "noodle",
+      "axis": "dining",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "noodle",
+      "axis": "form",
+      "measured": 1,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "noodle",
+      "axis": "category",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "rice",
+      "axis": "cuisine",
+      "measured": 4,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "rice",
+      "axis": "taste",
+      "measured": 3,
+      "planned": 5
+    },
+    {
+      "scope": "menu",
+      "food": "rice",
+      "axis": "cooking",
+      "measured": 4,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "rice",
+      "axis": "temperature",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "rice",
+      "axis": "broth",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "rice",
+      "axis": "ingredient",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "rice",
+      "axis": "texture",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "rice",
+      "axis": "dining",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "rice",
+      "axis": "form",
+      "measured": 1,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "rice",
+      "axis": "category",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "soup",
+      "axis": "cuisine",
+      "measured": 2,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "soup",
+      "axis": "taste",
+      "measured": 2,
+      "planned": 5
+    },
+    {
+      "scope": "menu",
+      "food": "soup",
+      "axis": "cooking",
+      "measured": 4,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "soup",
+      "axis": "temperature",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "soup",
+      "axis": "broth",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "soup",
+      "axis": "ingredient",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "soup",
+      "axis": "texture",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "soup",
+      "axis": "dining",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "soup",
+      "axis": "form",
+      "measured": 1,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "soup",
+      "axis": "category",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "grill",
+      "axis": "cuisine",
+      "measured": 4,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "grill",
+      "axis": "taste",
+      "measured": 2,
+      "planned": 5
+    },
+    {
+      "scope": "menu",
+      "food": "grill",
+      "axis": "cooking",
+      "measured": 4,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "grill",
+      "axis": "temperature",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "grill",
+      "axis": "broth",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "grill",
+      "axis": "ingredient",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "grill",
+      "axis": "texture",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "grill",
+      "axis": "dining",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "grill",
+      "axis": "form",
+      "measured": 1,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "grill",
+      "axis": "category",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "salad",
+      "axis": "cuisine",
+      "measured": 0,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "salad",
+      "axis": "taste",
+      "measured": 0,
+      "planned": 5
+    },
+    {
+      "scope": "menu",
+      "food": "salad",
+      "axis": "cooking",
+      "measured": 3,
+      "planned": 4
+    },
+    {
+      "scope": "menu",
+      "food": "salad",
+      "axis": "temperature",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "salad",
+      "axis": "broth",
+      "measured": 1,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "salad",
+      "axis": "ingredient",
+      "measured": 0,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "salad",
+      "axis": "texture",
+      "measured": 1,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "salad",
+      "axis": "dining",
+      "measured": 0,
+      "planned": 1
+    },
+    {
+      "scope": "menu",
+      "food": "salad",
+      "axis": "form",
+      "measured": 2,
+      "planned": 2
+    },
+    {
+      "scope": "menu",
+      "food": "salad",
+      "axis": "category",
+      "measured": 0,
+      "planned": 0
+    }
+  ],
+  "missing_reasons": {
+    "current_and_heldout_need_four_distinct_brands_per_side": 137,
+    "no_fixed_six_seed_design_with_cat2_brand_and_food_separation": 3
+  },
+  "core_catalogue_counts": {
+    "cutlet": 38,
+    "noodle": 108,
+    "rice": 69,
+    "soup": 96,
+    "grill": 18,
+    "salad": 29
+  },
+  "validation": {
+    "states": 3168,
+    "matched_comparisons": 792,
+    "model_case_comparisons": 2376,
+    "actual_slate_count": 9504,
+    "actual_card_slots": 38016,
+    "four_unique_cards_and_csv_counts": "passed",
+    "per_case_balance_and_cell_sign_counts": "passed",
+    "raw_top10_membership_and_card_names": "passed",
+    "ranked_slates_checked": 9504
+  },
+  "directions": [
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "cuisine",
+      "metric": "score_switch",
+      "positive": 51,
+      "unchanged": 0,
+      "negative": 15,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "taste",
+      "metric": "score_switch",
+      "positive": 0,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 0
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "cooking",
+      "metric": "score_switch",
+      "positive": 40,
+      "unchanged": 0,
+      "negative": 26,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "temperature",
+      "metric": "score_switch",
+      "positive": 1,
+      "unchanged": 0,
+      "negative": 5,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "broth",
+      "metric": "score_switch",
+      "positive": 8,
+      "unchanged": 0,
+      "negative": 10,
+      "total": 18
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "ingredient",
+      "metric": "score_switch",
+      "positive": 28,
+      "unchanged": 0,
+      "negative": 8,
+      "total": 36
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "texture",
+      "metric": "score_switch",
+      "positive": 4,
+      "unchanged": 0,
+      "negative": 2,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "dining",
+      "metric": "score_switch",
+      "positive": 4,
+      "unchanged": 0,
+      "negative": 8,
+      "total": 12
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "form",
+      "metric": "score_switch",
+      "positive": 18,
+      "unchanged": 0,
+      "negative": 12,
+      "total": 30
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "category",
+      "metric": "score_switch",
+      "positive": 17,
+      "unchanged": 0,
+      "negative": 1,
+      "total": 18
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "cuisine",
+      "metric": "card_switch",
+      "positive": 5,
+      "unchanged": 53,
+      "negative": 8,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "taste",
+      "metric": "card_switch",
+      "positive": 0,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 0
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "cooking",
+      "metric": "card_switch",
+      "positive": 6,
+      "unchanged": 55,
+      "negative": 5,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "temperature",
+      "metric": "card_switch",
+      "positive": 0,
+      "unchanged": 6,
+      "negative": 0,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "broth",
+      "metric": "card_switch",
+      "positive": 2,
+      "unchanged": 14,
+      "negative": 2,
+      "total": 18
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "ingredient",
+      "metric": "card_switch",
+      "positive": 6,
+      "unchanged": 26,
+      "negative": 4,
+      "total": 36
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "texture",
+      "metric": "card_switch",
+      "positive": 0,
+      "unchanged": 6,
+      "negative": 0,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "dining",
+      "metric": "card_switch",
+      "positive": 2,
+      "unchanged": 9,
+      "negative": 1,
+      "total": 12
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "form",
+      "metric": "card_switch",
+      "positive": 4,
+      "unchanged": 23,
+      "negative": 3,
+      "total": 30
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "category",
+      "metric": "card_switch",
+      "positive": 3,
+      "unchanged": 11,
+      "negative": 4,
+      "total": 18
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "cuisine",
+      "metric": "score_switch",
+      "positive": 66,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "taste",
+      "metric": "score_switch",
+      "positive": 0,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 0
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "cooking",
+      "metric": "score_switch",
+      "positive": 46,
+      "unchanged": 0,
+      "negative": 20,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "temperature",
+      "metric": "score_switch",
+      "positive": 5,
+      "unchanged": 0,
+      "negative": 1,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "broth",
+      "metric": "score_switch",
+      "positive": 13,
+      "unchanged": 0,
+      "negative": 5,
+      "total": 18
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "ingredient",
+      "metric": "score_switch",
+      "positive": 30,
+      "unchanged": 0,
+      "negative": 6,
+      "total": 36
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "texture",
+      "metric": "score_switch",
+      "positive": 5,
+      "unchanged": 0,
+      "negative": 1,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "dining",
+      "metric": "score_switch",
+      "positive": 7,
+      "unchanged": 0,
+      "negative": 5,
+      "total": 12
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "form",
+      "metric": "score_switch",
+      "positive": 22,
+      "unchanged": 0,
+      "negative": 8,
+      "total": 30
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "category",
+      "metric": "score_switch",
+      "positive": 18,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 18
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "cuisine",
+      "metric": "card_switch",
+      "positive": 17,
+      "unchanged": 25,
+      "negative": 24,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "taste",
+      "metric": "card_switch",
+      "positive": 0,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 0
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "cooking",
+      "metric": "card_switch",
+      "positive": 13,
+      "unchanged": 44,
+      "negative": 9,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "temperature",
+      "metric": "card_switch",
+      "positive": 1,
+      "unchanged": 5,
+      "negative": 0,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "broth",
+      "metric": "card_switch",
+      "positive": 5,
+      "unchanged": 10,
+      "negative": 3,
+      "total": 18
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "ingredient",
+      "metric": "card_switch",
+      "positive": 12,
+      "unchanged": 17,
+      "negative": 7,
+      "total": 36
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "texture",
+      "metric": "card_switch",
+      "positive": 3,
+      "unchanged": 1,
+      "negative": 2,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "dining",
+      "metric": "card_switch",
+      "positive": 3,
+      "unchanged": 8,
+      "negative": 1,
+      "total": 12
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "form",
+      "metric": "card_switch",
+      "positive": 6,
+      "unchanged": 17,
+      "negative": 7,
+      "total": 30
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "category",
+      "metric": "card_switch",
+      "positive": 8,
+      "unchanged": 6,
+      "negative": 4,
+      "total": 18
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "cuisine",
+      "metric": "score_switch",
+      "positive": 66,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "taste",
+      "metric": "score_switch",
+      "positive": 0,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 0
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "cooking",
+      "metric": "score_switch",
+      "positive": 46,
+      "unchanged": 0,
+      "negative": 20,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "temperature",
+      "metric": "score_switch",
+      "positive": 5,
+      "unchanged": 0,
+      "negative": 1,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "broth",
+      "metric": "score_switch",
+      "positive": 13,
+      "unchanged": 0,
+      "negative": 5,
+      "total": 18
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "ingredient",
+      "metric": "score_switch",
+      "positive": 30,
+      "unchanged": 0,
+      "negative": 6,
+      "total": 36
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "texture",
+      "metric": "score_switch",
+      "positive": 5,
+      "unchanged": 0,
+      "negative": 1,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "dining",
+      "metric": "score_switch",
+      "positive": 7,
+      "unchanged": 0,
+      "negative": 5,
+      "total": 12
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "form",
+      "metric": "score_switch",
+      "positive": 22,
+      "unchanged": 0,
+      "negative": 8,
+      "total": 30
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "category",
+      "metric": "score_switch",
+      "positive": 18,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 18
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "cuisine",
+      "metric": "card_switch",
+      "positive": 14,
+      "unchanged": 33,
+      "negative": 19,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "taste",
+      "metric": "card_switch",
+      "positive": 0,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 0
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "cooking",
+      "metric": "card_switch",
+      "positive": 11,
+      "unchanged": 48,
+      "negative": 7,
+      "total": 66
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "temperature",
+      "metric": "card_switch",
+      "positive": 0,
+      "unchanged": 6,
+      "negative": 0,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "broth",
+      "metric": "card_switch",
+      "positive": 3,
+      "unchanged": 13,
+      "negative": 2,
+      "total": 18
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "ingredient",
+      "metric": "card_switch",
+      "positive": 11,
+      "unchanged": 21,
+      "negative": 4,
+      "total": 36
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "texture",
+      "metric": "card_switch",
+      "positive": 3,
+      "unchanged": 1,
+      "negative": 2,
+      "total": 6
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "dining",
+      "metric": "card_switch",
+      "positive": 2,
+      "unchanged": 9,
+      "negative": 1,
+      "total": 12
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "form",
+      "metric": "card_switch",
+      "positive": 1,
+      "unchanged": 24,
+      "negative": 5,
+      "total": 30
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "category",
+      "metric": "card_switch",
+      "positive": 8,
+      "unchanged": 8,
+      "negative": 2,
+      "total": 18
+    }
+  ],
+  "menu_directions": [
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "cuisine",
+      "metric": "score_switch",
+      "positive": 63,
+      "unchanged": 0,
+      "negative": 33,
+      "total": 96
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "taste",
+      "metric": "score_switch",
+      "positive": 25,
+      "unchanged": 0,
+      "negative": 35,
+      "total": 60
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "cooking",
+      "metric": "score_switch",
+      "positive": 74,
+      "unchanged": 0,
+      "negative": 40,
+      "total": 114
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "temperature",
+      "metric": "score_switch",
+      "positive": 15,
+      "unchanged": 0,
+      "negative": 15,
+      "total": 30
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "broth",
+      "metric": "score_switch",
+      "positive": 24,
+      "unchanged": 0,
+      "negative": 12,
+      "total": 36
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "ingredient",
+      "metric": "score_switch",
+      "positive": 27,
+      "unchanged": 0,
+      "negative": 21,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "texture",
+      "metric": "score_switch",
+      "positive": 33,
+      "unchanged": 0,
+      "negative": 21,
+      "total": 54
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "dining",
+      "metric": "score_switch",
+      "positive": 11,
+      "unchanged": 0,
+      "negative": 13,
+      "total": 24
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "form",
+      "metric": "score_switch",
+      "positive": 24,
+      "unchanged": 0,
+      "negative": 24,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "category",
+      "metric": "score_switch",
+      "positive": 21,
+      "unchanged": 0,
+      "negative": 3,
+      "total": 24
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "cuisine",
+      "metric": "card_switch",
+      "positive": 21,
+      "unchanged": 56,
+      "negative": 19,
+      "total": 96
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "taste",
+      "metric": "card_switch",
+      "positive": 4,
+      "unchanged": 53,
+      "negative": 3,
+      "total": 60
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "cooking",
+      "metric": "card_switch",
+      "positive": 22,
+      "unchanged": 69,
+      "negative": 23,
+      "total": 114
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "temperature",
+      "metric": "card_switch",
+      "positive": 6,
+      "unchanged": 18,
+      "negative": 6,
+      "total": 30
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "broth",
+      "metric": "card_switch",
+      "positive": 5,
+      "unchanged": 20,
+      "negative": 11,
+      "total": 36
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "ingredient",
+      "metric": "card_switch",
+      "positive": 7,
+      "unchanged": 29,
+      "negative": 12,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "texture",
+      "metric": "card_switch",
+      "positive": 7,
+      "unchanged": 44,
+      "negative": 3,
+      "total": 54
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "dining",
+      "metric": "card_switch",
+      "positive": 2,
+      "unchanged": 18,
+      "negative": 4,
+      "total": 24
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "form",
+      "metric": "card_switch",
+      "positive": 11,
+      "unchanged": 26,
+      "negative": 11,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "category",
+      "metric": "card_switch",
+      "positive": 0,
+      "unchanged": 21,
+      "negative": 3,
+      "total": 24
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "cuisine",
+      "metric": "score_switch",
+      "positive": 94,
+      "unchanged": 0,
+      "negative": 2,
+      "total": 96
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "taste",
+      "metric": "score_switch",
+      "positive": 26,
+      "unchanged": 0,
+      "negative": 34,
+      "total": 60
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "cooking",
+      "metric": "score_switch",
+      "positive": 100,
+      "unchanged": 0,
+      "negative": 14,
+      "total": 114
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "temperature",
+      "metric": "score_switch",
+      "positive": 24,
+      "unchanged": 0,
+      "negative": 6,
+      "total": 30
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "broth",
+      "metric": "score_switch",
+      "positive": 29,
+      "unchanged": 0,
+      "negative": 7,
+      "total": 36
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "ingredient",
+      "metric": "score_switch",
+      "positive": 42,
+      "unchanged": 0,
+      "negative": 6,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "texture",
+      "metric": "score_switch",
+      "positive": 43,
+      "unchanged": 0,
+      "negative": 11,
+      "total": 54
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "dining",
+      "metric": "score_switch",
+      "positive": 19,
+      "unchanged": 0,
+      "negative": 5,
+      "total": 24
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "form",
+      "metric": "score_switch",
+      "positive": 37,
+      "unchanged": 0,
+      "negative": 11,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "category",
+      "metric": "score_switch",
+      "positive": 24,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 24
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "cuisine",
+      "metric": "card_switch",
+      "positive": 29,
+      "unchanged": 39,
+      "negative": 28,
+      "total": 96
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "taste",
+      "metric": "card_switch",
+      "positive": 6,
+      "unchanged": 43,
+      "negative": 11,
+      "total": 60
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "cooking",
+      "metric": "card_switch",
+      "positive": 31,
+      "unchanged": 51,
+      "negative": 32,
+      "total": 114
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "temperature",
+      "metric": "card_switch",
+      "positive": 5,
+      "unchanged": 18,
+      "negative": 7,
+      "total": 30
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "broth",
+      "metric": "card_switch",
+      "positive": 8,
+      "unchanged": 19,
+      "negative": 9,
+      "total": 36
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "ingredient",
+      "metric": "card_switch",
+      "positive": 15,
+      "unchanged": 18,
+      "negative": 15,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "texture",
+      "metric": "card_switch",
+      "positive": 9,
+      "unchanged": 31,
+      "negative": 14,
+      "total": 54
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "dining",
+      "metric": "card_switch",
+      "positive": 8,
+      "unchanged": 10,
+      "negative": 6,
+      "total": 24
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "form",
+      "metric": "card_switch",
+      "positive": 9,
+      "unchanged": 26,
+      "negative": 13,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "category",
+      "metric": "card_switch",
+      "positive": 14,
+      "unchanged": 5,
+      "negative": 5,
+      "total": 24
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "cuisine",
+      "metric": "score_switch",
+      "positive": 94,
+      "unchanged": 0,
+      "negative": 2,
+      "total": 96
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "taste",
+      "metric": "score_switch",
+      "positive": 26,
+      "unchanged": 0,
+      "negative": 34,
+      "total": 60
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "cooking",
+      "metric": "score_switch",
+      "positive": 100,
+      "unchanged": 0,
+      "negative": 14,
+      "total": 114
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "temperature",
+      "metric": "score_switch",
+      "positive": 24,
+      "unchanged": 0,
+      "negative": 6,
+      "total": 30
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "broth",
+      "metric": "score_switch",
+      "positive": 29,
+      "unchanged": 0,
+      "negative": 7,
+      "total": 36
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "ingredient",
+      "metric": "score_switch",
+      "positive": 42,
+      "unchanged": 0,
+      "negative": 6,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "texture",
+      "metric": "score_switch",
+      "positive": 43,
+      "unchanged": 0,
+      "negative": 11,
+      "total": 54
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "dining",
+      "metric": "score_switch",
+      "positive": 19,
+      "unchanged": 0,
+      "negative": 5,
+      "total": 24
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "form",
+      "metric": "score_switch",
+      "positive": 37,
+      "unchanged": 0,
+      "negative": 11,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "category",
+      "metric": "score_switch",
+      "positive": 24,
+      "unchanged": 0,
+      "negative": 0,
+      "total": 24
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "cuisine",
+      "metric": "card_switch",
+      "positive": 28,
+      "unchanged": 52,
+      "negative": 16,
+      "total": 96
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "taste",
+      "metric": "card_switch",
+      "positive": 5,
+      "unchanged": 48,
+      "negative": 7,
+      "total": 60
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "cooking",
+      "metric": "card_switch",
+      "positive": 23,
+      "unchanged": 69,
+      "negative": 22,
+      "total": 114
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "temperature",
+      "metric": "card_switch",
+      "positive": 5,
+      "unchanged": 19,
+      "negative": 6,
+      "total": 30
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "broth",
+      "metric": "card_switch",
+      "positive": 6,
+      "unchanged": 24,
+      "negative": 6,
+      "total": 36
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "ingredient",
+      "metric": "card_switch",
+      "positive": 15,
+      "unchanged": 24,
+      "negative": 9,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "texture",
+      "metric": "card_switch",
+      "positive": 6,
+      "unchanged": 38,
+      "negative": 10,
+      "total": 54
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "dining",
+      "metric": "card_switch",
+      "positive": 6,
+      "unchanged": 13,
+      "negative": 5,
+      "total": 24
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "form",
+      "metric": "card_switch",
+      "positive": 10,
+      "unchanged": 24,
+      "negative": 14,
+      "total": 48
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "category",
+      "metric": "card_switch",
+      "positive": 10,
+      "unchanged": 8,
+      "negative": 6,
+      "total": 24
+    }
+  ],
+  "context_retention": [
+    {
+      "scope": "core",
+      "model": "operational",
+      "total_slots": 4128,
+      "new_context_slots": 1058,
+      "observed_context_slots": 139,
+      "outside_context_slots": 2931,
+      "current_food_fraction": 0.28997093023255816,
+      "new_current_food_fraction": 0.2562984496124031
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "total_slots": 4128,
+      "new_context_slots": 600,
+      "observed_context_slots": 2171,
+      "outside_context_slots": 1357,
+      "current_food_fraction": 0.6712693798449613,
+      "new_current_food_fraction": 0.14534883720930233
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "total_slots": 4128,
+      "new_context_slots": 613,
+      "observed_context_slots": 2334,
+      "outside_context_slots": 1181,
+      "current_food_fraction": 0.7139050387596899,
+      "new_current_food_fraction": 0.14849806201550386
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "total_slots": 8544,
+      "new_context_slots": 3711,
+      "observed_context_slots": 173,
+      "outside_context_slots": 4660,
+      "current_food_fraction": 0.4545880149812734,
+      "new_current_food_fraction": 0.43433988764044945
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "total_slots": 8544,
+      "new_context_slots": 1717,
+      "observed_context_slots": 4626,
+      "outside_context_slots": 2201,
+      "current_food_fraction": 0.7423923220973783,
+      "new_current_food_fraction": 0.20095973782771537
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "total_slots": 8544,
+      "new_context_slots": 1856,
+      "observed_context_slots": 4875,
+      "outside_context_slots": 1813,
+      "current_food_fraction": 0.7878043071161048,
+      "new_current_food_fraction": 0.21722846441947566
+    }
+  ],
+  "examples": [
+    {
+      "selection": {
+        "context": "noodle_core",
+        "dimension": "cuisine_00",
+        "seed": 200,
+        "pair_name": "일식 / 한식",
+        "evidence_scope": "core",
+        "history_n": 16,
+        "history_mode": "cross_food",
+        "neutral_case_id": "noodle_core-cuisine_00-200-neutral",
+        "case_ids": {
+          "none": "noodle_core-cuisine_00-200-none",
+          "neutral": "noodle_core-cuisine_00-200-neutral",
+          "prefer": "noodle_core-cuisine_00-200-prefer",
+          "avoid": "noodle_core-cuisine_00-200-avoid"
+        },
+        "reason": "주력 면에서 요리권 차이"
+      },
+      "population_a": 12,
+      "population_b": 38,
+      "heldout_a": 10,
+      "heldout_b": 35,
+      "models": {
+        "operational": {
+          "score_switch": 0.2809628162982438,
+          "card_switch": 0.0,
+          "a_vs_neutral": 0.07279714079858568,
+          "b_vs_neutral": 0.20816567549965814,
+          "arms": {
+            "neutral": {
+              "target_cards": 1,
+              "comparison_cards": 0,
+              "context_cards": 1,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 1,
+              "comparison_top10": 6,
+              "actual_top10_slots": 10
+            },
+            "prefer": {
+              "target_cards": 1,
+              "comparison_cards": 0,
+              "context_cards": 1,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 1,
+              "comparison_top10": 6,
+              "actual_top10_slots": 10
+            },
+            "avoid": {
+              "target_cards": 1,
+              "comparison_cards": 0,
+              "context_cards": 2,
+              "new_context_cards": 2,
+              "all_card_slots": 4,
+              "target_top10": 1,
+              "comparison_top10": 5,
+              "actual_top10_slots": 10
+            }
+          }
+        },
+        "regularized": {
+          "score_switch": 0.03029569635135347,
+          "card_switch": 0.0,
+          "a_vs_neutral": 0.02144534091214672,
+          "b_vs_neutral": 0.008850355439206752,
+          "arms": {
+            "neutral": {
+              "target_cards": 0,
+              "comparison_cards": 1,
+              "context_cards": 2,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 6,
+              "actual_top10_slots": 10
+            },
+            "prefer": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 3,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 5,
+              "actual_top10_slots": 10
+            },
+            "avoid": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 2,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 7,
+              "actual_top10_slots": 10
+            }
+          }
+        },
+        "regularized_context_floor": {
+          "score_switch": 0.03029569635135347,
+          "card_switch": 0.0,
+          "a_vs_neutral": 0.02144534091214672,
+          "b_vs_neutral": 0.008850355439206752,
+          "arms": {
+            "neutral": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 3,
+              "new_context_cards": 2,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 6,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "noodle_core-cuisine_00-200-neutral",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "1925757485",
+                  "name": "153구포국수 언주역삼점",
+                  "mean": "0.4160240271165828",
+                  "std": "0.7741657880503696",
+                  "score": "0.028941133091398008",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "noodle_core-cuisine_00-200-neutral",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "1091130629",
+                  "name": "시시오",
+                  "mean": "0.08309015190952629",
+                  "std": "1.0284580168324033",
+                  "score": "-0.4311388565066754",
+                  "global_rank": "6",
+                  "current_context": "True",
+                  "heldout": "True",
+                  "unseen_store_and_brand": "True",
+                  "groups": "target"
+                },
+                {
+                  "case": "noodle_core-cuisine_00-200-neutral",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "1100401085",
+                  "name": "삼백집 역삼역점",
+                  "mean": "0.054011785721459926",
+                  "std": "1.0252021942313612",
+                  "score": "-0.45858931139422066",
+                  "global_rank": "9",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                },
+                {
+                  "case": "noodle_core-cuisine_00-200-neutral",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "81284972",
+                  "name": "식탐가",
+                  "mean": "0.004989120273910519",
+                  "std": "1.0598181127965494",
+                  "score": "-0.5249199361243642",
+                  "global_rank": "24",
+                  "current_context": "True",
+                  "heldout": "True",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            },
+            "prefer": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 3,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 5,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "noodle_core-cuisine_00-200-prefer",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "1925757485",
+                  "name": "153구포국수 언주역삼점",
+                  "mean": "0.4061190727796445",
+                  "std": "0.7741657880503696",
+                  "score": "0.019036178754459676",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "noodle_core-cuisine_00-200-prefer",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "27265433",
+                  "name": "호타루",
+                  "mean": "0.27483628217580097",
+                  "std": "0.9129564208076155",
+                  "score": "-0.1816419282280068",
+                  "global_rank": "2",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "target"
+                },
+                {
+                  "case": "noodle_core-cuisine_00-200-prefer",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "289852627",
+                  "name": "돈카츠멘",
+                  "mean": "0.022825398052426116",
+                  "std": "1.061438598588121",
+                  "score": "-0.5078939012416344",
+                  "global_rank": "18",
+                  "current_context": "True",
+                  "heldout": "True",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                },
+                {
+                  "case": "noodle_core-cuisine_00-200-prefer",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "1869376840",
+                  "name": "우나기정",
+                  "mean": "0.009738223673485868",
+                  "std": "1.0537531736963544",
+                  "score": "-0.5171383631746913",
+                  "global_rank": "21",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            },
+            "avoid": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 2,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 7,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "noodle_core-cuisine_00-200-avoid",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "1925757485",
+                  "name": "153구포국수 언주역삼점",
+                  "mean": "0.39670978242914057",
+                  "std": "0.7741657880503696",
+                  "score": "0.009626888403955758",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "noodle_core-cuisine_00-200-avoid",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "1091130629",
+                  "name": "시시오",
+                  "mean": "0.07789027819684813",
+                  "std": "1.0284580168324033",
+                  "score": "-0.43633873021935354",
+                  "global_rank": "6",
+                  "current_context": "True",
+                  "heldout": "True",
+                  "unseen_store_and_brand": "True",
+                  "groups": "target"
+                },
+                {
+                  "case": "noodle_core-cuisine_00-200-avoid",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "1100401085",
+                  "name": "삼백집 역삼역점",
+                  "mean": "0.030802691905684076",
+                  "std": "1.0252021942313612",
+                  "score": "-0.4817984052099965",
+                  "global_rank": "12",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                },
+                {
+                  "case": "noodle_core-cuisine_00-200-avoid",
+                  "food": "noodle",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "7939331",
+                  "name": "선릉설렁탕",
+                  "mean": "0.0060386736418702736",
+                  "std": "1.0398170248211134",
+                  "score": "-0.5138698387686864",
+                  "global_rank": "20",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "selection": {
+        "context": "rice_core",
+        "dimension": "cuisine_00",
+        "seed": 200,
+        "pair_name": "일식 / 한식",
+        "evidence_scope": "core",
+        "history_n": 16,
+        "history_mode": "cross_food",
+        "neutral_case_id": "rice_core-cuisine_00-200-neutral",
+        "case_ids": {
+          "none": "rice_core-cuisine_00-200-none",
+          "neutral": "rice_core-cuisine_00-200-neutral",
+          "prefer": "rice_core-cuisine_00-200-prefer",
+          "avoid": "rice_core-cuisine_00-200-avoid"
+        },
+        "reason": "주력 밥에서 요리권 차이"
+      },
+      "population_a": 19,
+      "population_b": 23,
+      "heldout_a": 17,
+      "heldout_b": 21,
+      "models": {
+        "operational": {
+          "score_switch": -1.9876820300135378e-05,
+          "card_switch": 0.0,
+          "a_vs_neutral": -0.06449381228080053,
+          "b_vs_neutral": 0.0644739354605004,
+          "arms": {
+            "neutral": {
+              "target_cards": 1,
+              "comparison_cards": 0,
+              "context_cards": 1,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 5,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10
+            },
+            "prefer": {
+              "target_cards": 1,
+              "comparison_cards": 0,
+              "context_cards": 1,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 5,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10
+            },
+            "avoid": {
+              "target_cards": 1,
+              "comparison_cards": 0,
+              "context_cards": 1,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 5,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10
+            }
+          }
+        },
+        "regularized": {
+          "score_switch": 0.039540486033620176,
+          "card_switch": 0.0,
+          "a_vs_neutral": 0.030034045240585255,
+          "b_vs_neutral": 0.00950644079303492,
+          "arms": {
+            "neutral": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 2,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 3,
+              "actual_top10_slots": 10
+            },
+            "prefer": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 2,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 3,
+              "actual_top10_slots": 10
+            },
+            "avoid": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 2,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 4,
+              "actual_top10_slots": 10
+            }
+          }
+        },
+        "regularized_context_floor": {
+          "score_switch": 0.039540486033620176,
+          "card_switch": 0.0,
+          "a_vs_neutral": 0.030034045240585255,
+          "b_vs_neutral": 0.00950644079303492,
+          "arms": {
+            "neutral": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 2,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 3,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "rice_core-cuisine_00-200-neutral",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "1003714564",
+                  "name": "이필녀국밥",
+                  "mean": "0.40262236665748263",
+                  "std": "0.7701659012447254",
+                  "score": "0.017539416035119937",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "rice_core-cuisine_00-200-neutral",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "235484718",
+                  "name": "스시어부",
+                  "mean": "0.05033286499996925",
+                  "std": "0.9975036194664818",
+                  "score": "-0.44841894473327165",
+                  "global_rank": "5",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "target"
+                },
+                {
+                  "case": "rice_core-cuisine_00-200-neutral",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "1869376840",
+                  "name": "우나기정",
+                  "mean": "0.05589340731747211",
+                  "std": "1.0485519026307923",
+                  "score": "-0.46838254399792406",
+                  "global_rank": "10",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                },
+                {
+                  "case": "rice_core-cuisine_00-200-neutral",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "1925757485",
+                  "name": "153구포국수 언주역삼점",
+                  "mean": "0.012492710062233736",
+                  "std": "1.0404052536130397",
+                  "score": "-0.5077099167442861",
+                  "global_rank": "15",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            },
+            "prefer": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 2,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 3,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "rice_core-cuisine_00-200-prefer",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "1003714564",
+                  "name": "이필녀국밥",
+                  "mean": "0.38592738259967363",
+                  "std": "0.7701659012447254",
+                  "score": "0.0008444319773109332",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "rice_core-cuisine_00-200-prefer",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "235484718",
+                  "name": "스시어부",
+                  "mean": "0.03755348291425781",
+                  "std": "0.9975036194664818",
+                  "score": "-0.4611983268189831",
+                  "global_rank": "5",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "target"
+                },
+                {
+                  "case": "rice_core-cuisine_00-200-prefer",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "1869376840",
+                  "name": "우나기정",
+                  "mean": "0.041095026505376775",
+                  "std": "1.0485519026307923",
+                  "score": "-0.4831809248100194",
+                  "global_rank": "9",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                },
+                {
+                  "case": "rice_core-cuisine_00-200-prefer",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "1925757485",
+                  "name": "153구포국수 언주역삼점",
+                  "mean": "0.022340422602589394",
+                  "std": "1.0404052536130397",
+                  "score": "-0.49786220420393046",
+                  "global_rank": "11",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            },
+            "avoid": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 2,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 4,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "rice_core-cuisine_00-200-avoid",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "1003714564",
+                  "name": "이필녀국밥",
+                  "mean": "0.39847112635806914",
+                  "std": "0.7701659012447254",
+                  "score": "0.013388175735706442",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "rice_core-cuisine_00-200-avoid",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "235484718",
+                  "name": "스시어부",
+                  "mean": "0.04650691219026093",
+                  "std": "0.9975036194664818",
+                  "score": "-0.45224489754298",
+                  "global_rank": "4",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "target"
+                },
+                {
+                  "case": "rice_core-cuisine_00-200-avoid",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "1869376840",
+                  "name": "우나기정",
+                  "mean": "0.02538829109813545",
+                  "std": "1.0485519026307923",
+                  "score": "-0.4988876602172607",
+                  "global_rank": "13",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                },
+                {
+                  "case": "rice_core-cuisine_00-200-avoid",
+                  "food": "rice",
+                  "scope": "core",
+                  "axis": "cuisine",
+                  "pair": "일식 / 한식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "1925757485",
+                  "name": "153구포국수 언주역삼점",
+                  "mean": "0.006077798460839667",
+                  "std": "1.0404052536130397",
+                  "score": "-0.5141248283456802",
+                  "global_rank": "16",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "selection": {
+        "context": "soup_menu",
+        "dimension": "temperature_13",
+        "seed": 200,
+        "pair_name": "뜨거운 음식 / 찬 음식",
+        "evidence_scope": "menu",
+        "history_n": 16,
+        "history_mode": "cross_food",
+        "neutral_case_id": "soup_menu-temperature_13-200-neutral",
+        "case_ids": {
+          "none": "soup_menu-temperature_13-200-none",
+          "neutral": "soup_menu-temperature_13-200-neutral",
+          "prefer": "soup_menu-temperature_13-200-prefer",
+          "avoid": "soup_menu-temperature_13-200-avoid"
+        },
+        "reason": "국의 온도 차이; 동일 core 조건은 불가하여 menu 범위를 사전에 지정"
+      },
+      "population_a": 313,
+      "population_b": 27,
+      "heldout_a": 311,
+      "heldout_b": 25,
+      "models": {
+        "operational": {
+          "score_switch": 0.032509360281917254,
+          "card_switch": 1.0,
+          "a_vs_neutral": -0.006492475405528053,
+          "b_vs_neutral": 0.03900183568744531,
+          "arms": {
+            "neutral": {
+              "target_cards": 1,
+              "comparison_cards": 0,
+              "context_cards": 1,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 0,
+              "actual_top10_slots": 10
+            },
+            "prefer": {
+              "target_cards": 1,
+              "comparison_cards": 0,
+              "context_cards": 2,
+              "new_context_cards": 2,
+              "all_card_slots": 4,
+              "target_top10": 4,
+              "comparison_top10": 0,
+              "actual_top10_slots": 10
+            },
+            "avoid": {
+              "target_cards": 0,
+              "comparison_cards": 0,
+              "context_cards": 2,
+              "new_context_cards": 2,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 0,
+              "actual_top10_slots": 10
+            }
+          }
+        },
+        "regularized": {
+          "score_switch": 0.03691163690287694,
+          "card_switch": 0.0,
+          "a_vs_neutral": 0.017640885342587898,
+          "b_vs_neutral": 0.01927075156028904,
+          "arms": {
+            "neutral": {
+              "target_cards": 0,
+              "comparison_cards": 2,
+              "context_cards": 4,
+              "new_context_cards": 2,
+              "all_card_slots": 4,
+              "target_top10": 2,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10
+            },
+            "prefer": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 3,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 2,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10
+            },
+            "avoid": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 3,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 2,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10
+            }
+          }
+        },
+        "regularized_context_floor": {
+          "score_switch": 0.03691163690287694,
+          "card_switch": 0.0,
+          "a_vs_neutral": 0.017640885342587898,
+          "b_vs_neutral": 0.01927075156028904,
+          "arms": {
+            "neutral": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 3,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 2,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "soup_menu-temperature_13-200-neutral",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "27254228",
+                  "name": "자매수산 1호점",
+                  "mean": "0.3553693037222303",
+                  "std": "0.7727908369794639",
+                  "score": "-0.031026114767501667",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "soup_menu-temperature_13-200-neutral",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "786400924",
+                  "name": "큰입아구찜",
+                  "mean": "0.19474935110015335",
+                  "std": "0.9161542760947802",
+                  "score": "-0.26332778694723674",
+                  "global_rank": "2",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "target"
+                },
+                {
+                  "case": "soup_menu-temperature_13-200-neutral",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "1705976969",
+                  "name": "논현장어",
+                  "mean": "0.05236705853106449",
+                  "std": "1.0596697312663146",
+                  "score": "-0.4774678071020928",
+                  "global_rank": "9",
+                  "current_context": "True",
+                  "heldout": "True",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                },
+                {
+                  "case": "soup_menu-temperature_13-200-neutral",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "19365803",
+                  "name": "쇼긴 역삼점",
+                  "mean": "0.031110167407179534",
+                  "std": "1.057438172156745",
+                  "score": "-0.49760891867119295",
+                  "global_rank": "11",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            },
+            "prefer": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 3,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 2,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "soup_menu-temperature_13-200-prefer",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "27254228",
+                  "name": "자매수산 1호점",
+                  "mean": "0.3275819411363313",
+                  "std": "0.7727908369794639",
+                  "score": "-0.058813477353400645",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "soup_menu-temperature_13-200-prefer",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "786400924",
+                  "name": "큰입아구찜",
+                  "mean": "0.19739746294115468",
+                  "std": "0.9161542760947802",
+                  "score": "-0.2606796751062354",
+                  "global_rank": "2",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "target"
+                },
+                {
+                  "case": "soup_menu-temperature_13-200-prefer",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "1705976969",
+                  "name": "논현장어",
+                  "mean": "0.07782577279745834",
+                  "std": "1.0596697312663146",
+                  "score": "-0.45200909283569896",
+                  "global_rank": "7",
+                  "current_context": "True",
+                  "heldout": "True",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                },
+                {
+                  "case": "soup_menu-temperature_13-200-prefer",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "19365803",
+                  "name": "쇼긴 역삼점",
+                  "mean": "0.022581112031227535",
+                  "std": "1.057438172156745",
+                  "score": "-0.506137974047145",
+                  "global_rank": "18",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            },
+            "avoid": {
+              "target_cards": 1,
+              "comparison_cards": 1,
+              "context_cards": 3,
+              "new_context_cards": 1,
+              "all_card_slots": 4,
+              "target_top10": 2,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "soup_menu-temperature_13-200-avoid",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "27254228",
+                  "name": "자매수산 1호점",
+                  "mean": "0.336913470013465",
+                  "std": "0.7727908369794639",
+                  "score": "-0.04948194847626697",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "soup_menu-temperature_13-200-avoid",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "786400924",
+                  "name": "큰입아구찜",
+                  "mean": "0.17267390262982835",
+                  "std": "0.9161542760947802",
+                  "score": "-0.28540323541756174",
+                  "global_rank": "2",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "target"
+                },
+                {
+                  "case": "soup_menu-temperature_13-200-avoid",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "1705976969",
+                  "name": "논현장어",
+                  "mean": "0.023017771186160385",
+                  "std": "1.0596697312663146",
+                  "score": "-0.506817094446997",
+                  "global_rank": "12",
+                  "current_context": "True",
+                  "heldout": "True",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                },
+                {
+                  "case": "soup_menu-temperature_13-200-avoid",
+                  "food": "soup",
+                  "scope": "menu",
+                  "axis": "temperature",
+                  "pair": "뜨거운 음식 / 찬 음식",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "19365803",
+                  "name": "쇼긴 역삼점",
+                  "mean": "0.0008401140405328023",
+                  "std": "1.057438172156745",
+                  "score": "-0.5278789720378396",
+                  "global_rank": "24",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "selection": {
+        "context": "noodle_menu",
+        "dimension": "taste_07",
+        "seed": 200,
+        "pair_name": "단맛 명시 / 산미 명시",
+        "evidence_scope": "menu",
+        "history_n": 8,
+        "history_mode": "cross_food",
+        "neutral_case_id": "noodle_menu-taste_07-200-neutral",
+        "case_ids": {
+          "none": "noodle_menu-taste_07-200-none",
+          "neutral": "noodle_menu-taste_07-200-neutral",
+          "prefer": "noodle_menu-taste_07-200-prefer",
+          "avoid": "noodle_menu-taste_07-200-avoid"
+        },
+        "reason": "국적 이외의 미세한 맛 차이; 벡터 방향 진단상 어려운 대조를 사전에 포함"
+      },
+      "population_a": 15,
+      "population_b": 9,
+      "heldout_a": 13,
+      "heldout_b": 7,
+      "models": {
+        "operational": {
+          "score_switch": -0.09654991953695269,
+          "card_switch": 0.0,
+          "a_vs_neutral": -0.11273464528176447,
+          "b_vs_neutral": 0.01618472574481178,
+          "arms": {
+            "neutral": {
+              "target_cards": 0,
+              "comparison_cards": 0,
+              "context_cards": 2,
+              "new_context_cards": 2,
+              "all_card_slots": 4,
+              "target_top10": 1,
+              "comparison_top10": 1,
+              "actual_top10_slots": 10
+            },
+            "prefer": {
+              "target_cards": 0,
+              "comparison_cards": 0,
+              "context_cards": 2,
+              "new_context_cards": 2,
+              "all_card_slots": 4,
+              "target_top10": 1,
+              "comparison_top10": 1,
+              "actual_top10_slots": 10
+            },
+            "avoid": {
+              "target_cards": 0,
+              "comparison_cards": 0,
+              "context_cards": 2,
+              "new_context_cards": 2,
+              "all_card_slots": 4,
+              "target_top10": 1,
+              "comparison_top10": 1,
+              "actual_top10_slots": 10
+            }
+          }
+        },
+        "regularized": {
+          "score_switch": -0.016539004791243095,
+          "card_switch": 0.0,
+          "a_vs_neutral": -0.009885104400706557,
+          "b_vs_neutral": -0.006653900390536538,
+          "arms": {
+            "neutral": {
+              "target_cards": 1,
+              "comparison_cards": 2,
+              "context_cards": 3,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 2,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10
+            },
+            "prefer": {
+              "target_cards": 1,
+              "comparison_cards": 2,
+              "context_cards": 3,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10
+            },
+            "avoid": {
+              "target_cards": 1,
+              "comparison_cards": 2,
+              "context_cards": 3,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 2,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10
+            }
+          }
+        },
+        "regularized_context_floor": {
+          "score_switch": -0.016539004791243095,
+          "card_switch": 0.0,
+          "a_vs_neutral": -0.009885104400706557,
+          "b_vs_neutral": -0.006653900390536538,
+          "arms": {
+            "neutral": {
+              "target_cards": 1,
+              "comparison_cards": 2,
+              "context_cards": 3,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 2,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "noodle_menu-taste_07-200-neutral",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "892029708",
+                  "name": "강남숯불닭갈비 칸나닭집",
+                  "mean": "0.33953627857179713",
+                  "std": "0.7751425628503555",
+                  "score": "-0.04803500285338064",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "noodle_menu-taste_07-200-neutral",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "18099336",
+                  "name": "대통령삼겹살 신논현역점",
+                  "mean": "0.22184634437301953",
+                  "std": "0.9166153644311924",
+                  "score": "-0.23646133784257667",
+                  "global_rank": "2",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "target"
+                },
+                {
+                  "case": "noodle_menu-taste_07-200-neutral",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "1969942230",
+                  "name": "다몽집 신논현본점",
+                  "mean": "0.12307234205863504",
+                  "std": "0.9824368069521218",
+                  "score": "-0.36814606141742584",
+                  "global_rank": "3",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "noodle_menu-taste_07-200-neutral",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "neutral",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "1419134399",
+                  "name": "춘천숯불닭갈비",
+                  "mean": "0.006648141362740889",
+                  "std": "1.004815122286403",
+                  "score": "-0.4957594197804606",
+                  "global_rank": "4",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            },
+            "prefer": {
+              "target_cards": 1,
+              "comparison_cards": 2,
+              "context_cards": 3,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 3,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "noodle_menu-taste_07-200-prefer",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "892029708",
+                  "name": "강남숯불닭갈비 칸나닭집",
+                  "mean": "0.33791162952569165",
+                  "std": "0.7751425628503555",
+                  "score": "-0.049659651899486124",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "noodle_menu-taste_07-200-prefer",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "18099336",
+                  "name": "대통령삼겹살 신논현역점",
+                  "mean": "0.2227493344026682",
+                  "std": "0.9166153644311924",
+                  "score": "-0.235558347812928",
+                  "global_rank": "2",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "target"
+                },
+                {
+                  "case": "noodle_menu-taste_07-200-prefer",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "1969942230",
+                  "name": "다몽집 신논현본점",
+                  "mean": "0.13480366638208752",
+                  "std": "0.9824368069521218",
+                  "score": "-0.35641473709397337",
+                  "global_rank": "3",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "noodle_menu-taste_07-200-prefer",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "prefer",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "1419134399",
+                  "name": "춘천숯불닭갈비",
+                  "mean": "0.019070845309486717",
+                  "std": "1.004815122286403",
+                  "score": "-0.4833367158337148",
+                  "global_rank": "4",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            },
+            "avoid": {
+              "target_cards": 1,
+              "comparison_cards": 2,
+              "context_cards": 3,
+              "new_context_cards": 0,
+              "all_card_slots": 4,
+              "target_top10": 2,
+              "comparison_top10": 2,
+              "actual_top10_slots": 10,
+              "cards": [
+                {
+                  "case": "noodle_menu-taste_07-200-avoid",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "1",
+                  "store_id": "892029708",
+                  "name": "강남숯불닭갈비 칸나닭집",
+                  "mean": "0.3351928035707344",
+                  "std": "0.7751425628503555",
+                  "score": "-0.052378477854443384",
+                  "global_rank": "1",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "noodle_menu-taste_07-200-avoid",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "2",
+                  "store_id": "18099336",
+                  "name": "대통령삼겹살 신논현역점",
+                  "mean": "0.2243164859280537",
+                  "std": "0.9166153644311924",
+                  "score": "-0.2339911962875425",
+                  "global_rank": "2",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "target"
+                },
+                {
+                  "case": "noodle_menu-taste_07-200-avoid",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "3",
+                  "store_id": "1969942230",
+                  "name": "다몽집 신논현본점",
+                  "mean": "0.12760878305809992",
+                  "std": "0.9824368069521218",
+                  "score": "-0.36360962041796097",
+                  "global_rank": "3",
+                  "current_context": "True",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "False",
+                  "groups": "comparison"
+                },
+                {
+                  "case": "noodle_menu-taste_07-200-avoid",
+                  "food": "noodle",
+                  "scope": "menu",
+                  "axis": "taste",
+                  "pair": "단맛 명시 / 산미 명시",
+                  "seed": "200",
+                  "prior": "avoid",
+                  "model": "regularized_context_floor",
+                  "rank": "4",
+                  "store_id": "1419134399",
+                  "name": "춘천숯불닭갈비",
+                  "mean": "0.00999226786358387",
+                  "std": "1.004815122286403",
+                  "score": "-0.49241529327961764",
+                  "global_rank": "4",
+                  "current_context": "False",
+                  "heldout": "False",
+                  "unseen_store_and_brand": "True",
+                  "groups": ""
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "fixtures.json": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5",
+    "coverage.json": "091b8c7cadbd88e4cfc6232e01f89ac6962934420adbb08b69115d1630f7a33d",
+    "context-audit.json": "b5d4c95d3f8780fc38684036e02d8517f63eaca3a587471375235142f553dbab",
+    "information-example-selection.json": "902f55e1f52581e72f4db8d99da4e10d5a429a64ef682cea5f812ac06bff0aa8",
+    "plot-information.py": "ec24788edd38298bb5614a288fca419514ef48acedee18af5390cb4658f1d9cc",
+    "data-snapshot-map.json": "cc1187a7b6ccc7369e99b979da83a98500888b16ada4b5ecfad2b2cb32f501f6",
+    "summary.json": "dc58cfdd1aef7d75781bba272dbc8cdd40f02d6ec4de5ca41158c45bd2e8bcbb",
+    "case-effects.csv": "0698f8c017cacc82f6273e1d806eb4e7270f772f976c6d929c19cbcfff95579b",
+    "actual-cards.csv": "f1ab7433c1838d8e7e6fd4edca32862bcd68890114b8c6824d8bf22cf98853ed",
+    "part-0/run/results.json": "b21968aecd716d051ffee60bc666da51573fac7edfd836f3dda4f719c2f49846",
+    "part-1/run/results.json": "b0286887b7f703ee582ba06d64ddabde58d25b59944419a594d31e549c2d9dbc"
+  },
+  "limitations": [
+    "Frozen-catalogue real vectors with hypothetical feedback; not online user accuracy or a measurement after the later live-data refresh.",
+    "Six seeds reuse catalogue stores and are not independent users.",
+    "Zero card balance change does not imply identical stores or identical ranking.",
+    "Selection examples frozen before model results; alignment diagnostic had already been inspected.",
+    "Core and menu label populations must be kept separate.",
+    "Attribute labels describe evidence across a store menu, not necessarily the same dish used as the current-food context.",
+    "Operational partial leave-one-out scoring and research full-posterior scoring use observed responses differently; final-card retention is not a fair model-superiority estimate."
+  ]
+}

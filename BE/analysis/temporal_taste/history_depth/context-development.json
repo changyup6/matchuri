@@ -1,0 +1,253 @@
+{
+  "overall": {
+    "states": 198,
+    "variants": {
+      "loo": {
+        "food_cards": 311,
+        "states_with_food": 190,
+        "new_food_cards": 304,
+        "new_food_states": 188,
+        "new_cards": 754,
+        "feedback": {
+          "unseen_store": 754,
+          "current_disliked": 25,
+          "current_liked": 7,
+          "prior_only_disliked": 3,
+          "prior_only_liked": 3
+        },
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "actual_top20_food": 3089,
+        "actual_top20_total": 3960,
+        "mean_max_redundancy": 0.8569941638094006
+      },
+      "full": {
+        "food_cards": 366,
+        "states_with_food": 198,
+        "new_food_cards": 97,
+        "new_food_states": 77,
+        "new_cards": 456,
+        "feedback": {
+          "current_liked": 269,
+          "unseen_store": 456,
+          "prior_only_liked": 67
+        },
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "actual_top20_food": 3275,
+        "actual_top20_total": 3960,
+        "mean_max_redundancy": 0.8663672925245882
+      },
+      "current_context": {
+        "food_cards": 477,
+        "states_with_food": 198,
+        "new_food_cards": 139,
+        "new_food_states": 98,
+        "new_cards": 435,
+        "feedback": {
+          "current_liked": 338,
+          "unseen_store": 435,
+          "prior_only_liked": 19
+        },
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "actual_top20_food": 3003,
+        "actual_top20_total": 3384,
+        "mean_max_redundancy": 0.918866778865005
+      }
+    },
+    "context_used": 138,
+    "fallback_reasons": {
+      "context_selector_did_not_return_strictly_diverse_four": 48,
+      "fewer_than_four_current_qualified": 12
+    },
+    "heldout_both_groups_retained_states": 87,
+    "heldout_proposed_both_groups_qualified_states": 45
+  },
+  "by_wanted": {
+    "cutlet": {
+      "states": 108,
+      "variants": {
+        "loo": {
+          "food_cards": 166,
+          "states_with_food": 108,
+          "new_food_cards": 164,
+          "new_food_states": 108,
+          "new_cards": 409,
+          "feedback": {
+            "unseen_store": 409,
+            "current_disliked": 16,
+            "current_liked": 2,
+            "prior_only_disliked": 3,
+            "prior_only_liked": 2
+          },
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "actual_top20_food": 2015,
+          "actual_top20_total": 2160,
+          "mean_max_redundancy": 0.8491866445099866
+        },
+        "full": {
+          "food_cards": 187,
+          "states_with_food": 108,
+          "new_food_cards": 50,
+          "new_food_states": 40,
+          "new_cards": 263,
+          "feedback": {
+            "current_liked": 137,
+            "unseen_store": 263,
+            "prior_only_liked": 32
+          },
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "actual_top20_food": 2041,
+          "actual_top20_total": 2160,
+          "mean_max_redundancy": 0.8808369724838822
+        },
+        "current_context": {
+          "food_cards": 206,
+          "states_with_food": 108,
+          "new_food_cards": 47,
+          "new_food_states": 37,
+          "new_cards": 257,
+          "feedback": {
+            "current_liked": 159,
+            "unseen_store": 257,
+            "prior_only_liked": 16
+          },
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "actual_top20_food": 1911,
+          "actual_top20_total": 1992,
+          "mean_max_redundancy": 0.8866439318215406
+        }
+      },
+      "context_used": 48,
+      "fallback_reasons": {
+        "context_selector_did_not_return_strictly_diverse_four": 48,
+        "fewer_than_four_current_qualified": 12
+      },
+      "heldout_both_groups_retained_states": 75,
+      "heldout_proposed_both_groups_qualified_states": 33
+    },
+    "noodle": {
+      "states": 72,
+      "variants": {
+        "loo": {
+          "food_cards": 114,
+          "states_with_food": 65,
+          "new_food_cards": 114,
+          "new_food_states": 65,
+          "new_cards": 278,
+          "feedback": {
+            "current_disliked": 9,
+            "unseen_store": 278,
+            "prior_only_liked": 1
+          },
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "actual_top20_food": 808,
+          "actual_top20_total": 1440,
+          "mean_max_redundancy": 0.8675322665108575
+        },
+        "full": {
+          "food_cards": 143,
+          "states_with_food": 72,
+          "new_food_cards": 34,
+          "new_food_states": 28,
+          "new_cards": 145,
+          "feedback": {
+            "current_liked": 109,
+            "unseen_store": 145,
+            "prior_only_liked": 34
+          },
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "actual_top20_food": 931,
+          "actual_top20_total": 1440,
+          "mean_max_redundancy": 0.8568633306357596
+        },
+        "current_context": {
+          "food_cards": 208,
+          "states_with_food": 72,
+          "new_food_cards": 62,
+          "new_food_states": 43,
+          "new_cards": 139,
+          "feedback": {
+            "current_liked": 146,
+            "unseen_store": 139,
+            "prior_only_liked": 3
+          },
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "actual_top20_food": 789,
+          "actual_top20_total": 1053,
+          "mean_max_redundancy": 0.9508141444789039
+        }
+      },
+      "context_used": 72,
+      "fallback_reasons": {},
+      "heldout_both_groups_retained_states": 12,
+      "heldout_proposed_both_groups_qualified_states": 12
+    },
+    "salad_poke": {
+      "states": 18,
+      "variants": {
+        "loo": {
+          "food_cards": 31,
+          "states_with_food": 17,
+          "new_food_cards": 26,
+          "new_food_states": 15,
+          "new_cards": 67,
+          "feedback": {
+            "unseen_store": 67,
+            "current_liked": 5
+          },
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "actual_top20_food": 266,
+          "actual_top20_total": 360,
+          "mean_max_redundancy": 0.8616868688000573
+        },
+        "full": {
+          "food_cards": 36,
+          "states_with_food": 18,
+          "new_food_cards": 13,
+          "new_food_states": 9,
+          "new_cards": 48,
+          "feedback": {
+            "current_liked": 23,
+            "unseen_store": 48,
+            "prior_only_liked": 1
+          },
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "actual_top20_food": 303,
+          "actual_top20_total": 360,
+          "mean_max_redundancy": 0.8175650603241391
+        },
+        "current_context": {
+          "food_cards": 63,
+          "states_with_food": 18,
+          "new_food_cards": 30,
+          "new_food_states": 18,
+          "new_cards": 39,
+          "feedback": {
+            "current_liked": 33,
+            "unseen_store": 39
+          },
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "actual_top20_food": 303,
+          "actual_top20_total": 339,
+          "mean_max_redundancy": 0.9844143986701965
+        }
+      },
+      "context_used": 18,
+      "fallback_reasons": {},
+      "heldout_both_groups_retained_states": 0,
+      "heldout_proposed_both_groups_qualified_states": 0
+    }
+  },
+  "source_sha256": "740167f11e8e726bfe472fbbf965a12967624a754d66cd456b2d8fc5803dd287"
+}

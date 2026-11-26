@@ -1,0 +1,4765 @@
+{
+  "created_at_utc": "2026-09-22T04:35:19.971150+00:00",
+  "fixture_sha256": "ff51b61b720207bff118eb894dec54af253001a9268ca1adc46d95bd58576c63",
+  "input_sha_before_metadata_fix": "ce1ea6c39c7dc385c3e001f8b5b336fe8d568e151380ba45448ca2c1bee19b7c",
+  "model_scores_consulted": false,
+  "trajectories": 186,
+  "checkpoints": 948,
+  "scenario_counts": {
+    "cutlet": 54,
+    "ramen_korean_noodle": 54,
+    "salad_shift": 42,
+    "cutlet_soft_history": 12,
+    "positive_only": 3,
+    "negative_only": 3,
+    "switch_return": 18
+  },
+  "total_checks": 1173,
+  "passed": 1173,
+  "failures": [],
+  "new_probe_N0_controls": {
+    "cutlet-soft-100-n40-japanese": "cutlet-100-n0-none",
+    "cutlet-soft-100-n40-western": "cutlet-100-n0-none",
+    "cutlet-soft-101-n40-japanese": "cutlet-101-n0-none",
+    "cutlet-soft-101-n40-western": "cutlet-101-n0-none",
+    "cutlet-soft-102-n40-japanese": "cutlet-102-n0-none",
+    "cutlet-soft-102-n40-western": "cutlet-102-n0-none",
+    "cutlet-soft-103-n40-japanese": "cutlet-103-n0-none",
+    "cutlet-soft-103-n40-western": "cutlet-103-n0-none",
+    "cutlet-soft-104-n40-japanese": "cutlet-104-n0-none",
+    "cutlet-soft-104-n40-western": "cutlet-104-n0-none",
+    "cutlet-soft-105-n40-japanese": "cutlet-105-n0-none",
+    "cutlet-soft-105-n40-western": "cutlet-105-n0-none",
+    "positive_only-100-n0-none": "positive_only-100-n0-none",
+    "positive_only-100-n20-japanese": "positive_only-100-n0-none",
+    "positive_only-100-n20-western": "positive_only-100-n0-none",
+    "negative_only-100-n0-none": "negative_only-100-n0-none",
+    "negative_only-100-n20-japanese": "negative_only-100-n0-none",
+    "negative_only-100-n20-western": "negative_only-100-n0-none",
+    "switch-return-100-n0-none": "switch-return-100-n0-none",
+    "switch-return-100-n16-japanese": "switch-return-100-n0-none",
+    "switch-return-100-n16-korean": "switch-return-100-n0-none",
+    "switch-return-101-n0-none": "switch-return-101-n0-none",
+    "switch-return-101-n16-japanese": "switch-return-101-n0-none",
+    "switch-return-101-n16-korean": "switch-return-101-n0-none",
+    "switch-return-102-n0-none": "switch-return-102-n0-none",
+    "switch-return-102-n16-japanese": "switch-return-102-n0-none",
+    "switch-return-102-n16-korean": "switch-return-102-n0-none",
+    "switch-return-103-n0-none": "switch-return-103-n0-none",
+    "switch-return-103-n16-japanese": "switch-return-103-n0-none",
+    "switch-return-103-n16-korean": "switch-return-103-n0-none",
+    "switch-return-104-n0-none": "switch-return-104-n0-none",
+    "switch-return-104-n16-japanese": "switch-return-104-n0-none",
+    "switch-return-104-n16-korean": "switch-return-104-n0-none",
+    "switch-return-105-n0-none": "switch-return-105-n0-none",
+    "switch-return-105-n16-japanese": "switch-return-105-n0-none",
+    "switch-return-105-n16-korean": "switch-return-105-n0-none"
+  },
+  "metadata_corrections": [
+    "Actual current counts4(single-class) or8unique/24responses(switch) replace inherited20.",
+    "Soft actual weakened40-history replaces unmodified80-event reference timeline.",
+    "Switch records denominators and negative sources per phase, not one inherited noodle scope.",
+    "All36newpaths explicitly identify an exactly matching N0 current sequence/reference panel.",
+    "Probe phase counts and avoid intent exposed; single-class and repeated-label switches are not human accuracy tests."
+  ],
+  "limits": [
+    "Not independent user samples. Same restaurants/features as development catalogue.",
+    "Switch samples deliberately include the same eight restaurants repeatedly; unique-store count is8, event count24.",
+    "Heldout groups exclude max-history brands uniformly across arms.",
+    "This is a structural/source provenance audit, not model quality verification."
+  ],
+  "checks": [
+    {
+      "name": "original186_inputs_and_labels_unchanged",
+      "pass": true
+    },
+    {
+      "name": "base150_intact",
+      "pass": true
+    },
+    {
+      "name": "expected186_unique_paths",
+      "pass": true
+    },
+    {
+      "name": "base_fixture_hash",
+      "pass": true
+    },
+    {
+      "name": "frozen_source_food-catalog.json",
+      "pass": true
+    },
+    {
+      "name": "frozen_source_style-history-pools-strict.json",
+      "pass": true
+    },
+    {
+      "name": "frozen_source_salad-catalog.json",
+      "pass": true
+    },
+    {
+      "name": "frozen_source_salad-history-pools-strict.json",
+      "pass": true
+    },
+    {
+      "name": "frozen_source_build-history-depth-fixtures.py",
+      "pass": true
+    },
+    {
+      "name": "frozen_source_build-extended-study.py",
+      "pass": true
+    },
+    {
+      "name": "frozen_raw_stores.jsonl",
+      "pass": true
+    },
+    {
+      "name": "frozen_raw_menus.jsonl",
+      "pass": true
+    },
+    {
+      "name": "frozen_raw_reviews.jsonl",
+      "pass": true
+    },
+    {
+      "name": "frozen_raw_reviews_naver.jsonl",
+      "pass": true
+    },
+    {
+      "name": "frozen_matrix_menu",
+      "pass": true
+    },
+    {
+      "name": "frozen_matrix_text",
+      "pass": true
+    },
+    {
+      "name": "frozen_matrix_review",
+      "pass": true
+    },
+    {
+      "name": "frozen_matrix_food",
+      "pass": true
+    },
+    {
+      "name": "frozen_pool",
+      "pass": true
+    },
+    {
+      "name": "existing_bench_validator",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n10-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n10-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n10-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n10-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n10-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n10-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n20-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n20-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n20-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n20-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n20-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n20-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n80-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n80-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n80-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n80-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n80-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-100-n80-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n10-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n10-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n10-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n10-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n10-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n10-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n20-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n20-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n20-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n20-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n20-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n20-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n80-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n80-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n80-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n80-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n80-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-101-n80-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n10-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n10-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n10-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n10-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n10-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n10-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n20-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n20-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n20-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n20-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n20-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n20-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n80-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n80-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n80-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n80-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n80-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-102-n80-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n10-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n10-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n10-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n10-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n10-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n10-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n20-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n20-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n20-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n20-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n20-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n20-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n80-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n80-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n80-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n80-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n80-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-103-n80-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n10-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n10-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n10-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n10-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n10-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n10-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n20-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n20-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n20-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n20-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n20-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n20-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n80-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n80-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n80-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n80-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n80-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-104-n80-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n10-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n10-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n10-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n10-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n10-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n10-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n20-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n20-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n20-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n20-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n20-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n20-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n80-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n80-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n80-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n80-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n80-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-105-n80-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n4-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n4-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n4-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n4-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n4-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n4-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n8-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n8-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n8-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n8-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n8-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n8-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n12-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n12-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n12-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n12-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n12-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n12-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n16-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-100-n16-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n4-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n4-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n4-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n4-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n4-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n4-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n8-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n8-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n8-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n8-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n8-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n8-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n12-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n12-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n12-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n12-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n12-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n12-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n16-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-101-n16-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n4-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n4-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n4-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n4-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n4-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n4-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n8-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n8-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n8-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n8-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n8-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n8-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n12-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n12-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n12-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n12-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n12-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n12-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n16-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-102-n16-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n4-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n4-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n4-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n4-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n4-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n4-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n8-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n8-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n8-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n8-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n8-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n8-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n12-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n12-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n12-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n12-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n12-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n12-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n16-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-103-n16-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n4-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n4-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n4-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n4-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n4-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n4-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n8-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n8-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n8-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n8-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n8-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n8-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n12-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n12-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n12-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n12-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n12-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n12-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n16-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-104-n16-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n4-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n4-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n4-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n4-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n4-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n4-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n8-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n8-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n8-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n8-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n8-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n8-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n12-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n12-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n12-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n12-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n12-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n12-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n16-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "ramen_korean_noodle-105-n16-korean:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n10-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n10-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n10-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n10-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n10-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n10-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n20-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n20-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n20-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n20-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n20-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n20-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n40-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n40-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n40-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n40-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n40-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-100-n40-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n10-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n10-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n10-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n10-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n10-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n10-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n20-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n20-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n20-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n20-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n20-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n20-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n40-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n40-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n40-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n40-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n40-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-101-n40-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n10-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n10-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n10-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n10-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n10-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n10-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n20-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n20-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n20-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n20-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n20-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n20-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n40-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n40-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n40-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n40-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n40-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-102-n40-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n10-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n10-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n10-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n10-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n10-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n10-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n20-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n20-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n20-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n20-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n20-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n20-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n40-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n40-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n40-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n40-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n40-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-103-n40-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n10-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n10-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n10-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n10-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n10-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n10-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n20-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n20-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n20-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n20-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n20-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n20-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n40-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n40-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n40-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n40-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n40-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-104-n40-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n10-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n10-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n10-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n10-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n10-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n10-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n20-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n20-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n20-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n20-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n20-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n20-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n40-fried:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n40-fried:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n40-fried:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n40-inverse:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n40-inverse:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "salad_shift-105-n40-inverse:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-japanese:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-japanese:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-japanese:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-western:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-western:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-western:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-western:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-western:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-western:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-western:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-100-n40-western:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-japanese:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-japanese:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-japanese:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-western:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-western:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-western:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-western:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-western:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-western:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-western:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-101-n40-western:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-japanese:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-japanese:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-japanese:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-western:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-western:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-western:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-western:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-western:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-western:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-western:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-102-n40-western:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-japanese:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-japanese:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-japanese:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-western:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-western:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-western:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-western:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-western:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-western:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-western:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-103-n40-western:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-japanese:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-japanese:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-japanese:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-western:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-western:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-western:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-western:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-western:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-western:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-western:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-104-n40-western:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-japanese:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-japanese:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-japanese:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-western:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-western:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-western:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-western:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-western:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-western:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-western:soft_15_5",
+      "pass": true
+    },
+    {
+      "name": "cutlet-soft-105-n40-western:soft_global_balance_only",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:single_class_events",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:single_class_intent",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n0-none:single_class_negative_metadata",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:single_class_events",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:single_class_intent",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-japanese:single_class_negative_metadata",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:single_class_events",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:single_class_intent",
+      "pass": true
+    },
+    {
+      "name": "positive_only-100-n20-western:single_class_negative_metadata",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:single_class_events",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:single_class_intent",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n0-none:single_class_negative_metadata",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:single_class_events",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:single_class_intent",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-japanese:single_class_negative_metadata",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:today:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:today:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:single_class_events",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:single_class_intent",
+      "pass": true
+    },
+    {
+      "name": "negative_only-100-n20-western:single_class_negative_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:past_unique_ids_brands",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:past_current_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:A_cutlet:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:B_noodle:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:A_return:heldout_brand_disjoint",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:metadata_current_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:metadata_actual_past_timeline",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:metadata_past_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:N0_control_exists",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:matched_N0_phases",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:A_cutlet:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:B_noodle:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:A_return:phase_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:switch8stores24events",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:switch_labels_reverse_and_return",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:switch_phase_balance",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:no_inherited_single_food_metadata",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:explicit_nonpure_transfer",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:A_cutlet:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:A_cutlet:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:B_noodle:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:B_noodle:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:A_return:heldout_counts",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:A_return:negative_ids",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n0-none:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-japanese:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-100-n16-korean:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "cutlet_soft_history:100:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "switch_return:100:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n0-none:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-japanese:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-101-n16-korean:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "cutlet_soft_history:101:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "switch_return:101:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n0-none:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-japanese:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-102-n16-korean:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "cutlet_soft_history:102:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "switch_return:102:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n0-none:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-japanese:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-103-n16-korean:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "cutlet_soft_history:103:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "switch_return:103:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n0-none:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-japanese:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-104-n16-korean:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "cutlet_soft_history:104:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "switch_return:104:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n0-none:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-japanese:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:A_cutlet:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:B_noodle:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "switch-return-105-n16-korean:A_return:full_catalogue_heldout",
+      "pass": true
+    },
+    {
+      "name": "cutlet_soft_history:105:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "switch_return:105:prior_inverse",
+      "pass": true
+    },
+    {
+      "name": "expected948_checkpoints",
+      "pass": true
+    }
+  ]
+}

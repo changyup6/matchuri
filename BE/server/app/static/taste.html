@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>맛추리 · 내 취향 지도</title>
+<!-- Read-only client example. user_id + session_id uses the canonical session API;
+     user_id alone supports existing session links. demo=1 is an offline illustration. -->
+<style>
+:root {color-scheme:light;--page:#eceef2;--card:#fff;--ink:#172333;--dim:#77818d;--line:#e6e9ed;--sea:#f7f8fa;--label:#536171;--trail:#ee873d;--now:#e05b54;--chip:#f0f3f6;--accent:#de713a;--shadow:0 12px 44px #192a4014}
+@media(prefers-color-scheme:dark) { :root:not([data-theme="light"]) {color-scheme:dark;--page:#0b0e13;--card:#151b24;--ink:#e5eaf0;--dim:#92a0ae;--line:#293341;--sea:#101720;--label:#b1bcc9;--trail:#fbab67;--now:#ff938b;--chip:#222d3b;--accent:#f5a06f;--shadow:0 12px 44px #0005} }
+:root[data-theme="dark"] {color-scheme:dark;--page:#0b0e13;--card:#151b24;--ink:#e5eaf0;--dim:#92a0ae;--line:#293341;--sea:#101720;--label:#b1bcc9;--trail:#fbab67;--now:#ff938b;--chip:#222d3b;--accent:#f5a06f;--shadow:0 12px 44px #0005}
+* {box-sizing:border-box;margin:0;padding:0}
+body {background:var(--page);color:var(--ink);font:14px/1.5 'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100dvh}
+button,input {font:inherit;color:inherit}
+button {cursor:pointer;-webkit-tap-highlight-color:transparent}
+button:disabled {cursor:default;opacity:.45}
+button:focus-visible,[tabindex]:focus-visible {outline:2px solid var(--accent);outline-offset:3px}
+[hidden] {display:none !important}
+#frame {width:360px;height:720px;max-width:100vw;max-height:100dvh;background:var(--card);box-shadow:var(--shadow);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;padding:19px 17px 14px}
+header {flex:none}
+.eyebrow {font-size:10px;color:var(--accent);font-weight:650;letter-spacing:1px}
+#identity {font-size:10px;color:var(--dim);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#headline {font-size:18px;line-height:1.4;letter-spacing:-.55px;margin-top:6px;font-weight:720;word-break:keep-all}
+#sub {font-size:11px;color:var(--dim);margin-top:6px}
+#sub b {font-weight:650;color:var(--accent)}
+#offline-label {margin:7px 0 0;border-radius:6px;padding:5px 8px;font-size:10px;background:var(--chip);color:var(--accent)}
+#navigation {display:flex;gap:6px;align-items:center;margin-top:13px;min-height:29px;flex:none}
+#detail-levels {min-width:0;flex:1;display:flex;gap:3px;padding:3px;background:var(--chip);border-radius:8px}
+#detail-levels button {flex:1;border:0;background:none;padding:5px 2px;border-radius:5px;color:var(--dim);font-size:10px;white-space:nowrap}
+#detail-levels button[aria-pressed="true"] {background:var(--card);font-weight:700;color:var(--ink);box-shadow:0 1px 3px #17233312}
+.nav-icon {border:1px solid var(--line);background:var(--card);border-radius:7px;min-width:28px;height:28px;font-size:13px;display:grid;place-items:center}
+#stage {position:relative;flex:1;min-height:155px;display:flex;margin-top:8px}
+#map {width:100%;height:100%;display:block;background:var(--sea);border:1px solid var(--line);border-radius:13px;overflow:hidden;touch-action:none}
+#view-controls {position:absolute;bottom:9px;right:9px;display:flex;gap:4px}
+#view-controls button {background:var(--card);opacity:.94;border:1px solid var(--line);border-radius:6px;width:26px;height:26px;font-size:15px}
+#view-controls button.fit {font-size:10px;width:auto;padding:0 7px}
+.map-node {cursor:pointer}.map-node:focus {outline:none}.map-node circle {vector-effect:non-scaling-stroke}.map-node:focus circle,.map-node:hover circle {stroke:var(--accent);stroke-width:2px}
+.region {fill-opacity:.11;stroke-opacity:.35;stroke-width:1px}
+.store-dot {fill-opacity:.8;stroke:var(--card);stroke-width:1.2px}
+.rlabel {fill:var(--label);font-weight:600;text-anchor:middle;paint-order:stroke;stroke:var(--sea);stroke-linejoin:round}
+.trail-layer {pointer-events:none}.seg {stroke:var(--trail);stroke-linecap:round;fill:none}.head {fill:var(--now);stroke:var(--card)}.halo {fill:var(--now);opacity:.15}.start {fill:var(--trail);opacity:.65}.ghost {fill:none;stroke:var(--dim);opacity:.7}.ghost-label {fill:var(--dim);text-anchor:middle;paint-order:stroke;stroke:var(--sea)}
+#map-caption {margin-top:6px;font-size:9px;line-height:1.5;color:var(--dim);flex:none}
+#scope {flex:none;margin-top:10px;min-height:74px}
+.scope-heading {display:flex;align-items:center;justify-content:space-between;gap:8px}
+#scope-title {font-size:12px;font-weight:650}#scope-count {font-size:10px;color:var(--dim)}
+#scope-list {list-style:none;max-height:112px;overflow:auto;overscroll-behavior:contain;margin-top:6px;scrollbar-width:thin;border-top:1px solid var(--line)}
+#scope-list li {border-bottom:1px solid var(--line)}
+.node-button {display:flex;align-items:center;width:100%;gap:8px;border:0;background:transparent;text-align:left;padding:9px 1px;font-size:11px;min-height:34px}
+.node-button:hover {background:var(--chip)}.node-name {flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.node-meta {font-size:10px;color:var(--dim)}.node-arrow {font-size:12px;color:var(--accent)}
+#status {font-size:11px;color:var(--dim);line-height:1.7;padding:4px 0;min-height:20px}#retry {font-size:11px;color:var(--accent);border:0;background:none;padding:4px 0}
+footer {flex:none;border-top:1px solid var(--line);padding-top:9px;margin-top:10px}.cap {font-size:10px;color:var(--dim)}
+#near {display:flex;gap:5px;margin:6px 0 7px;min-width:0;overflow:auto;scrollbar-width:none;white-space:nowrap}
+#near button,#near span {border:0;background:var(--chip);border-radius:6px;padding:5px 7px;font-size:10px;color:var(--label);flex:none}
+.play {display:flex;gap:9px;align-items:center}#scrub {min-width:0;flex:1;height:16px;accent-color:var(--trail)}#step {max-width:144px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:10px;color:var(--dim)}
+#store-dialog {position:fixed;inset:0;margin:auto;width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 40px);border:1px solid var(--line);border-radius:18px;background:var(--card);color:var(--ink);padding:0;overflow:auto;box-shadow:var(--shadow)}
+#store-dialog::backdrop {background:#0b172466;backdrop-filter:blur(3px)}.dialog-top {display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-size:11px;color:var(--dim)}#close-store {background:none;border:0;font-size:20px;line-height:1;padding:5px}.detail-content {padding:16px}.detail-content h2 {font-size:21px;line-height:1.35;letter-spacing:-.6px;margin-top:5px}.detail-category {font-size:11px;color:var(--accent)}.detail-address {font-size:11px;color:var(--dim);margin-top:9px;line-height:1.7}.detail-summary {font-size:12px;color:var(--label);margin-top:13px;line-height:1.7}.detail-image {width:100%;height:175px;object-fit:cover;display:block;background:var(--chip)}.detail-menu-title {font-size:12px;margin-top:17px;font-weight:650}.detail-menu-list {list-style:none;margin-top:6px}.detail-menu-list li {display:flex;gap:14px;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:11px}.detail-menu-list strong {font-weight:450;min-width:0}.detail-menu-list span {color:var(--dim);flex:none}.detail-footnote {font-size:10px;color:var(--dim);margin-top:9px}
+@media(max-width:420px),(max-height:760px) {body {align-items:stretch}#frame {width:100%;height:100dvh;border-radius:0;box-shadow:none}}
+@media(max-height:660px) {#frame {padding-top:12px;padding-bottom:10px}#headline {font-size:16px}#scope-list {max-height:78px}#map-caption {display:none}#stage {min-height:120px}#identity {margin-top:1px}}
+@media(prefers-reduced-motion:reduce) {* {scroll-behavior:auto !important}}
+</style>
+</head>
+<body>
+<div id="frame">
+<header><div class="eyebrow">내 취향 지도</div><div id="identity"></div><h1 id="headline">취향을 불러오고 있어요</h1><div id="sub"></div><div id="offline-label" hidden>오프라인 예시 · 실제 사용자 화면이 아닙니다</div></header>
+<nav id="navigation" aria-label="지도 탐색"><button class="nav-icon" id="back" aria-label="이전 상세 단계로" disabled>←</button><div id="detail-levels" aria-label="지도 상세 단계"></div><button class="nav-icon" id="reset" aria-label="1단계 전체 지도 보기" disabled>⌂</button></nav>
+<div id="stage"><svg id="map" viewBox="0 0 100 100" aria-label="취향 지형도 위의 내 궤적"></svg><div id="view-controls"><button id="zoom-out" aria-label="지도 축소" disabled>−</button><button id="zoom-in" aria-label="지도 확대" disabled>＋</button><button id="fit" class="fit" disabled>전체</button></div></div>
+<p id="map-caption">배경은 가게의 유사도, 선은 좋아요한 곳의 흐름이에요.</p>
+<section id="scope" aria-label="지도 분류와 가게"><div class="scope-heading"><h2 id="scope-title">큰 업종</h2><span id="scope-count"></span></div><ul id="scope-list"></ul><div id="status" role="status" aria-live="polite"></div><button id="retry" hidden>다시 불러오기</button></section>
+<footer><div class="cap">현재 궤적 근처에서 좋아한 곳</div><div id="near"></div><div class="play"><input type="range" id="scrub" min="1" max="1" value="1" aria-label="궤적 다시 보기" disabled><span id="step"></span></div></footer>
+</div>
+<dialog id="store-dialog" aria-label="가게 정보"><div class="dialog-top"><span>지도에서 살펴본 가게</span><button id="close-store" aria-label="가게 정보 닫기">×</button></div><div id="store-content"></div></dialog>
+<script>
+const DEMO = {
+ "user_id": "u_76854a0906f2", "name": "취향전달-라이브", "swipes": 58, "likes": 22,
+ "map": {"version": 1, "regions": [
+  {"name": "한식", "x": 0.838, "y": 0.4531, "r": 0.1161, "count": 710},
+  {"name": "카페", "x": 0.1077, "y": 0.6565, "r": 0.0607, "count": 460},
+  {"name": "일식", "x": 0.6917, "y": 0.6549, "r": 0.1061, "count": 188},
+  {"name": "술집", "x": 0.4601, "y": 0.4772, "r": 0.1962, "count": 187},
+  {"name": "양식", "x": 0.455, "y": 0.5453, "r": 0.0728, "count": 143},
+  {"name": "중식", "x": 0.6457, "y": 0.2705, "r": 0.0322, "count": 121},
+  {"name": "간식", "x": 0.0539, "y": 0.6267, "r": 0.0359, "count": 93},
+  {"name": "분식", "x": 0.6285, "y": 0.4145, "r": 0.0317, "count": 87},
+  {"name": "치킨", "x": 0.4435, "y": 0.4012, "r": 0.0123, "count": 53},
+  {"name": "샐러드", "x": 0.4403, "y": 0.7094, "r": 0.0132, "count": 50},
+  {"name": "패스트푸드", "x": 0.3856, "y": 0.6949, "r": 0.0224, "count": 41},
+  {"name": "아시아음식", "x": 0.7741, "y": 0.2104, "r": 0.0067, "count": 37},
+  {"name": "퓨전요리", "x": 0.6584, "y": 0.5264, "r": 0.161, "count": 18},
+  {"name": "도시락", "x": 0.756, "y": 0.4637, "r": 0.0264, "count": 9},
+  {"name": "샤브샤브", "x": 0.8108, "y": 0.586, "r": 0.0188, "count": 8},
+  {"name": "미분류", "x": 0.3504, "y": 0.4338, "r": 0.2094, "count": 4},
+  {"name": "뷔페", "x": 0.8144, "y": 0.6248, "r": 0.0014, "count": 3},
+  {"name": "패밀리레스토랑", "x": 0.3972, "y": 0.6218, "r": 0.3001, "count": 2},
+  {"name": "기사식당", "x": 0.2312, "y": 0.4109, "r": 0.0, "count": 1},
+  {"name": "푸드코트", "x": 0.4276, "y": 0.6912, "r": 0.0, "count": 1}]},
+ "trail": [
+  {"n": 1, "x": 0.8378, "y": 0.6024, "region": "한식", "store": "고우가 역삼역점", "card_id": 65},
+  {"n": 3, "x": 0.8497, "y": 0.5833, "region": "한식", "store": "오늘도등심 강남점", "card_id": 741},
+  {"n": 5, "x": 0.8798, "y": 0.5696, "region": "한식", "store": "뼈탄집 강남역삼점", "card_id": 2340},
+  {"n": 7, "x": 0.8904, "y": 0.5728, "region": "한식", "store": "미도갈비 역삼점", "card_id": 2265},
+  {"n": 8, "x": 0.9043, "y": 0.5612, "region": "한식", "store": "돼봉삼겹살 신논현점", "card_id": 2701},
+  {"n": 10, "x": 0.9378, "y": 0.5268, "region": "한식", "store": "60년전통신촌황소곱창 강남직영점", "card_id": 1003},
+  {"n": 11, "x": 0.9138, "y": 0.5435, "region": "한식", "store": "창고43 강남점", "card_id": 705},
+  {"n": 13, "x": 0.9139, "y": 0.5493, "region": "한식", "store": "호보식당", "card_id": 1400},
+  {"n": 14, "x": 0.6767, "y": 0.5061, "region": "술집", "store": "골목낙지", "card_id": 2374},
+  {"n": 16, "x": 0.7635, "y": 0.5151, "region": "한식", "store": "동남회관 역삼본점", "card_id": 1893},
+  {"n": 17, "x": 0.8185, "y": 0.5232, "region": "한식", "store": "한판도", "card_id": 478},
+  {"n": 19, "x": 0.8526, "y": 0.5404, "region": "한식", "store": "마초갈비 선릉역점", "card_id": 922},
+  {"n": 20, "x": 0.8475, "y": 0.5615, "region": "한식", "store": "우미돈블랙", "card_id": 235},
+  {"n": 21, "x": 0.6451, "y": 0.5185, "region": "술집", "store": "하연", "card_id": 2317},
+  {"n": 39, "x": 0.5102, "y": 0.4854, "region": "양식", "store": "혼술바제주보름 강남선릉점", "card_id": 589},
+  {"n": 42, "x": 0.5964, "y": 0.5132, "region": "양식", "store": "회판장 강남점", "card_id": 1031},
+  {"n": 47, "x": 0.6348, "y": 0.6202, "region": "술집", "store": "오로지라멘 한신인터밸리24점", "card_id": 1763},
+  {"n": 51, "x": 0.6482, "y": 0.5771, "region": "일식", "store": "바11클럽", "card_id": 2554},
+  {"n": 52, "x": 0.5005, "y": 0.4965, "region": "술집", "store": "산호일식탕,활전복죽", "card_id": 1610},
+  {"n": 54, "x": 0.5527, "y": 0.5975, "region": "양식", "store": "유메", "card_id": 2258},
+  {"n": 57, "x": 0.459, "y": 0.544, "region": "양식", "store": "더휴일 역삼점", "card_id": 2787},
+  {"n": 58, "x": 0.3809, "y": 0.4759, "region": "술집", "store": "오늘도회이팅", "card_id": 874}],
+ "now": {"x": 0.3809, "y": 0.4759, "region": "술집", "near": [{"name": "더휴일 역삼점", "card_id": 2787}, {"name": "하연", "card_id": 2317}, {"name": "혼술바제주보름 강남선릉점", "card_id": 589}]},
+ "drift": {"from_region": "한식", "to_region": "술집", "distance": 0.4761, "window": 10},
+ "headline": "좋아요한 가게를 바탕으로 취향을 알아가고 있어요"
+};
+
+const $ = id => document.getElementById(id);
+const q = new URLSearchParams(location.search), offline=q.get('demo')==='1';
+if(['dark','light'].includes(q.get('theme')))document.documentElement.dataset.theme=q.get('theme');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const hue=s=>{let h=0;for(const c of String(s))h=(h*31+c.codePointAt(0))%360;return h;};
+const element=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=String(text);return e;};
+let DATA=null, loading=false, requestVersion=0, controller=null, retryTarget=null;
+let view={x:0,y:0,w:100}, fitted={...view}, drag=null, dragMoved=false;
+let cardVersion=0, cardController=null;
+const levelViews={1:{x:0,y:0,w:100}};
+const endpoint=()=>q.get('session_id')?'/user/'+encodeURIComponent(q.get('user_id'))+'/session/'+encodeURIComponent(q.get('session_id'))+'/taste':'/users/'+encodeURIComponent(q.get('user_id'))+'/taste';
+const level=()=>offline?1:Number(DATA?.map.level)||1;
+const nodes=()=>DATA?.map.regions||[];
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+function safeImageURL(value){if(typeof value!=='string'||!value)return null;try{const u=new URL(value,location.href);return ['http:','https:'].includes(u.protocol)?u.href:null;}catch{return null;}}
+function fitView(){view={x:0,y:0,w:100};fitted={...view};draw();}
+function nearestNode(x=.5,y=.5){const px=view.x+view.w*x,py=view.y+view.w*y;return nodes().reduce((best,n)=>!best||Math.hypot(n.x*100-px,n.y*100-py)<Math.hypot(best.x*100-px,best.y*100-py)?n:best,null);}
+function goBack(){if(level()>1)load(level()-1,levelViews[level()-1]||view);}
+function zoom(factor,x=.5,y=.5){if(!DATA||loading)return;const next=clamp(view.w/factor,Math.min(fitted.w*.18,1),100);if(!offline&&level()<3&&factor>1&&fitted.w/next>1.7){const n=nearestNode(x,y);if(n){choose(n);return;}}if(!offline&&level()>1&&factor<1&&view.w/factor>fitted.w*1.25){goBack();return;}view={x:view.x+(view.w-next)*x,y:view.y+(view.w-next)*y,w:next};draw();}
+function draw(){
+ if(!DATA)return;const svg=$('map');$('zoom-in').title=!offline&&level()<3?'화면 중심에서 가까운 '+(nearestNode()?.name||'분류')+' 확대':'지도 확대';svg.setAttribute('viewBox',`${view.x} ${view.y} ${view.w} ${view.w}`);
+ const ns=nodes(),labels=[],visible=ns.map((n,i)=>({n,i})).filter(({n})=>n.x*100>=view.x-view.w*.12&&n.x*100<=view.x+view.w*1.12&&n.y*100>=view.y-view.w*.12&&n.y*100<=view.y+view.w*1.12),ranked=[...visible].sort((a,b)=>b.n.count-a.n.count);
+ const font=view.w*.032,stroke=view.w*.004;
+ const canLabel=n=>{const w=Math.min(view.w*.45,n.name.length*font*.9+font),b={x:n.x*100-w/2,y:n.y*100+view.w*.025,w,h:font*1.5};if(b.x<view.x||b.x+b.w>view.x+view.w||b.y<view.y||b.y+b.h>view.y+view.w||labels.length>=8||labels.some(a=>b.x<a.x+a.w&&b.x+b.w>a.x&&b.y<a.y+a.h&&b.y+b.h>a.y))return false;labels.push(b);return true;};
+ const labelled=new Set(ranked.filter(o=>canLabel(o.n)).map(o=>o.i));
+ let html=visible.map(({n,i})=>{const isStore=level()===3,r=isStore?view.w*(view.w>35?.005:.012):Math.max(view.w*.012,Math.min(n.r*100,view.w*.105));const color=`hsl(${hue(n.key||n.name)} 50% 57%)`;return `<g class="map-node" data-node-index="${i}" ${offline?'':`role="button" tabindex="0" aria-label="${esc(n.name)}${isStore?' 가게 정보':` 위치 확대 · ${n.count}곳`}"`}><title>${esc(n.name)}${isStore?'':` · ${n.count}곳`}</title><circle class="${isStore?'store-dot':'region'}" cx="${n.x*100}" cy="${n.y*100}" r="${r}" fill="${color}" stroke="${color}"></circle>${labelled.has(i)?`<text class="rlabel" x="${n.x*100}" y="${n.y*100+view.w*.04}" style="font-size:${font}px;stroke-width:${stroke}px">${esc(n.name)}</text>`:''}</g>`;}).join('');
+ const t=(DATA.trail||[]).slice(0,Number($('scrub').value));
+ const xy=p=>`${p.x*100} ${p.y*100}`,mid=(a,b)=>({x:(a.x+b.x)/2,y:(a.y+b.y)/2});
+ let trail='';for(let i=0;i<t.length-1;i++){const age=(i+1)/Math.max(1,t.length-1),from=i===0?t[0]:mid(t[i-1],t[i]),to=i===t.length-2?t[i+1]:mid(t[i],t[i+1]);trail+=`<path class="seg" d="M ${xy(from)} Q ${xy(t[i])} ${xy(to)}" stroke-opacity="${.16+.84*age}" stroke-width="${view.w*(.003+.004*age)}"></path>`;}
+ if(t.length>10){const back=t[t.length-11];trail+=`<circle class="ghost" cx="${back.x*100}" cy="${back.y*100}" r="${view.w*.024}" stroke-width="${view.w*.0045}"></circle><text class="ghost-label" x="${back.x*100}" y="${back.y*100-view.w*.037}" font-size="${view.w*.026}" stroke-width="${view.w*.006}">좋아요 10개 전</text>`;}
+ if(t.length){const first=t[0],last=t[t.length-1];trail+=`<circle class="start" cx="${first.x*100}" cy="${first.y*100}" r="${view.w*.009}"></circle><circle class="halo" cx="${last.x*100}" cy="${last.y*100}" r="${view.w*.04}"></circle><circle class="head" cx="${last.x*100}" cy="${last.y*100}" r="${view.w*.018}" stroke-width="${view.w*.005}"></circle>`;}
+ svg.innerHTML=html+`<g class="trail-layer">${trail}</g>`;
+ const point=t[t.length-1];$('step').textContent=point?`${point.n??'—'}번째 · ${point.store}`:'아직 좋아요가 없어요';$('step').title=point?`${point.n??'—'}번째 스와이프 · ${point.store}`:'';
+}
+function renderNavigation(){
+ const steps=$('detail-levels');steps.replaceChildren();['1 업종','2 세부분류','3 가게'].forEach((name,i)=>{const b=element('button','',name);b.type='button';b.dataset.detail=String(i+1);b.setAttribute('aria-pressed',String(level()===i+1));b.disabled=loading||offline;b.onclick=()=>{if(i+1!==level())load(i+1,view);};steps.append(b);});
+ $('back').disabled=loading||offline||level()===1;$('reset').disabled=loading||offline||!DATA;
+ for(const id of ['zoom-in','zoom-out','fit'])$(id).disabled=!DATA||loading;
+}
+function renderList(){
+ const list=$('scope-list');list.replaceChildren();$('scope-title').textContent={1:'전체 업종',2:'전체 세부분류',3:'전체 가게'}[level()];
+ $('scope-count').textContent=`${nodes().length}${level()===3?'곳':'개 분류'}`;
+ const fragment=document.createDocumentFragment();nodes().forEach((n,i)=>{const li=element('li'),b=element('button','node-button');b.type='button';b.dataset.nodeIndex=String(i);b.disabled=loading||offline;b.append(element('span','node-name',n.name),element('span','node-meta',level()===3?'가게 정보':`${n.count}곳`),element('span','node-arrow','›'));b.onclick=()=>choose(n);li.append(b);fragment.append(li);});list.append(fragment);
+ list.scrollTop=0;
+}
+function render(data,nextView={x:0,y:0,w:100}){
+ const wasEnd=!DATA||Number($('scrub').value)>=Number($('scrub').max),oldStep=Number($('scrub').value)||1;DATA=data;
+ $('identity').textContent=offline?'저장된 예시 데이터':data.name||'현재 세션';$('headline').textContent=data.headline||'나의 취향을 살펴보세요';
+ const drift=data.drift?` · 지도상 이동(좋아요 ${data.drift.window}개 전): ${data.drift.from_region??''} → ${data.drift.to_region??''}`:'';
+ $('sub').innerHTML=`스와이프 ${Number(data.swipes)||0}회 · 좋아요 <b>${Number(data.likes)||0}</b>${esc(drift)}`;
+ const max=Math.max(1,(data.trail||[]).length);$('scrub').max=max;$('scrub').value=wasEnd?max:Math.min(oldStep,max);$('scrub').disabled=(data.trail||[]).length<2;
+ const near=$('near');near.replaceChildren();for(const item of data.now?.near||[]){const b=element('button','',item.name);b.type='button';b.disabled=offline||item.card_id==null;b.onclick=()=>showStore(item.card_id);near.append(b);}if(!near.children.length)near.append(element('span','','좋아요한 곳이 아직 없어요'));
+ $('status').textContent=nodes().length?'':'이 단계에는 표시할 항목이 없어요.';$('retry').hidden=true;view={...nextView};fitted={...view};renderNavigation();renderList();draw();
+}
+async function load(detail,nextView=view){
+ if(offline)return;const token=++requestVersion;controller?.abort();controller=new AbortController();loading=true;nextView={...nextView};retryTarget={detail,nextView};$('status').textContent='지도를 불러오고 있어요…';$('retry').hidden=true;$('scope').setAttribute('aria-busy','true');renderNavigation();
+ try {const params=new URLSearchParams({detail:String(detail)});const response=await fetch(endpoint()+'?'+params,{signal:controller.signal});if(!response.ok)throw new Error(response.status===404?'사용자·세션을 찾을 수 없어요.':'지도를 불러오지 못했어요. 다시 시도해 주세요.');const d=await response.json();if(token!==requestVersion)return;if(DATA)levelViews[level()]={...view};loading=false;render(d,nextView);}
+ catch(error){if(token!==requestVersion||error.name==='AbortError')return;$('status').textContent=error.message;$('retry').hidden=false;if(!DATA)$('headline').textContent='취향을 불러오지 못했어요';}
+ finally {if(token===requestVersion){loading=false;$('scope').setAttribute('aria-busy','false');renderNavigation();}}
+}
+function choose(n){if(offline||loading||!n)return;if(level()===3){if(n.card_id!=null)showStore(n.card_id);}else {const w=Math.min(100,Math.max(level()===1?8:2.4,Number(n.r)*280||view.w*.45));load(level()+1,{x:n.x*100-w/2,y:n.y*100-w/2,w});}}
+function price(menu){return typeof menu.price_text==='string'&&menu.price_text.trim()?menu.price_text:typeof menu.price==='number'&&Number.isFinite(menu.price)?menu.price.toLocaleString('ko-KR')+'원':'가격 정보 없음';}
+async function showStore(cardId){
+ if(offline||cardId==null)return;const token=++cardVersion;cardController?.abort();cardController=new AbortController();const dialog=$('store-dialog'),box=$('store-content');box.replaceChildren(element('div','detail-content','가게 정보를 불러오고 있어요…'));if(!dialog.open)dialog.showModal();
+ try{const response=await fetch('/cards/'+encodeURIComponent(cardId)+'?reviews=0',{signal:cardController.signal});if(!response.ok)throw new Error('가게 정보를 불러오지 못했어요.');const card=await response.json();if(token!==cardVersion)return;box.replaceChildren();const image=safeImageURL(card.image);if(image){const img=element('img','detail-image');img.alt=(card.store?.name||'가게')+' 대표 이미지';img.referrerPolicy='no-referrer';img.onerror=()=>img.remove();img.src=image;box.append(img);}
+ const body=element('div','detail-content'),s=card.store||{};body.append(element('p','detail-category',s.category||''),element('h2','',s.name||'가게 정보'),element('p','detail-address',s.location||'주소 정보 없음'));if(s.summary)body.append(element('p','detail-summary',s.summary));
+ const menus=(card.menus||[]).slice(0,5);if(menus.length){body.append(element('h3','detail-menu-title','메뉴'));const list=element('ul','detail-menu-list');for(const m of menus){const li=element('li');li.append(element('strong','',m.name||'메뉴'),element('span','',price(m)));list.append(li);}body.append(list);if(card.menus.length>5)body.append(element('p','detail-footnote',`등록된 ${card.menus.length}개 메뉴 중 처음 5개`));}else body.append(element('p','detail-footnote','등록된 메뉴 정보가 없어요.'));box.append(body);
+ }catch(error){if(token!==cardVersion||error.name==='AbortError')return;const body=element('div','detail-content',error.message),b=element('button','node-button','다시 불러오기');b.onclick=()=>showStore(cardId);body.append(b);box.replaceChildren(body);}
+}
+$('close-store').onclick=()=>$('store-dialog').close();$('store-dialog').addEventListener('close',()=>{cardVersion++;cardController?.abort();});
+$('store-dialog').addEventListener('click',event=>{if(event.target===$('store-dialog')){const b=event.target.getBoundingClientRect();if(event.clientX<b.left||event.clientX>b.right||event.clientY<b.top||event.clientY>b.bottom)event.target.close();}});
+$('back').onclick=goBack;$('reset').onclick=()=>load(1,{x:0,y:0,w:100});$('retry').onclick=()=>{if(retryTarget)load(retryTarget.detail,retryTarget.nextView);};
+$('zoom-in').onclick=()=>{if(!offline&&level()<3){const n=nearestNode();if(n)choose(n);}else zoom(1.4);};$('zoom-out').onclick=()=>{if(!offline&&level()>1&&view.w>=fitted.w*.85)goBack();else zoom(1/1.4);};$('fit').onclick=fitView;$('scrub').oninput=draw;
+$('map').addEventListener('click',event=>{if(dragMoved)return;const el=event.target.closest('[data-node-index]');if(el)choose(nodes()[Number(el.dataset.nodeIndex)]);});
+$('map').addEventListener('keydown',event=>{if(event.key!=='Enter'&&event.key!==' ')return;const el=event.target.closest('[data-node-index]');if(el){event.preventDefault();choose(nodes()[Number(el.dataset.nodeIndex)]);}});
+$('map').addEventListener('wheel',event=>{if(!DATA)return;event.preventDefault();const p=new DOMPoint(event.clientX,event.clientY).matrixTransform(event.currentTarget.getScreenCTM().inverse());zoom(Math.exp(-clamp(event.deltaY,-160,160)*.004),clamp((p.x-view.x)/view.w,0,1),clamp((p.y-view.y)/view.w,0,1));},{passive:false});
+$('map').addEventListener('pointerdown',event=>{if(!DATA||event.isPrimary===false||event.button!==0)return;dragMoved=false;drag={id:event.pointerId,x:event.clientX,y:event.clientY,view:{...view}};});
+$('map').addEventListener('pointermove',event=>{if(!drag||drag.id!==event.pointerId)return;const dx=event.clientX-drag.x,dy=event.clientY-drag.y;if(!dragMoved&&Math.hypot(dx,dy)<7)return;dragMoved=true;event.currentTarget.setPointerCapture(event.pointerId);const b=event.currentTarget.getBoundingClientRect();view={x:drag.view.x-dx/Math.min(b.width,b.height)*drag.view.w,y:drag.view.y-dy/Math.min(b.width,b.height)*drag.view.w,w:drag.view.w};draw();});
+for(const event of ['pointerup','pointercancel','lostpointercapture'])$('map').addEventListener(event,()=>{drag=null;});
+if(offline){$('offline-label').hidden=false;$('navigation').hidden=true;$('scope').hidden=true;render(DEMO);}
+else if(q.get('user_id'))load([1,2,3].includes(Number(q.get('detail')))?Number(q.get('detail')):1,{x:0,y:0,w:100});
+else{$('headline').textContent='사용자 정보가 필요해요';$('status').textContent='사용자와 세션이 연결된 취향 지도 주소로 열어 주세요.';}
+
+</script>
+</body>
+</html>

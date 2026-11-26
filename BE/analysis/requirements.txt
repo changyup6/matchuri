@@ -1,0 +1,30 @@
+# 추천 재설계 분석용 파이썬 의존성 (server/ 와는 별개의 venv).
+#
+# 설치:
+#   python3 -m venv ~/venvs/recsys
+#   ~/venvs/recsys/bin/pip install --index-url https://download.pytorch.org/whl/cpu torch
+#   ~/venvs/recsys/bin/pip install -r analysis/requirements.txt
+#
+# torch 는 반드시 위 CPU 인덱스로 먼저 깔아야 한다. 그냥 깔면 이 EC2 에 쓸모없는
+# CUDA 런타임까지 2.5GB 를 더 받는다 (GPU 없음).
+# 아래 버전은 2026-09-09 EC2 에서 실제로 돌린 조합이다.
+
+torch==2.14.0+cpu
+sentence-transformers==6.0.1
+transformers==5.16.1
+tokenizers==0.23.2
+safetensors==0.8.0
+numpy==2.5.3
+pandas==3.0.5
+scipy==1.18.1
+scikit-learn==1.9.0
+tqdm==4.70.0
+
+# 취향 지형도(`build_serving.py --only layout`)의 2-D 투영에만 쓴다. 없으면 sklearn
+# TSNE(metric="precomputed", init="random", 씨앗 고정)로 물러나고 어느 쪽을 썼는지
+# `layout.json`·manifest 에 적힌다. **서버 이미지에는 들어가지 않는다** — 좌표는
+# 오프라인에서 굳고 서버는 JSON 한 장을 읽는다.
+umap-learn==0.5.12
+pynndescent==0.6.0
+numba==0.67.0
+llvmlite==0.49.0

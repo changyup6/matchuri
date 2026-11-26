@@ -1,0 +1,39 @@
+{
+  "verified_at": "2026-09-14T06:09:48.016778+00:00",
+  "code_commit": "fd02bfd9cc4605871088f4510a8d8cee985289e8",
+  "image": "backmock-app:decision-separated-fd02bfd",
+  "image_id": "sha256:8fbbab6456be4d70e419e30f2df7d912bd405e23e305b5b95b97917e7ca60bd8",
+  "healthy": true,
+  "production_read_only_checks": {
+    "/healthz": 200,
+    "/readyz": 200,
+    "schema_and_meaning_fields": true,
+    "metrics_http": 200,
+    "restored_feedback_count": 296,
+    "candidate_total": 1629,
+    "meaning_entries": 27,
+    "current_reading_present": true,
+    "download_attachment": true,
+    "stable_read_only_snapshot": true
+  },
+  "staging_isolated_checks": {
+    "/healthz": 200,
+    "/readyz": 200,
+    "schema_and_meaning_fields": true,
+    "isolated_existing_card_filter_location_preference_flow": true,
+    "metrics_http": 200,
+    "restored_feedback_count": 2,
+    "candidate_total": 203,
+    "meaning_entries": 27,
+    "current_reading_present": true,
+    "download_attachment": true,
+    "stable_read_only_snapshot": true
+  },
+  "preserved_state_file_prefixes": 6,
+  "bundled_fields_removed": true,
+  "latest_master_card_id_and_hours_preserved": true,
+  "original_data_mount_read_only": true,
+  "original_state_volume_retained": true,
+  "production_test_writes": false,
+  "mr_merged": false
+}

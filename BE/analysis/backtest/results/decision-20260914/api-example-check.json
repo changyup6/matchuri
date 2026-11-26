@@ -1,0 +1,11 @@
+{
+  "family": "korean",
+  "synthetic_seed": 2000,
+  "first_proposal_at": 16,
+  "cards": 4,
+  "loaded_images": 4,
+  "http_parity": true,
+  "validation_auc": 0.8333,
+  "stability": 0.75,
+  "example_is_not_representative": true
+}

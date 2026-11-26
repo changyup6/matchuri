@@ -1,0 +1,184 @@
+{
+  "passed": true,
+  "cases": 16,
+  "slates": 64,
+  "seconds": 31.001660798909143,
+  "selection": "Previously fixed four examples, all four history arms; no outcome-based sampling",
+  "checks": [
+    {
+      "id": "noodle_core-cuisine_00-200-none",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "noodle_core-cuisine_00-200-neutral",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "noodle_core-cuisine_00-200-prefer",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "noodle_core-cuisine_00-200-avoid",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "rice_core-cuisine_00-200-none",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "rice_core-cuisine_00-200-neutral",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "rice_core-cuisine_00-200-prefer",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "rice_core-cuisine_00-200-avoid",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "noodle_menu-taste_07-200-none",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "noodle_menu-taste_07-200-neutral",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "noodle_menu-taste_07-200-prefer",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "noodle_menu-taste_07-200-avoid",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "soup_menu-temperature_13-200-none",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "soup_menu-temperature_13-200-neutral",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "soup_menu-temperature_13-200-prefer",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    },
+    {
+      "id": "soup_menu-temperature_13-200-avoid",
+      "operational_mean_bitwise_equal": true,
+      "operational_std_bitwise_equal": true,
+      "operational_slate_equal": true,
+      "research_slate_equal": true,
+      "current_only_slate_equal": true,
+      "context_floor_slate_equal": true
+    }
+  ],
+  "numeric_max_error": {
+    "operational_mean": 0,
+    "operational_std": 0
+  },
+  "code": {
+    "taste": {
+      "path": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/compat-e55f5dd/BE/server/recsys/taste.py",
+      "sha256": "dc4bee4f43f2341ed351f0f2962e62edd2843b18a27a4650606740ffcc8cb2be"
+    },
+    "decision": {
+      "path": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/compat-e55f5dd/BE/server/recsys/decision.py",
+      "sha256": "7dc402cb50614233e196ecf2b3c02c4b3ddefab13e77a6bb85f069e2e707cdd7"
+    },
+    "content": {
+      "path": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/compat-e55f5dd/BE/server/recsys/content.py",
+      "sha256": "a59bd0e80ddc23ab478e7fd058624e3e8f14d2bf129fea74970c86a3ae87560b"
+    }
+  },
+  "ast_audit_sha256": "239a2e72711a06e557bdee8d320228a62ff15c88649fd200a30a2765e2354115",
+  "source_sha256": {
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/audit-current-code.py": "764e55dc8a630810313293746adf56c1df45b9a705566175fd4db4a96039254e",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/fixtures.json": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/information-example-selection.json": "902f55e1f52581e72f4db8d99da4e10d5a429a64ef682cea5f812ac06bff0aa8",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/prior.json": "6c89c2017f15407818b44c74484176237d0089da5da7dddc18ad8be09302e058"
+  },
+  "limits": [
+    "Compatibility of master e55f5dd on the original frozen catalogue, not a replay on the refreshed live review similarity matrix.",
+    "Full operating mean/std are recomputed; research mean/std reuse the saved arrays because research source and manual selector algorithm are unchanged.",
+    "Manual four-card selector is tested; newer automatic readiness/display score behavior is outside this study.",
+    "The newly committed real-swipe prior has not been built into the checked live serving prior.json, which remains byte-identical to the frozen step3d-clip prior."
+  ]
+}

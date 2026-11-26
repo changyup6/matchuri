@@ -1,0 +1,46 @@
+{
+  "scope": "Frozen actual catalogue and hypothetical feedback; goal-alignment audit; no production/model/policy change. Derived results only.",
+  "base_commit": "7e760d930fa76550be3e0b71ec7ca5314f0960b3",
+  "files": {
+    "nuance-report.md": "b79e61ab4c54e79fadf54a81f097825bc194af22eac0ae505db377e5f6330758",
+    "nuance-summary.json": "09629433a03a27d642f5ed3239561d0078face2982402689abddad6276c68384",
+    "nuance-comparison.png": "832dcc84cbb1bc14a18c749ee56050812a1da4d5b655ca57abb876ea319a3ce5",
+    "candidate-density.png": "2274592d981c10676e379269527d6669ea61053cd800d8ddf7b09d782d2fd5f3",
+    "density-audit.json": "982d97549b269fe71e00c7ee0ebf4bb2488055d22e14941f3d74c8673086b03e",
+    "independent-density-audit.md": "b1b0fbeef394ff1a90e3b8bd61ac20dd8e04c29f3e62d6459eebc3ed32a204a5",
+    "independent-density-audit.json": "cdb8c1c46977af205abc95caa351bb786ed3852d37929793d6c4827324338175",
+    "selector-boundary-report.md": "6b5719aac6775ce65d801a18c5f2288d24394f130918809d6ca8be8874f88a81",
+    "selector-boundary-summary.json": "d1b2a57b456d019287bee0098010e93db4ae50eaf136e2f40dfdbb53901f870c",
+    "selector-boundary.png": "2e9fda3d3f6eb31fe1279a0a05dd4024a9352bd953a5a126817e45c26e22b556",
+    "protocol.md": "d4464dcbce69ce57c1dea4e6b454abe7a726e05305f6398bfad8cb7b19b9334a",
+    "western-boundary-audit.md": "24204bcf5dcd5398d7e9bd71d96292e120d17e4820225bc065b32cf777bed476",
+    "western-boundary-audit.json": "2d9a6ad89d69e407ca9c43aeb7647d46fb4a61bb31506d27add680148008766a"
+  },
+  "offline_sources": {
+    "analyze-frozen-nuance.py": "a416691fdc36f230884e0b54637a78c1ee3d88b7b914e7b849fda428d9b032ea",
+    "density-audit.py": "1964629c3835a0166753ac8843ab62286dd4df8c1b75ac02af40152cbdbf768f",
+    "density-slates.csv": "dc28f17454e8b46784acb58ae15a2e88f921ae15fea640222c32dffc479d32c7",
+    "frozen-cutlet-scores.npz": "0a47b7eafd29ff57b03bb14c911fcd212d56fe84928e292012b8d1eda2f4eb74",
+    "frozen-score-metadata.json": "aa1ffedee1f7604a457eaccc29cee7e0f47ffe2b07aed6289e4774d873bd9c4f",
+    "export-frozen-scores.py": "5e5f812ca09a887fb9533dbfd59af6ef5738a3aaa193768369ded3d293a29875",
+    "independent-density-audit.py": "a5bd4f8db0abe4b0f4f390621060bb984c9f090d06fb01a1e9e1194111167109",
+    "selector-trace.json": "4a21e1ec6142d6f80cdec615475b7cd6031eea2c6b476736b5f8372d4cbf8d36",
+    "selector-saved-audit.json": "ae48936005783a8e36bd2dfa0b00af0a24ba5ed605111a26b4add265d1872c1c",
+    "selector_trace.py": "f5136bcaa039ee57b23af2544e86702335bf76e69e358de73164347b4c338484",
+    "run-selector-trace.py": "208a7de42ca483c2f07767d14886866d077940b4aff66e8dcda09ec56c3a842c",
+    "western-boundary-audit.py": "af903c9e7fc8ffaa94cf0ad9c21cd0b0b6f6cf1bfa3caa09324276619bc2e7ea"
+  },
+  "validation": {
+    "research_tests_passed": 170,
+    "frozen_top20_card_records": 1296,
+    "full_predictions_independently_verified": 80892,
+    "density_csv_rows": 1872,
+    "selector_parity_runs": 18
+  },
+  "excluded": [
+    "profiles.private.npz",
+    "original catalogue vectors/menu/review text",
+    "runtime user logs and DB",
+    "credentials"
+  ]
+}

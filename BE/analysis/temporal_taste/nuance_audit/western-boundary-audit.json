@@ -1,0 +1,808 @@
+{
+  "new_model_scores": false,
+  "production_changed": false,
+  "selection": "Two deliberately selected counterexamples for diagnosis, not estimates of prevalence. Seed102 balanced4+4 and seed101 real2+4 subset. Both full4+4 reference mean gaps move toward western while a Japanese restaurant replaces a western one in top3.",
+  "cases": [
+    {
+      "seed": 102,
+      "analysis_mode": "mean",
+      "japanese_ids": [
+        "2129615239",
+        "355359175",
+        "400665082",
+        "437527028"
+      ],
+      "western_ids": [
+        "1927619142",
+        "471451980",
+        "633394651",
+        "938786093"
+      ],
+      "pool_size": 8,
+      "states": {
+        "none": {
+          "id": "cutlet-102-n0-none",
+          "intercept": -0.5985247774976505,
+          "candidates": {
+            "2129615239": {
+              "name": "봄카츠 강남본점",
+              "style": "japanese",
+              "mean": -0.23399199186116415,
+              "std": 1.059526788738127,
+              "conservative": -0.7637553862302277
+            },
+            "355359175": {
+              "name": "카츠왕 강남직영점",
+              "style": "japanese",
+              "mean": -0.18471178137163669,
+              "std": 1.0459029876793613,
+              "conservative": -0.7076632752113173
+            },
+            "400665082": {
+              "name": "오제제 강남점",
+              "style": "japanese",
+              "mean": -0.2742684833008591,
+              "std": 1.0496410472048843,
+              "conservative": -0.7990890069033012
+            },
+            "437527028": {
+              "name": "시올돈 도곡점",
+              "style": "japanese",
+              "mean": -0.1308878900955438,
+              "std": 1.0556149543703521,
+              "conservative": -0.6586953672807199
+            },
+            "1927619142": {
+              "name": "진심왕돈까스 역삼점",
+              "style": "western",
+              "mean": -0.06346502957444144,
+              "std": 1.027961184093777,
+              "conservative": -0.57744562162133
+            },
+            "471451980": {
+              "name": "윤화돈까스",
+              "style": "western",
+              "mean": -0.05229073759867908,
+              "std": 0.9988254744242505,
+              "conservative": -0.5517034748108043
+            },
+            "633394651": {
+              "name": "계몽돈까스 2호점",
+              "style": "western",
+              "mean": -0.06278759381812626,
+              "std": 1.0114351986451364,
+              "conservative": -0.5685051931406945
+            },
+            "938786093": {
+              "name": "돈까스해",
+              "style": "western",
+              "mean": -0.09051663964185197,
+              "std": 1.037835777775733,
+              "conservative": -0.6094345285297185
+            }
+          },
+          "reference": {
+            "japanese_count": 4,
+            "western_count": 4,
+            "japanese_mean": -0.20596503665730093,
+            "western_mean": -0.06726500015827469,
+            "japanese_minus_western_mean": -0.13870003649902624,
+            "japanese_minus_western_conservative_mean": -0.15552855438075464
+          },
+          "subset": {
+            "japanese_count": 4,
+            "western_count": 4,
+            "japanese_mean": -0.20596503665730095,
+            "western_mean": -0.06726500015827469,
+            "japanese_minus_western_mean": -0.13870003649902626,
+            "japanese_minus_western_conservative_mean": -0.15552855438075475
+          },
+          "mean": {
+            "ordered_ids": [
+              "471451980",
+              "633394651",
+              "1927619142",
+              "938786093",
+              "437527028",
+              "355359175",
+              "2129615239",
+              "400665082"
+            ],
+            "top3": [
+              "471451980",
+              "633394651",
+              "1927619142"
+            ],
+            "japanese_top3": 0,
+            "third_id": "1927619142",
+            "fourth_id": "938786093",
+            "third_score": -0.06346502957444144,
+            "fourth_score": -0.09051663964185197,
+            "third_minus_fourth": 0.027051610067410525
+          },
+          "conservative": {
+            "ordered_ids": [
+              "471451980",
+              "633394651",
+              "1927619142",
+              "938786093",
+              "437527028",
+              "355359175",
+              "2129615239",
+              "400665082"
+            ],
+            "top3": [
+              "471451980",
+              "633394651",
+              "1927619142"
+            ],
+            "japanese_top3": 0,
+            "third_id": "1927619142",
+            "fourth_id": "938786093",
+            "third_score": -0.57744562162133,
+            "fourth_score": -0.6094345285297185,
+            "third_minus_fourth": 0.031988906908388515
+          }
+        },
+        "western": {
+          "id": "cutlet-102-n80-western",
+          "intercept": -0.18583295270165665,
+          "candidates": {
+            "2129615239": {
+              "name": "봄카츠 강남본점",
+              "style": "japanese",
+              "mean": -0.00995766943049839,
+              "std": 1.0345869310333642,
+              "conservative": -0.5272511349471805
+            },
+            "355359175": {
+              "name": "카츠왕 강남직영점",
+              "style": "japanese",
+              "mean": 0.07302034664428594,
+              "std": 1.0239690929903307,
+              "conservative": -0.4389641998508794
+            },
+            "400665082": {
+              "name": "오제제 강남점",
+              "style": "japanese",
+              "mean": -0.06712252404882615,
+              "std": 1.02591452808242,
+              "conservative": -0.5800797880900361
+            },
+            "437527028": {
+              "name": "시올돈 도곡점",
+              "style": "japanese",
+              "mean": 0.19545301450663535,
+              "std": 1.030414987077703,
+              "conservative": -0.3197544790322162
+            },
+            "1927619142": {
+              "name": "진심왕돈까스 역삼점",
+              "style": "western",
+              "mean": 0.2209529651690685,
+              "std": 1.008615042698361,
+              "conservative": -0.28335455618011207
+            },
+            "471451980": {
+              "name": "윤화돈까스",
+              "style": "western",
+              "mean": 0.21194390201834126,
+              "std": 0.9857427427813537,
+              "conservative": -0.2809274693723356
+            },
+            "633394651": {
+              "name": "계몽돈까스 2호점",
+              "style": "western",
+              "mean": 0.17703664042289294,
+              "std": 0.9968176606281692,
+              "conservative": -0.32137218989119165
+            },
+            "938786093": {
+              "name": "돈까스해",
+              "style": "western",
+              "mean": 0.16420296060443587,
+              "std": 1.0185578962789734,
+              "conservative": -0.34507598753505087
+            }
+          },
+          "reference": {
+            "japanese_count": 4,
+            "western_count": 4,
+            "japanese_mean": 0.04784829191789919,
+            "western_mean": 0.19353411705368465,
+            "japanese_minus_western_mean": -0.14568582513578546,
+            "japanese_minus_western_conservative_mean": -0.15882984973540554
+          },
+          "subset": {
+            "japanese_count": 4,
+            "western_count": 4,
+            "japanese_mean": 0.04784829191789919,
+            "western_mean": 0.19353411705368465,
+            "japanese_minus_western_mean": -0.14568582513578546,
+            "japanese_minus_western_conservative_mean": -0.15882984973540548
+          },
+          "mean": {
+            "ordered_ids": [
+              "1927619142",
+              "471451980",
+              "437527028",
+              "633394651",
+              "938786093",
+              "355359175",
+              "2129615239",
+              "400665082"
+            ],
+            "top3": [
+              "1927619142",
+              "471451980",
+              "437527028"
+            ],
+            "japanese_top3": 1,
+            "third_id": "437527028",
+            "fourth_id": "633394651",
+            "third_score": 0.19545301450663535,
+            "fourth_score": 0.17703664042289294,
+            "third_minus_fourth": 0.018416374083742415
+          },
+          "conservative": {
+            "ordered_ids": [
+              "471451980",
+              "1927619142",
+              "437527028",
+              "633394651",
+              "938786093",
+              "355359175",
+              "2129615239",
+              "400665082"
+            ],
+            "top3": [
+              "471451980",
+              "1927619142",
+              "437527028"
+            ],
+            "japanese_top3": 1,
+            "third_id": "437527028",
+            "fourth_id": "633394651",
+            "third_score": -0.3197544790322162,
+            "fourth_score": -0.32137218989119165,
+            "third_minus_fourth": 0.0016177108589754408
+          }
+        },
+        "japanese": {
+          "id": "cutlet-102-n80-japanese",
+          "intercept": -0.14690415359752354,
+          "candidates": {
+            "2129615239": {
+              "name": "봄카츠 강남본점",
+              "style": "japanese",
+              "mean": 0.24383243229657217,
+              "std": 1.0345869310333642,
+              "conservative": -0.27346103322010995
+            },
+            "355359175": {
+              "name": "카츠왕 강남직영점",
+              "style": "japanese",
+              "mean": 0.22953260048109045,
+              "std": 1.0239690929903307,
+              "conservative": -0.28245194601407486
+            },
+            "400665082": {
+              "name": "오제제 강남점",
+              "style": "japanese",
+              "mean": 0.2032552784642224,
+              "std": 1.02591452808242,
+              "conservative": -0.3097019855769876
+            },
+            "437527028": {
+              "name": "시올돈 도곡점",
+              "style": "japanese",
+              "mean": 0.26832119585274483,
+              "std": 1.030414987077703,
+              "conservative": -0.2468862976861067
+            },
+            "1927619142": {
+              "name": "진심왕돈까스 역삼점",
+              "style": "western",
+              "mean": 0.2803900125295603,
+              "std": 1.008615042698361,
+              "conservative": -0.22391750881962025
+            },
+            "471451980": {
+              "name": "윤화돈까스",
+              "style": "western",
+              "mean": 0.18673494792517634,
+              "std": 0.9857427427813537,
+              "conservative": -0.3061364234655005
+            },
+            "633394651": {
+              "name": "계몽돈까스 2호점",
+              "style": "western",
+              "mean": 0.23877501462766984,
+              "std": 0.9968176606281692,
+              "conservative": -0.25963381568641475
+            },
+            "938786093": {
+              "name": "돈까스해",
+              "style": "western",
+              "mean": 0.2733430147665218,
+              "std": 1.0185578962789734,
+              "conservative": -0.23593593337296492
+            }
+          },
+          "reference": {
+            "japanese_count": 4,
+            "western_count": 4,
+            "japanese_mean": 0.23623537677365747,
+            "western_mean": 0.24481074746223205,
+            "japanese_minus_western_mean": -0.008575370688574585,
+            "japanese_minus_western_conservative_mean": -0.021719395288194665
+          },
+          "subset": {
+            "japanese_count": 4,
+            "western_count": 4,
+            "japanese_mean": 0.23623537677365747,
+            "western_mean": 0.24481074746223205,
+            "japanese_minus_western_mean": -0.008575370688574585,
+            "japanese_minus_western_conservative_mean": -0.021719395288194665
+          },
+          "mean": {
+            "ordered_ids": [
+              "1927619142",
+              "938786093",
+              "437527028",
+              "2129615239",
+              "633394651",
+              "355359175",
+              "400665082",
+              "471451980"
+            ],
+            "top3": [
+              "1927619142",
+              "938786093",
+              "437527028"
+            ],
+            "japanese_top3": 1,
+            "third_id": "437527028",
+            "fourth_id": "2129615239",
+            "third_score": 0.26832119585274483,
+            "fourth_score": 0.24383243229657217,
+            "third_minus_fourth": 0.02448876355617266
+          },
+          "conservative": {
+            "ordered_ids": [
+              "1927619142",
+              "938786093",
+              "437527028",
+              "633394651",
+              "2129615239",
+              "355359175",
+              "471451980",
+              "400665082"
+            ],
+            "top3": [
+              "1927619142",
+              "938786093",
+              "437527028"
+            ],
+            "japanese_top3": 1,
+            "third_id": "437527028",
+            "fourth_id": "633394651",
+            "third_score": -0.2468862976861067,
+            "fourth_score": -0.25963381568641475,
+            "third_minus_fourth": 0.012747518000308045
+          }
+        }
+      },
+      "swap": {
+        "entered_id": "437527028",
+        "left_id": "633394651",
+        "entered_name": "시올돈 도곡점",
+        "left_name": "계몽돈까스 2호점",
+        "common_intercept_delta": 0.41269182479599387,
+        "entered": {
+          "mean_delta": 0.3263409046021791,
+          "std_delta": -0.02519996729264906,
+          "conservative_delta": 0.33894088824850366,
+          "nonconstant_mean_delta": -0.08635092019381474
+        },
+        "left": {
+          "mean_delta": 0.2398242342410192,
+          "std_delta": -0.014617538016967191,
+          "conservative_delta": 0.24713300324950283,
+          "nonconstant_mean_delta": -0.17286759055497466
+        },
+        "none_entered_minus_left": {
+          "mean": -0.06810029627741754,
+          "std": 0.04417975572521571,
+          "conservative": -0.09019017414002539
+        },
+        "western_entered_minus_left": {
+          "mean": 0.018416374083742415,
+          "std": 0.03359732644953384,
+          "conservative": 0.0016177108589754408
+        },
+        "relative_gain": {
+          "mean": 0.08651667036115995,
+          "uncertainty_penalty_change": 0.005291214637840935,
+          "conservative": 0.09180788499900083
+        }
+      }
+    },
+    {
+      "seed": 101,
+      "analysis_mode": "conservative",
+      "japanese_ids": [
+        "2129615239",
+        "224156084"
+      ],
+      "western_ids": [
+        "1197302310",
+        "1927619142",
+        "633394651",
+        "938786093"
+      ],
+      "pool_size": 6,
+      "states": {
+        "none": {
+          "id": "cutlet-101-n0-none",
+          "intercept": -0.5978939382865289,
+          "candidates": {
+            "2129615239": {
+              "name": "봄카츠 강남본점",
+              "style": "japanese",
+              "mean": -0.15619764080733273,
+              "std": 1.0456131976192304,
+              "conservative": -0.679004239616948
+            },
+            "224156084": {
+              "name": "카츠이음",
+              "style": "japanese",
+              "mean": -0.2800078755409004,
+              "std": 1.0367634943140716,
+              "conservative": -0.7983896226979361
+            },
+            "1197302310": {
+              "name": "뢰벤돈까스",
+              "style": "western",
+              "mean": -0.09283530144434005,
+              "std": 1.0216852825819396,
+              "conservative": -0.6036779427353098
+            },
+            "1927619142": {
+              "name": "진심왕돈까스 역삼점",
+              "style": "western",
+              "mean": -0.11492097629285802,
+              "std": 1.0332541217790343,
+              "conservative": -0.6315480371823752
+            },
+            "633394651": {
+              "name": "계몽돈까스 2호점",
+              "style": "western",
+              "mean": -0.12229181242127402,
+              "std": 1.024487539220081,
+              "conservative": -0.6345355820313145
+            },
+            "938786093": {
+              "name": "돈까스해",
+              "style": "western",
+              "mean": -0.17399041100631674,
+              "std": 1.0301867341242075,
+              "conservative": -0.6890837780684205
+            }
+          },
+          "reference": {
+            "japanese_count": 4,
+            "western_count": 4,
+            "japanese_mean": -0.1407026945663266,
+            "western_mean": -0.1260096252911972,
+            "japanese_minus_western_mean": -0.014693069275129422,
+            "japanese_minus_western_conservative_mean": -0.013601467198273931
+          },
+          "subset": {
+            "japanese_count": 2,
+            "western_count": 4,
+            "japanese_mean": -0.21810275817411656,
+            "western_mean": -0.1260096252911972,
+            "japanese_minus_western_mean": -0.09209313288291937,
+            "japanese_minus_western_conservative_mean": -0.098985596153087
+          },
+          "mean": {
+            "ordered_ids": [
+              "1197302310",
+              "1927619142",
+              "633394651",
+              "2129615239",
+              "938786093",
+              "224156084"
+            ],
+            "top3": [
+              "1197302310",
+              "1927619142",
+              "633394651"
+            ],
+            "japanese_top3": 0,
+            "third_id": "633394651",
+            "fourth_id": "2129615239",
+            "third_score": -0.12229181242127402,
+            "fourth_score": -0.15619764080733273,
+            "third_minus_fourth": 0.03390582838605871
+          },
+          "conservative": {
+            "ordered_ids": [
+              "1197302310",
+              "1927619142",
+              "633394651",
+              "2129615239",
+              "938786093",
+              "224156084"
+            ],
+            "top3": [
+              "1197302310",
+              "1927619142",
+              "633394651"
+            ],
+            "japanese_top3": 0,
+            "third_id": "633394651",
+            "fourth_id": "2129615239",
+            "third_score": -0.6345355820313145,
+            "fourth_score": -0.679004239616948,
+            "third_minus_fourth": 0.04446865758563345
+          }
+        },
+        "western": {
+          "id": "cutlet-101-n80-western",
+          "intercept": -0.14724489189752515,
+          "candidates": {
+            "2129615239": {
+              "name": "봄카츠 강남본점",
+              "style": "japanese",
+              "mean": 0.13982006232050376,
+              "std": 1.0175998556120749,
+              "conservative": -0.3689798654855337
+            },
+            "224156084": {
+              "name": "카츠이음",
+              "style": "japanese",
+              "mean": -0.0774704667783177,
+              "std": 1.0194687252059291,
+              "conservative": -0.5872048293812823
+            },
+            "1197302310": {
+              "name": "뢰벤돈까스",
+              "style": "western",
+              "mean": 0.13916104457952533,
+              "std": 1.0061507962843286,
+              "conservative": -0.36391435356263896
+            },
+            "1927619142": {
+              "name": "진심왕돈까스 역삼점",
+              "style": "western",
+              "mean": 0.1764976655421917,
+              "std": 1.0163333840044646,
+              "conservative": -0.3316690264600406
+            },
+            "633394651": {
+              "name": "계몽돈까스 2호점",
+              "style": "western",
+              "mean": 0.1061431853375212,
+              "std": 1.0108575585382544,
+              "conservative": -0.399285593931606
+            },
+            "938786093": {
+              "name": "돈까스해",
+              "style": "western",
+              "mean": 0.06272282071216612,
+              "std": 1.0154131832829754,
+              "conservative": -0.44498377092932156
+            }
+          },
+          "reference": {
+            "japanese_count": 4,
+            "western_count": 4,
+            "japanese_mean": 0.09952788720282507,
+            "western_mean": 0.12113117904285109,
+            "japanese_minus_western_mean": -0.021603291840026018,
+            "japanese_minus_western_conservative_mean": -0.01849362285658307
+          },
+          "subset": {
+            "japanese_count": 2,
+            "western_count": 4,
+            "japanese_mean": 0.031174797771093027,
+            "western_mean": 0.12113117904285109,
+            "japanese_minus_western_mean": -0.08995638127175806,
+            "japanese_minus_western_conservative_mean": -0.0931291612125062
+          },
+          "mean": {
+            "ordered_ids": [
+              "1927619142",
+              "2129615239",
+              "1197302310",
+              "633394651",
+              "938786093",
+              "224156084"
+            ],
+            "top3": [
+              "1927619142",
+              "2129615239",
+              "1197302310"
+            ],
+            "japanese_top3": 1,
+            "third_id": "1197302310",
+            "fourth_id": "633394651",
+            "third_score": 0.13916104457952533,
+            "fourth_score": 0.1061431853375212,
+            "third_minus_fourth": 0.03301785924200412
+          },
+          "conservative": {
+            "ordered_ids": [
+              "1927619142",
+              "1197302310",
+              "2129615239",
+              "633394651",
+              "938786093",
+              "224156084"
+            ],
+            "top3": [
+              "1927619142",
+              "1197302310",
+              "2129615239"
+            ],
+            "japanese_top3": 1,
+            "third_id": "2129615239",
+            "fourth_id": "633394651",
+            "third_score": -0.3689798654855337,
+            "fourth_score": -0.399285593931606,
+            "third_minus_fourth": 0.030305728446072322
+          }
+        },
+        "japanese": {
+          "id": "cutlet-101-n80-japanese",
+          "intercept": -0.1795360356463438,
+          "candidates": {
+            "2129615239": {
+              "name": "봄카츠 강남본점",
+              "style": "japanese",
+              "mean": 0.2906775861083777,
+              "std": 1.0175998556120749,
+              "conservative": -0.21812234169765976
+            },
+            "224156084": {
+              "name": "카츠이음",
+              "style": "japanese",
+              "mean": 0.09342875043847998,
+              "std": 1.0194687252059291,
+              "conservative": -0.4163056121644846
+            },
+            "1197302310": {
+              "name": "뢰벤돈까스",
+              "style": "western",
+              "mean": 0.22329440401274836,
+              "std": 1.0061507962843286,
+              "conservative": -0.2797809941294159
+            },
+            "1927619142": {
+              "name": "진심왕돈까스 역삼점",
+              "style": "western",
+              "mean": 0.17164800775498068,
+              "std": 1.0163333840044646,
+              "conservative": -0.3365186842472516
+            },
+            "633394651": {
+              "name": "계몽돈까스 2호점",
+              "style": "western",
+              "mean": 0.16247727122049527,
+              "std": 1.0108575585382544,
+              "conservative": -0.34295150804863195
+            },
+            "938786093": {
+              "name": "돈까스해",
+              "style": "western",
+              "mean": 0.1261106855038207,
+              "std": 1.0154131832829754,
+              "conservative": -0.381595906137667
+            }
+          },
+          "reference": {
+            "japanese_count": 4,
+            "western_count": 4,
+            "japanese_mean": 0.22200024315295755,
+            "western_mean": 0.17088259212301127,
+            "japanese_minus_western_mean": 0.05111765102994628,
+            "japanese_minus_western_conservative_mean": 0.054227320013389146
+          },
+          "subset": {
+            "japanese_count": 2,
+            "western_count": 4,
+            "japanese_mean": 0.19205316827342883,
+            "western_mean": 0.17088259212301127,
+            "japanese_minus_western_mean": 0.021170576150417564,
+            "japanese_minus_western_conservative_mean": 0.01799779620966946
+          },
+          "mean": {
+            "ordered_ids": [
+              "2129615239",
+              "1197302310",
+              "1927619142",
+              "633394651",
+              "938786093",
+              "224156084"
+            ],
+            "top3": [
+              "2129615239",
+              "1197302310",
+              "1927619142"
+            ],
+            "japanese_top3": 1,
+            "third_id": "1927619142",
+            "fourth_id": "633394651",
+            "third_score": 0.17164800775498068,
+            "fourth_score": 0.16247727122049527,
+            "third_minus_fourth": 0.009170736534485413
+          },
+          "conservative": {
+            "ordered_ids": [
+              "2129615239",
+              "1197302310",
+              "1927619142",
+              "633394651",
+              "938786093",
+              "224156084"
+            ],
+            "top3": [
+              "2129615239",
+              "1197302310",
+              "1927619142"
+            ],
+            "japanese_top3": 1,
+            "third_id": "1927619142",
+            "fourth_id": "633394651",
+            "third_score": -0.3365186842472516,
+            "fourth_score": -0.34295150804863195,
+            "third_minus_fourth": 0.006432823801380327
+          }
+        }
+      },
+      "swap": {
+        "entered_id": "2129615239",
+        "left_id": "633394651",
+        "entered_name": "봄카츠 강남본점",
+        "left_name": "계몽돈까스 2호점",
+        "common_intercept_delta": 0.45064904638900377,
+        "entered": {
+          "mean_delta": 0.2960177031278365,
+          "std_delta": -0.02801334200715555,
+          "conservative_delta": 0.3100243741314143,
+          "nonconstant_mean_delta": -0.1546313432611673
+        },
+        "left": {
+          "mean_delta": 0.22843499775879522,
+          "std_delta": -0.013629980681826526,
+          "conservative_delta": 0.23524998809970854,
+          "nonconstant_mean_delta": -0.22221404863020855
+        },
+        "none_entered_minus_left": {
+          "mean": -0.03390582838605871,
+          "std": 0.021125658399149483,
+          "conservative": -0.04446865758563345
+        },
+        "western_entered_minus_left": {
+          "mean": 0.03367687698298255,
+          "std": 0.006742297073820458,
+          "conservative": 0.030305728446072322
+        },
+        "relative_gain": {
+          "mean": 0.06758270536904126,
+          "uncertainty_penalty_change": 0.0071916806626645124,
+          "conservative": 0.07477438603170578
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "frozen-cutlet-scores.npz": "0a47b7eafd29ff57b03bb14c911fcd212d56fe84928e292012b8d1eda2f4eb74",
+    "frozen-score-metadata.json": "aa1ffedee1f7604a457eaccc29cee7e0f47ffe2b07aed6289e4774d873bd9c4f",
+    "density-slates.csv": "dc28f17454e8b46784acb58ae15a2e88f921ae15fea640222c32dffc479d32c7",
+    "results.json": "0b5bcddee8d3d24e7893fa942425e9da234a6a0e037f2ce7bf5e343712353ac1",
+    "western-boundary-audit.py": "af903c9e7fc8ffaa94cf0ad9c21cd0b0b6f6cf1bfa3caa09324276619bc2e7ea"
+  }
+}

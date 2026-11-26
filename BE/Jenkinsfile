@@ -1,0 +1,177 @@
+pipeline {
+    agent any
+
+    environment {
+        // 프로젝트 이름을 고정한다. 이게 없으면 Jenkins 작업공간 폴더명으로
+        // 별도 스택이 만들어져서 80번 포트를 두고 충돌한다.
+        COMPOSE_PROJECT_NAME = 'backmock'
+
+        // git 에 올라가지 않는 비밀 파일의 정본이 있는 곳. Jenkins 컨테이너에
+        // 마운트된 /var/jenkins_home 안이라 파이프라인이 읽을 수 있다.
+        SECRETS_DIR = '/var/jenkins_home/matchuri-secrets'
+
+        // 서버가 읽는 런타임 데이터가 있는 호스트 폴더. 저장소에는 없다(2026-09-14).
+        // docker-compose.yml 이 이 값을 읽어 /app/data/kakao 에 붙인다.
+        MATCHURI_DATA = '/home/ubuntu/matchuri-data/kakao'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        // `nginx/.htpasswd` 는 .gitignore 대상이라 **체크아웃에 없다**. 없으면 nginx 가
+        // auth_basic_user_file 을 열지 못해 /admin 이 401 이 아니라 **403** 을 준다
+        // (자격증명 없이 오면 401 로 물어보고, 넣으면 파일을 못 읽어 403 이 된다).
+        // 일반 빌드는 git clean 을 돌리지 않아 파일이 남지만, 작업공간을 초기화하면
+        // 사라진다. 매 빌드마다 정본에서 채워 그 경우를 없앤다.
+        stage('Secrets') {
+            steps {
+                dir('BE') {
+                    sh '''
+                        set -e
+                        if [ ! -f "$SECRETS_DIR/.htpasswd" ]; then
+                            echo "정본이 없다: $SECRETS_DIR/.htpasswd"
+                            echo "만드는 방법은 nginx/.htpasswd.example 참고"
+                            exit 1
+                        fi
+                        cp "$SECRETS_DIR/.htpasswd" nginx/.htpasswd
+                        # 컨테이너 안 nginx **워커**(uid 101)가 요청마다 읽는다.
+                        # 소유자가 다르면 /admin 이 500 이 된다.
+                        chown 101:101 nginx/.htpasswd
+                        chmod 600 nginx/.htpasswd
+                        echo "nginx/.htpasswd 배치 완료"
+                    '''
+                }
+            }
+        }
+
+        // 데이터는 저장소가 아니라 호스트 폴더에 있다(docker-compose.yml). 이 변경이 처음
+        // 배포될 때는 폴더가 비어 있으므로, 지금 돌고 있는 앱에 구워진 데이터로 한 번 채운다.
+        // 이미 차 있으면 건드리지 않는다 — EC2 주간 배치가 갈아 끼운 최신 데이터다.
+        // 비어 있는 채로 배포하면 앱이 카드 없이 뜨는데 /healthz 는 데이터를 보지 않아
+        // 배포는 성공으로 끝난다. 그래서 여기서 확인하고, 없으면 멈춘다.
+        // Jenkins 컨테이너는 호스트 폴더를 못 보므로 도커로 잠깐 붙여서 본다.
+        stage('Data') {
+            steps {
+                sh '''
+                    set -e
+                    if docker run --rm -v "$MATCHURI_DATA":/d:ro python:3.12-slim test -s /d/stores.jsonl; then
+                        echo "서버 데이터 폴더가 이미 차 있다: $MATCHURI_DATA"
+                    else
+                        echo "서버 데이터 폴더가 비어 있다. 돌고 있는 앱의 데이터로 채운다."
+                        # 주인은 ubuntu(1000) 로 둔다. 주간 배치가 ubuntu 로 파일을 갈아 끼운다.
+                        docker cp backmock-app-1:/app/data/kakao - | docker run --rm -i -v "$(dirname "$MATCHURI_DATA")":/dst python:3.12-slim sh -c 'tar -x -C /dst && chown -R 1000:1000 /dst/kakao'
+                    fi
+                    docker run --rm -v "$MATCHURI_DATA":/d:ro python:3.12-slim sh -c '
+                        for f in stores.jsonl menus.jsonl photos.jsonl reviews.jsonl serving/pool_ids.json; do
+                            test -s "/d/$f" || { echo "서버 데이터가 없다: $f"; exit 1; }
+                        done
+                        echo "서버 데이터 확인: $(wc -l < /d/stores.jsonl)곳"'
+                '''
+            }
+        }
+
+        // 저장소 루트에 BE/ FE/ 가 함께 있으므로 BE 안에서 실행한다.
+        stage('Deploy') {
+            steps {
+                dir('BE') {
+                    sh 'docker compose up -d --build'
+                }
+            }
+        }
+
+        stage('Reload nginx') {
+            steps {
+                dir('BE') {
+                    // 설정 파일만 바뀐 경우 compose 는 nginx 를 재생성하지 않으므로
+                    // 새 설정이 적용되지 않는다. 문법 검사 후 무중단 리로드한다.
+                    sh 'docker compose exec -T nginx nginx -t'
+                    sh 'docker compose exec -T nginx nginx -s reload'
+                }
+            }
+        }
+
+        // 앱이 **준비될 때까지** 기다린다. 예전에는 `sleep 8` 뒤에 `curl -f http://nginx/`
+        // 였는데, 앱은 기동 복원에 4~5분이 걸리므로(explainer 7.1) 그 시점엔 늘 5xx 였다 —
+        // 배포는 되는데 빌드 이력은 매번 빨간불이라 진짜 실패와 구분이 안 됐다.
+        //
+        // 준비 게이트(`app/boot.py`) 뒤로 `/readyz` 가 복원 중 503 JSON 에 진행률
+        // (`preferences_done/total`)을 담아 준다. 그걸 폴링한다. `/healthz` 는 복원 중에도
+        // 200 이라 여기 쓰면 안 된다 — 살아 있음과 준비됨은 다른 질문이다.
+        //
+        // 상한 15분. 전체 이력이 늘어 스냅샷 없는 복원이 10분을 넘을 수 있다.
+        // 2026-09-21 격리 재생에서 9,259건 중 6,947건에 9분이 걸렸다.
+        // 폴링은 nginx 를 거친다 — `/readyz` 만 점검 화면으로 안 바꾸고 JSON 을 그대로 내보내는
+        // location 이 따로 있다(nginx/default.conf). 앱에 직접 붙지 않는 이유는 nginx 까지
+        // 포함한 실제 경로가 열렸는지를 봐야 하기 때문이다.
+        // 셸로 내려가는 역슬래시는 Groovy 문자열에서도 escape 라 두 번 써야 한다.
+        // 한 번만 쓴 sed 정규식 때문에 Jenkinsfile 이 아예 컴파일되지 않아
+        // 2026-09-18 17:12 부터 사흘 동안 모든 배포가 실패했다(빌드 55~57 전부).
+        stage('Health check') {
+            steps {
+                dir('BE') {
+                    sh '''
+                        docker compose ps
+                        deadline=$(( $(date +%s) + 900 ))
+                        while :; do
+                            body=$(curl -sS --max-time 5 http://nginx/readyz || true)
+                            code=$(curl -sS -o /dev/null -w "%{http_code}" --max-time 5 http://nginx/readyz || echo 000)
+                            if [ "$code" = "200" ]; then
+                                echo "준비됨: $body"
+                                break
+                            fi
+                            done_n=$(printf '%s' "$body" | sed -n 's/.*"preferences_done": *\\([0-9]*\\).*/\\1/p')
+                            total_n=$(printf '%s' "$body" | sed -n 's/.*"preferences_total": *\\([0-9]*\\).*/\\1/p')
+                            echo "$(date +%T) readyz HTTP $code · 복원 ${done_n:-?}/${total_n:-?}건"
+                            if [ "$(date +%s)" -ge "$deadline" ]; then
+                                echo "15분 안에 준비되지 않았다. 마지막 응답: $body"
+                                docker compose logs --tail 50 app
+                                exit 1
+                            fi
+                            sleep 10
+                        done
+                        curl -fsS -o /dev/null -w "docs: HTTP %{http_code}\n" http://nginx/docs
+                    '''
+                }
+            }
+        }
+
+        // 배포된 이미지에 커밋 태그를 붙인다. 손으로 배포할 때 쓰던 관례
+        // (`backmock-app:<기능>-<날짜>`)를 파이프라인이 이어받는 것이고, 어떤 커밋이
+        // 돌고 있는지 추적도 된다. 태그가 없으면 매 빌드에서 옛 latest 가 고아
+        // 이미지(약 257MB)로 남는다.
+        //
+        // 접두사 `ci-` 가 중요하다 — 정리 대상을 이 접두사로만 고르므로 팀원이 손으로
+        // 붙인 태그는 **절대 지워지지 않는다**.
+        stage('Tag & prune') {
+            steps {
+                dir('BE') {
+                    sh '''
+                        SHA=$(git rev-parse --short HEAD)
+                        docker tag backmock-app:latest "backmock-app:ci-$SHA"
+                        echo "태깅: backmock-app:ci-$SHA"
+
+                        # 최근 20개만 남긴다 (약 5GB. 디스크 여유 270GB 기준 충분하다)
+                        docker images --format '{{.CreatedAt}}|{{.Tag}}' backmock-app \
+                          | grep '|ci-' | sort -r | tail -n +21 | cut -d'|' -f2 \
+                          | while read -r old; do
+                                echo "오래된 태그 제거: $old"
+                                docker rmi "backmock-app:$old" || true
+                            done
+
+                        # 태그 없는(dangling) 이미지만 지운다. 태그 붙은 것은 안 건드린다.
+                        docker image prune -f
+                    '''
+                }
+            }
+        }
+    }
+
+    post {
+        success { echo '배포 성공' }
+        failure { echo '배포 실패 — 위 로그 확인' }
+    }
+}

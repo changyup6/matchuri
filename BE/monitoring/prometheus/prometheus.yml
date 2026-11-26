@@ -1,0 +1,60 @@
+# 맛추리 관측 — Prometheus 수집 설정.
+#
+# 이 파일이 정하는 것은 '무엇을 언제 긁나' 뿐이다. 계산은 rules.yml 이, 보여 주는 것은
+# Grafana 가 한다 — 셋을 섞지 않아야 패널을 고칠 때 수집을 건드리지 않는다.
+#
+# **앱은 nginx 를 거치지 않고 직접 긁는다**(app:8000). 같은 도커 네트워크 안이라 가능하고,
+# 그래야 엣지의 레이트 리밋(10r/s)·Basic 인증·접근 로그에 스크레이프가 섞이지 않는다.
+# 그 대신 nginx 는 공개 /metrics 를 404 로 막는다(nginx/default.conf 참고).
+global:
+  # 15s 인 이유: 대시보드의 가장 짧은 창이 5분(오류 비율·p95)이고, 5분에 20점이면
+  # 순간 스파이크가 뭉개지지 않는다. 더 짧게 잡을 이유는 지금 트래픽에 없다.
+  scrape_interval: 15s
+  # 규칙은 스크레이프와 같은 주기로 돈다 — 기록 규칙이 원본보다 성기면 Grafana 가
+  # 계단처럼 보인다.
+  evaluation_interval: 15s
+  external_labels:
+    # 나중에 서버가 둘 이상이 되면 이 라벨로 구분한다. 지금은 EC2 한 대다.
+    host: my-server
+
+rule_files:
+  - /etc/prometheus/rules.yml
+
+# Alertmanager 는 두지 않는다. 알림을 보낼 곳(Slack·메일)이 아직 정해지지 않았고,
+# 받는 사람이 없는 알림 서버는 디스크만 먹는다. 규칙은 그대로 평가되므로 Grafana 의
+# ALERTS 시계열로 '지금 무엇이 울고 있나' 는 볼 수 있다(monitoring/README.md 참고).
+
+scrape_configs:
+  # ── 앱 ─────────────────────────────────────────────────────────────────
+  # /metrics 는 앱이 의존성 없이 프로세스 안에서 센다(server/app/observe.py).
+  # 재시작하면 카운터가 0 으로 돌아가지만 Prometheus 가 리셋을 알아서 처리한다.
+  - job_name: matchuri
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["app:8000"]
+        labels:
+          service: matchuri-app
+
+  # ── 호스트 ─────────────────────────────────────────────────────────────
+  - job_name: node
+    static_configs:
+      - targets: ["node-exporter:9100"]
+        labels:
+          service: ec2
+
+  # ── 엣지 ───────────────────────────────────────────────────────────────
+  # stub_status 는 연결 수와 총 요청 수만 준다 — 상태 코드별(429·413) 집계는 없다.
+  # 그래서 대시보드는 '엣지가 받은 요청'과 '앱이 처리한 요청'을 나란히 놓고
+  # 그 차이로 엣지가 잘라낸 양을 짐작한다.
+  - job_name: nginx
+    static_configs:
+      - targets: ["nginx-exporter:9113"]
+        labels:
+          service: edge
+
+  # ── 자기 자신 ──────────────────────────────────────────────────────────
+  # 수집기가 멈춘 것과 대상이 멈춘 것은 화면에서 똑같이 '데이터 없음'으로 보인다.
+  # 자기 자신을 긁어 두면 둘을 구분할 수 있다.
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9090"]

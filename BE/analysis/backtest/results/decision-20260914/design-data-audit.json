@@ -1,0 +1,110 @@
+{
+  "scope": "all unordered distinct pairs in current serving catalog; no user filters",
+  "not_human_similarity_labels": true,
+  "stores": 1629,
+  "pairs": 1326006,
+  "cat3_missing_stores": 468,
+  "both_cat3_known_pairs": 673380,
+  "same_nonempty_cat3_pairs": 48542,
+  "modalities": {
+    "menu": {
+      "known_pairs": 1326006,
+      "missing_pair_fraction": 0.0,
+      "quantiles": {
+        "0.1": 0.371337890625,
+        "0.5": 0.4296875,
+        "0.9": 0.5068359375,
+        "0.95": 0.541015625,
+        "0.99": 0.650390625
+      },
+      "ge_0_8_fraction": 0.0009637965439070411,
+      "same_cat3": {
+        "n": 48542,
+        "median": 0.492431640625,
+        "ge_0_8_fraction": 0.013555271723455976
+      },
+      "different_cat3": {
+        "n": 624838,
+        "median": 0.426025390625,
+        "ge_0_8_fraction": 0.00019204977930279527
+      }
+    },
+    "text": {
+      "known_pairs": 1322751,
+      "missing_pair_fraction": 0.00245474002380075,
+      "quantiles": {
+        "0.1": 0.47314453125,
+        "0.5": 0.55224609375,
+        "0.9": 0.63916015625,
+        "0.95": 0.66748046875,
+        "0.99": 0.74169921875
+      },
+      "ge_0_8_fraction": 0.0040060449774749745,
+      "same_cat3": {
+        "n": 48514,
+        "median": 0.6123046875,
+        "ge_0_8_fraction": 0.013604320402358082
+      },
+      "different_cat3": {
+        "n": 622547,
+        "median": 0.548828125,
+        "ge_0_8_fraction": 0.0030294901429129047
+      }
+    },
+    "review": {
+      "known_pairs": 1276003,
+      "missing_pair_fraction": 0.0377094824608637,
+      "quantiles": {
+        "0.1": 0.685546875,
+        "0.5": 0.814453125,
+        "0.9": 0.880859375,
+        "0.95": 0.8935546875,
+        "0.99": 0.91357421875
+      },
+      "ge_0_8_fraction": 0.5781796751261556,
+      "same_cat3": {
+        "n": 46904,
+        "median": 0.849609375,
+        "ge_0_8_fraction": 0.7465674569333106
+      },
+      "different_cat3": {
+        "n": 601187,
+        "median": 0.81298828125,
+        "ge_0_8_fraction": 0.5685884757987115
+      }
+    },
+    "food": {
+      "known_pairs": 1116765,
+      "missing_pair_fraction": 0.1577979285161606,
+      "quantiles": {
+        "0.1": 0.6943359375,
+        "0.5": 0.79833984375,
+        "0.9": 0.884765625,
+        "0.95": 0.9013671875,
+        "0.99": 0.92626953125
+      },
+      "ge_0_8_fraction": 0.49212591726997174,
+      "same_cat3": {
+        "n": 38943,
+        "median": 0.869140625,
+        "ge_0_8_fraction": 0.8429756310505098
+      },
+      "different_cat3": {
+        "n": 531903,
+        "median": 0.794921875,
+        "ge_0_8_fraction": 0.47540999016738017
+      }
+    }
+  },
+  "mean_rule": {
+    "at_least_two_known_pairs": 1325738,
+    "mean_ge_0_8_pairs": 1893,
+    "fewer_than_two_known_pairs": 268
+  },
+  "sha256": {
+    "BE/server/recsys/content.py": "4a490bbd17e14ccb657abc1c33c529e060166a797617d154608bf02f59fa6c77",
+    "BE/server/recsys/decision.py": "125481bbbd297d34f432791924c0a796005b7ee93aa8900bbd19740a9644c7a7",
+    "BE/data/kakao/stores.jsonl": "fbe88efd35fc3a2c5866033904cee640aea54238ac12dda8f945a4ea6c0b6ef5",
+    "BE/data/kakao/serving/manifest.json": "93014eca15a2c3e5e2f2da2d74b15c2f34b3cec90d19d12651538e85d331b99c"
+  }
+}

@@ -1,0 +1,613 @@
+{
+ "as_of": "2026-09-02",
+ "horizon_days": 28,
+ "months": [
+  "2025-08-01",
+  "2025-09-01",
+  "2025-10-01",
+  "2025-11-01",
+  "2025-12-01",
+  "2026-01-01",
+  "2026-02-01",
+  "2026-03-01",
+  "2026-04-01",
+  "2026-05-01",
+  "2026-06-01",
+  "2026-07-01",
+  "2026-08-01"
+ ],
+ "ceiling": {
+  "per_month": [
+   {
+    "t": "2025-08-01",
+    "popularity_rho": 0.2325,
+    "momentum_rho_A": -0.4896,
+    "prev_exceed_auc_B": 0.5467,
+    "zero_next_share": 0.747,
+    "mean_next": 0.367
+   },
+   {
+    "t": "2025-09-01",
+    "popularity_rho": 0.2469,
+    "momentum_rho_A": -0.5079,
+    "prev_exceed_auc_B": 0.5695,
+    "zero_next_share": 0.754,
+    "mean_next": 0.352
+   },
+   {
+    "t": "2025-10-01",
+    "popularity_rho": 0.2234,
+    "momentum_rho_A": -0.4715,
+    "prev_exceed_auc_B": 0.5592,
+    "zero_next_share": 0.772,
+    "mean_next": 0.329
+   },
+   {
+    "t": "2025-11-01",
+    "popularity_rho": 0.195,
+    "momentum_rho_A": -0.4479,
+    "prev_exceed_auc_B": 0.5328,
+    "zero_next_share": 0.742,
+    "mean_next": 0.38
+   },
+   {
+    "t": "2025-12-01",
+    "popularity_rho": 0.281,
+    "momentum_rho_A": -0.4785,
+    "prev_exceed_auc_B": 0.5597,
+    "zero_next_share": 0.735,
+    "mean_next": 0.416
+   },
+   {
+    "t": "2026-01-01",
+    "popularity_rho": 0.3028,
+    "momentum_rho_A": -0.4377,
+    "prev_exceed_auc_B": 0.5793,
+    "zero_next_share": 0.749,
+    "mean_next": 0.405
+   },
+   {
+    "t": "2026-02-01",
+    "popularity_rho": 0.2617,
+    "momentum_rho_A": -0.487,
+    "prev_exceed_auc_B": 0.5425,
+    "zero_next_share": 0.739,
+    "mean_next": 0.41
+   },
+   {
+    "t": "2026-03-01",
+    "popularity_rho": 0.3283,
+    "momentum_rho_A": -0.4819,
+    "prev_exceed_auc_B": 0.5698,
+    "zero_next_share": 0.742,
+    "mean_next": 0.412
+   },
+   {
+    "t": "2026-04-01",
+    "popularity_rho": 0.3077,
+    "momentum_rho_A": -0.4183,
+    "prev_exceed_auc_B": 0.5625,
+    "zero_next_share": 0.727,
+    "mean_next": 0.463
+   },
+   {
+    "t": "2026-05-01",
+    "popularity_rho": 0.3072,
+    "momentum_rho_A": -0.4636,
+    "prev_exceed_auc_B": 0.5666,
+    "zero_next_share": 0.738,
+    "mean_next": 0.457
+   },
+   {
+    "t": "2026-06-01",
+    "popularity_rho": 0.3192,
+    "momentum_rho_A": -0.4129,
+    "prev_exceed_auc_B": 0.5834,
+    "zero_next_share": 0.742,
+    "mean_next": 0.473
+   },
+   {
+    "t": "2026-07-01",
+    "popularity_rho": 0.3314,
+    "momentum_rho_A": -0.4259,
+    "prev_exceed_auc_B": 0.5852,
+    "zero_next_share": 0.727,
+    "mean_next": 0.494
+   },
+   {
+    "t": "2026-08-01",
+    "popularity_rho": 0.3299,
+    "momentum_rho_A": -0.4361,
+    "prev_exceed_auc_B": 0.5797,
+    "zero_next_share": 0.711,
+    "mean_next": 0.702
+   }
+  ],
+  "mean": {
+   "popularity_rho": 0.2821,
+   "momentum_rho_A": -0.4584,
+   "prev_exceed_auc_B": 0.5644,
+   "zero_next_share": 0.7404,
+   "mean_next": 0.4354
+  }
+ },
+ "per_month": [
+  {
+   "t": "2025-08-01",
+   "n": 1629,
+   "moved": 563,
+   "up": 282,
+   "active": 1053,
+   "upB": 327,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": -0.0045,
+    "fad": null,
+    "inflow": -0.1647
+   },
+   "auc": {
+    "season": 0.4929,
+    "fad": null,
+    "inflow": 0.3601
+   },
+   "aucB": {
+    "season": 0.4673,
+    "fad": null,
+    "inflow": 0.474
+   },
+   "cat_spearman": {
+    "season": -0.0941
+   },
+   "cat_n": 43,
+   "corr_season_inflow": -0.015
+  },
+  {
+   "t": "2025-09-01",
+   "n": 1629,
+   "moved": 558,
+   "up": 266,
+   "active": 1051,
+   "upB": 308,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": 0.0102,
+    "fad": null,
+    "inflow": -0.1919
+   },
+   "auc": {
+    "season": 0.5072,
+    "fad": null,
+    "inflow": 0.3344
+   },
+   "aucB": {
+    "season": 0.5009,
+    "fad": null,
+    "inflow": 0.4663
+   },
+   "cat_spearman": {
+    "season": -0.1884
+   },
+   "cat_n": 42,
+   "corr_season_inflow": -0.014
+  },
+  {
+   "t": "2025-10-01",
+   "n": 1629,
+   "moved": 536,
+   "up": 246,
+   "active": 1059,
+   "upB": 274,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": 0.0093,
+    "fad": null,
+    "inflow": -0.1962
+   },
+   "auc": {
+    "season": 0.514,
+    "fad": null,
+    "inflow": 0.3385
+   },
+   "aucB": {
+    "season": 0.495,
+    "fad": null,
+    "inflow": 0.4921
+   },
+   "cat_spearman": {
+    "season": 0.0418
+   },
+   "cat_n": 38,
+   "corr_season_inflow": -0.037
+  },
+  {
+   "t": "2025-11-01",
+   "n": 1629,
+   "moved": 568,
+   "up": 302,
+   "active": 1082,
+   "upB": 298,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": 0.0113,
+    "fad": null,
+    "inflow": -0.1167
+   },
+   "auc": {
+    "season": 0.5086,
+    "fad": null,
+    "inflow": 0.3859
+   },
+   "aucB": {
+    "season": 0.5055,
+    "fad": null,
+    "inflow": 0.4746
+   },
+   "cat_spearman": {
+    "season": -0.0494
+   },
+   "cat_n": 40,
+   "corr_season_inflow": -0.022
+  },
+  {
+   "t": "2025-12-01",
+   "n": 1629,
+   "moved": 563,
+   "up": 289,
+   "active": 1111,
+   "upB": 331,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": -0.0163,
+    "fad": null,
+    "inflow": -0.1459
+   },
+   "auc": {
+    "season": 0.4836,
+    "fad": null,
+    "inflow": 0.364
+   },
+   "aucB": {
+    "season": 0.5074,
+    "fad": null,
+    "inflow": 0.4851
+   },
+   "cat_spearman": {
+    "season": 0.0496
+   },
+   "cat_n": 41,
+   "corr_season_inflow": -0.03
+  },
+  {
+   "t": "2026-01-01",
+   "n": 1629,
+   "moved": 571,
+   "up": 275,
+   "active": 1092,
+   "upB": 305,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": 0.0165,
+    "fad": -0.0132,
+    "inflow": -0.2034
+   },
+   "auc": {
+    "season": 0.5163,
+    "fad": 0.4939,
+    "inflow": 0.3196
+   },
+   "aucB": {
+    "season": 0.4726,
+    "fad": 0.4703,
+    "inflow": 0.4777
+   },
+   "cat_spearman": {
+    "season": 0.3138
+   },
+   "cat_n": 43,
+   "corr_season_inflow": -0.02
+  },
+  {
+   "t": "2026-02-01",
+   "n": 1629,
+   "moved": 580,
+   "up": 300,
+   "active": 1090,
+   "upB": 337,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": 0.0206,
+    "fad": 0.0221,
+    "inflow": -0.1037
+   },
+   "auc": {
+    "season": 0.5199,
+    "fad": 0.5187,
+    "inflow": 0.404
+   },
+   "aucB": {
+    "season": 0.5016,
+    "fad": 0.5429,
+    "inflow": 0.5226
+   },
+   "cat_spearman": {
+    "season": 0.0467
+   },
+   "cat_n": 40,
+   "corr_season_inflow": 0.029
+  },
+  {
+   "t": "2026-03-01",
+   "n": 1629,
+   "moved": 550,
+   "up": 272,
+   "active": 1090,
+   "upB": 305,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": 0.0133,
+    "fad": -0.034,
+    "inflow": -0.1466
+   },
+   "auc": {
+    "season": 0.5141,
+    "fad": 0.4713,
+    "inflow": 0.3669
+   },
+   "aucB": {
+    "season": 0.4739,
+    "fad": 0.5191,
+    "inflow": 0.5112
+   },
+   "cat_spearman": {
+    "season": -0.0544
+   },
+   "cat_n": 37,
+   "corr_season_inflow": -0.0
+  },
+  {
+   "t": "2026-04-01",
+   "n": 1629,
+   "moved": 580,
+   "up": 305,
+   "active": 1098,
+   "upB": 332,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": 0.0016,
+    "fad": -0.0012,
+    "inflow": -0.196
+   },
+   "auc": {
+    "season": 0.5012,
+    "fad": 0.5023,
+    "inflow": 0.3174
+   },
+   "aucB": {
+    "season": 0.4849,
+    "fad": 0.4721,
+    "inflow": 0.4905
+   },
+   "cat_spearman": {
+    "season": 0.0875
+   },
+   "cat_n": 43,
+   "corr_season_inflow": 0.014
+  },
+  {
+   "t": "2026-05-01",
+   "n": 1629,
+   "moved": 595,
+   "up": 284,
+   "active": 1104,
+   "upB": 315,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": -0.0006,
+    "fad": 0.0273,
+    "inflow": -0.1485
+   },
+   "auc": {
+    "season": 0.4976,
+    "fad": 0.5273,
+    "inflow": 0.3866
+   },
+   "aucB": {
+    "season": 0.5079,
+    "fad": 0.5056,
+    "inflow": 0.5075
+   },
+   "cat_spearman": {
+    "season": -0.1162
+   },
+   "cat_n": 44,
+   "corr_season_inflow": 0.007
+  },
+  {
+   "t": "2026-06-01",
+   "n": 1629,
+   "moved": 577,
+   "up": 285,
+   "active": 1107,
+   "upB": 288,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": 0.0152,
+    "fad": -0.0251,
+    "inflow": -0.1381
+   },
+   "auc": {
+    "season": 0.5151,
+    "fad": 0.475,
+    "inflow": 0.3808
+   },
+   "aucB": {
+    "season": 0.4891,
+    "fad": 0.4756,
+    "inflow": 0.5247
+   },
+   "cat_spearman": {
+    "season": 0.0113
+   },
+   "cat_n": 44,
+   "corr_season_inflow": -0.007
+  },
+  {
+   "t": "2026-07-01",
+   "n": 1629,
+   "moved": 581,
+   "up": 304,
+   "active": 1120,
+   "upB": 319,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": 0.0284,
+    "fad": -0.0048,
+    "inflow": -0.1403
+   },
+   "auc": {
+    "season": 0.5277,
+    "fad": 0.4931,
+    "inflow": 0.3672
+   },
+   "aucB": {
+    "season": 0.5134,
+    "fad": 0.5057,
+    "inflow": 0.5041
+   },
+   "cat_spearman": {
+    "season": -0.0768
+   },
+   "cat_n": 46,
+   "corr_season_inflow": -0.006
+  },
+  {
+   "t": "2026-08-01",
+   "n": 1629,
+   "moved": 598,
+   "up": 325,
+   "active": 1135,
+   "upB": 357,
+   "known": {
+    "season": 1629,
+    "fad": 1629,
+    "inflow": 1629
+   },
+   "spearman": {
+    "season": -0.0141,
+    "fad": 0.0187,
+    "inflow": -0.0875
+   },
+   "auc": {
+    "season": 0.4905,
+    "fad": 0.5149,
+    "inflow": 0.4089
+   },
+   "aucB": {
+    "season": 0.4918,
+    "fad": 0.5147,
+    "inflow": 0.5096
+   },
+   "cat_spearman": {
+    "season": -0.0142
+   },
+   "cat_n": 44,
+   "corr_season_inflow": 0.024
+  }
+ ],
+ "summary": {
+  "spearman": {
+   "season": 0.007,
+   "fad": -0.0013,
+   "inflow": -0.1523
+  },
+  "auc": {
+   "season": 0.5068,
+   "fad": 0.4996,
+   "inflow": 0.3642
+  },
+  "aucB": {
+   "season": 0.4932,
+   "fad": 0.5008,
+   "inflow": 0.4954
+  },
+  "cat_spearman": {
+   "season": -0.0033
+  }
+ },
+ "logistic": {
+  "coef": {
+   "season": -0.0446,
+   "fad": 0.0202,
+   "inflow": 0.0415
+  },
+  "relative_to_season": {
+   "season": -1.0,
+   "fad": 0.453,
+   "inflow": 0.93
+  },
+  "n": 8836,
+  "positive_rate": 0.2895
+ },
+ "loo_auc": {
+  "season 만": 0.5081,
+  "fad 만": 0.4853,
+  "inflow 만": 0.506,
+  "검색 둘(season+fad)": 0.4972,
+  "셋 다": 0.5062,
+  "기본 무게 1.0/0.5/0.5 (학습 없음)": 0.4997
+ },
+ "labels": {
+  "A": "리뷰 수 (t, t+28] − (t−28, t] 의 부호 (0 은 뺌). 평균 회귀 함정",
+  "B": "다음 4주 리뷰 수 > 자기 최근 180일 속도 × 28/180 (지난 180일 리뷰 있는 가게만). 로지스틱·LOO 는 이 라벨",
+  "C": "업종 단위 — 업종 계절 중앙값 대 업종 리뷰 점유율 변화의 스피어만"
+ },
+ "note": "inflow 는 라벨과 같은 자료(리뷰)라 자기 관성의 유리함이 있다. 검색 둘에는 없다."
+}

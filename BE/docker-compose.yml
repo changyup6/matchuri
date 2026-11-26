@@ -1,0 +1,266 @@
+services:
+  app:
+    build:
+      # 컨텍스트가 BE/ 인 이유: Dockerfile 이 server/ 를 BE/ 기준 경로로 복사한다.
+      # 데이터(data/kakao)는 이미지에 넣지 않고 아래 volumes 로 서버 폴더를 붙인다.
+      context: .
+      dockerfile: server/Dockerfile
+    # 이미지의 CMD 를 여기서 덮어쓴다 — 프록시 뒤에서 도는 데 필요한 것이 셋 있다.
+    #   --proxy-headers · --forwarded-allow-ips=* : 앞단이 nginx 라 클라이언트 IP·스킴이
+    #     X-Forwarded-* 로만 온다. 이게 없으면 앱이 보는 주소가 전부 nginx 컨테이너 IP 다.
+    #     `*` 를 믿어도 되는 이유는 expose 뿐이라 nginx 밖에서는 아무도 8000 에 못 닿는 것.
+    #   --no-server-header : 버전 노출 금지. 엣지도 server_tokens off 다.
+    # --log-config 는 주지 않는다 — 앱이 app/observe.py 에서 스스로 JSON 으로 찍는다.
+    command:
+      - uvicorn
+      - main:app
+      - --host
+      - "0.0.0.0"
+      - --port
+      - "8000"
+      - --proxy-headers
+      - "--forwarded-allow-ips=*"
+      - --no-server-header
+    # 컨테이너는 호스트의 시간대를 **상속하지 않는다**(기본 UTC). 그대로 두면 기록과
+    # 로그의 ISO 시각이 `+00:00` 으로 나가 문서·Grafana·앱과 9시간 어긋나 보인다.
+    # 순간 자체는 같지만, 앱이 오프셋을 무시하고 파싱하면 그대로 틀린다.
+    environment:
+      - TZ=Asia/Seoul
+      # 트렌드 슬롯 — 10장에 1장을 '요즘 뜨는 가게'(recsys/trend.py: 검색 계절 선행 + 메뉴 키워드)에서
+      # 뽑아 노출 로그에 policy="trend" 로 남긴다. 나머지 9장은 legacy·taste 인터리빙 그대로다.
+      # 켜기 전 기준선(2026-09-18, 꺼진 상태 · 노출 28,037장 · 사용자 333명 · 풀 1,499곳):
+      #   전체 지니 0.449 · 상위10 5.6% · 상위50 18.0% · 상위100 28.1% · 안 나온 곳 0
+      #   legacy 지니 0.576 · taste 0.512   (analysis/TREND.md 7.3)
+      # 켠 뒤 /admin/api/trend/concentration 의 trend 행이 이 수보다 크게 쏠리면 0 으로 되돌린다.
+      # MATCHURI_TREND_WEIGHT(점수에 섞는 무게)는 여전히 0 — 효과를 재는 길은 슬롯이고 무게는 결론 뒤다.
+      - MATCHURI_TREND_EVERY=10
+      # 취향 모델 스냅샷 주기(초). 기동 복원이 8,718건에 8분(2026-09-18 실측)까지 갔던 것을
+      # 5분치 재생으로 줄인다(app/snapshot.py, explainer 7.1). 0 이면 끈다. 기본이 300 이라
+      # 안 적어도 같다 — 여기 두는 것은 '이 값이 있다' 를 보이기 위해서다.
+      - MATCHURI_SNAPSHOT_EVERY=300
+      # 네이티브 클라이언트가 image/images를 그대로 열 수 있는 공개 절대 주소.
+      - MATCHURI_MEDIA_PUBLIC_BASE_URL=${MATCHURI_MEDIA_PUBLIC_BASE_URL:-http://api.example.com}
+    # ports 가 아니라 expose 다. 8000 을 호스트에 열면 nginx 의 인증·레이트 리밋을
+    # 우회하는 문이 생긴다(/admin 이 그대로 열린다). **여기에 ports 를 넣지 말 것.**
+    expose:
+      - "8000"
+    volumes:
+      # 사용자·선호 기록. 이미지가 아니라 볼륨에 둬야 재배포해도 살아남는다.
+      - state:/app/state
+      # 설문 사진과 축소한 카탈로그 사진. state 와 **따로** 둔다 — state 는 기동 때 전부 다시 먹이는 기록이고
+      # 사진은 재생할 것이 없는 파일이다. 백업 단위도 다르다(여긴 커지고, 복구 우선순위는
+      # 낮다). nginx 가 같은 볼륨을 읽기 전용으로 붙여 `/media/` 로 내보낸다.
+      - media:/app/media
+      # 런타임 데이터(stores·menus·photos·reviews·serving). EC2 배치가 매주 갈아 끼운다.
+      # **디렉토리째** 붙인다 — 파일 단위로 붙이면 inode 가 고정돼 갈아 끼운 파일을 못 본다.
+      # 추천 풀과 유사도 행렬은 기동 때만 읽으므로 배치가 파일을 바꾼 뒤 앱을 재시작한다.
+      # 로컬에서 띄울 때는 MATCHURI_DATA 로 경로를 바꾼다.
+      - ${MATCHURI_DATA:-/home/ubuntu/matchuri-data/kakao}:/app/data/kakao:ro
+    # 파일시스템을 읽기 전용으로 잠그지 않는다 — 앱이 /app/state 에 추가 전용 로그를
+    # 쓰고(users·preferences·exposures.jsonl) 재시작 때 그것을 되먹여 모델을 복원한다.
+    # read_only: true 로 가려면 tmpfs /tmp 까지 얹어야 하는데 얻는 것이 없다.
+    read_only: false
+    # /healthz 는 의존성을 안 보는 순수 liveness 다(준비 상태는 /readyz).
+    # curl 을 이미지에 넣지 않으려고 파이썬으로 부른다 — 이미지에 이미 있는 것이다.
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/healthz').status==200 else 1)
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      # 전체 이력을 복원한 뒤 HTTP 서버가 열린다. 2026-09-16 운영 기록 약4,800건의
+      # 재생이 4분 이상 걸려 기존180초 유예로는 정상 기동을 실패로 판정했다.
+      # 유예 중에도 응답이 성공하면 즉시 healthy가 된다. 이후 장애 감지 주기는 유지한다.
+      start_period: 600s
+    logging:
+      driver: json-file
+      options:
+        # 로그가 디스크를 다 먹는 사고를 막는다. 컨테이너당 최대 250MB.
+        max-size: "50m"
+        max-file: "5"
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      # 파일 하나가 아니라 디렉토리를 마운트한다. 파일 단위 마운트는 inode 를
+      # 고정하기 때문에, git 체크아웃이 파일을 새로 만들면 컨테이너가 계속
+      # 예전 내용을 보게 된다.
+      # 이 디렉토리에 .htpasswd 도 함께 온다(/admin 의 Basic 인증. git 에는 없다).
+      - ./nginx:/etc/nginx/conf.d:ro
+      # 설문 사진을 nginx 가 직접 내보낸다(`location /media/`). 앱을 거치면 파이썬이
+      # 바이트를 퍼 나르게 되고 캐시도 못 한다. **읽기 전용** — 엣지가 사진을 쓸 일은 없다.
+      - media:/var/www/media:ro
+    depends_on:
+      # nginx 는 proxy_pass 의 호스트명을 **기동할 때** 한 번 푼다. grafana 가 없으면
+      # "host not found in upstream" 으로 엣지가 아예 뜨지 않는다 — 그래서 순서를 묶는다.
+      # (건강 상태까지 기다리지는 않는다. 이름만 있으면 되고, 늦게 뜨면 잠깐 502 다.)
+      grafana:
+        condition: service_started
+      app:
+        # 앱이 healthy 가 되기 전에는 엣지를 열지 않는다 — 502 를 보여 주는 것보다
+        # 잠깐 안 뜨는 것이 낫다.
+        # 대가를 알고 쓰자: 이 nginx 가 /jenkins 도 프록시하므로 앱이 healthy 가
+        # 되지 못하면 Jenkins 화면까지 같이 못 열린다. 그때는 앱 로그를 먼저 본다
+        # (`docker compose -p backmock logs app`).
+        condition: service_healthy
+    networks:
+      - default
+      - web
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "5"
+    restart: unless-stopped
+
+  # ── 관측 ───────────────────────────────────────────────────────────────
+  # 넷 다 **호스트 포트를 열지 않는다.** 사람이 들어오는 문은 nginx 의 `/grafana/` 하나뿐이고
+  # Prometheus(9090)·exporter 들은 그 뒤에 숨는다. 9090 을 호스트에 열면 인증 없이 모든
+  # 지표를 볼 수 있는 문이 생기고, 그건 /admin 을 Basic 인증으로 막은 이유와 같은 문제다.
+  # 설정과 대시보드는 monitoring/ 아래에 있고 전부 읽기 전용으로 마운트한다.
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    volumes:
+      # 디렉토리째 마운트한다 — nginx/conf.d 와 같은 이유로 파일 단위 마운트는 inode 를
+      # 고정해서 git 이 파일을 새로 만들면 컨테이너가 옛 내용을 계속 본다.
+      - ./monitoring/prometheus:/etc/prometheus:ro
+      - prom-data:/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      # 30일. 지금 계열 수(수백 개)면 하루 수십 MB 라 한 달이 1~2GB 안쪽이다.
+      # 인터리빙 성적을 주 단위로 비교하려면 최소 한 달은 남아 있어야 한다.
+      - --storage.tsdb.retention.time=30d
+      - --web.console.libraries=/usr/share/prometheus/console_libraries
+      - --web.console.templates=/usr/share/prometheus/consoles
+    # --web.enable-lifecycle 은 주지 않는다(인증 없는 /-/reload 문을 만든다).
+    # 설정을 다시 읽히려면 시그널로 충분하다:
+    #   docker compose -p backmock kill -s HUP prometheus
+    expose:
+      - "9090"
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "5"
+    restart: unless-stopped
+
+  # 호스트(EC2)의 CPU·메모리·디스크. 컨테이너 안에서 호스트를 보려면 /proc·/sys 와
+  # 루트 파일시스템을 들여다볼 수 있어야 한다 — 전부 읽기 전용이다.
+  node-exporter:
+    image: prom/node-exporter:v1.8.2
+    command:
+      - --path.procfs=/host/proc
+      - --path.sysfs=/host/sys
+      # 이걸 줘야 마운트 경로에서 /rootfs 접두사가 벗겨져 루트가 "/" 로 보인다.
+      # 없으면 디스크 패널의 mountpoint="/" 가 아무것도 못 찾는다.
+      - --path.rootfs=/rootfs
+      # 도커 오버레이·바인드 마운트는 같은 디스크를 수십 번 세어 그래프를 못 쓰게 만든다.
+      - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|rootfs/(dev|proc|sys)|var/lib/docker/.+)($$|/)
+      - --collector.filesystem.fs-types-exclude=^(autofs|binfmt_misc|cgroup.*|devpts|overlay|proc|squashfs|sysfs|tmpfs|tracefs)$$
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      # rslave: 나중에 생기는 마운트도 따라 보이게 한다(ro 는 그대로다).
+      - /:/rootfs:ro,rslave
+    # 호스트의 pid 네임스페이스를 쓴다 — 그래야 프로세스·파일서술자 수집기가
+    # 컨테이너 안이 아니라 호스트를 센다.
+    pid: host
+    expose:
+      - "9100"
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "5"
+    restart: unless-stopped
+
+  # 엣지의 stub_status 를 Prometheus 형식으로 옮긴다. 주는 것은 연결 수와 총 요청 수뿐
+  # (상태 코드별 집계는 없다 — 429·413 을 세려면 접근 로그를 읽는 수집기가 따로 필요하다).
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter:1.4.0
+    command:
+      # 컨테이너 이름이 곧 호스트명이다. 이 경로는 nginx 에서 도커 대역만 허용한다.
+      - --nginx.scrape-uri=http://nginx:80/nginx_status
+    expose:
+      - "9113"
+    depends_on:
+      - nginx
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "5"
+    restart: unless-stopped
+
+  # 화면. nginx 의 /grafana/ 아래에서만 열린다.
+  grafana:
+    image: grafana/grafana-oss:11.3.1
+    environment:
+      # 하위 경로로 서비스한다. 이 둘이 짝이다 — ROOT_URL 만 주고 SERVE_FROM_SUB_PATH 를
+      # 빼면 Grafana 가 /grafana 없이 링크를 만들어 새로고침마다 404 가 난다.
+      GF_SERVER_ROOT_URL: http://api.example.com/grafana/
+      GF_SERVER_SERVE_FROM_SUB_PATH: "true"
+      # 익명 열람 금지 · 가입 금지. 지표에는 개인 정보가 없지만 사용자 수·전환율은
+      # 남에게 보여 줄 것이 아니고, 무엇보다 Explore 로 아무 쿼리나 돌릴 수 있다.
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_SECURITY_ADMIN_USER: admin
+      # 비밀번호는 환경변수에 넣지 않는다 — `docker inspect` 와 `docker compose config`
+      # 에 그대로 찍힌다. __FILE 접미사는 Grafana 가 지원하는 규약이다.
+      GF_SECURITY_ADMIN_PASSWORD__FILE: /run/secrets/grafana_admin
+      # 사용량 통계를 밖으로 보내지 않는다(폐쇄망에서 기동이 느려지는 원인이기도 하다).
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+      # **TLS 가 아직 없어서** Secure 쿠키를 끈다. http 로 서비스하는데 이걸 켜면
+      # 브라우저가 세션 쿠키를 버려 로그인이 무한 반복된다.
+      # TLS 를 붙이는 날 이 줄을 true 로 바꾸는 것을 잊지 말 것.
+      GF_SECURITY_COOKIE_SECURE: "false"
+      GF_SECURITY_COOKIE_SAMESITE: lax
+    secrets:
+      - grafana_admin
+    volumes:
+      - grafana-data:/var/lib/grafana
+      # 데이터소스와 대시보드는 파일이 원본이다(화면에서 고친 것은 저장되지 않는다).
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on:
+      - prometheus
+    expose:
+      - "3000"
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "5"
+    restart: unless-stopped
+
+volumes:
+  state:
+  # 설문 사진. 사용자가 올린 것이라 **지우면 복구할 방법이 없다**(크롤링 데이터와 다르다).
+  media:
+  # 지표 30일치. 여기가 지워지면 과거 그래프가 사라진다(앱은 멀쩡하다).
+  prom-data:
+  # Grafana 의 sqlite — 로그인 세션과 사용자뿐이다. 대시보드·데이터소스는 파일에서
+  # 다시 들어오므로 이 볼륨을 날려도 화면은 그대로 돌아온다.
+  grafana-data:
+
+networks:
+  web:
+    external: true
+
+# Grafana admin 비밀번호. **저장소 밖**에 둔다 — ~/matchuri-secrets 는 700 이고
+# 이 파일은 600 이다. 평문은 여기와 ~/matchuri-secrets/grafana-admin.txt 에만 있다.
+# 파일 끝에 개행이 있으면 그것까지 비밀번호가 되므로 개행 없이 쓴다(README 참고).
+# **소유자는 472:472 여야 한다** — 시크릿은 호스트 파일의 소유자·모드를 그대로 넘기고
+# 컨테이너 안 grafana 는 uid 472 다. ubuntu(1000) 소유 + 600 이면 "Permission denied" 로
+# 컨테이너가 아예 뜨지 않는다(nginx/.htpasswd 가 101:101 이어야 하는 것과 같은 함정).
+secrets:
+  grafana_admin:
+    file: /home/ubuntu/matchuri-secrets/grafana-admin-password

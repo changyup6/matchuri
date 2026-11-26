@@ -1,0 +1,40 @@
+{
+  "source_sha256": {
+    "fixtures.json": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5",
+    "coverage.json": "091b8c7cadbd88e4cfc6232e01f89ac6962934420adbb08b69115d1630f7a33d",
+    "context-audit.json": "b5d4c95d3f8780fc38684036e02d8517f63eaca3a587471375235142f553dbab",
+    "information-example-selection.json": "902f55e1f52581e72f4db8d99da4e10d5a429a64ef682cea5f812ac06bff0aa8",
+    "plot-information.py": "ec24788edd38298bb5614a288fca419514ef48acedee18af5390cb4658f1d9cc",
+    "data-snapshot-map.json": "cc1187a7b6ccc7369e99b979da83a98500888b16ada4b5ecfad2b2cb32f501f6",
+    "summary.json": "dc58cfdd1aef7d75781bba272dbc8cdd40f02d6ec4de5ca41158c45bd2e8bcbb",
+    "case-effects.csv": "0698f8c017cacc82f6273e1d806eb4e7270f772f976c6d929c19cbcfff95579b",
+    "actual-cards.csv": "f1ab7433c1838d8e7e6fd4edca32862bcd68890114b8c6824d8bf22cf98853ed",
+    "part-0/run/results.json": "b21968aecd716d051ffee60bc666da51573fac7edfd836f3dda4f719c2f49846",
+    "part-1/run/results.json": "b0286887b7f703ee582ba06d64ddabde58d25b59944419a594d31e549c2d9dbc"
+  },
+  "outputs_sha256": {
+    "information-coverage.png": "80d29fda1525e2d70522313d9185ddb05fcf3f73bcc00ed3c7f9539cf903ccd8",
+    "information-effects.png": "558c407771f07fdab2d171854601dfa4185582fc113130c893860baf6d873e3e",
+    "information-examples.png": "1f5bb4303149065865b209cc2f7b63e02f030fb6ca71789577ec736de6651f5e",
+    "information-menu-effects.png": "078bed1037d737396736f5bc19b29d58c7c7a5fa3d94c97c0e2efaa6280a754b",
+    "information-retention.png": "11f66597b62da973c262f22294ce95c291c6c911d6a9cebe51be47bc27b789a8",
+    "information-coverage.svg": "4a51682c78195a0afa04231d9090bf2d968d476b86dee2737cbfd1a6848376b4",
+    "information-effects.svg": "cd1bd5b9a3e65ea890ae58be767a180f1e52e6b45bb75beeb0065ccd528abce1",
+    "information-examples.svg": "551dc9e8a0e5576e23d3e97835cd3859186437ccfc92cc81404e7820b5a66bb9",
+    "information-menu-effects.svg": "064329fa71616ca2661d9b6ba996de135a58e6d8dfbdd4eae635c4b47c19b44c",
+    "information-retention.svg": "b0d5e6e13c7f34e0027292c0f30d21a1aac0ad552e5b5e7528de4b0e5f77b700",
+    "information-figures-data.json": "7e3efa7c15bdf5c211545f0ff065f923945decca01aa5571272ed2747fa7e61a"
+  },
+  "mode": "complete",
+  "validation": {
+    "states": 3168,
+    "matched_comparisons": 792,
+    "model_case_comparisons": 2376,
+    "actual_slate_count": 9504,
+    "actual_card_slots": 38016,
+    "four_unique_cards_and_csv_counts": "passed",
+    "per_case_balance_and_cell_sign_counts": "passed",
+    "raw_top10_membership_and_card_names": "passed",
+    "ranked_slates_checked": 9504
+  }
+}

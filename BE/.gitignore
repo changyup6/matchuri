@@ -1,0 +1,33 @@
+__pycache__/
+*.pyc
+.venv/
+state/
+# 설문 사진. 컨테이너에서는 볼륨이 붙고(docker-compose.yml) 로컬에서는 여기 쌓인다.
+# **사용자가 올린 사진이라 저장소에 들어가면 안 된다** — `state/` 와 같은 이유다.
+media/
+data/kakao_backup_*/
+data/vectors/
+data/photos_cache/
+analysis/backtest/results/*.npy
+.pytest_cache/
+analysis/backtest/cache/
+
+# /admin 을 여는 Basic 인증 해시. 평문은 ~/matchuri-secrets/admin-basic-auth.txt 에만 있다.
+# (견본은 커밋된다: nginx/.htpasswd.example)
+nginx/.htpasswd
+
+# 서버 런타임 데이터는 저장소에 두지 않는다 (2026-09-14).
+# EC2 배치가 매주 수집·가공해 서버 폴더(/home/ubuntu/matchuri-data/kakao)를 갈아 끼우고,
+# 앱은 compose 가 붙인 그 폴더를 읽는다. 저장소에 두면 배포할 때마다 옛 데이터로 돌아간다.
+data/kakao/
+
+# 수준(level) 수집 캐시. `fetch_trend_category.py --level` 이 앵커를 같이 받은 응답이다.
+# **일부러 커밋하지 않는다** — 담긴 시계열이 `data/analysis/datalab/` 의 것과 상수배로
+# 완전히 비례해서(806일 전부, 이탈 0.0% 실측) 5MB 를 두 번 들고 있을 이유가 없다.
+# 화면이 실제로 읽는 것은 스칼라만 담은 `data/analysis/trend_level.json` 이고 그건 커밋한다.
+data/analysis/datalab_level/
+
+# 메뉴 키워드 수집 캐시. `fetch_trend_menu.py` 가 받은 응답 1,000개(28MB)다.
+# 업종 캐시(datalab/)는 `/admin/trends` 가 그림을 그려서 이미지에 실렸지만, 메뉴는 화면이
+# 없고 점수만 쓴다. 스칼라만 담은 `data/analysis/trend_menu.json` 을 커밋한다(trend_level 과 같은 규칙).
+data/analysis/datalab_menu/

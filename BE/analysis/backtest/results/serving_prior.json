@@ -1,0 +1,50 @@
+{
+  "components": [
+    "popularity",
+    "quality",
+    "cf",
+    "menu",
+    "text",
+    "review",
+    "food",
+    "neg"
+  ],
+  "weights": {
+    "popularity": 0.069,
+    "quality": 0.061,
+    "cf": 0.067,
+    "menu": 0.219,
+    "text": 0.301,
+    "review": 0.075,
+    "food": 0.1,
+    "neg": -0.264
+  },
+  "prior_sd": 0.5,
+  "source": "real-swipes-0923",
+  "n_users": 120,
+  "swipes": 9636,
+  "history": "app-swipe",
+  "z_clip": 3.0,
+  "method": "앱 실제 스와이프(state/preferences.jsonl, 2026-09-03~23)를 서버와 같은 방법(세션마다 recsys.taste.record)으로 재생하며 매 스와이프 직전 그 가게의 성분 z 를 적고, 좋아요 여부를 점별 로지스틱으로 맞힌 가중치 — 사용자 단위 5겹의 겹별 가중치 평균. 평가·재현: analysis/real_swipe_eval.py, 결과: analysis/backtest/results/step4-real-swipes.md",
+  "previous": {
+    "components": [
+      "popularity",
+      "quality",
+      "cf",
+      "menu",
+      "text"
+    ],
+    "weights": {
+      "popularity": 1.0,
+      "quality": 0.04,
+      "cf": 0.45,
+      "menu": 0.24,
+      "text": 0.43
+    },
+    "prior_sd": 0.5,
+    "source": "step3d-clip",
+    "n_users": 227,
+    "history": "visit",
+    "z_clip": 3.0
+  }
+}

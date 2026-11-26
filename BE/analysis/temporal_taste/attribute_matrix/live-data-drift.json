@@ -1,0 +1,12 @@
+{
+  "store_field_changes": {
+    "tags": 2237
+  },
+  "finite_similarity_entries_changed": 11292,
+  "maximum_absolute_finite_change": 0.02587890625,
+  "same_nan_mask": true,
+  "frozen_before": "d831160b336f0a95c9eb944730fcf1dc992c49bcaf79936a505c18519b1f027a",
+  "live_after": "cf8172a1848f831980495dd6a969ea39773d635077fb3338292d4849352921bf",
+  "used_for_experiment": "frozen_before",
+  "note": "Study compares algorithms on the frozen start-of-study catalogue, not the subsequent live batch."
+}

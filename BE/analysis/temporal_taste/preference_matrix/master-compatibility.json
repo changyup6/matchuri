@@ -1,0 +1,12 @@
+{
+  "measured_commit": "f287fa4a7af4dcb00a8a35ed5f0639f5bb0a4ead",
+  "incoming_master": "2c861deefe0cd4176a644e85696df4182fc87d22",
+  "parallel_change": "Review count display and API merging; adds only unused review_count helper within recsys. All existing store module statements and all other recommendation modules unchanged. Offline study never calls app loader/review_count.",
+  "all_existing_store_ast_statements_equal": true,
+  "added_function": "review_count",
+  "recommendation_paths_changed": [
+    "BE/server/recsys/store.py"
+  ],
+  "store_before_sha256": "7753f2df1c37d7e68d73b3a61272194e1c16749011d8d722d8e4aba12ef21e66",
+  "store_after_sha256": "3a6ad942075288883f0ff16409abd6c63359a871606f608cd21e7638fef32f8e"
+}

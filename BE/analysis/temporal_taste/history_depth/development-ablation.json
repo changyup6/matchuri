@@ -1,0 +1,97 @@
+{
+  "candidate": "Regularized intercept b~N(0,R), R=existing observation noise1. Other kernel parameters unchanged.",
+  "frozen_before_outcomes": true,
+  "new_reserved_N_cases_read": false,
+  "math": {
+    "checks": 480,
+    "maximum_errors": {
+      "mean": 6.245004513516506e-16,
+      "std": 4.440892098500626e-16
+    },
+    "all_positive": {
+      "v1_mean_range": 0.0,
+      "v2_mean_range": 0.36922724533963014,
+      "v1_alpha_norm": 0.0,
+      "v2_alpha_norm": 0.31515838783440536
+    },
+    "actual_latent_decomposition_max_error": 1.1102230246251565e-16,
+    "cold_and_own_single_deletion_proper_variance": true,
+    "fixed_intercept_prior_variance": "existing observation variance R=1; no grid/search"
+  },
+  "existing_development_states": 198,
+  "v1_reproduced_original_top20_and_four_cards": true,
+  "food_inclusion_original_selector": {
+    "cutlet": {
+      "v1": [
+        108,
+        108
+      ],
+      "proper_intercept": [
+        108,
+        108
+      ],
+      "denominator": 108
+    },
+    "noodle": {
+      "v1": [
+        64,
+        71
+      ],
+      "proper_intercept": [
+        64,
+        71
+      ],
+      "denominator": 72
+    },
+    "salad_poke": {
+      "v1": [
+        17,
+        18
+      ],
+      "proper_intercept": [
+        17,
+        18
+      ],
+      "denominator": 18
+    }
+  },
+  "all_positive_issue": "v1 free intercept exactly absorbs constant labels, alpha=0; proper prior permits nonzero high-dimensional taste coefficients. Cold finite uncertainty is a prior, not learned readiness.",
+  "logged_check": {
+    "responses": 2001,
+    "sessions": 61,
+    "people": 10,
+    "v1_macro_auc": 0.5660655530516616,
+    "candidate_macro_auc": 0.563885749578588,
+    "v1_weighted_auc": 0.5733152706750749,
+    "candidate_weighted_auc": 0.5736461025448446,
+    "macro_delta_person_bootstrap95": [
+      -0.01514766064253793,
+      0.004813976967727033
+    ]
+  },
+  "rejected_selector_ablation": {
+    "change": "remove absolute personal>0 gate while preserving top-quartile and all diversity/refinement rules",
+    "v1_changed_slates": 77,
+    "states": 198,
+    "whole_catalog_cutlet_cards_before_after": [
+      177,
+      126
+    ],
+    "cutlet_card_denominator": 432,
+    "whole_catalog_salad_cards_before_after": [
+      34,
+      24
+    ],
+    "salad_card_denominator": 72,
+    "decision": "Do not adopt. Origin-dependence exists, but removing this gate did not improve food inclusion and decreased principal-food slots."
+  },
+  "conclusion": "Retain proper-intercept as a structural correctness candidate, not a demonstrated general accuracy gain. Keep the existing selector. Only then evaluate separately frozen new N-depth cases.",
+  "sources_sha256": {
+    "development-ablation-freeze.json": "6610780b65814c5b849a3e0795607b2fc966257d339b9162506fece1f7ab2ddd",
+    "development-ablation-results.json": "4a01afdbaa35e6a8ebed9853e320ab05a55c0bf693c715f2cf9f7b535a359f49",
+    "development-ablation-summary.json": "036773f957c9927337d0eb50a142172419474fc9556be10f6452f52a8e8c1b51",
+    "development-fullcatalog-summary.json": "0c43f89a969809f1c353a6fbfd0afa089ec761fe3f7649ae593416b3616df916",
+    "proper-intercept-logged-results.json": "b3e523e0d050ddf29c95dfe62618cc47b4bb796d0e174e76e8601f43e09d745d",
+    "proper-intercept-math-check.json": "77b482cdfdfb0a549d7e514b65785ee56bc51a4acb823b1fbf50097ed28f4c6b"
+  }
+}

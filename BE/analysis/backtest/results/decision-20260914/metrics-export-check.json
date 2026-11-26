@@ -1,0 +1,49 @@
+{
+  "synthetic_example_not_efficacy": true,
+  "family": "korean",
+  "seed": 2000,
+  "feedback_count": 30,
+  "http_decision_parity": true,
+  "full_pool_paginated_count": 1629,
+  "example_feedback_count": 16,
+  "example_pair_count": 6,
+  "candidate_records_across_30": 1800,
+  "http_in_process_with_write_decision_and_export_ms": {
+    "p50": 126.31298147607595,
+    "p95": 239.02761545032257
+  },
+  "provenance": {
+    "manifest_sha256": "93014eca15a2c3e5e2f2da2d74b15c2f34b3cec90d19d12651538e85d331b99c",
+    "vectors": {
+      "menus": "300760226351defdf6d1c391e4220516659af1d4eb547324d521ee857d1431cf",
+      "store_text": "ba201c21b1fc8691feeb09da2b5eca0cfa8a2172e1f5258185aaf36ad5aecaf2",
+      "reviews": "d9bc8b343b06f94678fd06ed6235d0c9f367e432c0cc29cf831ff9251a9422c2",
+      "photo_food": "61632ab98ad39b3e2c132ae75ab79473d02cc6c4c3d33569953d2737e58be4e0",
+      "photo_space": "4ae2c80eace8137aaaa01683c82a28b925bcd64c7d3302afacbc7361cf6b6f3a"
+    },
+    "built_at": "2026-09-11T14:37:41+0900",
+    "code_sha256": {
+      "decision.py": "5b0c5d6cd2fbdc3c1f7fa62044a6f70c1cbe0330d5441adfbee648763a3325c8",
+      "decision_metrics.py": "5115079495b6951bffb7d09e5740655e4ef71d3f84b979f4f769f9de03dac834",
+      "decision_meanings.py": "9c12b1f49a37db106ab2e81790a56bdd4f9548f547c03b03ca947335275c67c4",
+      "content.py": "4a490bbd17e14ccb657abc1c33c529e060166a797617d154608bf02f59fa6c77",
+      "taste.py": "88983889db1010817d4250cd80390d06a040a32e25d11bc9f672e14a75283300"
+    }
+  },
+  "tests": "321 passed, 2 dependency deprecation warnings",
+  "test_seconds": 10.73,
+  "csv_row_counts": {
+    "components.csv": 13032,
+    "candidates.csv": 1629,
+    "metric-guide.csv": 27,
+    "predictions.csv": 28,
+    "model.csv": 8,
+    "evidence.csv": 13032,
+    "pairs.csv": 28,
+    "gates.csv": 11
+  },
+  "export_source_hashes_verified": true,
+  "meaning_guide_entries": 27,
+  "meaning_readme_verified": true,
+  "latency_conditions": "Local TestClient; regression suite ran concurrently; excludes network/mobile; not a comparative benchmark"
+}

@@ -1,0 +1,691 @@
+{
+  "date": "2026-09-22",
+  "research_only": true,
+  "production_recommendation_changed": false,
+  "baseline_git_commit": "9358dec",
+  "development_states": 180,
+  "catalogue_restaurants": 1498,
+  "latent_dimensions": 4317,
+  "provenance": {
+    "model_sha256": "ebc460cd5a792ef4c364210c1adc4f8c877008c9b45cff511ad7aa275e3ebe2c",
+    "runner_sha256": "d71ddf1aee82acb8278a8de637e69e40be75edf745bfa05f9a9f2ef7c88384ce",
+    "development_fixture_sha256": "503416ae10a67c9b3f2074d9309895d809645b6b3b48f433e7f9cf8af65fd1ba",
+    "development_output_sha256": "7729a9e7c7e592cb9f425d0c4cfb51faad113ae13647cc95db1e6e8ac06ee6c4",
+    "menu_audit_sha256": "49901f0c751ffc0f4492b772cf876d3c2ab29634d967c47be598af62d6531998",
+    "paired_audit_sha256": "2e775cf15489e9c78519064a5d5062c4988913ccf02505c1cff1f961da49a786",
+    "catalogue_matches_audited_fixture": true
+  },
+  "style_effect": {
+    "meaning": "Same current responses and held-out restaurants; only prior responses differ. Change in own-style pairwise win rate, using model mean, versus no history. Not a satisfaction probability.",
+    "rows": [
+      {
+        "scope": "development",
+        "scenario": "cutlet",
+        "prior": "japanese",
+        "seeds": 9,
+        "baseline": {
+          "history_gain_percentage_points": 0.6944444444444444,
+          "own_style_pair_win_rate": 0.4097222222222222
+        },
+        "temporal": {
+          "history_gain_percentage_points": 25.0,
+          "own_style_pair_win_rate": 0.5069444444444444
+        }
+      },
+      {
+        "scope": "development",
+        "scenario": "cutlet",
+        "prior": "western",
+        "seeds": 9,
+        "baseline": {
+          "history_gain_percentage_points": -2.083333333333333,
+          "own_style_pair_win_rate": 0.5763888888888888
+        },
+        "temporal": {
+          "history_gain_percentage_points": 4.861111111111112,
+          "own_style_pair_win_rate": 0.7916666666666666
+        }
+      },
+      {
+        "scope": "development",
+        "scenario": "noodle",
+        "prior": "japanese",
+        "seeds": 12,
+        "baseline": {
+          "history_gain_percentage_points": 3.125,
+          "own_style_pair_win_rate": 0.71875
+        },
+        "temporal": {
+          "history_gain_percentage_points": 16.666666666666664,
+          "own_style_pair_win_rate": 0.75
+        }
+      },
+      {
+        "scope": "development",
+        "scenario": "noodle",
+        "prior": "korean",
+        "seeds": 12,
+        "baseline": {
+          "history_gain_percentage_points": 3.125,
+          "own_style_pair_win_rate": 0.34375
+        },
+        "temporal": {
+          "history_gain_percentage_points": 20.833333333333336,
+          "own_style_pair_win_rate": 0.625
+        }
+      },
+      {
+        "scope": "soft",
+        "scenario": "cutlet",
+        "prior": "japanese",
+        "seeds": 12,
+        "baseline": {
+          "history_gain_percentage_points": -3.125,
+          "own_style_pair_win_rate": 0.34375
+        },
+        "temporal": {
+          "history_gain_percentage_points": 11.458333333333332,
+          "own_style_pair_win_rate": 0.359375
+        }
+      },
+      {
+        "scope": "soft",
+        "scenario": "cutlet",
+        "prior": "western",
+        "seeds": 12,
+        "baseline": {
+          "history_gain_percentage_points": 3.6458333333333335,
+          "own_style_pair_win_rate": 0.6614583333333334
+        },
+        "temporal": {
+          "history_gain_percentage_points": -0.5208333333333333,
+          "own_style_pair_win_rate": 0.75
+        }
+      }
+    ]
+  },
+  "temporal_final_four_food_presence": {
+    "cutlet": {
+      "states": 108,
+      "confirmed_at_least_one": 108
+    },
+    "noodle": {
+      "states": 72,
+      "confirmed_at_least_one": 64
+    }
+  },
+  "paired_final_four_food_presence": {
+    "overall": {
+      "states": 180,
+      "baseline": {
+        "cards": 720,
+        "unique_store_food_axes": 193,
+        "labelled_cards": 619,
+        "missing_label_cards": 101,
+        "explicit_unknown_cards": 10,
+        "status_counts": {
+          "principal": 201,
+          "secondary": 55,
+          "absent": 261,
+          "co_main": 18,
+          "adjacent": 26,
+          "unknown": 111,
+          "mixed": 48
+        },
+        "confirmed_cards": 219,
+        "contains_confirmed_slates": 155,
+        "primary_inclusion_count_bounds": [
+          155,
+          169
+        ],
+        "consensus_inclusion_count_bounds": [
+          155,
+          169
+        ],
+        "all_four_labelled_slates": 102,
+        "all_four_definite_slates": 91
+      },
+      "temporal": {
+        "cards": 720,
+        "unique_store_food_axes": 278,
+        "labelled_cards": 720,
+        "missing_label_cards": 0,
+        "explicit_unknown_cards": 21,
+        "status_counts": {
+          "principal": 277,
+          "mixed": 37,
+          "adjacent": 49,
+          "absent": 281,
+          "co_main": 22,
+          "secondary": 33,
+          "unknown": 21
+        },
+        "confirmed_cards": 299,
+        "contains_confirmed_slates": 176,
+        "primary_inclusion_count_bounds": [
+          176,
+          179
+        ],
+        "consensus_inclusion_count_bounds": [
+          172,
+          179
+        ],
+        "all_four_labelled_slates": 180,
+        "all_four_definite_slates": 148
+      },
+      "paired_identified_inclusion": {
+        "states": 163,
+        "candidate_only": 11,
+        "baseline_only": 0,
+        "both": 152,
+        "neither": 0
+      },
+      "candidate_minus_baseline_consensus_count_bounds": [
+        3,
+        24
+      ]
+    },
+    "by_wanted": {
+      "cutlet": {
+        "states": 108,
+        "baseline": {
+          "cards": 432,
+          "unique_store_food_axes": 95,
+          "labelled_cards": 394,
+          "missing_label_cards": 38,
+          "explicit_unknown_cards": 2,
+          "status_counts": {
+            "principal": 114,
+            "secondary": 43,
+            "absent": 171,
+            "co_main": 12,
+            "adjacent": 12,
+            "unknown": 40,
+            "mixed": 40
+          },
+          "confirmed_cards": 126,
+          "contains_confirmed_slates": 100,
+          "primary_inclusion_count_bounds": [
+            100,
+            102
+          ],
+          "consensus_inclusion_count_bounds": [
+            100,
+            102
+          ],
+          "all_four_labelled_slates": 73,
+          "all_four_definite_slates": 71
+        },
+        "temporal": {
+          "cards": 432,
+          "unique_store_food_axes": 141,
+          "labelled_cards": 432,
+          "missing_label_cards": 0,
+          "explicit_unknown_cards": 6,
+          "status_counts": {
+            "principal": 157,
+            "mixed": 20,
+            "adjacent": 27,
+            "absent": 188,
+            "co_main": 9,
+            "secondary": 25,
+            "unknown": 6
+          },
+          "confirmed_cards": 166,
+          "contains_confirmed_slates": 108,
+          "primary_inclusion_count_bounds": [
+            108,
+            108
+          ],
+          "consensus_inclusion_count_bounds": [
+            108,
+            108
+          ],
+          "all_four_labelled_slates": 108,
+          "all_four_definite_slates": 102
+        },
+        "paired_identified_inclusion": {
+          "states": 106,
+          "candidate_only": 6,
+          "baseline_only": 0,
+          "both": 100,
+          "neither": 0
+        },
+        "candidate_minus_baseline_consensus_count_bounds": [
+          6,
+          8
+        ]
+      },
+      "noodle": {
+        "states": 72,
+        "baseline": {
+          "cards": 288,
+          "unique_store_food_axes": 98,
+          "labelled_cards": 225,
+          "missing_label_cards": 63,
+          "explicit_unknown_cards": 8,
+          "status_counts": {
+            "principal": 87,
+            "absent": 90,
+            "secondary": 12,
+            "unknown": 71,
+            "mixed": 8,
+            "adjacent": 14,
+            "co_main": 6
+          },
+          "confirmed_cards": 93,
+          "contains_confirmed_slates": 55,
+          "primary_inclusion_count_bounds": [
+            55,
+            67
+          ],
+          "consensus_inclusion_count_bounds": [
+            55,
+            67
+          ],
+          "all_four_labelled_slates": 29,
+          "all_four_definite_slates": 20
+        },
+        "temporal": {
+          "cards": 288,
+          "unique_store_food_axes": 137,
+          "labelled_cards": 288,
+          "missing_label_cards": 0,
+          "explicit_unknown_cards": 15,
+          "status_counts": {
+            "unknown": 15,
+            "co_main": 13,
+            "principal": 120,
+            "adjacent": 22,
+            "absent": 93,
+            "mixed": 17,
+            "secondary": 8
+          },
+          "confirmed_cards": 133,
+          "contains_confirmed_slates": 68,
+          "primary_inclusion_count_bounds": [
+            68,
+            71
+          ],
+          "consensus_inclusion_count_bounds": [
+            64,
+            71
+          ],
+          "all_four_labelled_slates": 72,
+          "all_four_definite_slates": 46
+        },
+        "paired_identified_inclusion": {
+          "states": 57,
+          "candidate_only": 5,
+          "baseline_only": 0,
+          "both": 52,
+          "neither": 0
+        },
+        "candidate_minus_baseline_consensus_count_bounds": [
+          -3,
+          16
+        ]
+      }
+    }
+  },
+  "logged_prequential_check": {
+    "people": 10,
+    "evaluated_sessions": 61,
+    "first_ever_responses": 2001,
+    "matched_session_counts_and_positive_counts": true,
+    "baseline_macro_auc": 0.5501164146198299,
+    "temporal_macro_auc": 0.5660655530516616,
+    "baseline_weighted_auc": 0.5274249678874667,
+    "temporal_weighted_auc": 0.5733152706750749,
+    "improved_sessions": 32,
+    "tied_sessions": 3,
+    "worsened_sessions": 26,
+    "person_cluster_bootstrap_95pct_delta": {
+      "macro": [
+        -0.016976187778721834,
+        0.07447250537385447
+      ],
+      "weighted": [
+        0.001413145076190025,
+        0.10714916850718828
+      ]
+    },
+    "limitations": "Descriptive existing-log replay, historical policy selection bias, possibly QA/test users.10person clusters; bootstrap uncertainty is conditional on this cohort, not a satisfaction/A-B estimate. No realuserIDs or response rows exported."
+  },
+  "limitations": [
+    "Real restaurant catalogue, hypothetical responses. Overlapping seeds are not independent people.",
+    "The original 180 states were used for model selection, not an untouched final test set.",
+    "Food inclusion means at least one principal/co-main restaurant in the four-card slate, not four-card fit or overall accuracy.",
+    "Unclear or conflicting menu evidence is not a confirmed success. Baseline annotations are incomplete; use bounds, not point comparison.",
+    "The current selector is exercised unchanged with different score units; compatibility, cold starts, exploration and serving-state integration remain unverified.",
+    "Logged responses have historical exposure bias and possible test accounts. Macro AUC improvement interval includes zero."
+  ],
+  "fresh_food_shift": {
+    "research_only": true,
+    "fixture_sha256": "97ab9f40c6c4fe7aa0e7e2264a12c1974620a17a3b5b1fae77355518e9a5e983",
+    "state_count": 18,
+    "seconds": 112.78827638481744,
+    "interpretation": [
+      "Single new food-direction scenario, fixed20 current responses with6salad/poke likes and14other dislikes. Labels and inputs frozen before scoring.",
+      "Six seeds share restaurants; responses are hypothetical, not independent real users.",
+      "Only principal/co_main count as confirmed target food. Mixed/secondary/absent/unknown remain separate.",
+      "Final4 need at least one target-food main, not four identical food categories. This is menu presence, not overall acceptance accuracy.",
+      "Heldout4salad vs4fried ranks/pair comparisons do not label the full1498catalogue.",
+      "Actual baseline and fixed temporal model use the unchanged selector offline; production has not changed."
+    ],
+    "models": {
+      "baseline": {
+        "none": {
+          "runs": 6,
+          "ranking": {
+            "mean": {
+              "top1_status_counts": {
+                "co_main": 3,
+                "unknown": 1,
+                "principal": 2
+              },
+              "top1_confirmed_main": 5,
+              "heldout_salad_mean_rank": 13.333333333333334,
+              "heldout_fried_mean_rank": 1059.9583333333333,
+              "salad_vs_fried_pair_win_rate": 1.0
+            },
+            "conservative": {
+              "top1_status_counts": {
+                "co_main": 3,
+                "principal": 3
+              },
+              "top1_confirmed_main": 6,
+              "heldout_salad_mean_rank": 13.166666666666666,
+              "heldout_fried_mean_rank": 1046.1666666666667,
+              "salad_vs_fried_pair_win_rate": 1.0
+            }
+          },
+          "final4": {
+            "confirmed_main_in_at_least_one": 6,
+            "confirmed_main_slots": 6,
+            "food_status_counts": {
+              "co_main": 3,
+              "absent": 11,
+              "mixed": 6,
+              "principal": 3,
+              "secondary": 1
+            },
+            "any_unknown_or_unlabelled": 0
+          }
+        },
+        "fried": {
+          "runs": 6,
+          "ranking": {
+            "mean": {
+              "top1_status_counts": {
+                "co_main": 2,
+                "unknown": 1,
+                "principal": 2,
+                "absent": 1
+              },
+              "top1_confirmed_main": 4,
+              "heldout_salad_mean_rank": 13.708333333333334,
+              "heldout_fried_mean_rank": 1016.9583333333334,
+              "salad_vs_fried_pair_win_rate": 1.0
+            },
+            "conservative": {
+              "top1_status_counts": {
+                "co_main": 2,
+                "principal": 3,
+                "absent": 1
+              },
+              "top1_confirmed_main": 5,
+              "heldout_salad_mean_rank": 13.458333333333334,
+              "heldout_fried_mean_rank": 1003.9166666666666,
+              "salad_vs_fried_pair_win_rate": 1.0
+            }
+          },
+          "final4": {
+            "confirmed_main_in_at_least_one": 6,
+            "confirmed_main_slots": 6,
+            "food_status_counts": {
+              "co_main": 2,
+              "absent": 13,
+              "mixed": 3,
+              "principal": 4,
+              "adjacent": 1,
+              "secondary": 1
+            },
+            "any_unknown_or_unlabelled": 0
+          }
+        },
+        "inverse": {
+          "runs": 6,
+          "ranking": {
+            "mean": {
+              "top1_status_counts": {
+                "co_main": 2,
+                "principal": 3,
+                "absent": 1
+              },
+              "top1_confirmed_main": 5,
+              "heldout_salad_mean_rank": 13.75,
+              "heldout_fried_mean_rank": 1081.7916666666667,
+              "salad_vs_fried_pair_win_rate": 1.0
+            },
+            "conservative": {
+              "top1_status_counts": {
+                "co_main": 2,
+                "principal": 3,
+                "absent": 1
+              },
+              "top1_confirmed_main": 5,
+              "heldout_salad_mean_rank": 13.708333333333334,
+              "heldout_fried_mean_rank": 1068.3333333333333,
+              "salad_vs_fried_pair_win_rate": 1.0
+            }
+          },
+          "final4": {
+            "confirmed_main_in_at_least_one": 6,
+            "confirmed_main_slots": 7,
+            "food_status_counts": {
+              "co_main": 3,
+              "absent": 12,
+              "mixed": 3,
+              "principal": 4,
+              "adjacent": 1,
+              "secondary": 1
+            },
+            "any_unknown_or_unlabelled": 0
+          }
+        },
+        "all": {
+          "runs": 18,
+          "ranking": {
+            "mean": {
+              "top1_status_counts": {
+                "co_main": 7,
+                "unknown": 2,
+                "principal": 7,
+                "absent": 2
+              },
+              "top1_confirmed_main": 14,
+              "heldout_salad_mean_rank": 13.597222222222221,
+              "heldout_fried_mean_rank": 1052.9027777777778,
+              "salad_vs_fried_pair_win_rate": 1.0
+            },
+            "conservative": {
+              "top1_status_counts": {
+                "co_main": 7,
+                "principal": 9,
+                "absent": 2
+              },
+              "top1_confirmed_main": 16,
+              "heldout_salad_mean_rank": 13.444444444444445,
+              "heldout_fried_mean_rank": 1039.4722222222222,
+              "salad_vs_fried_pair_win_rate": 1.0
+            }
+          },
+          "final4": {
+            "confirmed_main_in_at_least_one": 18,
+            "confirmed_main_slots": 19,
+            "food_status_counts": {
+              "co_main": 8,
+              "absent": 36,
+              "mixed": 12,
+              "principal": 11,
+              "adjacent": 2,
+              "secondary": 3
+            },
+            "any_unknown_or_unlabelled": 0
+          }
+        }
+      },
+      "temporal": {
+        "none": {
+          "runs": 6,
+          "ranking": {
+            "mean": {
+              "top1_status_counts": {
+                "principal": 6
+              },
+              "top1_confirmed_main": 6,
+              "heldout_salad_mean_rank": 11.375,
+              "heldout_fried_mean_rank": 1089.5833333333333,
+              "salad_vs_fried_pair_win_rate": 1.0
+            },
+            "conservative": {
+              "top1_status_counts": {
+                "principal": 6
+              },
+              "top1_confirmed_main": 6,
+              "heldout_salad_mean_rank": 11.166666666666666,
+              "heldout_fried_mean_rank": 1039.0,
+              "salad_vs_fried_pair_win_rate": 1.0
+            }
+          },
+          "final4": {
+            "confirmed_main_in_at_least_one": 6,
+            "confirmed_main_slots": 20,
+            "food_status_counts": {
+              "principal": 12,
+              "co_main": 8,
+              "unknown": 4
+            },
+            "any_unknown_or_unlabelled": 3
+          }
+        },
+        "fried": {
+          "runs": 6,
+          "ranking": {
+            "mean": {
+              "top1_status_counts": {
+                "principal": 5,
+                "co_main": 1
+              },
+              "top1_confirmed_main": 6,
+              "heldout_salad_mean_rank": 30.791666666666668,
+              "heldout_fried_mean_rank": 783.125,
+              "salad_vs_fried_pair_win_rate": 1.0
+            },
+            "conservative": {
+              "top1_status_counts": {
+                "principal": 4,
+                "co_main": 1,
+                "unknown": 1
+              },
+              "top1_confirmed_main": 5,
+              "heldout_salad_mean_rank": 25.791666666666668,
+              "heldout_fried_mean_rank": 740.2916666666666,
+              "salad_vs_fried_pair_win_rate": 1.0
+            }
+          },
+          "final4": {
+            "confirmed_main_in_at_least_one": 5,
+            "confirmed_main_slots": 6,
+            "food_status_counts": {
+              "principal": 4,
+              "absent": 13,
+              "secondary": 3,
+              "co_main": 2,
+              "unknown": 1,
+              "mixed": 1
+            },
+            "any_unknown_or_unlabelled": 1
+          }
+        },
+        "inverse": {
+          "runs": 6,
+          "ranking": {
+            "mean": {
+              "top1_status_counts": {
+                "principal": 6
+              },
+              "top1_confirmed_main": 6,
+              "heldout_salad_mean_rank": 20.875,
+              "heldout_fried_mean_rank": 1398.875,
+              "salad_vs_fried_pair_win_rate": 1.0
+            },
+            "conservative": {
+              "top1_status_counts": {
+                "principal": 6
+              },
+              "top1_confirmed_main": 6,
+              "heldout_salad_mean_rank": 18.083333333333332,
+              "heldout_fried_mean_rank": 1397.5416666666667,
+              "salad_vs_fried_pair_win_rate": 1.0
+            }
+          },
+          "final4": {
+            "confirmed_main_in_at_least_one": 6,
+            "confirmed_main_slots": 8,
+            "food_status_counts": {
+              "principal": 6,
+              "absent": 13,
+              "mixed": 2,
+              "co_main": 2,
+              "unknown": 1
+            },
+            "any_unknown_or_unlabelled": 1
+          }
+        },
+        "all": {
+          "runs": 18,
+          "ranking": {
+            "mean": {
+              "top1_status_counts": {
+                "principal": 17,
+                "co_main": 1
+              },
+              "top1_confirmed_main": 18,
+              "heldout_salad_mean_rank": 21.01388888888889,
+              "heldout_fried_mean_rank": 1090.5277777777778,
+              "salad_vs_fried_pair_win_rate": 1.0
+            },
+            "conservative": {
+              "top1_status_counts": {
+                "principal": 16,
+                "co_main": 1,
+                "unknown": 1
+              },
+              "top1_confirmed_main": 17,
+              "heldout_salad_mean_rank": 18.34722222222222,
+              "heldout_fried_mean_rank": 1058.9444444444443,
+              "salad_vs_fried_pair_win_rate": 1.0
+            }
+          },
+          "final4": {
+            "confirmed_main_in_at_least_one": 17,
+            "confirmed_main_slots": 34,
+            "food_status_counts": {
+              "principal": 22,
+              "co_main": 12,
+              "absent": 26,
+              "secondary": 3,
+              "unknown": 6,
+              "mixed": 3
+            },
+            "any_unknown_or_unlabelled": 5
+          }
+        }
+      }
+    },
+    "output_sha256": "121bf4797b93bbd1591ac8059822b7ecf42ad61fa8deec60011c998a6394aa87",
+    "menu_audit_sha256": "b6f717909accf5d764dfb28512807be926a632f571275bbcf4b4ec80fb6eaa08"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "created_at": "2026-09-22T09:36:24.709685+00:00",
+  "reason": "Live batch replaced sources after input audits and before prediction. Both initial runs stopped at fingerprint validation before model loading. Use byte-identical archived sources; do not update expected data values.",
+  "source_backup": "/home/ubuntu/matchuri-batch/live.prev-models-2026-09-22T18-20",
+  "original_root": "/home/ubuntu/matchuri-data/kakao",
+  "snapshot_root": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao",
+  "path_map": {
+    "/home/ubuntu/matchuri-data/kakao/menus.jsonl": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/menus.jsonl",
+    "/home/ubuntu/matchuri-data/kakao/photos.jsonl": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/photos.jsonl",
+    "/home/ubuntu/matchuri-data/kakao/reviews.jsonl": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/reviews.jsonl",
+    "/home/ubuntu/matchuri-data/kakao/reviews_naver.jsonl": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/reviews_naver.jsonl",
+    "/home/ubuntu/matchuri-data/kakao/serving/brand_key.json": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/brand_key.json",
+    "/home/ubuntu/matchuri-data/kakao/serving/cooc.npy": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/cooc.npy",
+    "/home/ubuntu/matchuri-data/kakao/serving/layout.json": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/layout.json",
+    "/home/ubuntu/matchuri-data/kakao/serving/manifest.json": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/manifest.json",
+    "/home/ubuntu/matchuri-data/kakao/serving/pool_ids.json": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/pool_ids.json",
+    "/home/ubuntu/matchuri-data/kakao/serving/prior.json": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/prior.json",
+    "/home/ubuntu/matchuri-data/kakao/serving/review_pairs.json": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/review_pairs.json",
+    "/home/ubuntu/matchuri-data/kakao/serving/review_vecs.npy": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/review_vecs.npy",
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_food.npy": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/sim_food.npy",
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_menu.npy": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/sim_menu.npy",
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_review.npy": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/sim_review.npy",
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_text.npy": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/sim_text.npy",
+    "/home/ubuntu/matchuri-data/kakao/stores.jsonl": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/stores.jsonl"
+  },
+  "files": {
+    "/home/ubuntu/matchuri-data/kakao/menus.jsonl": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/menus.jsonl",
+      "sha256": "c24f2ef9e5771dd7a9580dee7d47704b48aed05529cbf67c51a8e968c754ce82",
+      "matches_preexisting_fingerprint": true
+    },
+    "/home/ubuntu/matchuri-data/kakao/photos.jsonl": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/photos.jsonl",
+      "sha256": "a90d8404e524269f21bea7c245b8bc142565f70013013d7f9f0f6c8bb6e008ca",
+      "matches_preexisting_fingerprint": false
+    },
+    "/home/ubuntu/matchuri-data/kakao/reviews.jsonl": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/reviews.jsonl",
+      "sha256": "a7fb40ebf084695300c09ef5db13355496b3a33ecde6ca4e9bd5c1a82806976a",
+      "matches_preexisting_fingerprint": false
+    },
+    "/home/ubuntu/matchuri-data/kakao/reviews_naver.jsonl": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/reviews_naver.jsonl",
+      "sha256": "1de93267ffa852aa97a6e467141343fad3f804046f788cf993532a98ad8e30c5",
+      "matches_preexisting_fingerprint": false
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/brand_key.json": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/brand_key.json",
+      "sha256": "2fa4f2b37e8696e7c9aaca26583ccdecb4a74f4e5c15d3b08c40c9b132c0b580",
+      "matches_preexisting_fingerprint": true
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/cooc.npy": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/cooc.npy",
+      "sha256": "4f7d56631d946aa8a671ab223c0e2d945b9371d4ca4e3f8c71c5db42fe72c706",
+      "matches_preexisting_fingerprint": false
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/layout.json": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/layout.json",
+      "sha256": "07e3bddef6a42fe6d6b5b869264132defd1971496414e35e62443dbaaa865bf7",
+      "matches_preexisting_fingerprint": false
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/manifest.json": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/manifest.json",
+      "sha256": "83f93d9dc2ef24eaca82718fff09fd4364a6dcbb2ad8b53052546e4bc2a622fa",
+      "matches_preexisting_fingerprint": false
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/pool_ids.json": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/pool_ids.json",
+      "sha256": "68b274b5452fd88b7ea0133005b70bb013c4b6f081643791462fc51ea6ce363b",
+      "matches_preexisting_fingerprint": true
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/prior.json": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/prior.json",
+      "sha256": "6c89c2017f15407818b44c74484176237d0089da5da7dddc18ad8be09302e058",
+      "matches_preexisting_fingerprint": false
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/review_pairs.json": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/review_pairs.json",
+      "sha256": "dd1f15ded304a74a9a11ae52f58b3cdfaa8de79918b12ecab0156f0f0f0ddd9e",
+      "matches_preexisting_fingerprint": false
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/review_vecs.npy": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/review_vecs.npy",
+      "sha256": "1f08e92341f7463afe873cc7344d194a346ea7c694edc0bac43f759ffb479f73",
+      "matches_preexisting_fingerprint": false
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_food.npy": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/sim_food.npy",
+      "sha256": "bfd6bf49830d745956a668f79aee5c8944bad51e012c1b4228989d41be325545",
+      "matches_preexisting_fingerprint": true
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_menu.npy": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/sim_menu.npy",
+      "sha256": "4fc747e63807e9b9e77b1aaed573b4a7820cd300a3efbe14096a8ad9dff05c5a",
+      "matches_preexisting_fingerprint": true
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_review.npy": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/sim_review.npy",
+      "sha256": "d831160b336f0a95c9eb944730fcf1dc992c49bcaf79936a505c18519b1f027a",
+      "matches_preexisting_fingerprint": true
+    },
+    "/home/ubuntu/matchuri-data/kakao/serving/sim_text.npy": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/serving/sim_text.npy",
+      "sha256": "4c125d080aa13542e822ee6e0069c06839466e9b637ad6ba4bfae45e9a4b42fe",
+      "matches_preexisting_fingerprint": true
+    },
+    "/home/ubuntu/matchuri-data/kakao/stores.jsonl": {
+      "snapshot": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/private-input/kakao/stores.jsonl",
+      "sha256": "a8b5c19e63f4ea85c52f7ec5b992513f6758e029827f36c367e7bf7a1b5212e2",
+      "matches_preexisting_fingerprint": true
+    }
+  },
+  "parent_fixture_sha256": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5"
+}

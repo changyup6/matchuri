@@ -1,0 +1,6 @@
+# Offline validation / figures / HTTP preview only; not server runtime dependencies.
+numpy
+matplotlib
+fastapi
+httpx
+playwright

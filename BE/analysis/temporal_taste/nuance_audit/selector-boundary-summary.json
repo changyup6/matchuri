@@ -1,0 +1,3391 @@
+{
+  "trace_rows": [
+    {
+      "id": "cutlet-100-n0-none",
+      "seed": 100,
+      "prior": "none",
+      "history_n": 0,
+      "model": "regularized",
+      "candidate_count": 1498,
+      "qualified": 3,
+      "strict_search_inputs": [
+        3,
+        1498
+      ],
+      "strict_search_visited": [
+        0,
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "850873071",
+          "mean": 0.24552750182515237,
+          "sd": 0.8437959952909792,
+          "conservative": -0.1763704958203372,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "2129615239",
+          "mean": 0.09094350511247862,
+          "sd": 0.9317592444540563,
+          "conservative": -0.37493611711454955,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "봄카츠 강남본점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "938786093",
+          "mean": 0.044750758430261106,
+          "sd": 0.9766739837839171,
+          "conservative": -0.44358623346169745,
+          "eligible_rank": 3,
+          "global_rank": 3,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "16057055",
+          "mean": -0.08482741802241456,
+          "sd": 1.0217819793718081,
+          "conservative": -0.5957184077083186,
+          "eligible_rank": 6,
+          "global_rank": 6,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "제이돈까스",
+          "food": "principal",
+          "style": "western"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "850873071",
+          "mean": 0.24552750182515237,
+          "sd": 0.8437959952909792,
+          "conservative": -0.1763704958203372,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "316697838",
+          "mean": -0.43312343701759887,
+          "sd": 1.1061290511673256,
+          "conservative": -0.9861879626012617,
+          "eligible_rank": 55,
+          "global_rank": 55,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "흥부이가정육식당 본점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1652831780",
+          "mean": -0.4489760909178254,
+          "sd": 1.0769410771962895,
+          "conservative": -0.9874466295159702,
+          "eligible_rank": 56,
+          "global_rank": 56,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "한마음분식",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1377492683",
+          "mean": -0.45053837977327454,
+          "sd": 1.0767236533968767,
+          "conservative": -0.988900206471713,
+          "eligible_rank": 57,
+          "global_rank": 57,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "멘야 유메미루",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 1,
+      "before_style": {
+        "japanese": 2,
+        "western": 2
+      },
+      "after_style": {
+        "japanese": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9947362542152405,
+          0.9928518533706665,
+          0.992459774017334,
+          0.9918242692947388,
+          0.9512638449668884,
+          0.9158971905708313
+        ],
+        "conservative_score_sum": -1.590611254104903,
+        "ranks": [
+          1,
+          2,
+          3,
+          6
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.8219366073608398,
+          0.7862442135810852,
+          0.7248167991638184,
+          0.654903769493103,
+          0.647287905216217,
+          0.42920243740081787
+        ],
+        "conservative_score_sum": -3.138905294409282,
+        "ranks": [
+          1,
+          55,
+          56,
+          57
+        ]
+      }
+    },
+    {
+      "id": "cutlet-100-n0-none",
+      "seed": 100,
+      "prior": "none",
+      "history_n": 0,
+      "model": "regularized_context_floor",
+      "candidate_count": 57,
+      "qualified": 3,
+      "strict_search_inputs": [
+        3,
+        57
+      ],
+      "strict_search_visited": [
+        0,
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "850873071",
+          "mean": 0.24552750182515237,
+          "sd": 0.8437959952909792,
+          "conservative": -0.1763704958203372,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "2129615239",
+          "mean": 0.09094350511247862,
+          "sd": 0.9317592444540563,
+          "conservative": -0.37493611711454955,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "봄카츠 강남본점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "938786093",
+          "mean": 0.044750758430261106,
+          "sd": 0.9766739837839171,
+          "conservative": -0.44358623346169745,
+          "eligible_rank": 3,
+          "global_rank": 3,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "16057055",
+          "mean": -0.08482741802241456,
+          "sd": 1.0217819793718081,
+          "conservative": -0.5957184077083186,
+          "eligible_rank": 6,
+          "global_rank": 6,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "제이돈까스",
+          "food": "principal",
+          "style": "western"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "850873071",
+          "mean": 0.24552750182515237,
+          "sd": 0.8437959952909792,
+          "conservative": -0.1763704958203372,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "316697838",
+          "mean": -0.43312343701759887,
+          "sd": 1.1061290511673256,
+          "conservative": -0.9861879626012617,
+          "eligible_rank": 55,
+          "global_rank": 55,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "흥부이가정육식당 본점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1652831780",
+          "mean": -0.4489760909178254,
+          "sd": 1.0769410771962895,
+          "conservative": -0.9874466295159702,
+          "eligible_rank": 56,
+          "global_rank": 56,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "한마음분식",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1377492683",
+          "mean": -0.45053837977327454,
+          "sd": 1.0767236533968767,
+          "conservative": -0.988900206471713,
+          "eligible_rank": 57,
+          "global_rank": 57,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "멘야 유메미루",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 1,
+      "before_style": {
+        "japanese": 2,
+        "western": 2
+      },
+      "after_style": {
+        "japanese": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9947362542152405,
+          0.9928518533706665,
+          0.992459774017334,
+          0.9918242692947388,
+          0.9512638449668884,
+          0.9158971905708313
+        ],
+        "conservative_score_sum": -1.590611254104903,
+        "ranks": [
+          1,
+          2,
+          3,
+          6
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.8219366073608398,
+          0.7862442135810852,
+          0.7248167991638184,
+          0.654903769493103,
+          0.647287905216217,
+          0.42920243740081787
+        ],
+        "conservative_score_sum": -3.138905294409282,
+        "ranks": [
+          1,
+          55,
+          56,
+          57
+        ]
+      }
+    },
+    {
+      "id": "cutlet-100-n80-japanese",
+      "seed": 100,
+      "prior": "japanese",
+      "history_n": 80,
+      "model": "regularized",
+      "candidate_count": 1498,
+      "qualified": 135,
+      "strict_search_inputs": [
+        135
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "850873071",
+          "mean": 0.520362981858582,
+          "sd": 0.8338487917799959,
+          "conservative": 0.10343858596858402,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "2129615239",
+          "mean": 0.3660636517660258,
+          "sd": 0.9212440417754418,
+          "conservative": -0.09455836912169513,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "봄카츠 강남본점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "2103253212",
+          "mean": 0.32703280426581355,
+          "sd": 1.0099355583574317,
+          "conservative": -0.17793497491290228,
+          "eligible_rank": 3,
+          "global_rank": 3,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "갓포돈",
+          "food": "principal",
+          "style": "both_or_mixed"
+        },
+        {
+          "store_id": "938786093",
+          "mean": 0.29161677908806216,
+          "sd": 0.9662898412128476,
+          "conservative": -0.19152814151836162,
+          "eligible_rank": 4,
+          "global_rank": 4,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "850873071",
+          "mean": 0.520362981858582,
+          "sd": 0.8338487917799959,
+          "conservative": 0.10343858596858402,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "465871230",
+          "mean": 0.09748480769383588,
+          "sd": 1.0510141979033352,
+          "conservative": -0.4280222912578317,
+          "eligible_rank": 47,
+          "global_rank": 47,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "오몬자",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "21332166",
+          "mean": 0.08795092081414932,
+          "sd": 1.0601592684826613,
+          "conservative": -0.4421287134271813,
+          "eligible_rank": 52,
+          "global_rank": 52,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "원조원주추어탕 강남본점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "359270449",
+          "mean": 0.061944093356936736,
+          "sd": 1.0462223138965427,
+          "conservative": -0.46116706359133464,
+          "eligible_rank": 60,
+          "global_rank": 60,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "마이니치라멘 카모점",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 1,
+      "before_style": {
+        "japanese": 2,
+        "both_or_mixed": 1,
+        "western": 1
+      },
+      "after_style": {
+        "japanese": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9971202611923218,
+          0.9968780279159546,
+          0.9928518533706665,
+          0.992680549621582,
+          0.992459774017334,
+          0.9918242692947388
+        ],
+        "conservative_score_sum": -0.360582899584375,
+        "ranks": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.8127221465110779,
+          0.7984387874603271,
+          0.7456852793693542,
+          0.7201955914497375,
+          0.6942949295043945,
+          0.644976794719696
+        ],
+        "conservative_score_sum": -1.2278794823077637,
+        "ranks": [
+          1,
+          47,
+          52,
+          60
+        ]
+      }
+    },
+    {
+      "id": "cutlet-100-n80-japanese",
+      "seed": 100,
+      "prior": "japanese",
+      "history_n": 80,
+      "model": "regularized_context_floor",
+      "candidate_count": 57,
+      "qualified": 53,
+      "strict_search_inputs": [
+        53
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "850873071",
+          "mean": 0.520362981858582,
+          "sd": 0.8338487917799959,
+          "conservative": 0.10343858596858402,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "2129615239",
+          "mean": 0.3660636517660258,
+          "sd": 0.9212440417754418,
+          "conservative": -0.09455836912169513,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "봄카츠 강남본점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "2103253212",
+          "mean": 0.32703280426581355,
+          "sd": 1.0099355583574317,
+          "conservative": -0.17793497491290228,
+          "eligible_rank": 3,
+          "global_rank": 3,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "갓포돈",
+          "food": "principal",
+          "style": "both_or_mixed"
+        },
+        {
+          "store_id": "938786093",
+          "mean": 0.29161677908806216,
+          "sd": 0.9662898412128476,
+          "conservative": -0.19152814151836162,
+          "eligible_rank": 4,
+          "global_rank": 4,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "850873071",
+          "mean": 0.520362981858582,
+          "sd": 0.8338487917799959,
+          "conservative": 0.10343858596858402,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "316697838",
+          "mean": 0.15419273753392387,
+          "sd": 1.0573176623223564,
+          "conservative": -0.3744660936272543,
+          "eligible_rank": 31,
+          "global_rank": 32,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "흥부이가정육식당 본점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1021701859",
+          "mean": 0.08489598611730625,
+          "sd": 1.0532601976272933,
+          "conservative": -0.4417341126963404,
+          "eligible_rank": 42,
+          "global_rank": 51,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "메르밀진미집 역삼점",
+          "food": "secondary",
+          "style": "not_established"
+        },
+        {
+          "store_id": "948460247",
+          "mean": 0.04521580230361699,
+          "sd": 1.0477819319352655,
+          "conservative": -0.47867516366401575,
+          "eligible_rank": 46,
+          "global_rank": 75,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "카오돈 선릉점",
+          "food": "mixed",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 1,
+      "before_style": {
+        "japanese": 2,
+        "both_or_mixed": 1,
+        "western": 1
+      },
+      "after_style": {
+        "japanese": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9971202611923218,
+          0.9968780279159546,
+          0.9928518533706665,
+          0.992680549621582,
+          0.992459774017334,
+          0.9918242692947388
+        ],
+        "conservative_score_sum": -0.360582899584375,
+        "ranks": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.8808013200759888,
+          0.8767417669296265,
+          0.8664810657501221,
+          0.8225480914115906,
+          0.8219366073608398,
+          0.6371687054634094
+        ],
+        "conservative_score_sum": -1.1914367840190265,
+        "ranks": [
+          1,
+          31,
+          42,
+          46
+        ]
+      }
+    },
+    {
+      "id": "cutlet-100-n80-western",
+      "seed": 100,
+      "prior": "western",
+      "history_n": 80,
+      "model": "regularized",
+      "candidate_count": 1498,
+      "qualified": 163,
+      "strict_search_inputs": [
+        163
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "850873071",
+          "mean": 0.3724839582744455,
+          "sd": 0.8338487917799959,
+          "conservative": -0.04444043761555244,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "2129615239",
+          "mean": 0.2563196316373037,
+          "sd": 0.9212440417754418,
+          "conservative": -0.20430238925041722,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "봄카츠 강남본점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "938786093",
+          "mean": 0.2464560812616287,
+          "sd": 0.9662898412128476,
+          "conservative": -0.23668883934479507,
+          "eligible_rank": 3,
+          "global_rank": 3,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "16057055",
+          "mean": 0.24186019462856473,
+          "sd": 1.0051885536469143,
+          "conservative": -0.2607340821948924,
+          "eligible_rank": 5,
+          "global_rank": 5,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "제이돈까스",
+          "food": "principal",
+          "style": "western"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "850873071",
+          "mean": 0.3724839582744455,
+          "sd": 0.8338487917799959,
+          "conservative": -0.04444043761555244,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "1858779076",
+          "mean": 0.09498677292809982,
+          "sd": 1.0440940529207117,
+          "conservative": -0.427060253532256,
+          "eligible_rank": 22,
+          "global_rank": 22,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "파스토보이 서울역삼점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1677141511",
+          "mean": 0.06932786207135908,
+          "sd": 1.0517434624662296,
+          "conservative": -0.4565438691617557,
+          "eligible_rank": 48,
+          "global_rank": 48,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "기네스72 역삼",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1486637858",
+          "mean": 0.06800228272871817,
+          "sd": 1.0600374209697205,
+          "conservative": -0.4620164277561421,
+          "eligible_rank": 53,
+          "global_rank": 53,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "BBQ 역삼SG타워점",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 1,
+      "before_style": {
+        "japanese": 2,
+        "western": 2
+      },
+      "after_style": {
+        "japanese": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9947362542152405,
+          0.9928518533706665,
+          0.992459774017334,
+          0.9918242692947388,
+          0.9512638449668884,
+          0.9158971905708313
+        ],
+        "conservative_score_sum": -0.7461657484056572,
+        "ranks": [
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.5476623177528381,
+          0.41477927565574646,
+          0.35942205786705017,
+          0.3234356939792633,
+          0.3120274543762207,
+          0.13991457223892212
+        ],
+        "conservative_score_sum": -1.3900609880657062,
+        "ranks": [
+          1,
+          22,
+          48,
+          53
+        ]
+      }
+    },
+    {
+      "id": "cutlet-100-n80-western",
+      "seed": 100,
+      "prior": "western",
+      "history_n": 80,
+      "model": "regularized_context_floor",
+      "candidate_count": 57,
+      "qualified": 28,
+      "strict_search_inputs": [
+        28
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "850873071",
+          "mean": 0.3724839582744455,
+          "sd": 0.8338487917799959,
+          "conservative": -0.04444043761555244,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "2129615239",
+          "mean": 0.2563196316373037,
+          "sd": 0.9212440417754418,
+          "conservative": -0.20430238925041722,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "봄카츠 강남본점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "938786093",
+          "mean": 0.2464560812616287,
+          "sd": 0.9662898412128476,
+          "conservative": -0.23668883934479507,
+          "eligible_rank": 3,
+          "global_rank": 3,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "16057055",
+          "mean": 0.24186019462856473,
+          "sd": 1.0051885536469143,
+          "conservative": -0.2607340821948924,
+          "eligible_rank": 5,
+          "global_rank": 5,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "제이돈까스",
+          "food": "principal",
+          "style": "western"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "850873071",
+          "mean": 0.3724839582744455,
+          "sd": 0.8338487917799959,
+          "conservative": -0.04444043761555244,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "16057055",
+          "mean": 0.24186019462856473,
+          "sd": 1.0051885536469143,
+          "conservative": -0.2607340821948924,
+          "eligible_rank": 5,
+          "global_rank": 5,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "제이돈까스",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "16767854",
+          "mean": 0.12227611758723772,
+          "sd": 1.0534119609681283,
+          "conservative": -0.4044298628968264,
+          "eligible_rank": 12,
+          "global_rank": 15,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "호또치킨 강남본점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "316697838",
+          "mean": 0.01664895823494128,
+          "sd": 1.0573176623223564,
+          "conservative": -0.5120098729262369,
+          "eligible_rank": 27,
+          "global_rank": 139,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "흥부이가정육식당 본점",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 2,
+      "before_style": {
+        "japanese": 2,
+        "western": 2
+      },
+      "after_style": {
+        "japanese": 1,
+        "western": 1,
+        "not_established": 2
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9947362542152405,
+          0.9928518533706665,
+          0.992459774017334,
+          0.9918242692947388,
+          0.9512638449668884,
+          0.9158971905708313
+        ],
+        "conservative_score_sum": -0.7461657484056572,
+        "ranks": [
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9499332308769226,
+          0.9158971905708313,
+          0.8745408058166504,
+          0.8219366073608398,
+          0.7970941662788391,
+          0.6070035099983215
+        ],
+        "conservative_score_sum": -1.2216142556335083,
+        "ranks": [
+          1,
+          5,
+          12,
+          27
+        ]
+      }
+    },
+    {
+      "id": "cutlet-103-n0-none",
+      "seed": 103,
+      "prior": "none",
+      "history_n": 0,
+      "model": "regularized",
+      "candidate_count": 1498,
+      "qualified": 4,
+      "strict_search_inputs": [
+        4,
+        1498
+      ],
+      "strict_search_visited": [
+        1,
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "633394651",
+          "mean": 0.2367264092249447,
+          "sd": 0.8431977682284353,
+          "conservative": -0.18487247488927294,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "850873071",
+          "mean": 0.12731369010533122,
+          "sd": 0.9383561236500256,
+          "conservative": -0.3418643717196816,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "400665082",
+          "mean": -0.10743009255765767,
+          "sd": 0.994876142885843,
+          "conservative": -0.6048681640005792,
+          "eligible_rank": 10,
+          "global_rank": 10,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "오제제 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "887999744",
+          "mean": -0.10984679011244625,
+          "sd": 1.022923537992628,
+          "conservative": -0.6213085591087603,
+          "eligible_rank": 11,
+          "global_rank": 11,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "긴자료코 역삼점",
+          "food": "principal",
+          "style": "not_established"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "633394651",
+          "mean": 0.2367264092249447,
+          "sd": 0.8431977682284353,
+          "conservative": -0.18487247488927294,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "584812754",
+          "mean": -0.41640602654866554,
+          "sd": 1.0574779456441212,
+          "conservative": -0.9451449993707262,
+          "eligible_rank": 43,
+          "global_rank": 43,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "유메",
+          "food": "principal",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1652831780",
+          "mean": -0.4690191883660292,
+          "sd": 1.070921797057603,
+          "conservative": -1.0044800868948307,
+          "eligible_rank": 56,
+          "global_rank": 56,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "한마음분식",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "584934177",
+          "mean": -0.4699034514516646,
+          "sd": 1.0824323584438102,
+          "conservative": -1.0111196306735697,
+          "eligible_rank": 60,
+          "global_rank": 60,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "스아게 강남점",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 2,
+      "before_style": {
+        "western": 1,
+        "japanese": 2,
+        "not_established": 1
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9999427199363708,
+          0.9991469979286194,
+          0.9966850280761719,
+          0.983903169631958,
+          0.9811057448387146,
+          0.9775981307029724
+        ],
+        "conservative_score_sum": -1.7529135697182938,
+        "ranks": [
+          1,
+          2,
+          10,
+          11
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.922410249710083,
+          0.9056506156921387,
+          0.8847280144691467,
+          0.8104022145271301,
+          0.8104022145271301,
+          0.4858819544315338
+        ],
+        "conservative_score_sum": -3.1456171918283995,
+        "ranks": [
+          1,
+          43,
+          56,
+          60
+        ]
+      }
+    },
+    {
+      "id": "cutlet-103-n0-none",
+      "seed": 103,
+      "prior": "none",
+      "history_n": 0,
+      "model": "regularized_context_floor",
+      "candidate_count": 60,
+      "qualified": 4,
+      "strict_search_inputs": [
+        4,
+        60
+      ],
+      "strict_search_visited": [
+        1,
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "633394651",
+          "mean": 0.2367264092249447,
+          "sd": 0.8431977682284353,
+          "conservative": -0.18487247488927294,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "850873071",
+          "mean": 0.12731369010533122,
+          "sd": 0.9383561236500256,
+          "conservative": -0.3418643717196816,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "400665082",
+          "mean": -0.10743009255765767,
+          "sd": 0.994876142885843,
+          "conservative": -0.6048681640005792,
+          "eligible_rank": 10,
+          "global_rank": 10,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "오제제 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "887999744",
+          "mean": -0.10984679011244625,
+          "sd": 1.022923537992628,
+          "conservative": -0.6213085591087603,
+          "eligible_rank": 11,
+          "global_rank": 11,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "긴자료코 역삼점",
+          "food": "principal",
+          "style": "not_established"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "633394651",
+          "mean": 0.2367264092249447,
+          "sd": 0.8431977682284353,
+          "conservative": -0.18487247488927294,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "584812754",
+          "mean": -0.41640602654866554,
+          "sd": 1.0574779456441212,
+          "conservative": -0.9451449993707262,
+          "eligible_rank": 43,
+          "global_rank": 43,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "유메",
+          "food": "principal",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1652831780",
+          "mean": -0.4690191883660292,
+          "sd": 1.070921797057603,
+          "conservative": -1.0044800868948307,
+          "eligible_rank": 56,
+          "global_rank": 56,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "한마음분식",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "584934177",
+          "mean": -0.4699034514516646,
+          "sd": 1.0824323584438102,
+          "conservative": -1.0111196306735697,
+          "eligible_rank": 60,
+          "global_rank": 60,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "스아게 강남점",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 2,
+      "before_style": {
+        "western": 1,
+        "japanese": 2,
+        "not_established": 1
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9999427199363708,
+          0.9991469979286194,
+          0.9966850280761719,
+          0.983903169631958,
+          0.9811057448387146,
+          0.9775981307029724
+        ],
+        "conservative_score_sum": -1.7529135697182938,
+        "ranks": [
+          1,
+          2,
+          10,
+          11
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.922410249710083,
+          0.9056506156921387,
+          0.8847280144691467,
+          0.8104022145271301,
+          0.8104022145271301,
+          0.4858819544315338
+        ],
+        "conservative_score_sum": -3.1456171918283995,
+        "ranks": [
+          1,
+          43,
+          56,
+          60
+        ]
+      }
+    },
+    {
+      "id": "cutlet-103-n80-japanese",
+      "seed": 103,
+      "prior": "japanese",
+      "history_n": 80,
+      "model": "regularized",
+      "candidate_count": 1498,
+      "qualified": 68,
+      "strict_search_inputs": [
+        68
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "633394651",
+          "mean": 0.43653309079136193,
+          "sd": 0.8345111486061245,
+          "conservative": 0.019277516488299673,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "850873071",
+          "mean": 0.4165203947346918,
+          "sd": 0.9263782171178616,
+          "conservative": -0.04666871382423898,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "197866657",
+          "mean": 0.24256021831855204,
+          "sd": 1.0142048926060754,
+          "conservative": -0.2645422279844857,
+          "eligible_rank": 6,
+          "global_rank": 6,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "호천당 역삼점",
+          "food": "principal",
+          "style": "not_established"
+        },
+        {
+          "store_id": "2103253212",
+          "mean": 0.21111227013061754,
+          "sd": 1.014754126832565,
+          "conservative": -0.296264793285665,
+          "eligible_rank": 9,
+          "global_rank": 9,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "갓포돈",
+          "food": "principal",
+          "style": "both_or_mixed"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "633394651",
+          "mean": 0.43653309079136193,
+          "sd": 0.8345111486061245,
+          "conservative": 0.019277516488299673,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "13491990",
+          "mean": 0.060521751921500805,
+          "sd": 1.0609891718512612,
+          "conservative": -0.4699728340041298,
+          "eligible_rank": 39,
+          "global_rank": 39,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "선릉순대국",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "316697838",
+          "mean": 0.05760437983023628,
+          "sd": 1.05570580210025,
+          "conservative": -0.4702485212198887,
+          "eligible_rank": 40,
+          "global_rank": 40,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "흥부이가정육식당 본점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1091130629",
+          "mean": 0.02549753331393359,
+          "sd": 1.0378628003654045,
+          "conservative": -0.49343386686876867,
+          "eligible_rank": 43,
+          "global_rank": 43,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "시시오",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 1,
+      "before_style": {
+        "western": 1,
+        "japanese": 1,
+        "not_established": 1,
+        "both_or_mixed": 1
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9996730089187622,
+          0.9995062947273254,
+          0.9994208812713623,
+          0.9971202611923218,
+          0.9963194727897644,
+          0.9811057448387146
+        ],
+        "conservative_score_sum": -0.58819821860609,
+        "ranks": [
+          1,
+          2,
+          6,
+          9
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.8557224273681641,
+          0.8357739448547363,
+          0.7713475227355957,
+          0.7562704682350159,
+          0.6968604922294617,
+          0.5883683562278748
+        ],
+        "conservative_score_sum": -1.4143777056044875,
+        "ranks": [
+          1,
+          39,
+          40,
+          43
+        ]
+      }
+    },
+    {
+      "id": "cutlet-103-n80-japanese",
+      "seed": 103,
+      "prior": "japanese",
+      "history_n": 80,
+      "model": "regularized_context_floor",
+      "candidate_count": 60,
+      "qualified": 46,
+      "strict_search_inputs": [
+        46
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "633394651",
+          "mean": 0.43653309079136193,
+          "sd": 0.8345111486061245,
+          "conservative": 0.019277516488299673,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "850873071",
+          "mean": 0.4165203947346918,
+          "sd": 0.9263782171178616,
+          "conservative": -0.04666871382423898,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "197866657",
+          "mean": 0.24256021831855204,
+          "sd": 1.0142048926060754,
+          "conservative": -0.2645422279844857,
+          "eligible_rank": 6,
+          "global_rank": 6,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "호천당 역삼점",
+          "food": "principal",
+          "style": "not_established"
+        },
+        {
+          "store_id": "2103253212",
+          "mean": 0.21111227013061754,
+          "sd": 1.014754126832565,
+          "conservative": -0.296264793285665,
+          "eligible_rank": 9,
+          "global_rank": 9,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "갓포돈",
+          "food": "principal",
+          "style": "both_or_mixed"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "633394651",
+          "mean": 0.43653309079136193,
+          "sd": 0.8345111486061245,
+          "conservative": 0.019277516488299673,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "1691893902",
+          "mean": 0.14468923713660023,
+          "sd": 1.0144695586965353,
+          "conservative": -0.36254554221166746,
+          "eligible_rank": 20,
+          "global_rank": 20,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "카츠쇼신 강남점",
+          "food": "principal",
+          "style": "not_established"
+        },
+        {
+          "store_id": "8015540",
+          "mean": 0.018474798746961146,
+          "sd": 1.0368696492063885,
+          "conservative": -0.4999600258562331,
+          "eligible_rank": 39,
+          "global_rank": 46,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "오무라안",
+          "food": "co_main",
+          "style": "not_established"
+        },
+        {
+          "store_id": "948460247",
+          "mean": 0.006479539980100146,
+          "sd": 1.0470538895058723,
+          "conservative": -0.517047404772836,
+          "eligible_rank": 43,
+          "global_rank": 58,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "카오돈 선릉점",
+          "food": "mixed",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 3,
+      "before_style": {
+        "western": 1,
+        "japanese": 1,
+        "not_established": 1,
+        "both_or_mixed": 1
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9996730089187622,
+          0.9995062947273254,
+          0.9994208812713623,
+          0.9971202611923218,
+          0.9963194727897644,
+          0.9811057448387146
+        ],
+        "conservative_score_sum": -0.58819821860609,
+        "ranks": [
+          1,
+          2,
+          6,
+          9
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.943204939365387,
+          0.940792441368103,
+          0.9332000017166138,
+          0.9221687316894531,
+          0.9139792919158936,
+          0.9105740785598755
+        ],
+        "conservative_score_sum": -1.3602754563524369,
+        "ranks": [
+          1,
+          20,
+          39,
+          43
+        ]
+      }
+    },
+    {
+      "id": "cutlet-103-n80-western",
+      "seed": 103,
+      "prior": "western",
+      "history_n": 80,
+      "model": "regularized",
+      "candidate_count": 1498,
+      "qualified": 273,
+      "strict_search_inputs": [
+        273
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "633394651",
+          "mean": 0.4226649328839779,
+          "sd": 0.8345111486061245,
+          "conservative": 0.005409358580915624,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "850873071",
+          "mean": 0.3047246247817429,
+          "sd": 0.9263782171178616,
+          "conservative": -0.15846448377718791,
+          "eligible_rank": 4,
+          "global_rank": 4,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "450595084",
+          "mean": 0.25232790625144885,
+          "sd": 1.0289618665835585,
+          "conservative": -0.2621530270403304,
+          "eligible_rank": 6,
+          "global_rank": 6,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "하이웨이 서울 강남신논현점",
+          "food": "principal",
+          "style": "not_established"
+        },
+        {
+          "store_id": "19037502",
+          "mean": 0.24446072477841277,
+          "sd": 1.019742419643023,
+          "conservative": -0.2654104850430987,
+          "eligible_rank": 7,
+          "global_rank": 7,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "브릭오븐",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "633394651",
+          "mean": 0.4226649328839779,
+          "sd": 0.8345111486061245,
+          "conservative": 0.005409358580915624,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "1946159236",
+          "mean": 0.15049251077813816,
+          "sd": 1.0412895955755748,
+          "conservative": -0.3701522870096492,
+          "eligible_rank": 21,
+          "global_rank": 21,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "브루클린더버거조인트 역삼점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "808443746",
+          "mean": 0.1268252382424188,
+          "sd": 1.0341538077285173,
+          "conservative": -0.3902516656218399,
+          "eligible_rank": 31,
+          "global_rank": 31,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "랩스피자 강남본점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "405367531",
+          "mean": 0.12052298650916629,
+          "sd": 1.0561310703472686,
+          "conservative": -0.40754254866446804,
+          "eligible_rank": 45,
+          "global_rank": 45,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "프라텔리",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 3,
+      "after_food": 1,
+      "before_style": {
+        "western": 1,
+        "japanese": 1,
+        "not_established": 2
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9985027313232422,
+          0.9811057448387146,
+          0.9630071520805359,
+          0.9233593344688416,
+          0.6482442021369934,
+          0.5160650610923767
+        ],
+        "conservative_score_sum": -0.6806186372797014,
+        "ranks": [
+          1,
+          4,
+          6,
+          7
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.6886439323425293,
+          0.6223515272140503,
+          0.5796403884887695,
+          0.5292115211486816,
+          0.499108225107193,
+          0.4199526607990265
+        ],
+        "conservative_score_sum": -1.1625371427150415,
+        "ranks": [
+          1,
+          21,
+          31,
+          45
+        ]
+      }
+    },
+    {
+      "id": "cutlet-103-n80-western",
+      "seed": 103,
+      "prior": "western",
+      "history_n": 80,
+      "model": "regularized_context_floor",
+      "candidate_count": 60,
+      "qualified": 24,
+      "strict_search_inputs": [
+        24
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "633394651",
+          "mean": 0.4226649328839779,
+          "sd": 0.8345111486061245,
+          "conservative": 0.005409358580915624,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "850873071",
+          "mean": 0.3047246247817429,
+          "sd": 0.9263782171178616,
+          "conservative": -0.15846448377718791,
+          "eligible_rank": 4,
+          "global_rank": 4,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "450595084",
+          "mean": 0.25232790625144885,
+          "sd": 1.0289618665835585,
+          "conservative": -0.2621530270403304,
+          "eligible_rank": 6,
+          "global_rank": 6,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "하이웨이 서울 강남신논현점",
+          "food": "principal",
+          "style": "not_established"
+        },
+        {
+          "store_id": "887999744",
+          "mean": 0.20697535008634046,
+          "sd": 1.0037191448211031,
+          "conservative": -0.2948842223242111,
+          "eligible_rank": 10,
+          "global_rank": 12,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "긴자료코 역삼점",
+          "food": "principal",
+          "style": "not_established"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "633394651",
+          "mean": 0.4226649328839779,
+          "sd": 0.8345111486061245,
+          "conservative": 0.005409358580915624,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "계몽돈까스 2호점",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "16767854",
+          "mean": 0.09682184624084542,
+          "sd": 1.0481909789823844,
+          "conservative": -0.4272736432503468,
+          "eligible_rank": 13,
+          "global_rank": 58,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "호또치킨 강남본점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "23293789",
+          "mean": 0.04637117752631367,
+          "sd": 1.049741260805403,
+          "conservative": -0.47849945287638784,
+          "eligible_rank": 16,
+          "global_rank": 150,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "꼬끼꼬끼 치킨호프",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1691893902",
+          "mean": 0.02232642617264949,
+          "sd": 1.0144695586965353,
+          "conservative": -0.4849083531756182,
+          "eligible_rank": 19,
+          "global_rank": 168,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "카츠쇼신 강남점",
+          "food": "principal",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 2,
+      "before_style": {
+        "western": 1,
+        "japanese": 1,
+        "not_established": 2
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9997473955154419,
+          0.9991469979286194,
+          0.9985027313232422,
+          0.983903169631958,
+          0.9811057448387146,
+          0.9630071520805359
+        ],
+        "conservative_score_sum": -0.7100923745608138,
+        "ranks": [
+          1,
+          4,
+          6,
+          10
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.940792441368103,
+          0.9275078773498535,
+          0.9178811311721802,
+          0.9078137278556824,
+          0.7121337056159973,
+          0.4143390655517578
+        ],
+        "conservative_score_sum": -1.385272090721437,
+        "ranks": [
+          1,
+          13,
+          16,
+          19
+        ]
+      }
+    },
+    {
+      "id": "cutlet-105-n0-none",
+      "seed": 105,
+      "prior": "none",
+      "history_n": 0,
+      "model": "regularized",
+      "candidate_count": 1498,
+      "qualified": 4,
+      "strict_search_inputs": [
+        4,
+        1498
+      ],
+      "strict_search_visited": [
+        1,
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "938786093",
+          "mean": 0.25339869176778174,
+          "sd": 0.8489341572419411,
+          "conservative": -0.17106838685318881,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "224156084",
+          "mean": 0.10977875347621491,
+          "sd": 0.950493429122374,
+          "conservative": -0.3654679610849721,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "카츠이음",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "355359175",
+          "mean": 0.0009405619655650233,
+          "sd": 1.0129579655296124,
+          "conservative": -0.5055384207992412,
+          "eligible_rank": 4,
+          "global_rank": 4,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "카츠왕 강남직영점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "1437028042",
+          "mean": -0.08580053771280549,
+          "sd": 1.0320155849813555,
+          "conservative": -0.6018083302034832,
+          "eligible_rank": 8,
+          "global_rank": 8,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "무적의돈까스 역삼점",
+          "food": "principal",
+          "style": "both_or_mixed"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "938786093",
+          "mean": 0.25339869176778174,
+          "sd": 0.8489341572419411,
+          "conservative": -0.17106838685318881,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "1889239698",
+          "mean": -0.34273730749895087,
+          "sd": 1.066178150014948,
+          "conservative": -0.875826382506425,
+          "eligible_rank": 38,
+          "global_rank": 38,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "오모시로이규카츠",
+          "food": "adjacent",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1652831780",
+          "mean": -0.39430057984831846,
+          "sd": 1.0863945979578742,
+          "conservative": -0.9374978788272555,
+          "eligible_rank": 47,
+          "global_rank": 47,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "한마음분식",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "8015540",
+          "mean": -0.4102304611938905,
+          "sd": 1.0675659834445488,
+          "conservative": -0.9440134529161649,
+          "eligible_rank": 49,
+          "global_rank": 49,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "오무라안",
+          "food": "co_main",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 2,
+      "before_style": {
+        "western": 1,
+        "japanese": 2,
+        "both_or_mixed": 1
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9998674392700195,
+          0.9989705681800842,
+          0.9955161213874817,
+          0.9910270571708679,
+          0.9907010793685913,
+          0.9884836673736572
+        ],
+        "conservative_score_sum": -1.6438830989408855,
+        "ranks": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9316828846931458,
+          0.9207957983016968,
+          0.9121661186218262,
+          0.8904890418052673,
+          0.6318067908287048,
+          0.6265782713890076
+        ],
+        "conservative_score_sum": -2.9284061011030342,
+        "ranks": [
+          1,
+          38,
+          47,
+          49
+        ]
+      }
+    },
+    {
+      "id": "cutlet-105-n0-none",
+      "seed": 105,
+      "prior": "none",
+      "history_n": 0,
+      "model": "regularized_context_floor",
+      "candidate_count": 49,
+      "qualified": 4,
+      "strict_search_inputs": [
+        4,
+        49
+      ],
+      "strict_search_visited": [
+        1,
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "938786093",
+          "mean": 0.25339869176778174,
+          "sd": 0.8489341572419411,
+          "conservative": -0.17106838685318881,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "224156084",
+          "mean": 0.10977875347621491,
+          "sd": 0.950493429122374,
+          "conservative": -0.3654679610849721,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "카츠이음",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "355359175",
+          "mean": 0.0009405619655650233,
+          "sd": 1.0129579655296124,
+          "conservative": -0.5055384207992412,
+          "eligible_rank": 4,
+          "global_rank": 4,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "카츠왕 강남직영점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "1437028042",
+          "mean": -0.08580053771280549,
+          "sd": 1.0320155849813555,
+          "conservative": -0.6018083302034832,
+          "eligible_rank": 8,
+          "global_rank": 8,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "무적의돈까스 역삼점",
+          "food": "principal",
+          "style": "both_or_mixed"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "938786093",
+          "mean": 0.25339869176778174,
+          "sd": 0.8489341572419411,
+          "conservative": -0.17106838685318881,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "1889239698",
+          "mean": -0.34273730749895087,
+          "sd": 1.066178150014948,
+          "conservative": -0.875826382506425,
+          "eligible_rank": 38,
+          "global_rank": 38,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "오모시로이규카츠",
+          "food": "adjacent",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1652831780",
+          "mean": -0.39430057984831846,
+          "sd": 1.0863945979578742,
+          "conservative": -0.9374978788272555,
+          "eligible_rank": 47,
+          "global_rank": 47,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "한마음분식",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "8015540",
+          "mean": -0.4102304611938905,
+          "sd": 1.0675659834445488,
+          "conservative": -0.9440134529161649,
+          "eligible_rank": 49,
+          "global_rank": 49,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "오무라안",
+          "food": "co_main",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 2,
+      "before_style": {
+        "western": 1,
+        "japanese": 2,
+        "both_or_mixed": 1
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9998674392700195,
+          0.9989705681800842,
+          0.9955161213874817,
+          0.9910270571708679,
+          0.9907010793685913,
+          0.9884836673736572
+        ],
+        "conservative_score_sum": -1.6438830989408855,
+        "ranks": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9316828846931458,
+          0.9207957983016968,
+          0.9121661186218262,
+          0.8904890418052673,
+          0.6318067908287048,
+          0.6265782713890076
+        ],
+        "conservative_score_sum": -2.9284061011030342,
+        "ranks": [
+          1,
+          38,
+          47,
+          49
+        ]
+      }
+    },
+    {
+      "id": "cutlet-105-n80-japanese",
+      "seed": 105,
+      "prior": "japanese",
+      "history_n": 80,
+      "model": "regularized",
+      "candidate_count": 1498,
+      "qualified": 179,
+      "strict_search_inputs": [
+        179
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "938786093",
+          "mean": 0.5243034024685478,
+          "sd": 0.8368538303649432,
+          "conservative": 0.10587648728607618,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "224156084",
+          "mean": 0.4574676737200891,
+          "sd": 0.933780021378278,
+          "conservative": -0.009422336969049872,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "카츠이음",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "850873071",
+          "mean": 0.4096960967148777,
+          "sd": 1.0023723257317518,
+          "conservative": -0.0914900661509982,
+          "eligible_rank": 3,
+          "global_rank": 3,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "2129615239",
+          "mean": 0.3676548978307812,
+          "sd": 1.0269692722483912,
+          "conservative": -0.1458297382934144,
+          "eligible_rank": 4,
+          "global_rank": 4,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "봄카츠 강남본점",
+          "food": "principal",
+          "style": "japanese"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "938786093",
+          "mean": 0.5243034024685478,
+          "sd": 0.8368538303649432,
+          "conservative": 0.10587648728607618,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "288124443",
+          "mean": 0.12867206901288802,
+          "sd": 1.0437565016155534,
+          "conservative": -0.3932061817948887,
+          "eligible_rank": 47,
+          "global_rank": 47,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "오사무식당 역삼점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1320443767",
+          "mean": 0.1236317700053069,
+          "sd": 1.048697242966597,
+          "conservative": -0.40071685147799163,
+          "eligible_rank": 49,
+          "global_rank": 49,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "이카리",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1652831780",
+          "mean": 0.1139501327342956,
+          "sd": 1.0500117633457695,
+          "conservative": -0.41105574893858915,
+          "eligible_rank": 57,
+          "global_rank": 57,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "한마음분식",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 1,
+      "before_style": {
+        "western": 1,
+        "japanese": 3
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9991245269775391,
+          0.9928518533706665,
+          0.992459774017334,
+          0.9918242692947388,
+          0.9910270571708679,
+          0.9868295192718506
+        ],
+        "conservative_score_sum": -0.14086565412738628,
+        "ranks": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9212015867233276,
+          0.9121661186218262,
+          0.8298915028572083,
+          0.7688040733337402,
+          0.7047272324562073,
+          0.3509359657764435
+        ],
+        "conservative_score_sum": -1.0991022949253932,
+        "ranks": [
+          1,
+          47,
+          49,
+          57
+        ]
+      }
+    },
+    {
+      "id": "cutlet-105-n80-japanese",
+      "seed": 105,
+      "prior": "japanese",
+      "history_n": 80,
+      "model": "regularized_context_floor",
+      "candidate_count": 49,
+      "qualified": 46,
+      "strict_search_inputs": [
+        46
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "938786093",
+          "mean": 0.5243034024685478,
+          "sd": 0.8368538303649432,
+          "conservative": 0.10587648728607618,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "224156084",
+          "mean": 0.4574676737200891,
+          "sd": 0.933780021378278,
+          "conservative": -0.009422336969049872,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "카츠이음",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "850873071",
+          "mean": 0.4096960967148777,
+          "sd": 1.0023723257317518,
+          "conservative": -0.0914900661509982,
+          "eligible_rank": 3,
+          "global_rank": 3,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "정돈 강남점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "2129615239",
+          "mean": 0.3676548978307812,
+          "sd": 1.0269692722483912,
+          "conservative": -0.1458297382934144,
+          "eligible_rank": 4,
+          "global_rank": 4,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "봄카츠 강남본점",
+          "food": "principal",
+          "style": "japanese"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "938786093",
+          "mean": 0.5243034024685478,
+          "sd": 0.8368538303649432,
+          "conservative": 0.10587648728607618,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "1889239698",
+          "mean": 0.131945038548123,
+          "sd": 1.0389179186987547,
+          "conservative": -0.38751392080125435,
+          "eligible_rank": 32,
+          "global_rank": 44,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "오모시로이규카츠",
+          "food": "adjacent",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1652831780",
+          "mean": 0.1139501327342956,
+          "sd": 1.0500117633457695,
+          "conservative": -0.41105574893858915,
+          "eligible_rank": 37,
+          "global_rank": 57,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "한마음분식",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "8015540",
+          "mean": 0.07884690932917715,
+          "sd": 1.0425949395840635,
+          "conservative": -0.4424505604628546,
+          "eligible_rank": 43,
+          "global_rank": 75,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "오무라안",
+          "food": "co_main",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 2,
+      "before_style": {
+        "western": 1,
+        "japanese": 3
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9991245269775391,
+          0.9928518533706665,
+          0.992459774017334,
+          0.9918242692947388,
+          0.9910270571708679,
+          0.9868295192718506
+        ],
+        "conservative_score_sum": -0.14086565412738628,
+        "ranks": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9316828846931458,
+          0.9207957983016968,
+          0.9121661186218262,
+          0.8904890418052673,
+          0.6318067908287048,
+          0.6265782713890076
+        ],
+        "conservative_score_sum": -1.1351437429166218,
+        "ranks": [
+          1,
+          32,
+          37,
+          43
+        ]
+      }
+    },
+    {
+      "id": "cutlet-105-n80-western",
+      "seed": 105,
+      "prior": "western",
+      "history_n": 80,
+      "model": "regularized",
+      "candidate_count": 1498,
+      "qualified": 121,
+      "strict_search_inputs": [
+        121
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "938786093",
+          "mean": 0.44000977080999853,
+          "sd": 0.8368538303649432,
+          "conservative": 0.02158285562752693,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "224156084",
+          "mean": 0.3305982237186748,
+          "sd": 0.933780021378278,
+          "conservative": -0.13629178697046418,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "카츠이음",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "355359175",
+          "mean": 0.24786457479907315,
+          "sd": 0.9963795659163569,
+          "conservative": -0.2503252081591053,
+          "eligible_rank": 4,
+          "global_rank": 4,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "카츠왕 강남직영점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "1437028042",
+          "mean": 0.208222456632896,
+          "sd": 1.012192556841572,
+          "conservative": -0.29787382178788996,
+          "eligible_rank": 8,
+          "global_rank": 8,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "무적의돈까스 역삼점",
+          "food": "principal",
+          "style": "both_or_mixed"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "938786093",
+          "mean": 0.44000977080999853,
+          "sd": 0.8368538303649432,
+          "conservative": 0.02158285562752693,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "16906192",
+          "mean": 0.11738908689371336,
+          "sd": 1.038077558093252,
+          "conservative": -0.40164969215291263,
+          "eligible_rank": 19,
+          "global_rank": 19,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "피자스쿨 역삼1동점",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "545774780",
+          "mean": 0.05755997321807771,
+          "sd": 1.055491899850673,
+          "conservative": -0.4701859767072588,
+          "eligible_rank": 52,
+          "global_rank": 52,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "테이크원커피 SG아트타워",
+          "food": "no_evidence",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1160970214",
+          "mean": 0.04798774438829484,
+          "sd": 1.0364412789425685,
+          "conservative": -0.47023289508298943,
+          "eligible_rank": 53,
+          "global_rank": 53,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "잼라운지",
+          "food": "no_evidence",
+          "style": "not_established"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 1,
+      "before_style": {
+        "western": 1,
+        "japanese": 2,
+        "both_or_mixed": 1
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 3
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9998674392700195,
+          0.9989705681800842,
+          0.9955161213874817,
+          0.9910270571708679,
+          0.9907010793685913,
+          0.9884836673736572
+        ],
+        "conservative_score_sum": -0.6629079612899325,
+        "ranks": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.8078752756118774,
+          0.7908910512924194,
+          0.7324468493461609,
+          0.6527904868125916,
+          0.5751413702964783,
+          0.5347726941108704
+        ],
+        "conservative_score_sum": -1.320485708315634,
+        "ranks": [
+          1,
+          19,
+          52,
+          53
+        ]
+      }
+    },
+    {
+      "id": "cutlet-105-n80-western",
+      "seed": 105,
+      "prior": "western",
+      "history_n": 80,
+      "model": "regularized_context_floor",
+      "candidate_count": 49,
+      "qualified": 31,
+      "strict_search_inputs": [
+        31
+      ],
+      "strict_search_visited": [
+        5
+      ],
+      "budget_reached": false,
+      "soft_fallback": false,
+      "before": [
+        {
+          "store_id": "938786093",
+          "mean": 0.44000977080999853,
+          "sd": 0.8368538303649432,
+          "conservative": 0.02158285562752693,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "224156084",
+          "mean": 0.3305982237186748,
+          "sd": 0.933780021378278,
+          "conservative": -0.13629178697046418,
+          "eligible_rank": 2,
+          "global_rank": 2,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "카츠이음",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "355359175",
+          "mean": 0.24786457479907315,
+          "sd": 0.9963795659163569,
+          "conservative": -0.2503252081591053,
+          "eligible_rank": 4,
+          "global_rank": 4,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "카츠왕 강남직영점",
+          "food": "principal",
+          "style": "japanese"
+        },
+        {
+          "store_id": "1437028042",
+          "mean": 0.208222456632896,
+          "sd": 1.012192556841572,
+          "conservative": -0.29787382178788996,
+          "eligible_rank": 8,
+          "global_rank": 8,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "무적의돈까스 역삼점",
+          "food": "principal",
+          "style": "both_or_mixed"
+        }
+      ],
+      "after": [
+        {
+          "store_id": "938786093",
+          "mean": 0.44000977080999853,
+          "sd": 0.8368538303649432,
+          "conservative": 0.02158285562752693,
+          "eligible_rank": 1,
+          "global_rank": 1,
+          "current_liked": true,
+          "current_disliked": false,
+          "name": "돈까스해",
+          "food": "principal",
+          "style": "western"
+        },
+        {
+          "store_id": "1937157193",
+          "mean": 0.06656533917674098,
+          "sd": 1.0457060361121453,
+          "conservative": -0.45628767887933164,
+          "eligible_rank": 24,
+          "global_rank": 46,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "해밀돈족",
+          "food": "principal",
+          "style": "not_established"
+        },
+        {
+          "store_id": "649111734",
+          "mean": 0.04598997889017761,
+          "sd": 1.0287088984015076,
+          "conservative": -0.46836447031057615,
+          "eligible_rank": 25,
+          "global_rank": 51,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "크레이지카츠 강남파이낸스센터점",
+          "food": "principal",
+          "style": "not_established"
+        },
+        {
+          "store_id": "1200683079",
+          "mean": 0.05026988648452016,
+          "sd": 1.0500141725259065,
+          "conservative": -0.4747371997784331,
+          "eligible_rank": 28,
+          "global_rank": 59,
+          "current_liked": false,
+          "current_disliked": false,
+          "name": "갓포돈 역삼2호점",
+          "food": "co_main",
+          "style": "both_or_mixed"
+        }
+      ],
+      "before_food": 4,
+      "after_food": 4,
+      "before_style": {
+        "western": 1,
+        "japanese": 2,
+        "both_or_mixed": 1
+      },
+      "after_style": {
+        "western": 1,
+        "not_established": 2,
+        "both_or_mixed": 1
+      },
+      "before_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9998674392700195,
+          0.9989705681800842,
+          0.9955161213874817,
+          0.9910270571708679,
+          0.9907010793685913,
+          0.9884836673736572
+        ],
+        "conservative_score_sum": -0.6629079612899325,
+        "ranks": [
+          1,
+          2,
+          4,
+          8
+        ]
+      },
+      "after_objective": {
+        "strict_conflicts": 0,
+        "percentiles_desc": [
+          0.9911226034164429,
+          0.9904361367225647,
+          0.988791286945343,
+          0.9879871010780334,
+          0.984903872013092,
+          0.9827859997749329
+        ],
+        "conservative_score_sum": -1.377806493340814,
+        "ranks": [
+          1,
+          24,
+          25,
+          28
+        ]
+      }
+    }
+  ],
+  "all18_food_before_after": [
+    71,
+    30
+  ],
+  "all18_initial_and_final_strict": true,
+  "budget_reached_count": 0,
+  "soft_fallback_count": 0,
+  "anchor_is_raw_rank1_all18": true,
+  "provenance": {
+    "trace_sha256": "4a21e1ec6142d6f80cdec615475b7cd6031eea2c6b476736b5f8372d4cbf8d36",
+    "source_sha256": {
+      "/home/ubuntu/matchuri-changes/history-depth-20260922/state/review-ranks.cache": "32a36716566a10241b0455dd2053460406655f2f472c249cb29d8d110f112b5c",
+      "/home/ubuntu/matchuri-changes/nuance-audit-20260922/frozen-cutlet-scores.npz": "0a47b7eafd29ff57b03bb14c911fcd212d56fe84928e292012b8d1eda2f4eb74",
+      "/home/ubuntu/matchuri-changes/nuance-audit-20260922/frozen-score-metadata.json": "aa1ffedee1f7604a457eaccc29cee7e0f47ffe2b07aed6289e4774d873bd9c4f",
+      "/home/ubuntu/matchuri-changes/nuance-audit-20260922/selector_trace.py": "f5136bcaa039ee57b23af2544e86702335bf76e69e358de73164347b4c338484",
+      "/home/ubuntu/matchuri-changes/nuance-audit-20260922/run-selector-trace.py": "208a7de42ca483c2f07767d14886866d077940b4aff66e8dcda09ec56c3a842c",
+      "/home/ubuntu/matchuri-changes/history-depth-20260922/context-floor-depth-results.json": "c8eb8dbad24223b73af3b44f3f65cc4f2d92ee855c8b48ed24571bf349b3b234",
+      "/home/ubuntu/matchuri-changes/history-depth-20260922/food-catalog.json": "1941599fb60c2028fceba1cb8dbd2bfa8618da0709ff2ec43576711cbb05e348",
+      "/srv/matchuri/BE/server/recsys/decision.py": "e147db85780284454f6953b5a384e0d4a81dbcea8f9fa9106f137878c4f4492f",
+      "/srv/matchuri/BE/server/recsys/diversity.py": "15436510be7cefaaac2e69565725eb228a1c09df5a7fed473bd07a9cd832766d",
+      "/srv/matchuri/BE/analysis/temporal_taste/bench.py": "d71ddf1aee82acb8278a8de637e69e40be75edf745bfa05f9a9f2ef7c88384ce"
+    },
+    "parity_passed": true,
+    "no_model_refit": true,
+    "no_policy_change": true
+  },
+  "scope": "Nine representative states (3 seeds times no history/JP80/Western80), each existing full/floor selector traced once. Not full150 or independent18users; fixed observed catalogue.",
+  "all18": {
+    "selector_evaluations": 18,
+    "card_slots": 72,
+    "soft_fallbacks": 0,
+    "budget_exhaustions": 0,
+    "before": {
+      "food_cards": 71,
+      "food_status": {
+        "principal": 71,
+        "no_evidence": 1
+      },
+      "style_counts": {
+        "japanese": 34,
+        "western": 22,
+        "both_or_mixed": 8,
+        "not_established": 8
+      },
+      "strict_conflicts": 0,
+      "current_liked_cards": 52,
+      "sum_conservative_score": -16.36296782139556,
+      "mean_conservative_score": -0.22726344196382725,
+      "mean_global_rank": 3.763888888888889,
+      "mean_eligible_rank": 3.736111111111111,
+      "mean_max_pair_percentile": 0.9982436630460951,
+      "prior_style_cards": 20
+    },
+    "after": {
+      "food_cards": 30,
+      "food_status": {
+        "principal": 25,
+        "no_evidence": 36,
+        "secondary": 1,
+        "mixed": 2,
+        "co_main": 5,
+        "adjacent": 3
+      },
+      "style_counts": {
+        "japanese": 6,
+        "not_established": 52,
+        "western": 13,
+        "both_or_mixed": 1
+      },
+      "strict_conflicts": 0,
+      "current_liked_cards": 19,
+      "sum_conservative_score": -33.7118493195993,
+      "mean_conservative_score": -0.4682201294388792,
+      "mean_global_rank": 39.81944444444444,
+      "mean_eligible_rank": 30.833333333333332,
+      "mean_max_pair_percentile": 0.8679680327574412,
+      "prior_style_cards": 7
+    }
+  },
+  "by_policy": {
+    "regularized": {
+      "selector_evaluations": 9,
+      "card_slots": 36,
+      "soft_fallbacks": 0,
+      "budget_exhaustions": 0,
+      "before": {
+        "food_cards": 35,
+        "food_status": {
+          "principal": 35,
+          "no_evidence": 1
+        },
+        "style_counts": {
+          "japanese": 17,
+          "western": 11,
+          "both_or_mixed": 4,
+          "not_established": 4
+        },
+        "strict_conflicts": 0,
+        "current_liked_cards": 26,
+        "sum_conservative_score": -8.166747042057224,
+        "mean_conservative_score": -0.22685408450158956,
+        "mean_global_rank": 3.6944444444444446,
+        "mean_eligible_rank": 3.6944444444444446,
+        "mean_max_pair_percentile": 0.9981745150354173,
+        "prior_style_cards": 10
+      },
+      "after": {
+        "food_cards": 11,
+        "food_status": {
+          "principal": 10,
+          "no_evidence": 24,
+          "adjacent": 1,
+          "co_main": 1
+        },
+        "style_counts": {
+          "japanese": 3,
+          "not_established": 27,
+          "western": 6
+        },
+        "strict_conflicts": 0,
+        "current_liked_cards": 9,
+        "sum_conservative_score": -16.827371909274742,
+        "mean_conservative_score": -0.46742699747985395,
+        "mean_global_rank": 34.666666666666664,
+        "mean_eligible_rank": 34.666666666666664,
+        "mean_max_pair_percentile": 0.8122063808970981,
+        "prior_style_cards": 3
+      }
+    },
+    "regularized_context_floor": {
+      "selector_evaluations": 9,
+      "card_slots": 36,
+      "soft_fallbacks": 0,
+      "budget_exhaustions": 0,
+      "before": {
+        "food_cards": 36,
+        "food_status": {
+          "principal": 36
+        },
+        "style_counts": {
+          "japanese": 17,
+          "western": 11,
+          "both_or_mixed": 4,
+          "not_established": 4
+        },
+        "strict_conflicts": 0,
+        "current_liked_cards": 26,
+        "sum_conservative_score": -8.196220779338336,
+        "mean_conservative_score": -0.22767279942606491,
+        "mean_global_rank": 3.8333333333333335,
+        "mean_eligible_rank": 3.7777777777777777,
+        "mean_max_pair_percentile": 0.9983128110567728,
+        "prior_style_cards": 10
+      },
+      "after": {
+        "food_cards": 19,
+        "food_status": {
+          "principal": 15,
+          "no_evidence": 12,
+          "secondary": 1,
+          "mixed": 2,
+          "co_main": 4,
+          "adjacent": 2
+        },
+        "style_counts": {
+          "japanese": 3,
+          "not_established": 25,
+          "western": 7,
+          "both_or_mixed": 1
+        },
+        "strict_conflicts": 0,
+        "current_liked_cards": 10,
+        "sum_conservative_score": -16.88447741032456,
+        "mean_conservative_score": -0.46901326139790445,
+        "mean_global_rank": 44.97222222222222,
+        "mean_eligible_rank": 27,
+        "mean_max_pair_percentile": 0.9237296846177843,
+        "prior_style_cards": 4
+      }
+    }
+  },
+  "n80_by_policy": {
+    "regularized": {
+      "selector_evaluations": 6,
+      "card_slots": 24,
+      "soft_fallbacks": 0,
+      "budget_exhaustions": 0,
+      "before": {
+        "food_cards": 23,
+        "food_status": {
+          "principal": 23,
+          "no_evidence": 1
+        },
+        "style_counts": {
+          "japanese": 11,
+          "both_or_mixed": 3,
+          "western": 7,
+          "not_established": 3
+        },
+        "strict_conflicts": 0,
+        "current_liked_cards": 16,
+        "sum_conservative_score": -3.179339119293142,
+        "mean_conservative_score": -0.13247246330388093,
+        "mean_global_rank": 3.4166666666666665,
+        "mean_eligible_rank": 3.4166666666666665,
+        "mean_max_pair_percentile": 0.9981707036495209,
+        "prior_style_cards": 10
+      },
+      "after": {
+        "food_cards": 6,
+        "food_status": {
+          "principal": 6,
+          "no_evidence": 18
+        },
+        "style_counts": {
+          "japanese": 2,
+          "not_established": 18,
+          "western": 4
+        },
+        "strict_conflicts": 0,
+        "current_liked_cards": 6,
+        "sum_conservative_score": -7.614443321934026,
+        "mean_conservative_score": -0.3172684717472511,
+        "mean_global_rank": 32.666666666666664,
+        "mean_eligible_rank": 32.666666666666664,
+        "mean_max_pair_percentile": 0.7723046143849691,
+        "prior_style_cards": 3
+      }
+    },
+    "regularized_context_floor": {
+      "selector_evaluations": 6,
+      "card_slots": 24,
+      "soft_fallbacks": 0,
+      "budget_exhaustions": 0,
+      "before": {
+        "food_cards": 24,
+        "food_status": {
+          "principal": 24
+        },
+        "style_counts": {
+          "japanese": 11,
+          "both_or_mixed": 3,
+          "western": 7,
+          "not_established": 3
+        },
+        "strict_conflicts": 0,
+        "current_liked_cards": 16,
+        "sum_conservative_score": -3.2088128565742546,
+        "mean_conservative_score": -0.13370053569059395,
+        "mean_global_rank": 3.625,
+        "mean_eligible_rank": 3.5416666666666665,
+        "mean_max_pair_percentile": 0.9983781476815542,
+        "prior_style_cards": 10
+      },
+      "after": {
+        "food_cards": 14,
+        "food_status": {
+          "principal": 11,
+          "no_evidence": 6,
+          "secondary": 1,
+          "mixed": 2,
+          "co_main": 3,
+          "adjacent": 1
+        },
+        "style_counts": {
+          "japanese": 2,
+          "not_established": 16,
+          "western": 5,
+          "both_or_mixed": 1
+        },
+        "strict_conflicts": 0,
+        "current_liked_cards": 7,
+        "sum_conservative_score": -7.671548822983844,
+        "mean_conservative_score": -0.31964786762432684,
+        "mean_global_rank": 48.125,
+        "mean_eligible_rank": 21.166666666666668,
+        "mean_max_pair_percentile": 0.9395895699659983,
+        "prior_style_cards": 4
+      }
+    }
+  }
+}

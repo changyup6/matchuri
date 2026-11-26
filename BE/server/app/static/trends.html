@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>맛추리 관리자 — 트렌드 추이</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0f1116; color:#e6e8ec; font-family:'Malgun Gothic',system-ui,sans-serif;
+         font-size:13px; line-height:1.5; height:100vh; display:flex; flex-direction:column; }
+  a { color:#5b8cff; text-decoration:none; }
+  header { padding:14px 20px; border-bottom:1px solid #21252e; flex-shrink:0;
+           display:flex; align-items:baseline; gap:18px; flex-wrap:wrap; }
+  header h1 { font-size:16px; letter-spacing:.5px; }
+  header nav { display:flex; gap:12px; font-size:11.5px; }
+  header .stats { display:flex; gap:16px; margin-left:auto; flex-wrap:wrap; }
+  .stat b { color:#fff; font-size:15px; display:block; } .stat span { color:#7d838f; font-size:11px; }
+  main { flex:1; padding:18px 22px; overflow-y:auto; }
+  section { margin-bottom:26px; }
+  h3 { font-size:12px; color:#9aa1ad; margin-bottom:10px; letter-spacing:.4px;
+       display:flex; align-items:baseline; gap:8px; }
+  h3 small { color:#5c626e; font-weight:400; font-size:10.5px; }
+  h3 .when { margin-left:auto; color:#5c626e; font-weight:400; font-size:10.5px; }
+  .note { background:#171b23; border-left:2px solid #f59e0b; padding:8px 12px;
+          color:#b9bec8; font-size:11.5px; margin-bottom:12px; border-radius:0 3px 3px 0; }
+  .note b { color:#f59e0b; }
+  .note.info { border-left-color:#5b8cff; } .note.info b { color:#5b8cff; }
+  .cols { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+  @media (max-width:1100px) { .cols { grid-template-columns:1fr; } }
+  table { width:100%; border-collapse:collapse; font-size:11.5px; }
+  th { text-align:right; color:#5c626e; font-weight:400; font-size:10.5px;
+       padding:0 6px 5px; border-bottom:1px solid #21252e; }
+  th.l, td.l { text-align:left; }
+  td { padding:4px 6px; text-align:right; border-bottom:1px solid #191d25; white-space:nowrap; }
+  tr.pick { cursor:pointer; } tr.pick:hover { background:#1a1f29; }
+  tr.on { background:#1c2230; }
+  .name { font-weight:600; color:#e6e8ec; }
+  .scope { color:#7d838f; font-size:10.5px; }
+  .up { color:#4ade80; } .dn { color:#f87171; } .mute { color:#5c626e; }
+  .spark { display:block; }
+  .empty { color:#7d838f; padding:34px 0; text-align:center; line-height:2; }
+  .big { background:#141821; border:1px solid #21252e; border-radius:4px; padding:14px 16px; }
+  .big h4 { font-size:13px; margin-bottom:2px; }
+  .big .sub { color:#7d838f; font-size:11px; margin-bottom:10px; }
+  .legend { display:flex; gap:14px; font-size:11px; color:#7d838f; margin-top:6px; }
+  .legend i { display:inline-block; width:9px; height:2px; vertical-align:middle;
+              margin-right:4px; }
+  .axis { font-size:9.5px; fill:#5c626e; }
+  input[type=text] { background:#171b23; border:1px solid #2a2f3a; color:#e6e8ec;
+                     padding:4px 8px; border-radius:3px; font-size:11.5px; width:150px;
+                     font-family:inherit; }
+  button { background:#222836; border:1px solid #2f3644; color:#c9ced8; padding:4px 10px;
+           border-radius:3px; font-size:11.5px; cursor:pointer; font-family:inherit; }
+  button:hover { background:#2a3140; }
+  button.on { background:#2c3a5c; border-color:#3f5c9c; color:#fff; }
+  .bar { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-bottom:12px;
+         background:#141821; border:1px solid #21252e; border-radius:4px; padding:10px 14px; }
+  .bar label { color:#7d838f; font-size:11px; display:flex; gap:6px; align-items:center; }
+  .bar input[type=date] { background:#171b23; border:1px solid #2a2f3a; color:#e6e8ec;
+         padding:3px 6px; border-radius:3px; font-size:11px; font-family:inherit; }
+  .bar input[type=range] { width:150px; accent-color:#5b8cff; }
+  .seg { display:flex; } .seg button { border-radius:0; margin-left:-1px; }
+  .seg button:first-child { border-radius:3px 0 0 3px; margin-left:0; }
+  .seg button:last-child { border-radius:0 3px 3px 0; }
+  .pill { display:inline-block; padding:1px 6px; border-radius:9px; font-size:10px;
+          border:1px solid #2f3644; color:#9aa1ad; }
+  .pill.steady { border-color:#3b5bdb; color:#8aa6ff; }
+  .pill.season { border-color:#b45309; color:#fbbf24; }
+  .pill.fad { border-color:#15803d; color:#6ee7a0; }
+  .pill.fadd { border-color:#991b1b; color:#fca5a5; }
+  .pill.thin { border-color:#2f3644; color:#5c626e; }
+  .src { color:#5c626e; font-size:10.5px; margin-top:6px; }
+  /* 출처 배지 — 섹션 제목마다 붙는다. 회색 작은 글씨로만 두면 어느 표가 어디서 온
+     숫자인지 안 보여서 "네이버가 반영된 건가" 를 화면에서 판단할 수 없었다. */
+  .srcb { display:inline-block; padding:2px 8px; border-radius:3px; font-size:10.5px;
+          font-weight:600; letter-spacing:.2px; vertical-align:middle; white-space:nowrap; }
+  .srcb.naver  { background:#2a1f4d; color:#c4b5fd; border:1px solid #6d4fd6; }
+  .srcb.kakao  { background:#3a2a10; color:#fbbf24; border:1px solid #b45309; }
+  .srcb.server { background:#14304a; color:#7dd3fc; border:1px solid #0e7490; }
+  .srcs { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px; }
+  @media (max-width:1000px) { .srcs { grid-template-columns:1fr; } }
+  .srcs .card { background:#141821; border:1px solid #21252e; border-radius:4px;
+                padding:10px 12px; font-size:11.5px; line-height:1.6; }
+  .srcs .card.naver { border-top:2px solid #6d4fd6; }
+  .srcs .card.kakao { border-top:2px solid #b45309; }
+  .srcs .card.server { border-top:2px solid #0e7490; }
+  .srcs .st { font-weight:700; } .srcs .ok { color:#4ade80; } .srcs .no { color:#f87171; }
+  .srcs .where { color:#7d838f; font-size:10.5px; margin-top:4px; }
+  .srcs code { background:#1c212b; padding:0 4px; border-radius:2px; font-size:10.5px; }
+  .quad { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:12px; }
+  @media (max-width:900px) { .quad { grid-template-columns:repeat(2,1fr); } }
+  .qbox { background:#141821; border:1px solid #21252e; border-radius:4px; padding:9px 12px; }
+  .qbox b { display:block; font-size:17px; color:#fff; }
+  .qbox span { color:#7d838f; font-size:10.5px; }
+  .qbox em { color:#5c626e; font-size:10px; font-style:normal; display:block; margin-top:3px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>트렌드 추이</h1>
+  <nav>
+    <a href="/admin">정책·취향</a>
+    <a href="/admin/map">지형</a>
+  </nav>
+  <div class="stats" id="kpi"></div>
+</header>
+<main id="main"><div class="empty">불러오는 중…</div></main>
+
+<script>
+const $ = (s, r) => (r || document).querySelector(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pc = v => v == null ? '—' : (v * 100).toFixed(2) + '%';
+const pp = v => v == null ? '—' : (v >= 0 ? '+' : '') + (v * 100).toFixed(2);
+const cls = v => v == null ? 'mute' : v > 0 ? 'up' : v < 0 ? 'dn' : 'mute';
+
+/** 한 줄짜리 추세선. **자기 구간에서 정규화한다** — 행끼리 높이를 비교하면 안 된다
+ *  (그 비교는 숫자 칸이 한다). 모양만 보는 그림이다. */
+function spark(vals, w, h, color) {
+  w = w || 90; h = h || 18;
+  const ok = vals.filter(v => v != null);
+  if (ok.length < 2) return '';
+  const hi = Math.max(...ok), lo = Math.min(...ok), span = hi - lo || 1;
+  const pts = vals.map((v, i) => {
+    const x = (i / (vals.length - 1)) * (w - 2) + 1;
+    const y = h - 1 - ((v - lo) / span) * (h - 2);
+    return x.toFixed(1) + ',' + y.toFixed(1);
+  }).join(' ');
+  return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+    <polyline points="${pts}" fill="none" stroke="${color || '#5b8cff'}"
+      stroke-width="1.2" stroke-linejoin="round"/></svg>`;
+}
+
+/** 큰 차트 — 한 대상의 월별 값. 여러 계열을 겹쳐 그린다(각자 자기 최댓값으로 정규화). */
+function chart(months, series, w, h) {
+  w = w || 640; h = h || 150;
+  const pad = { l: 34, r: 8, t: 8, b: 18 };
+  const iw = w - pad.l - pad.r, ih = h - pad.t - pad.b;
+  let out = `<svg width="100%" height="${h}" viewBox="0 0 ${w} ${h}">`;
+  out += `<line x1="${pad.l}" y1="${pad.t + ih}" x2="${w - pad.r}" y2="${pad.t + ih}"
+           stroke="#21252e"/>`;
+  series.forEach(s => {
+    const ok = s.values.filter(v => v != null);
+    if (!ok.length) return;
+    const hi = Math.max(...ok) || 1;
+    const pts = s.values.map((v, i) => {
+      if (v == null) return null;
+      const x = pad.l + (months.length < 2 ? iw / 2 : (i / (months.length - 1)) * iw);
+      const y = pad.t + ih - (v / hi) * ih;
+      return x.toFixed(1) + ',' + y.toFixed(1);
+    }).filter(Boolean).join(' ');
+    out += `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="1.6"
+             stroke-linejoin="round"/>`;
+    out += `<text class="axis" x="2" y="${pad.t + 8}" fill="${s.color}">${esc(s.peak)}</text>`;
+  });
+  const step = Math.ceil(months.length / 7);
+  months.forEach((m, i) => {
+    if (i % step) return;
+    const x = pad.l + (months.length < 2 ? iw / 2 : (i / (months.length - 1)) * iw);
+    out += `<text class="axis" x="${x}" y="${h - 5}" text-anchor="middle">${m.slice(2)}</text>`;
+  });
+  return out + '</svg>';
+}
+
+/** 여러 계열을 **한 눈금**에 겹쳐 그린다. 기존 `chart()` 는 계열마다 자기 최댓값으로
+ *  정규화하는데, 검색 축은 앵커로 수준을 비교 가능하게 만들어 놨으므로 그러면 안 된다 —
+ *  카페가 냉면보다 12배 크다는 사실이 그림에서 지워진다.
+ *  `base` 를 주면 그 값에 점선을 긋는다(계절 프로파일의 1.0 = 연평균). */
+function plot(labels, series, opts) {
+  opts = opts || {};
+  const w = 660, h = opts.h || 170;
+  const pad = { l: 40, r: 10, t: 10, b: 20 };
+  const iw = w - pad.l - pad.r, ih = h - pad.t - pad.b;
+  const all = series.flatMap(s => s.values).filter(v => v != null);
+  if (!all.length) return '<div class="empty">그릴 값이 없다</div>';
+  const hi = Math.max(...all, opts.base != null ? opts.base : -Infinity);
+  const lo = opts.zero === false ? Math.min(...all) : 0;
+  const span = (hi - lo) || 1;
+  const X = i => pad.l + (labels.length < 2 ? iw / 2 : (i / (labels.length - 1)) * iw);
+  const Y = v => pad.t + ih - ((v - lo) / span) * ih;
+  let out = `<svg width="100%" height="${h}" viewBox="0 0 ${w} ${h}">`;
+  [0, 0.5, 1].forEach(f => {
+    const v = lo + span * f, y = Y(v);
+    out += `<line x1="${pad.l}" y1="${y}" x2="${w - pad.r}" y2="${y}" stroke="#1c212b"/>`;
+    out += `<text class="axis" x="${pad.l - 4}" y="${y + 3}" text-anchor="end">${
+      v >= 10 ? v.toFixed(0) : v.toFixed(2)}</text>`;
+  });
+  if (opts.base != null) {
+    out += `<line x1="${pad.l}" y1="${Y(opts.base)}" x2="${w - pad.r}" y2="${Y(opts.base)}"
+             stroke="#4b5563" stroke-dasharray="3 3"/>`;
+  }
+  series.forEach(sr => {
+    let run = [];
+    const flush = () => {
+      if (run.length > 1) {
+        out += `<polyline points="${run.join(' ')}" fill="none" stroke="${sr.color}"
+                 stroke-width="${sr.dash ? 1.2 : 1.6}" stroke-linejoin="round"${
+                 sr.dash ? ' stroke-dasharray="4 3" stroke-opacity=".7"' : ''}/>`;
+      } else if (run.length === 1) {
+        const [x, y] = run[0].split(',');
+        out += `<circle cx="${x}" cy="${y}" r="1.8" fill="${sr.color}"/>`;
+      }
+      run = [];
+    };
+    sr.values.forEach((v, i) => {
+      if (v == null) { flush(); return; }
+      run.push(X(i).toFixed(1) + ',' + Y(v).toFixed(1));
+    });
+    flush();
+  });
+  const step = Math.max(1, Math.ceil(labels.length / 8));
+  labels.forEach((m, i) => {
+    if (i % step) return;
+    out += `<text class="axis" x="${X(i)}" y="${h - 5}" text-anchor="middle">${
+      esc(opts.tick ? opts.tick(m) : m)}</text>`;
+  });
+  return out + '</svg>';
+}
+
+/** 계열 색. 고른 순서대로 돌려 쓴다 — 같은 업종이 표와 그림에서 같은 색이어야 한다. */
+const PAL = ['#5b8cff', '#f59e0b', '#4ade80', '#a78bfa', '#f87171', '#22d3ee'];
+
+let D = {};                                     // 받아 둔 응답
+let picked = null;                              // 고른 키워드
+
+/** 검색 축의 화면 상태. 구간·눈금·문턱은 **서버로 보내는 값**이고 `sel` 은 그림에
+ *  겹쳐 그릴 업종이다. 문턱을 화면에 두는 이유: 코드에 박으면 그 값이 왜 그 값인지
+ *  아무도 모른다. */
+let S = { gate: 0.3, sel: [],
+          vol:    { from: '', to: '', unit: 'month' },   // ④ 검색량 — 어디를 그리나
+          season: { from: '', to: '' },                  // ② 계절 — 어느 해들을 접나
+          trend:  { from: '', to: '' } };                // ③ 트렌드 — '요즘'이 언제부터인가
+
+function searchURL() {
+  const p = new URLSearchParams({ unit: S.vol.unit, gate: String(S.gate) });
+  if (S.vol.from) p.set('from', S.vol.from);
+  if (S.vol.to) p.set('to', S.vol.to);
+  if (S.season.from) p.set('season_from', S.season.from);
+  if (S.season.to) p.set('season_to', S.season.to);
+  if (S.trend.from) p.set('trend_from', S.trend.from);
+  if (S.trend.to) p.set('trend_to', S.trend.to);
+  return '/admin/api/trend/search?' + p;
+}
+
+async function load(extra) {
+  const q = extra ? '?keyword=' + encodeURIComponent(extra) : '';
+  const [mv, hi, st, na, cc, se] = await Promise.all([
+    fetch('/admin/api/trend/movers?top=12').then(r => r.json()),
+    fetch('/admin/api/trend/history' + q).then(r => r.json()),
+    fetch('/admin/api/trend/stores?top=12').then(r => r.json()),
+    fetch('/admin/api/trend/national').then(r => r.json()),
+    fetch('/admin/api/trend/concentration').then(r => r.json()),
+    fetch(searchURL()).then(r => r.json()),
+  ]);
+  D = { mv, hi, st, na, cc, se, extra };
+  render();
+}
+
+/** 구간·눈금·문턱만 바뀌었을 때. **리뷰 축은 다시 받지 않는다** — 그쪽은 이 값들과
+ *  아무 상관이 없고, 다시 받으면 화면이 통째로 깜빡인다. */
+async function reload() {
+  D.se = await fetch(searchURL()).then(r => r.json());
+  render();
+}
+
+function kpis() {
+  const h = D.hi, w = h.windows || {};
+  const se = D.se || {};
+  const cs = se.categories || [];
+  // 검색 축을 앞에 세운다 — 계절·유행·검색량의 근거가 이제 그쪽이다(리뷰 축은 신호가
+  // 없었다: 가게 200곳+ 진폭 1.42배 대 100곳- 2.68배, 표본과 반대로 움직인다. 2d절).
+  const rows = [
+    [se.available ? cs.filter(c => c.steady).length + '/' + cs.length : '—', '스테디셀러 · 네이버'],
+    [se.available ? cs.filter(c => c.seasonal).length : '—', '계절형 · 네이버'],
+    [se.available ? cs.filter(c => c.fad).length : '—', '유행 · 네이버'],
+    [(h.reviews || 0).toLocaleString(), '창 안 리뷰 · 카카오맵'],
+    [h.by_keyword.length, '추적 키워드 · 카카오맵'],
+    [D.cc.available && D.cc.gini != null ? D.cc.gini.toFixed(3) : '—', '노출 지니 · 서버'],
+  ];
+  $('#kpi').innerHTML = rows.map(([b, s]) =>
+    `<div class="stat"><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join('');
+}
+
+/** 유행/계절 표 한 덩어리. `key` 가 `yoy_3m` 이면 유행, `season_3m` 이면 계절이다. */
+function table(rows, key, color) {
+  if (!rows.length) return '<div class="empty">아직 견줄 구간이 없다</div>';
+  const ms = D.hi.months;
+  return `<table><thead><tr>
+      <th class="l">키워드</th><th>언급</th><th>추이</th><th>최근</th><th>차이pp</th>
+    </tr></thead><tbody>${rows.map(r => {
+    const vals = ms.map(m => r.share[m]);
+    const last = vals.at(-1);
+    return `<tr class="pick ${picked === r.keyword ? 'on' : ''}" data-kw="${esc(r.keyword)}">
+      <td class="l"><span class="name">${esc(r.keyword)}</span>
+        <span class="scope">${esc(r.scope)}</span>${r.thin ? ' <span class="scope">얇음</span>' : ''}</td>
+      <td class="mute">${r.n}</td>
+      <td>${spark(vals, 90, 18, color)}</td>
+      <td>${pc(last)}</td>
+      <td class="${cls(r[key].delta)}">${pp(r[key].delta)}</td>
+    </tr>`;
+  }).join('')}</tbody></table>`;
+}
+
+function detail() {
+  if (!picked) return '';
+  const r = D.hi.by_keyword.find(x => x.keyword === picked);
+  if (!r) return '';
+  const ms = D.hi.months;
+  const hi = Math.max(...ms.map(m => r.share[m] || 0));
+  const svg = chart(ms, [{ values: ms.map(m => r.share[m]), color: '#5b8cff',
+                           peak: '최대 ' + pc(hi) }]);
+  return `<section><h3>${esc(r.keyword)} ${badge('kakao')} <small>${esc(r.scope)} 리뷰 대비 점유율</small>
+      <span class="when">언급 ${r.n}건 · 유행 ${pp(r.yoy_3m.delta)}pp · 계절 ${pp(r.season_3m.delta)}pp</span>
+    </h3><div class="big">${svg}
+      <div class="legend"><span><i style="background:#5b8cff"></i>월별 점유율</span></div>
+    </div></section>`;
+}
+
+function categories() {
+  const ms = D.hi.months;
+  return `<table><thead><tr>
+      <th class="l">업종</th><th>리뷰</th><th>추이</th><th>최근</th><th>유행pp</th><th>계절pp</th>
+    </tr></thead><tbody>${D.hi.by_category.filter(r => r.n >= 20).map(r => `
+      <tr><td class="l"><span class="name">${esc(r.category)}</span></td>
+        <td class="mute">${r.n.toLocaleString()}</td>
+        <td>${spark(ms.map(m => r.share[m]), 90, 18, '#f59e0b')}</td>
+        <td>${pc(r.share[ms.at(-1)])}</td>
+        <td class="${cls(r.yoy_3m.delta)}">${pp(r.yoy_3m.delta)}</td>
+        <td class="${cls(r.season_3m.delta)}">${pp(r.season_3m.delta)}</td>
+      </tr>`).join('')}</tbody></table>`;
+}
+
+function stores() {
+  const s = D.st;
+  if (!s.stores.length) return '<div class="empty">자격을 갖춘 가게가 없다</div>';
+  return `<table><thead><tr>
+      <th class="l">가게</th><th>최근</th><th>직전</th><th>증가율</th>
+    </tr></thead><tbody>${s.stores.map(x => `
+      <tr><td class="l"><span class="name">${esc(x.name || x.store_id)}</span>
+          <span class="scope">${esc(x.cat2 || '')}</span></td>
+        <td>${x.recent}</td><td class="mute">${x.prior}</td>
+        <td class="${cls(x.inflow)}">${x.inflow > 0 ? '+' : ''}${x.inflow.toFixed(2)}</td>
+      </tr>`).join('')}</tbody></table>`;
+}
+
+function national() {
+  const n = D.na;
+  if (!n.available) {
+    return `<div class="note"><b>전국 검색 추이가 없다.</b> ${esc(n.hint || '')}</div>`;
+  }
+  const ms = D.hi.months;
+  const scores = Object.entries(n.scores).sort((a, b) => b[1] - a[1]);
+  const top = [...scores.slice(0, 6), ...scores.slice(-6)];
+  return `<div class="note info"><b>전국이다.</b> 검색어 트렌드 API 에는 지역 파라미터가
+      없다. 역삼동은 오피스 상권이라 점심 수요가 전국 패턴과 다를 수 있으니 왼쪽
+      역삼동 추이와 <b>대조</b>해서 보라. 그리고 업종 사이의 값 크기는 비교하지 말 것 —
+      업종마다 따로 요청해서 각 응답 안에서 최댓값이 100 이 된다.</div>
+    <table><thead><tr>
+      <th class="l">업종</th><th>추이(전국)</th><th>${esc(n.basis || '')} 증가율</th>
+    </tr></thead><tbody>${top.map(([cat, v]) => {
+    const ser = n.series[cat];
+    return `<tr><td class="l"><span class="name">${esc(cat)}</span></td>
+      <td>${ser ? spark(ms.map(m => ser[m] ?? null), 120, 18, '#a78bfa') : ''}</td>
+      <td class="${cls(v)}">${v > 0 ? '+' : ''}${v.toFixed(2)}</td></tr>`;
+  }).join('')}</tbody></table>
+    <div class="src">출처 <b>네이버 데이터랩 검색어 트렌드</b> · 전국 · 업종별 따로 요청
+      (그래서 크기 비교 불가) · 기준일 ${esc(n.as_of || '')} · 위 ①~④ 와 같은 원자료다</div>`;
+}
+
+function concentration() {
+  const c = D.cc;
+  if (!c.available) {
+    return `<div class="note"><b>노출 기록이 없다.</b> ${esc(c.hint || '')}</div>`;
+  }
+  const pct = v => (v * 100).toFixed(1) + '%';
+  const even = k => (k / c.pool * 100).toFixed(1) + '%';   // 완전 균등일 때의 점유율
+  const rows = [['전체', c], ...Object.entries(c.by_policy || {})];
+  const on = c.trend_enabled || (c.trend_slot_every || 0) > 0;   // 무게든 슬롯이든 켜져 있으면
+  return `<div class="note ${on ? '' : 'info'}"><b>${c.trend_enabled
+      ? '트렌드 무게가 켜져 있다 — 이 수가 기준선보다 올랐는지 보라.'
+      : (c.trend_slot_every || 0) > 0
+        ? `트렌드 슬롯이 켜져 있다(${c.trend_slot_every}장에 1장) — trend 행이 다른 행보다 쏠리는지 보라.`
+        : '지금은 끄고 잰 기준선이다.'}</b>
+      트렌드는 전역 값이라 모두를 같은 방향으로 민다 → 인기 쏠림(rich-get-richer).
+      지니는 <b>노출 0 인 가게를 분모에 넣고</b> 낸다 — 빼면 한 번도 안 나온 가게가
+      사라져 집중도가 실제보다 좋아 보인다. 정책을 합치지 않는 것도 같은 이유다:
+      인터리빙이 둘을 섞어 버리면 어느 쪽이 쏠리는지 안 보인다.</div>
+    <table><thead><tr>
+      <th class="l">구분</th><th>노출</th><th>나온 곳</th><th>안 나온 곳</th>
+      <th>지니</th><th>상위10</th><th>상위50</th><th>상위100</th>
+    </tr></thead><tbody>${rows.map(([name, v]) => `
+      <tr><td class="l"><span class="name">${esc(name)}</span></td>
+        <td>${(v.exposures || 0).toLocaleString()}</td>
+        <td>${v.shown}</td>
+        <td class="mute">${v.never_shown}</td>
+        <td>${v.gini == null ? '—' : v.gini.toFixed(3)}</td>
+        ${[10, 50, 100].map(k => `<td>${(v.top_share || {})[k] != null
+          ? pct(v.top_share[k]) : '—'}</td>`).join('')}
+      </tr>`).join('')}</tbody></table>
+    <div class="scope">풀 ${c.pool.toLocaleString()}곳 · 완전 균등이면 상위 10/50/100
+      점유율이 각각 ${even(10)} · ${even(50)} · ${even(100)} 이고 지니는 0 이다</div>`;
+}
+
+/* ═══════════════════════════════ 검색 축 (전국 네이버 검색)
+ *
+ * 리뷰 축과 **일부러 나눠 놓았다.** 역삼동 리뷰로 업종 트렌드를 재 보니 신호가 없었다 —
+ * 가게 200곳 이상인 업종의 계절 진폭 중앙값이 1.42배인데 100곳 미만은 2.68배다. 진폭이
+ * 표본 크기와 **반대로** 움직이면 그건 계절이 아니라 잡음이다. 그래서 계절·유행·검색량은
+ * 표본이 두꺼운 검색 축에서 보고, 리뷰 축은 아래에서 대조용으로 본다.
+ *
+ * 세 질문을 한 표에 섞지 않는다. 계절은 "매년 이맘때", 트렌드는 "요즘", 검색량은
+ * "애초에 얼마나" 다. 섞으면 서로를 가린다.
+ */
+
+/** 고른 업종들을 그림용 계열로. 아무것도 안 골랐으면 수준 상위 셋을 기본으로 보여 준다 —
+ *  빈 그림은 "자료가 없다" 로 잘못 읽힌다. */
+function picks() {
+  const cs = D.se.categories || [];
+  const names = S.sel.length ? S.sel
+    : cs.filter(c => c.steady).slice(0, 3).map(c => c.name);
+  return names.map((n, i) => ({ row: cs.find(c => c.name === n), name: n,
+                                color: PAL[i % PAL.length] }))
+              .filter(x => x.row);
+}
+
+function toggle(name) {
+  const i = S.sel.indexOf(name);
+  if (i >= 0) S.sel.splice(i, 1);
+  else if (S.sel.length < 6) S.sel.push(name);     // 6개 넘으면 색이 돌아 구분이 안 된다
+  render();
+}
+
+function colorOf(name) {
+  const p = picks().find(x => x.name === name);
+  return p ? p.color : null;
+}
+
+/** 문턱 바 — 이것만 전체에 걸린다(분류를 바꾼다). 구간은 섹션마다 따로 있다. */
+function bar() {
+  const g = D.se.gate != null ? D.se.gate : S.gate;
+  const cs = D.se.categories || [];
+  return `<div class="bar">
+    <label>절대값 문턱 <input type="range" id="gate" min="0" max="2" step="0.02"
+        value="${g}"><b id="gv" style="color:#fff">${g.toFixed(2)}</b>
+      <span class="scope">통과 ${cs.filter(c => c.steady).length}개 / ${cs.length}개</span></label>
+    <span class="scope">문턱은 ①~④ 전부에 걸린다. 구간은 그래프마다 따로 정한다 —
+      질문이 다르면 보는 창도 다르다.</span>
+  </div>`;
+}
+
+/** 섹션별 구간 바. `key` 는 S 의 자리(season·trend·vol). `used` 는 서버가 실제로
+ *  쓴 창이다 — 입력값이 아니라 **그것을** 보여 준다. 자료 밖을 찍으면 서버가 안으로
+ *  당기는데, 입력값을 그대로 두면 화면과 계산이 다른 창을 가리킨다. */
+function rangeBar(key, used, extra) {
+  const r = D.se.range || {};
+  return `<div class="bar" style="padding:7px 12px;margin-bottom:8px">
+    <label>구간
+      <input type="date" data-range="${key}" data-edge="from" value="${esc(used.from || '')}"
+             min="${esc(r.first || '')}" max="${esc(r.last || '')}">
+      ~ <input type="date" data-range="${key}" data-edge="to" value="${esc(used.to || '')}"
+             min="${esc(r.first || '')}" max="${esc(r.last || '')}"></label>
+    ${extra || ''}
+    <button data-reset="${key}" style="margin-left:auto">기본 구간</button>
+  </div>`;
+}
+
+/** 출처 배지. 셋 중 하나다 — 이 화면의 숫자는 전부 이 셋 어딘가에서 온다. */
+const SRC = {
+  naver:  ['naver',  '네이버 데이터랩 검색'],
+  kakao:  ['kakao',  '카카오맵 리뷰'],
+  server: ['server', '서버 노출 기록'],
+};
+function badge(kind) {
+  const [c, t] = SRC[kind];
+  // 리뷰 배지는 실제 플랫폼 구성을 따른다 — 네이버 리뷰가 들어오면 이름이 바뀌어야 한다.
+  const label = kind === 'kakao'
+    ? Object.keys((D.hi.source || {}).platforms || { kakao: 1 }).map(k =>
+        ({ kakao: '카카오맵', naver: '네이버' }[k] || k)).join('+') + ' 리뷰'
+    : t;
+  return `<span class="srcb ${c}">${esc(label)}</span>`;
+}
+
+/** 맨 위 패널 — 출처 셋이 **연결돼 있나**, 얼마나 있나, 어느 섹션이 쓰나.
+ *  "네이버가 반영된 건가" 는 이 한 줄에서 답이 나야 한다. */
+function sourcesPanel() {
+  const se = D.se, q = (se.sources || {}).search || {};
+  const rv = D.hi.source || {};
+  const cc = D.cc;
+  const plat = Object.entries(rv.platforms || {}).map(([k, v]) =>
+    `${{ kakao: '카카오맵', naver: '네이버' }[k] || k} ${v.toLocaleString()}건`).join(' · ');
+  const card = (cls, title, ok, body, where) => `<div class="card ${cls}">
+    ${badge(cls)} <b>${esc(title)}</b>
+    <div><span class="st ${ok ? 'ok' : 'no'}">${ok ? '● 연결됨' : '○ 없음'}</span> ${body}</div>
+    <div class="where">쓰는 곳 → ${where}</div></div>`;
+  return `<div class="srcs">
+    ${card('naver', '네이버 데이터랩 검색어 트렌드 (전국)', se.available,
+      se.available
+        ? `업종 <b>${q.categories}개</b> × <b>${(q.days || 0).toLocaleString()}일</b>
+           (${esc((q.fetched || []).join(' ~ '))}) · 기준일 ${esc(q.as_of || '')} · 앵커
+           <b>${esc((q.anchor_keywords || []).join(', '))}</b> ·
+           파일 <code>data/analysis/datalab/</code> + <code>trend_level.json</code>`
+        : esc(se.hint || '수집 산출물이 없다'),
+      '① 스테디셀러 · ② 계절 · ③ 트렌드 · ④ 검색량 · 전국 검색 추이')}
+    ${card('kakao', (plat ? '' : '가게 ') + '리뷰 크롤 (역삼동)', !!(D.hi.reviews),
+      `${plat || '—'} · ${esc((rv.date_range || []).join(' ~ '))} · 창 안
+       <b>${(D.hi.reviews || 0).toLocaleString()}건</b> / ${D.hi.months.length}달 ·
+       파일 <code>data/kakao/reviews.jsonl</code>`,
+      '리뷰 축 전체 — 유행↑↓ · 계절↑↓ · 업종 · 늘고 있는 가게 · 키워드 추적')}
+    ${card('server', '서버 노출 기록', !!cc.available,
+      cc.available
+        ? `노출 <b>${(cc.exposures || 0).toLocaleString()}건</b> · 사용자 ${cc.users}명 ·
+           ${cc.days ? `최근 ${cc.days}일` : '전 기간'} · 파일 <code>state/exposures.jsonl</code>`
+        : esc(cc.hint || '기록이 아직 없다'),
+      '노출 집중도(트렌드를 켜기 전 관문)')}
+  </div>`;
+}
+
+/** 출처 줄. 그래프 밑마다 붙인다 — **어디서 온 숫자인지 안 보이면 못 믿는다.** */
+function srcLine(kind, more) {
+  if (kind === 'search') {
+    const q = (D.se.sources || {}).search || {};
+    return `<div class="src">출처 <b>${esc(q.label || '네이버 데이터랩')}</b>
+      · ${esc(q.scope || '')} · 업종 ${q.categories || 0}개 × ${(q.days || 0).toLocaleString()}일
+      (${esc((q.fetched || []).join(' ~ '))}) · 기준일 ${esc(q.as_of || '')}
+      · 앵커 <b>${esc((q.anchor_keywords || []).join(', '))}</b>${more ? ' · ' + more : ''}</div>`;
+  }
+  const q = D.hi.source || {};
+  const plat = Object.entries(q.platforms || {}).map(([k, v]) =>
+    `${{ kakao: '카카오맵', naver: '네이버' }[k] || k} ${v.toLocaleString()}건`).join(' · ');
+  return `<div class="src">출처 <b>${esc(q.label || '가게 리뷰 크롤')}</b>
+    · ${plat || '—'} · ${esc((q.date_range || []).join(' ~ '))} · ${esc(q.scope || '')}
+    ${more ? ' · ' + more : ''}</div>`;
+}
+
+/** 자료의 양과 출처. **분모를 안 보여 주면 어떤 수도 못 믿는다.** */
+function volumes() {
+  const se = D.se, h = D.hi;
+  const days = (se.range || {}).days || 0;
+  const n = (se.categories || []).length;
+  const box = (b, sp, em) => `<div class="qbox"><b>${esc(b)}</b>
+    <span>${esc(sp)}</span><em>${esc(em)}</em></div>`;
+  return `<div class="quad">
+    ${box(n + '개 업종', '검색 · 네이버 데이터랩 검색어 트렌드(전국)', days.toLocaleString() +
+          '일치 일별 원자료 (' + (se.fetched ? se.fetched.join(' ~ ') : '') + ')')}
+    ${box(((se.windows || {}).trend || {}).days + '일', '트렌드 창 · 전년 같은 창과 비교',
+          ((se.windows || {}).trend || {}).from + ' ~ ' + ((se.windows || {}).trend || {}).to)}
+    ${box((h.reviews || 0).toLocaleString() + '건',
+          '리뷰 · ' + Object.keys((h.source || {}).platforms || {}).map(k =>
+            ({ kakao: '카카오맵', naver: '네이버' }[k] || k)).join('+') + ' 크롤',
+          h.months.length + '달 (' + (h.months[0] || '') + ' ~ ' + (h.months.at(-1) || '') +
+          ') · 하루 평균 ' + Math.round((h.reviews || 0) / Math.max(1, h.months.length * 30)) + '건')}
+    ${box(D.st.eligible + '곳', '가게 · 증가율 자격',
+          '창 ' + D.st.window_days + '일 · 최근 ' + D.st.min_reviews + '건 이상')}
+  </div>`;
+}
+
+const K2 = { '스테디셀러': ['steady', '스테디'], '계절형': ['season', '계절'],
+             '유행 상승': ['fad', '유행↑'], '유행 하락': ['fadd', '유행↓'],
+             '관측 부족': ['thin', '문턱 미달'] };
+
+function kindPill(k) {
+  const [c, t] = K2[k] || ['thin', k];
+  return `<span class="pill ${c}">${esc(t)}</span>`;
+}
+
+const gr = v => v == null ? '<span class="mute">—</span>'
+  : `<span class="${cls(v)}">${v > 0 ? '+' : ''}${v.toFixed(2)}</span>`;
+
+/** 한 행. 누르면 아래 그림에 겹쳐 그린다. */
+function srow(c, extra) {
+  const col = colorOf(c.name);
+  return `<tr class="pick ${S.sel.includes(c.name) ? 'on' : ''}" data-cat="${esc(c.name)}">
+    <td class="l">${col ? `<i style="display:inline-block;width:7px;height:7px;
+        border-radius:50%;background:${col};margin-right:5px"></i>` : ''}
+      <span class="name">${esc(c.name)}</span></td>
+    <td>${c.level.toFixed(3)}</td>
+    <td class="mute">${c.level_rank}위</td>
+    ${extra(c)}
+    <td>${kindPill(c.kind)}</td></tr>`;
+}
+
+/** ① 스테디셀러 — **절대값이 월등한 것.** 변동성은 안 본다(그게 정의다). */
+function steady() {
+  const cs = (D.se.categories || []).filter(c => c.steady);
+  if (!cs.length) return '<div class="empty">문턱을 넘는 업종이 없다 — 문턱을 내려 보라</div>';
+  return `<table><thead><tr>
+      <th class="l">업종</th><th>검색 수준</th><th>순위</th><th>진폭</th><th>반복</th>
+      <th>상대 증가</th><th>관측일</th><th>분류</th>
+    </tr></thead><tbody>${cs.map(c => srow(c, x => `
+      <td class="${x.swing != null && x.swing >= 1.5 ? '' : 'mute'}">${
+        x.swing == null ? '—' : x.swing.toFixed(2) + '배'}</td>
+      <td class="${x.repeats ? '' : 'mute'}">${x.repeat == null ? '—'
+        : (x.repeat > 0 ? '+' : '') + x.repeat.toFixed(2)}</td>
+      <td>${gr(x.growth_rel)}</td>
+      <td class="mute">${x.window_days}</td>`)).join('')}</tbody></table>
+    <div class="src">검색 수준 = 앵커 중앙값 대비. 1.00 이면 앵커와 같은 크기다.
+      진폭은 성수기/비수기 배수, 반복은 두 해의 월별 모양 상관이다.</div>
+    ${srcLine('search')}`;
+}
+
+/** ② 계절 — 12달로 접은 모양. **반복돼야** 계절이다. */
+function season() {
+  const cs = (D.se.categories || []).filter(c => c.steady && c.swing != null)
+    .sort((a, b) => b.swing - a.swing);
+  const ms = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+  const svg = plot(ms, picks().map(p => ({ values: p.row.season, color: p.color })),
+                   { base: 1, h: 160, zero: false });
+  const w = (D.se.windows || {}).season || {};
+  const warn = w.two_years ? '' : `<div class="note"><b>이 구간은 두 해를 못 덮는다
+    (${w.months || 0}달).</b> 반복성을 낼 수 없어 <b>계절형이 하나도 안 나온다</b> —
+    진폭만으로는 계절을 말하지 않기 때문이다. 24달 이상으로 넓혀라.</div>`;
+  return `${rangeBar('season', w, `<span class="scope">이 구간의 해들을 달력 달로 접는다
+      · ${w.months || 0}달${w.two_years ? ' · 두 해 반복성 있음' : ''}</span>`)}${warn}
+    <div class="note info"><b>진폭만으로는 계절이 아니다.</b> 깐부치킨은 진폭
+      9.34배인데 두 해 반복 상관이 <b>-0.23</b> 이다 — 한 해 10·11월에만 튄 것이라 계절이
+      아니라 사건이다. 반대로 냉면은 8.60배에 반복 <b>+0.90</b>, 오뎅바는 3.19배에
+      <b>+0.98</b> 로 매년 같은 모양이 돌아온다. 그래서 진폭 ≥1.5배 <b>그리고</b>
+      반복 ≥0.5 를 둘 다 넘겨야 계절형으로 센다.</div>
+    <div class="big">${svg}
+      <div class="legend">${picks().map(p =>
+        `<span><i style="background:${p.color}"></i>${esc(p.name)}</span>`).join('')}
+        <span class="mute">점선 = 그 업종의 연평균(1.0)</span></div></div>
+    <table style="margin-top:10px"><thead><tr>
+      <th class="l">업종</th><th>검색 수준</th><th>순위</th><th>진폭</th><th>반복</th>
+      <th>정점</th><th>저점</th><th>분류</th>
+    </tr></thead><tbody>${cs.map(c => srow(c, x => `
+      <td>${x.swing.toFixed(2)}배</td>
+      <td class="${x.repeats ? '' : 'mute'}">${x.repeat == null ? '—'
+        : (x.repeat > 0 ? '+' : '') + x.repeat.toFixed(2)}</td>
+      <td>${x.peak ? x.peak + '월' : '—'}</td>
+      <td class="mute">${x.trough ? x.trough + '월' : '—'}</td>`)).join('')}</tbody></table>
+    <div class="src">구간 안의 해들을 달력 달로 접고 그 업종의 연평균으로 나눴다 — 1.0 이
+      연평균이다. 수준은 따로 있으니 여기서는 <b>모양만</b> 본다.</div>
+    ${srcLine('search', `접은 구간 ${esc(w.from)} ~ ${esc(w.to)}`)}`;
+}
+
+/** ③ 트렌드 — 요즘 뜨나. **전체 중앙값을 뺀** 값으로 본다. */
+function trend() {
+  const cs = (D.se.categories || []).filter(c => c.steady && c.growth_rel != null)
+    .sort((a, b) => b.growth_rel - a.growth_rel);
+  const sh = D.se.growth_shift;
+  const row = c => srow(c, x => `
+      <td>${gr(x.growth_rel)}</td>
+      <td class="mute">${x.growth == null ? '—'
+        : (x.growth > 0 ? '+' : '') + x.growth.toFixed(2)}</td>
+      <td class="${x.repeats ? 'mute' : ''}">${x.repeat == null ? '—'
+        : (x.repeat > 0 ? '+' : '') + x.repeat.toFixed(2)}</td>`);
+  const head = `<thead><tr><th class="l">업종</th><th>검색 수준</th><th>순위</th>
+      <th>상대 증가</th><th>원값</th><th>반복</th><th>분류</th></tr></thead>`;
+  const w = (D.se.windows || {}).trend || {};
+  // 최근 창은 실선, 전년 같은 창은 같은 색 점선. 두 선이 벌어진 만큼이 증가율이다 —
+  // 숫자 하나로 주는 것보다 '어디서부터 벌어졌나' 가 보인다.
+  const series = picks().flatMap(p => [
+    { values: p.row.trend_recent, color: p.color },
+    { values: p.row.trend_prior, color: p.color, dash: true }]);
+  const svg = plot(w.axis || [], series, { h: 170, tick: m => m.slice(5) });
+  const warn = w.too_short ? `<div class="note"><b>창이 ${w.days}일이라 너무 짧다</b>
+    (최소 ${w.min_days}일). 며칠짜리 스파이크가 중앙값을 끌고 가므로 증가율을 내지 않았다 —
+    이 상태에서는 유행이 하나도 안 나온다.</div>` : '';
+  return `${rangeBar('trend', w, `<span class="scope">'요즘' 창 ${w.days || 0}일 ·
+      전년 같은 창 ${esc(w.prior_from || '')} ~ ${esc(w.prior_to || '')} 과 견준다</span>`)}${warn}
+    <div class="big">${svg}
+      <div class="legend">${picks().map(p =>
+        `<span><i style="background:${p.color}"></i>${esc(p.name)}</span>`).join('')}
+        <span class="mute">실선 = 이 창 · 점선 = 전년 같은 창 · ${w.chunk_days || 7}일 평균</span>
+      </div></div>
+    <div class="note"><b>원값으로 보면 안 된다.</b> 71개 업종의 전년 대비
+      증가율이 <b>64개가 음수</b>이고 중앙값이 <b>${sh == null ? '' : sh.toFixed(3)}</b> 다 —
+      업종이 다 같이 죽은 게 아니라 <b>네이버 검색 자체가 한 해에 약 18% 줄었다.</b>
+      그 중앙값을 빼고 남은 것이 업종 얘기다(상대 증가). 그리고 <b>반복되는 것은 유행에서
+      뺀다</b> — 안 빼면 떡볶이(반복 +0.89)가 "유행 하락" 으로 들어온다.</div>
+    <div class="cols">
+      <section><h3>올라오는 것 ${badge('naver')} <small>상대 증가 상위</small></h3>
+        <table>${head}<tbody>${cs.slice(0, 10).map(row).join('')}</tbody></table></section>
+      <section><h3>내려가는 것 ${badge('naver')} <small>상대 증가 하위</small></h3>
+        <table>${head}<tbody>${cs.slice(-10).reverse().map(row).join('')}</tbody></table></section>
+    </div>
+    <div class="src">상대 증가 = log(이 창 중앙값 / 전년 같은 창 중앙값) − 전체 중앙값.
+      0.2 ≈ ±22% 를 유행으로 센다. <b>창을 옮기면 분류도 같이 움직인다</b> — 그래서 쓴
+      창을 위에 그대로 적어 둔다. 어떤 창에서 나온 분류인지 안 보이면 표를 못 믿는다.</div>
+    ${srcLine('search', `창 ${esc(w.from)} ~ ${esc(w.to)}`)}`;
+}
+
+/** ④ 검색량 — 절대 크기. 구간·눈금이 여기에 걸린다. */
+function volume() {
+  const se = D.se;
+  const unit = { day: '일별', week: '주별', month: '월별' }[se.unit] || '';
+  const svg = plot(se.axis || [], picks().map(p => ({ values: p.row.series, color: p.color })),
+                   { h: 190, tick: m => m.length > 7 ? m.slice(5) : m.slice(2) });
+  const w = (se.windows || {}).volume || se.range || {};
+  const seg = `<div class="seg" id="unit">${[['day', '일'], ['week', '주'], ['month', '월']].map(
+    ([k, v]) => `<button data-u="${k}" class="${S.vol.unit === k ? 'on' : ''}">${v}</button>`
+  ).join('')}</div><span class="scope">${(se.range || {}).buckets || 0}칸 · ${esc(unit)} 평균</span>`;
+  return `${rangeBar('vol', w, seg)}
+    <div class="note info"><b>여기만 업종 사이 크기를 비교할 수 있다.</b>
+      수집 때 요청마다 같은 앵커를 한 칸 더 넣어 응답별 정규화 상수를 약분시킨 값이라
+      한 축에 겹쳐 그릴 수 있다. 아래 <b>전국 검색 추이</b> 표(/national)의 값은
+      그렇지 않으니 거기서는 크기를 견주지 말 것.
+      <br>⚠️ 이건 <b>업종명이 얼마나 검색되나</b> 다. 수요가 아니라 검색어의 크기라
+      <b>카페 6.61 대 커피전문점 0.02</b> 처럼 같은 것을 가리키는 말끼리도 크게 다르다.</div>
+    <div class="big">${svg}
+      <div class="legend">${picks().map(p =>
+        `<span><i style="background:${p.color}"></i>${esc(p.name)}
+          <span class="mute">${p.row.level.toFixed(2)}</span></span>`).join('')}
+        <span class="mute">${esc(unit)} 평균 · 앵커 중앙값 = 1</span></div></div>
+    <div class="src">일별은 검색 축에서만 된다. 리뷰 축은 역삼동 전체가 하루 23건이라
+      일별로 자르면 0·1건짜리 톱니가 된다 — 아래 리뷰 표는 월별이다.</div>
+    ${srcLine('search', `그린 구간 ${esc(w.from)} ~ ${esc(w.to)}`)}`;
+}
+
+function searchAxis() {
+  if (!D.se.available) {
+    return `<section><h3>검색 축 ${badge('naver')}</h3><div class="note"><b>검색 수준이 아직 없다.</b>
+      ${esc(D.se.hint || '')}</div></section>`;
+  }
+  return `${bar()}${volumes()}
+    <section><h3>① 스테디셀러 ${badge('naver')} <small>변동성과 무관하게 절대값이 월등한 것</small>
+      <span class="when">문턱 ${D.se.gate.toFixed(2)} 이상 ·
+        ${(D.se.categories || []).filter(c => c.steady).length}개</span></h3>
+      <div class="note"><b>절대값은 문턱이고 변동성은 순위다.</b> 변동성만 보면 분모가
+        작은 것이 순위를 먹고(깐부치킨 9.34배·밀크티 11.3배는 잡음이다), 절대값만 보면
+        아메리카노가 영원히 1위라 아무 말도 안 해 준다. 그래서 <b>먼저 걸러 내고</b>
+        그 안에서 줄을 세운다. 문턱은 위에서 움직일 수 있다 — 코드에 박아 두면
+        그 값이 왜 그 값인지 아무도 모른다.</div>
+      ${steady()}</section>
+    <section><h3>② 계절 ${badge('naver')} <small>이 음식이 매년 이맘때 뜨나</small></h3>${season()}</section>
+    <section><h3>③ 트렌드 ${badge('naver')} <small>요즘 뜨나</small></h3>${trend()}</section>
+    <section><h3>④ 검색량 ${badge('naver')} <small>애초에 얼마나 검색되나</small>
+      <span class="when">${esc((D.se.range || {}).from)} ~ ${esc((D.se.range || {}).to)}</span>
+      </h3>${volume()}</section>`;
+}
+
+function render() {
+  const h = D.hi, w = h.windows || {};
+  if (!h.months.length) {
+    $('#main').innerHTML = '<div class="empty">리뷰에 날짜가 없다</div>';
+    return;
+  }
+  kpis();
+  const win = `최근 ${(w.recent || []).join('·')} / 직전 ${(w.prior || []).join('·')}` +
+              (w.year_ago && w.year_ago.length ? ` / 전년 ${w.year_ago.join('·')}` : '');
+  $('#main').innerHTML = `
+    ${sourcesPanel()}
+    ${h.partial_month ? `<div class="note"><b>${esc(h.partial_month)} 은 반쪽 달이라
+        빠져 있다.</b> 크롤이 달 중간에 끝난 달을 넣으면 "급락" 이라는 거짓 신호가 된다.</div>` : ''}
+    <div class="note info"><b>유행과 계절은 다른 표다.</b> 왼쪽(유행)은
+      <b>전년 같은 3달</b>과 견줬고 오른쪽(계절)은 <b>직전 3달</b>과 견줬다. 계절 표의
+      상위는 "지금 철에 뜨는 것" 이지 유행이 아니다 — 8월에 냉면이 1위인 것이 그 예다.
+      키워드는 <b>그 업종 리뷰 대비</b>로 재서 업종 구성 이동(한식 +5.4pp 같은 것)에
+      휘둘리지 않는다. ${esc(win)}</div>
+
+    ${searchAxis()}
+
+    <section><h3>리뷰 축 — 역삼동 ${badge('kakao')} <small>대조용이다</small></h3>
+      <div class="note"><b>업종 트렌드를 여기서 재면 안 된다.</b> 가게 200곳 이상인
+        업종의 계절 진폭 중앙값이 <b>1.42배</b>인데 100곳 미만은 <b>2.68배</b>다 —
+        진폭이 표본 크기와 <b>반대로</b> 움직이면 그건 계절이 아니라 잡음이다. 전국
+        검색과의 모양 상관도 중앙값 <b>+0.08</b> 로 사실상 무관했다(재현:
+        <code>python -m analysis.trend_evidence</code> 2d절). 그래서 위쪽
+        검색 축이 기준이고 이 아래는 <b>역삼동에서 실제로 무엇이 먹혔나</b> 를
+        대조하는 자리다.</div>
+      ${srcLine('review', `창 안 ${(h.reviews || 0).toLocaleString()}건 · ${h.months.length}달`)}
+    </section>
+
+    ${detail()}
+
+    <div class="cols">
+      <section><h3>유행 ↑ ${badge('kakao')} <small>전년 같은 3달 대비</small></h3>${table(h_rising(), 'yoy_3m', '#4ade80')}</section>
+      <section><h3>계절 ↑ ${badge('kakao')} <small>직전 3달 대비 · 지금 철</small></h3>${table(D.mv.in_season, 'season_3m', '#f59e0b')}</section>
+      <section><h3>유행 ↓ ${badge('kakao')}</h3>${table(D.mv.falling, 'yoy_3m', '#f87171')}</section>
+      <section><h3>계절 ↓ ${badge('kakao')} <small>철이 지난 것</small></h3>${table(D.mv.out_of_season, 'season_3m', '#7d838f')}</section>
+    </div>
+
+    <section><h3>업종 ${badge('kakao')} <small>전체 리뷰 대비 점유율</small></h3>${categories()}</section>
+
+    <div class="cols">
+      <section><h3>리뷰가 늘고 있는 가게 ${badge('kakao')}
+        <small>창 ${D.st.window_days}일 · 최근 ${D.st.min_reviews}건 이상만</small>
+        <span class="when">자격 ${D.st.eligible}곳</span></h3>
+        <div class="note">창 안 리뷰가 가게당 <b>중앙값 2건</b>이라, 걸러내지 않으면
+          이 표가 2건 대 0건짜리 잡음으로 채워진다.</div>
+        ${stores()}</section>
+      <section><h3>전국 검색 추이 ${badge('naver')} <small>증가율만 · 크기 비교 불가</small>
+        ${D.na.available ? `<span class="when">${esc(D.na.as_of || '')} 기준</span>` : ''}</h3>
+        ${national()}</section>
+    </div>
+
+    <section><h3>노출 집중도 ${badge('server')} <small>트렌드를 켜기 전 관문 · TREND.md 7절</small>
+      ${D.cc.available ? `<span class="when">${D.cc.days ? `최근 ${D.cc.days}일`
+        : '전 기간'} · 사용자 ${D.cc.users}명</span>` : ''}</h3>
+      ${concentration()}</section>
+
+    <section><h3>키워드 추가 추적 ${badge('kakao')} <small>메뉴에 없는 새 유행을 급히 볼 때</small></h3>
+      <div style="display:flex;gap:8px;align-items:center">
+        <input type="text" id="kw" placeholder="예: 탕후루" value="${esc(D.extra || '')}">
+        <button id="go">추적</button>
+        <span class="scope">리뷰 본문에서 그 낱말을 세어 같은 방식으로 견준다</span>
+      </div></section>`;
+
+  // 두 종류의 누를 수 있는 행이 있다: 검색 축은 업종(`data-cat`), 리뷰 축은
+  // 키워드(`data-kw`). 한 핸들러로 묶으면 서로의 선택을 지운다.
+  $('#main').querySelectorAll('tr.pick[data-kw]').forEach(tr => tr.onclick = () => {
+    picked = picked === tr.dataset.kw ? null : tr.dataset.kw;
+    render();
+  });
+  $('#main').querySelectorAll('tr.pick[data-cat]').forEach(tr => tr.onclick = () => {
+    toggle(tr.dataset.cat);
+  });
+
+  if (D.se.available) {
+    const gate = $('#gate'), gv = $('#gv');
+    $('#main').querySelectorAll('input[data-range]').forEach(el => el.onchange = () => {
+      S[el.dataset.range][el.dataset.edge] = el.value;
+      reload();
+    });
+    $('#main').querySelectorAll('button[data-reset]').forEach(b => b.onclick = () => {
+      const k = b.dataset.reset;
+      S[k].from = ''; S[k].to = '';
+      reload();
+    });
+    // 문턱은 끄는 동안에는 숫자만 바꾸고, 놓을 때 한 번만 다시 받는다 —
+    // input 마다 받으면 슬라이더 한 번에 요청이 수십 개 날아간다.
+    gate.oninput = () => { gv.textContent = Number(gate.value).toFixed(2); };
+    gate.onchange = () => { S.gate = Number(gate.value); reload(); };
+    $('#unit').querySelectorAll('button').forEach(b => b.onclick = () => {
+      S.vol.unit = b.dataset.u;
+      reload();
+    });
+  }
+  const go = () => load($('#kw').value.trim());
+  $('#go').onclick = go;
+  $('#kw').onkeydown = e => { if (e.key === 'Enter') go(); };
+}
+
+/** 추가 추적 키워드는 `movers` 응답에 없다(그쪽은 캐시된 기본 목록이다).
+ *  `history` 에서 찾아 맨 위에 얹는다 — 안 그러면 입력해도 아무 일이 없어 보인다. */
+function h_rising() {
+  const base = D.mv.rising.slice();
+  if (!D.extra) return base;
+  const found = D.hi.by_keyword.find(r => r.keyword === D.extra);
+  if (found && !base.some(r => r.keyword === D.extra)) base.unshift(found);
+  return base;
+}
+
+load().catch(e => {
+  $('#main').innerHTML = `<div class="empty">불러오지 못했다<br><small>${esc(e)}</small></div>`;
+});
+</script>
+</body>
+</html>

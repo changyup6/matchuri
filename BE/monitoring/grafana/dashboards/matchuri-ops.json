@@ -1,0 +1,2560 @@
+{
+  "uid": "matchuri-ops",
+  "title": "맛추리 운영",
+  "description": "한 화면으로 '서비스가 살아 있나 · 추천이 통하나 · 서버가 버티나' 셋을 본다. 패널은 파일이 원본이다(monitoring/grafana/dashboards/matchuri-ops.json) — 화면에서 고친 것은 저장되지 않는다.",
+  "tags": [
+    "맛추리",
+    "운영",
+    "recsys"
+  ],
+  "timezone": "browser",
+  "editable": true,
+  "graphTooltip": 1,
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "version": 1,
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "1h"
+    ]
+  },
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": false,
+      "title": "지연 상세",
+      "tooltip": "라우트별 p95 · 느린 요청",
+      "type": "link",
+      "url": "/grafana/d/matchuri-latency"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "templating": {
+    "list": []
+  },
+  "panels": [
+    {
+      "id": 100,
+      "type": "row",
+      "title": "트래픽",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "panels": []
+    },
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "라우트별 요청/s",
+      "description": "쌓아 올린 높이가 전체 부하다. 라벨이 경로 템플릿(/cards/{card_id})이라 카드 수만큼 계열이 늘지 않는다. 어느 화면이 서버를 쓰는지 한눈에 보려고 stacked 로 둔다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 60,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "reqps",
+          "min": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum by (route) (rate(matchuri_http_requests_total[$__rate_interval]))",
+          "legendFormat": "{{route}}",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "오류 비율 — 4xx · 5xx",
+      "description": "5xx 가 한 건도 없으면 계열 자체가 사라져 '데이터 없음' 이 되므로 or vector(0) 로 바닥을 깔았다 — 0% 와 '모르겠다' 는 다른 말이다. 둘을 나눠 그린다. 5xx 는 우리 버그이고 4xx 는 대부분 엣지가 제 일을 한 결과다(429 레이트 리밋, 봇의 404 스캔). 문턱은 5xx 기준 — 1% 노랑, 2% 빨강(알림과 같은 값).",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0.01
+              },
+              {
+                "color": "red",
+                "value": 0.02
+              }
+            ]
+          },
+          "unit": "percentunit",
+          "min": 0,
+          "decimals": 2
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "5xx"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "4xx"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "(sum(rate(matchuri_http_requests_total{status=~\"5..\"}[$__rate_interval])) or vector(0))\n/\nsum(rate(matchuri_http_requests_total[$__rate_interval]))",
+          "legendFormat": "5xx",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "(sum(rate(matchuri_http_requests_total{status=~\"4..\"}[$__rate_interval])) or vector(0))\n/\nsum(rate(matchuri_http_requests_total[$__rate_interval]))",
+          "legendFormat": "4xx",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "지연 p50 · p95 · p99",
+      "description": "히스토그램 버킷에서 뽑는다 — 버킷 경계(5ms~5s)가 정밀도의 상한이라 값은 근사다. 평균을 쓰지 않는 이유: 느린 요청 한 건이 평균을 끌어올리고 그 사실을 숨긴다. p95 1초가 알림선이다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0.5
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "s",
+          "min": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.5, sum by (le) (rate(matchuri_http_request_seconds_bucket[$__rate_interval])))",
+          "legendFormat": "p50",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.95, sum by (le) (rate(matchuri_http_request_seconds_bucket[$__rate_interval])))",
+          "legendFormat": "p95",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "C",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.99, sum by (le) (rate(matchuri_http_request_seconds_bucket[$__rate_interval])))",
+          "legendFormat": "p99",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "처리 중인 요청 (in-flight)",
+      "description": "지금 앱 안에 들어와 있는 요청 수. 지연이 오르는 이유가 '느려서'인지 '몰려서'인지를 가른다 — 여기가 평평한데 p95 가 오르면 요청 하나하나가 느려진 것이다. uvicorn 워커 하나라 이 값이 계속 두 자리면 큐가 쌓이고 있다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 9
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 30,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short",
+          "min": 0,
+          "decimals": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri_http_inflight",
+          "legendFormat": "in-flight",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "nginx 연결",
+      "description": "엣지가 붙들고 있는 연결. waiting 은 keep-alive 로 놀고 있는 것이라 커도 괜찮다. writing 이 오래 높으면 느린 클라이언트가 응답을 안 받아 가는 것이다. IP 당 limit_conn 20 이라 한 사람이 여기를 다 채우지는 못한다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 9
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short",
+          "min": 0,
+          "decimals": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "nginx_connections_active",
+          "legendFormat": "active",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "nginx_connections_writing",
+          "legendFormat": "writing",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "C",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "nginx_connections_waiting",
+          "legendFormat": "waiting",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "D",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "nginx_connections_reading",
+          "legendFormat": "reading",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "엣지가 받은 요청 vs 앱이 처리한 요청",
+      "description": "stub_status 는 상태 코드별 집계를 주지 않는다 — 그래서 429·413 을 직접 셀 수 없다. 대신 두 수를 나란히 놓는다: 위 선과 아래 선의 벌어짐이 엣지에서 끝난 요청(429·413·공개 /metrics 의 404)과 앱이 아닌 업스트림(/jenkins·/grafana)의 몫이다. 정확한 429 집계가 필요해지면 접근 로그를 세는 수집기를 따로 붙여야 한다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 9
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "reqps",
+          "min": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(nginx_http_requests_total[$__rate_interval])",
+          "legendFormat": "엣지 수신",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum(rate(matchuri_http_requests_total[$__rate_interval]))",
+          "legendFormat": "앱 처리",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "type": "row",
+      "title": "추천 — 인터리빙",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "panels": []
+    },
+    {
+      "id": 10,
+      "type": "timeseries",
+      "title": "정책별 좋아요율 (1시간 이동)",
+      "description": "이 대시보드의 머리기사다. 두 정책이 한 화면을 나눠 쓰고(interleave) 사용자는 어느 카드가 누구 것인지 모르므로, 이 두 선의 차이가 곧 신 정책이 구 정책보다 나은지에 대한 가장 정직한 답이다. 창이 1시간인 이유는 스와이프가 초당 몇 건이라 5분 창은 표본이 너무 적어 차이가 잡음에 묻히기 때문. 분모는 like+dislike 다(skip 은 판정이 아니다). 정책 라벨이 none 인 것(노출 기록이 없는 평가 — 찜 목록에서 바로 누른 경우)은 여기서 뺐다. 기록 규칙에는 남아 있으므로 Explore 에서는 볼 수 있다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "lineInterpolation": "smooth",
+            "lineWidth": 3,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit",
+          "min": 0,
+          "max": 1,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "min",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri:like_rate_by_policy:1h{policy=~\"legacy|taste\"}",
+          "legendFormat": "{{policy}}",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "type": "stat",
+      "title": "지금 좋아요율",
+      "description": "위 그래프의 마지막 값. legacy 와 taste 를 나란히 놓아 '지금 누가 이기고 있나' 를 숫자 하나로 본다. 40% 미만이면 카드가 헛돌고 있다는 뜻이라 빨강.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 12,
+        "y": 18
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0.4
+              },
+              {
+                "color": "green",
+                "value": 0.5
+              }
+            ]
+          },
+          "unit": "percentunit",
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "titleSize": 13,
+          "valueSize": 38
+        },
+        "textMode": "value_and_name"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri:like_rate_by_policy:1h{policy=~\"legacy|taste\"}",
+          "legendFormat": "{{policy}}",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "type": "stat",
+      "title": "세션 · 사용자",
+      "description": "세션은 지금 메모리에서 학습 중인 것이고 사용자는 등록부에 있는 전부다. 앱을 재시작하면 세션은 state 로그를 되먹여 복원되므로 둘의 차이는 '한 번도 스와이프하지 않은 사람' 에 가깝다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 18,
+        "y": 18
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short",
+          "decimals": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "none",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "titleSize": 13,
+          "valueSize": 38
+        },
+        "textMode": "value_and_name"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri_sessions",
+          "legendFormat": "학습 중 세션",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri_users_total",
+          "legendFormat": "등록 사용자",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "type": "timeseries",
+      "title": "정책별 카드 서빙/s",
+      "description": "인터리빙이 실제로 반반씩 섞고 있는지 확인하는 곳이다. 한쪽이 0 으로 떨어지면 산출물이 없어 legacy 로 후퇴한 것이다(앱 로그의 event=policy.fallback).",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 27
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "reqps",
+          "min": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum by (policy) (rate(matchuri_cards_served_total[$__rate_interval]))",
+          "legendFormat": "{{policy}}",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "type": "timeseries",
+      "title": "prefer 별 선호/분",
+      "description": "스와이프의 절대량. 좋아요율이 흔들릴 때 '비율이 변한 것'과 '표본이 말라붙은 것'을 가르려면 이 그래프가 필요하다. 초당이 아니라 분당인 이유는 사람 손의 속도가 초당 1~2건이라 초 단위로는 전부 0.0x 로 보이기 때문.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 27
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short",
+          "min": 0,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum by (prefer) (rate(matchuri_preferences_total[$__rate_interval])) * 60",
+          "legendFormat": "{{prefer}}",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "type": "timeseries",
+      "title": "부족하게 돌아온 /cards 비율",
+      "description": "요청한 장수보다 적게 준 응답의 비율. 필터가 너무 좁거나(위치 반경 + 업종 + 태그) 후보 풀 2,216곳이 이미 다 노출된 경우다. 이 선이 오르면 사용자는 '카드가 없다' 를 보게 되므로 필터 UX 나 후보 확장을 봐야 한다는 신호다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 27
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0.1
+              },
+              {
+                "color": "red",
+                "value": 0.3
+              }
+            ]
+          },
+          "unit": "percentunit",
+          "min": 0,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum(rate(matchuri_cards_short_total[$__rate_interval]))\n/\nsum(rate(matchuri_cards_requests_total[$__rate_interval]))",
+          "legendFormat": "부족 비율",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "type": "row",
+      "title": "사용자 행동",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 35
+      },
+      "panels": []
+    },
+    {
+      "id": 20,
+      "type": "timeseries",
+      "title": "필터를 건 카드 요청 비율",
+      "description": "필터 기능이 실제로 쓰이는지. 낮으면 기능이 안 보이거나 필요 없는 것이고, 높은데 위의 '부족 비율' 도 높으면 사람들이 필터로 스스로 막다른 길에 들어가고 있는 것이다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 36
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit",
+          "min": 0,
+          "max": 1,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum(rate(matchuri_cards_requests_total{filtered=\"true\"}[$__rate_interval]))\n/\nsum(rate(matchuri_cards_requests_total[$__rate_interval]))",
+          "legendFormat": "필터 사용",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum(rate(matchuri_cards_requests_total{personalized=\"true\"}[$__rate_interval]))\n/\nsum(rate(matchuri_cards_requests_total[$__rate_interval]))",
+          "legendFormat": "개인화(학습된 사용자)",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "type": "timeseries",
+      "title": "시간당 필터 · 위치 설정",
+      "description": "설정을 바꾼 횟수. 위치가 필터보다 훨씬 잦은 것이 정상이다 — 앱이 켜질 때마다 좌표를 보내지만 필터는 사람이 일부러 건드려야 한다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 36
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short",
+          "min": 0,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(matchuri_filter_sets_total[$__rate_interval]) * 3600",
+          "legendFormat": "필터",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(matchuri_location_sets_total[$__rate_interval]) * 3600",
+          "legendFormat": "위치",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "type": "timeseries",
+      "title": "시간당 찜 담기 · 빼기",
+      "description": "실제로 바뀐 횟수만 센다(같은 카드를 다시 담는 멱등 호출은 세지 않는다). 빼기가 담기와 비슷해지면 찜 목록이 '나중에 볼' 이 아니라 임시 메모로 쓰이고 있는 것이다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 36
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short",
+          "min": 0,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum by (action) (rate(matchuri_bookmarks_total[$__rate_interval])) * 3600",
+          "legendFormat": "{{action}}",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "type": "timeseries",
+      "title": "시간당 취향 화면 · 신규 가입",
+      "description": "취향 화면(GET /users/{id}/taste)은 사용자가 자기 궤적을 보러 온 횟수다 — 추천을 신뢰하는지의 대리 지표로 본다. 가입은 POST /users 로, 엣지에서 IP 당 1r/s 로 조여 두었으므로 여기가 갑자기 치솟으면 사람이 아니다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 44
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short",
+          "min": 0,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(matchuri_taste_views_total[$__rate_interval]) * 3600",
+          "legendFormat": "취향 화면",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(matchuri_users_created_total[$__rate_interval]) * 3600",
+          "legendFormat": "신규 가입",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "type": "stat",
+      "title": "쌓인 상태 — 사용자 · 선호 · 찜",
+      "description": "state/ 의 추가 전용 로그를 되먹여 메모리에 올라온 양이다. DB 가 없는 지금 이 셋이 곧 서비스가 가진 전부이고, 재시작 복원 시간도 이 크기에 비례한다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 44
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "text"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short",
+          "decimals": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "titleSize": 13,
+          "valueSize": 38
+        },
+        "textMode": "value_and_name"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri_state_users_total",
+          "legendFormat": "사용자",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri_state_prefs_total",
+          "legendFormat": "선호 기록",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "C",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri_state_bookmarks_total",
+          "legendFormat": "찜",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "type": "row",
+      "title": "시스템",
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 52
+      },
+      "panels": []
+    },
+    {
+      "id": 30,
+      "type": "timeseries",
+      "title": "CPU 사용률",
+      "description": "idle 을 100 에서 뺀다 — mode 별로 다 더하는 것보다 코어 수가 바뀌어도 안 깨진다. iowait 를 따로 그리는 이유: 앱이 느린데 CPU 가 한가하면 디스크를 기다리는 것이다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 53
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "100 - (avg(rate(node_cpu_seconds_total{job=\"node\",mode=\"idle\"}[$__rate_interval])) * 100)",
+          "legendFormat": "사용률",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "avg(rate(node_cpu_seconds_total{job=\"node\",mode=\"iowait\"}[$__rate_interval])) * 100",
+          "legendFormat": "iowait",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "type": "timeseries",
+      "title": "메모리 사용률",
+      "description": "MemFree 가 아니라 MemAvailable 로 잰다 — 리눅스는 남는 메모리를 페이지 캐시로 다 쓰므로 MemFree 는 늘 작게 보인다(이 서버도 15.7GB 중 free 가 0.4GB 다). 앱이 기동할 때 유사도 행렬을 float32 로 펴며 +98MB 를 한 번에 잡으므로 톱니 모양이 정상이다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 53
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "(1 - node_memory_MemAvailable_bytes{job=\"node\"} / node_memory_MemTotal_bytes{job=\"node\"}) * 100",
+          "legendFormat": "사용률",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "type": "timeseries",
+      "title": "디스크 사용률 (루트)",
+      "description": "루트만 본다. tmpfs·overlay 는 컨테이너 레이어라 차면 이미지를 정리할 문제고, 여기서 지켜보는 것은 앱이 state/ 에 못 쓰게 되는 순간이다(그때 영속화가 꺼진다). 85% 노랑 · 90% 빨강 — DiskLow 알림(여유 15% 미만)과 같은 선이다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 53
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 85
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "(1 - node_filesystem_avail_bytes{job=\"node\",mountpoint=\"/\",fstype!~\"tmpfs|overlay|squashfs\"}\n     / node_filesystem_size_bytes{job=\"node\",mountpoint=\"/\",fstype!~\"tmpfs|overlay|squashfs\"}) * 100",
+          "legendFormat": "루트",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "type": "timeseries",
+      "title": "load1 (코어 수와 함께)",
+      "description": "load1 이 코어 수를 넘으면 실행 대기 줄이 생긴 것이다. 그 선을 같이 그려 두면 '2.3 이 큰 값인가' 를 매번 헤아리지 않아도 된다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 61
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short",
+          "min": 0,
+          "decimals": 2
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "코어 수"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    8,
+                    6
+                  ],
+                  "fill": "dash"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "node_load1{job=\"node\"}",
+          "legendFormat": "load1",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "count(count by (cpu) (node_cpu_seconds_total{job=\"node\"}))",
+          "legendFormat": "코어 수",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "type": "timeseries",
+      "title": "앱 프로세스 — RSS · CPU",
+      "description": "컨테이너가 아니라 uvicorn 프로세스가 자기 자신을 보고 센 값이다(/proc/self). RSS 는 유사도 행렬을 펴면 계단처럼 오르고 그 뒤로 평평해야 한다 — 계속 오르면 누수다. CPU 는 오른쪽 축의 % 다(코어 하나를 다 쓰면 100).",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 61
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes",
+          "min": 0
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "custom.axisSoftMax",
+                "value": 100
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri_process_resident_bytes",
+          "legendFormat": "RSS",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(matchuri_process_cpu_seconds_total[$__rate_interval]) * 100",
+          "legendFormat": "CPU",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "type": "timeseries",
+      "title": "열린 파일 서술자 · 스레드",
+      "description": "fd 가 우상향으로만 가면 어딘가에서 닫지 않고 있는 것이다(기본 상한 1024). 스레드는 FastAPI 가 동기 핸들러를 스레드풀로 돌리므로 요청이 몰릴 때 늘어난다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 61
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short",
+          "min": 0,
+          "decimals": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri_process_open_fds",
+          "legendFormat": "열린 fd",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri_process_threads",
+          "legendFormat": "스레드",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "type": "stat",
+      "title": "복원 시간",
+      "description": "마지막 기동에서 state 로그를 되먹이는 데 걸린 시간. healthcheck 의 start_period 180s 를 정한 근거이므로, 이 값이 그 절반에 가까워지면 start_period 를 늘리거나 복원을 손봐야 한다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 18,
+        "y": 61
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 120
+              }
+            ]
+          },
+          "unit": "s",
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "titleSize": 13,
+          "valueSize": 38
+        },
+        "textMode": "value_and_name"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri_restore_seconds",
+          "legendFormat": "복원",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "type": "stat",
+      "title": "서빙 산출물",
+      "description": "신 정책(taste)이 쓰는 산출물(72.5MB)이 붙어 있나. 0 이면 앱은 죽지 않고 legacy 로 후퇴하므로 화면은 멀쩡한데 인터리빙만 조용히 사라진다 — 그 조용한 고장을 여기서 잡는다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 21,
+        "y": 61
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "없음"
+                }
+              }
+            },
+            {
+              "type": "range",
+              "options": {
+                "from": 1,
+                "to": null,
+                "result": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "있음"
+                }
+              }
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "short",
+          "decimals": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "titleSize": 13,
+          "valueSize": 38
+        },
+        "textMode": "value"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "matchuri_artifacts_available",
+          "legendFormat": "산출물",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "type": "state-timeline",
+      "title": "수집 대상 상태 (up)",
+      "description": "잡별로 '긁혔나' 를 시간 축에 깔아 둔다. 화면이 빈 것과 대상이 죽은 것은 다른 일이고, 그 둘을 여기서만 구분할 수 있다. prometheus 자기 자신도 들어 있으므로 이 줄까지 끊기면 수집기가 멈춘 것이다. nginx 는 /nginx_status 를 열기 전까지 DOWN 이다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 69
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 80,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "UP"
+                }
+              }
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "alignValue": "center",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "mergeValues": true,
+        "rowHeight": 0.85,
+        "showValue": "never",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "up",
+          "legendFormat": "{{job}}",
+          "range": true,
+          "instant": false
+        }
+      ]
+    }
+  ]
+}

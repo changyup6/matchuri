@@ -1,0 +1,30 @@
+{
+  "scope": {
+    "area": "역삼동",
+    "all_stores": 2795,
+    "product_card_pool": 2216,
+    "evaluation_users": 50,
+    "user_sources": {"existing_graph": 23, "targeted_pilot": 27},
+    "split": "per-user chronological, fixed final 30%",
+    "outer_validation": "5-fold out-of-fold by user",
+    "like_proxy": "star >= 4",
+    "bootstrap_draws": 10000
+  },
+  "auc_by_swipes": {
+    "3":  {"quality": 0.663, "category_price": 0.591, "deployed_schedule": 0.663},
+    "5":  {"quality": 0.663, "category_price": 0.598, "deployed_schedule": 0.663},
+    "10": {"quality": 0.663, "category_price": 0.599, "deployed_schedule": 0.669},
+    "20": {"quality": 0.663, "category_price": 0.583, "deployed_schedule": 0.668}
+  },
+  "deployed_uplift": {
+    "10": {"auc_points": 0.005, "ci95": [-0.000, 0.013]},
+    "20": {"auc_points": 0.005, "ci95": [-0.004, 0.015]}
+  },
+  "negative_results": {
+    "preference_metric_holdout_pair_auc": 0.497,
+    "contextual_pca_auc_at_20": 0.647,
+    "food_image_auc": 0.458,
+    "space_image_auc": 0.508
+  },
+  "decision": "Keep quality fixed; remove category and price from scoring; ramp menu-axis correction from zero to a maximum of 0.10 at 20 swipes."
+}

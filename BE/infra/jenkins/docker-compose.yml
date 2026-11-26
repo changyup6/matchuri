@@ -1,0 +1,23 @@
+services:
+  jenkins:
+    build: .
+    container_name: jenkins
+    user: root
+    environment:
+      - JENKINS_OPTS=--prefix=/jenkins
+      - HOME=/var/jenkins_home
+    volumes:
+      - /var/jenkins_home:/var/jenkins_home
+      # OpenSSH 는 HOME 환경변수가 아니라 /etc/passwd 의 홈 디렉토리를 본다.
+      # root 로 실행하므로 SSH 는 무조건 /root/.ssh 를 찾는다. 그런데 /root 는
+      # 볼륨이 아니라 컨테이너를 새로 만들 때마다 사라진다. 키가 있는
+      # /var/jenkins_home/.ssh 를 그 자리에 붙여서 배포 키를 영구히 쓰게 한다.
+      - /var/jenkins_home/.ssh:/root/.ssh:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - web
+    restart: unless-stopped
+
+networks:
+  web:
+    external: true

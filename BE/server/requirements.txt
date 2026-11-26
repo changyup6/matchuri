@@ -1,0 +1,6 @@
+# 서버 실행에 필요한 최소 의존성
+fastapi
+uvicorn[standard]
+numpy            # recsys — 추천 점수 계산
+python-multipart # 설문 사진 업로드 (multipart/form-data. FastAPI 가 이것 없이는 못 받는다)
+Pillow           # 업로드 사진 재인코딩 — EXIF(촬영 좌표) 제거·회전 적용·크기 제한

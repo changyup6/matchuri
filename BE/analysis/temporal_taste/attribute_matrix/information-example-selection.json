@@ -1,0 +1,96 @@
+{
+  "created_at_utc": "2026-09-22T09:31:41.911815+00:00",
+  "fixture_sha256": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5",
+  "selection_timing": "Before recommendation results were available or read by this plotting agent; vector alignment diagnostic had already been seen.",
+  "outcome_selection": false,
+  "examples": [
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_00",
+      "seed": 200,
+      "pair_name": "일식 / 한식",
+      "evidence_scope": "core",
+      "history_n": 16,
+      "history_mode": "cross_food",
+      "neutral_case_id": "noodle_core-cuisine_00-200-neutral",
+      "case_ids": {
+        "none": "noodle_core-cuisine_00-200-none",
+        "neutral": "noodle_core-cuisine_00-200-neutral",
+        "prefer": "noodle_core-cuisine_00-200-prefer",
+        "avoid": "noodle_core-cuisine_00-200-avoid"
+      },
+      "reason": "주력 면에서 요리권 차이"
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_00",
+      "seed": 200,
+      "pair_name": "일식 / 한식",
+      "evidence_scope": "core",
+      "history_n": 16,
+      "history_mode": "cross_food",
+      "neutral_case_id": "rice_core-cuisine_00-200-neutral",
+      "case_ids": {
+        "none": "rice_core-cuisine_00-200-none",
+        "neutral": "rice_core-cuisine_00-200-neutral",
+        "prefer": "rice_core-cuisine_00-200-prefer",
+        "avoid": "rice_core-cuisine_00-200-avoid"
+      },
+      "reason": "주력 밥에서 요리권 차이"
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "temperature_13",
+      "seed": 200,
+      "pair_name": "뜨거운 음식 / 찬 음식",
+      "evidence_scope": "menu",
+      "history_n": 16,
+      "history_mode": "cross_food",
+      "neutral_case_id": "soup_menu-temperature_13-200-neutral",
+      "case_ids": {
+        "none": "soup_menu-temperature_13-200-none",
+        "neutral": "soup_menu-temperature_13-200-neutral",
+        "prefer": "soup_menu-temperature_13-200-prefer",
+        "avoid": "soup_menu-temperature_13-200-avoid"
+      },
+      "reason": "국의 온도 차이; 동일 core 조건은 불가하여 menu 범위를 사전에 지정"
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_07",
+      "seed": 200,
+      "pair_name": "단맛 명시 / 산미 명시",
+      "evidence_scope": "menu",
+      "history_n": 8,
+      "history_mode": "cross_food",
+      "neutral_case_id": "noodle_menu-taste_07-200-neutral",
+      "case_ids": {
+        "none": "noodle_menu-taste_07-200-none",
+        "neutral": "noodle_menu-taste_07-200-neutral",
+        "prefer": "noodle_menu-taste_07-200-prefer",
+        "avoid": "noodle_menu-taste_07-200-avoid"
+      },
+      "reason": "국적 이외의 미세한 맛 차이; 벡터 방향 진단상 어려운 대조를 사전에 포함"
+    }
+  ],
+  "named_slate_model": "regularized_context_floor",
+  "named_slate_arms": [
+    "neutral",
+    "prefer",
+    "avoid"
+  ],
+  "model_comparison": [
+    "operational",
+    "regularized",
+    "regularized_context_floor"
+  ],
+  "retention_rule": "All four examples retained irrespective of sign or card changes. No replacements from recommendation outcomes.",
+  "expected_outputs": [
+    "information-coverage.png",
+    "information-coverage.svg",
+    "information-effects.png",
+    "information-effects.svg",
+    "information-examples.png",
+    "information-examples.svg"
+  ]
+}

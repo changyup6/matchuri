@@ -1,0 +1,551 @@
+{
+  "passed": true,
+  "rows": 48,
+  "assertions_by_kind": {
+    "source SHA": 5,
+    "centered tag mean": 864,
+    "conditional top10 actual order": 864,
+    "paired tag effect": 288,
+    "tag numerators and denominators": 144,
+    "tag mean effect": 48,
+    "tag valid seeds": 48,
+    "tag positive seeds": 48
+  },
+  "maximum_numeric_error": 8.881784197001252e-16,
+  "sources": {
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/overlap-tags.json": "bada86558182a2da08ff5cb6a475996a01537175999ea0468cb7dcfca59deb04",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/overlap-tags.csv": "cdc00089619b592b11e4a59a2d132428b4396067b780a8e11ff845835c9cbcbb",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/audit-overlap-results.py": "a5b4c0ae6763f9a3360e5e6b8dfa03d4e565ba76755734f97c3bd1ddd778d76e"
+  },
+  "denominators": [
+    {
+      "current_cuisine": "japanese",
+      "tag": "rice",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "rice": 60
+      }
+    },
+    {
+      "current_cuisine": "japanese",
+      "tag": "rice",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "rice": 60
+      }
+    },
+    {
+      "current_cuisine": "japanese",
+      "tag": "rice",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "rice": 60
+      }
+    },
+    {
+      "current_cuisine": "japanese",
+      "tag": "noodle",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "noodle": 60
+      }
+    },
+    {
+      "current_cuisine": "japanese",
+      "tag": "noodle",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "noodle": 60
+      }
+    },
+    {
+      "current_cuisine": "japanese",
+      "tag": "noodle",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "noodle": 60
+      }
+    },
+    {
+      "current_cuisine": "japanese",
+      "tag": "meat",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "meat": 60
+      }
+    },
+    {
+      "current_cuisine": "japanese",
+      "tag": "meat",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "meat": 60
+      }
+    },
+    {
+      "current_cuisine": "japanese",
+      "tag": "meat",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "meat": 60
+      }
+    },
+    {
+      "current_cuisine": "japanese",
+      "tag": "seafood",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "seafood": 60
+      }
+    },
+    {
+      "current_cuisine": "japanese",
+      "tag": "seafood",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "seafood": 60
+      }
+    },
+    {
+      "current_cuisine": "japanese",
+      "tag": "seafood",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "seafood": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "rice",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "rice": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "rice",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "rice": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "rice",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "rice": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "noodle",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "noodle": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "noodle",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "noodle": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "noodle",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "noodle": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "meat",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "meat": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "meat",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "meat": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "meat",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "meat": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "seafood",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "seafood": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "seafood",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "seafood": 60
+      }
+    },
+    {
+      "current_cuisine": "korean",
+      "tag": "seafood",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "seafood": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "rice",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "rice": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "rice",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "rice": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "rice",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "rice": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "noodle",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "noodle": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "noodle",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "noodle": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "noodle",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "noodle": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "meat",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "meat": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "meat",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "meat": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "meat",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "meat": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "seafood",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "seafood": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "seafood",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "seafood": 60
+      }
+    },
+    {
+      "current_cuisine": "chinese",
+      "tag": "seafood",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "seafood": 60
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "rice",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "rice": 60
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "rice",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "rice": 60
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "rice",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 40,
+        "neutral": 40,
+        "rice": 40
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "noodle",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "noodle": 60
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "noodle",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "noodle": 60
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "noodle",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 40,
+        "neutral": 40,
+        "noodle": 40
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "meat",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "meat": 60
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "meat",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "meat": 60
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "meat",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 40,
+        "neutral": 40,
+        "meat": 40
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "seafood",
+      "model": "operational",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "seafood": 60
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "seafood",
+      "model": "regularized",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 60,
+        "neutral": 60,
+        "seafood": 60
+      }
+    },
+    {
+      "current_cuisine": "western",
+      "tag": "seafood",
+      "model": "regularized_context_floor",
+      "actual_card_denominator_per_arm": 24,
+      "conditional_top10_denominators": {
+        "none": 40,
+        "neutral": 40,
+        "seafood": 40
+      }
+    }
+  ],
+  "meaning": "Post hoc descriptive menu-presence overlap tags. These groups overlap and do not replace missing primary-form cells. Tag-relative mean is centered on all fixed heldout stores of that cuisine, not on tag complement only. Actual cards use denominator24 per arm; context-conditional top10 has its own saved length."
+}

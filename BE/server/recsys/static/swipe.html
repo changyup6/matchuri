@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>역삼 스와이프</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { height:100%; }
+  body { background:#111318; color:#e8e8ea; font-family:'Malgun Gothic',system-ui,sans-serif;
+         overflow:auto; }
+  #wrap { display:flex; gap:26px; justify-content:center; align-items:stretch;
+          min-height:100%; padding:12px 16px; }
+  #left { display:flex; flex-direction:column; align-items:center; width:min(92vw,400px); }
+  header { width:100%; padding:2px 2px 8px;
+           display:flex; justify-content:space-between; align-items:baseline; }
+  header h1 { font-size:17px; letter-spacing:1px; }
+  header .stat { font-size:12px; color:#8b8f98; }
+  #stage { position:relative; width:100%; height:min(66vh,560px); }
+  .card { position:absolute; inset:0; border-radius:18px; overflow:hidden;
+          background:#1c1f26; box-shadow:0 12px 40px rgba(0,0,0,.55);
+          touch-action:none; cursor:grab; user-select:none;
+          transition:transform .25s ease, opacity .25s ease; }
+  .card.drag { transition:none; }
+  .card.out-l { transform:translate(-130%,4%) rotate(-18deg)!important; opacity:0; }
+  .card.out-r { transform:translate(130%,4%) rotate(18deg)!important; opacity:0; }
+  .card img.bg { position:absolute; inset:0; width:100%; height:100%;
+                 object-fit:cover; pointer-events:none; background:#23262e; }
+  .shade { position:absolute; inset:0;
+           background:linear-gradient(180deg,rgba(0,0,0,.28) 0%,transparent 30%,
+                      transparent 42%,rgba(8,9,12,.94) 78%); pointer-events:none; }
+  .stamp { position:absolute; top:26px; font-size:30px; font-weight:800; letter-spacing:2px;
+           padding:4px 14px; border:4px solid; border-radius:10px; opacity:0;
+           transform:rotate(-14deg); pointer-events:none; }
+  .stamp.like { left:20px; color:#4ade80; border-color:#4ade80; }
+  .stamp.nope { right:20px; color:#f87171; border-color:#f87171; transform:rotate(14deg); }
+  .info { position:absolute; left:0; right:0; bottom:0; padding:16px 18px 14px; pointer-events:none; }
+  .info .top { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
+  .info h2 { font-size:22px; }
+  .badge { font-size:11px; padding:2px 8px; border-radius:99px; background:#2c303a; color:#aeb4c0; }
+  .score { color:#fbbf24; font-size:14px; margin-top:3px; }
+  .menus { margin-top:7px; font-size:12.5px; color:#c9cdd6; line-height:1.55; }
+  .menus b { color:#e8e8ea; font-weight:600; }
+  .tags { margin-top:6px; display:flex; gap:5px; flex-wrap:wrap; }
+  .tags span { font-size:10.5px; color:#9aa1ad; background:rgba(255,255,255,.07);
+               padding:2px 7px; border-radius:99px; }
+  .quote { margin-top:8px; font-size:12px; color:#a7adb8; line-height:1.5;
+           border-left:2px solid #3b4150; padding-left:8px;
+           display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .dots { position:absolute; top:10px; left:0; right:0; display:flex; gap:4px;
+          padding:0 14px; pointer-events:none; }
+  .dots i { flex:1; height:3px; border-radius:2px; background:rgba(255,255,255,.25); }
+  .dots i.on { background:#fff; }
+  #btns { display:flex; gap:26px; padding:14px 0 8px; }
+  #btns button { width:58px; height:58px; border-radius:50%; border:none; font-size:25px;
+                 cursor:pointer; color:#fff; transition:transform .12s; }
+  #btns button:active { transform:scale(.88); }
+  #nope { background:#2a2e37; } #like { background:#e0355f; }
+  #left footer { font-size:11.5px; color:#767c88; }
+  #left footer a { color:#5b8cff; cursor:pointer; text-decoration:none; }
+  #msg { position:absolute; inset:0; display:none; align-items:center; justify-content:center;
+         color:#8b8f98; font-size:14px; text-align:center; line-height:1.8; }
+
+  /* ───── 학습 패널 ───── */
+  #panel { width:340px; flex-shrink:0; background:#171a20; border:1px solid #232732;
+           border-radius:16px; padding:16px 16px 12px; align-self:flex-start;
+           display:flex; flex-direction:column; gap:14px; }
+  #panel h3 { font-size:12px; color:#8b8f98; font-weight:600; letter-spacing:.5px;
+              display:flex; justify-content:space-between; align-items:baseline; }
+  #panel h3 small { font-weight:400; color:#5c626e; font-size:10.5px; }
+  .gauge { height:14px; border-radius:99px; overflow:hidden; display:flex;
+           background:#232732; font-size:0; }
+  .gauge i { height:100%; transition:width .3s; }
+  .gauge .q { background:#f59e0b; } .gauge .p { background:#5b8cff; }
+  .gauge-lab { display:flex; justify-content:space-between; font-size:10.5px;
+               color:#8b8f98; margin-top:4px; }
+  .gauge-lab b.q { color:#f59e0b; } .gauge-lab b.p { color:#5b8cff; }
+  .rows { display:flex; flex-direction:column; gap:4px; }
+  .row { display:flex; align-items:center; gap:7px; font-size:11px; height:17px; }
+  .row .lab { width:58px; text-align:right; color:#aeb4c0; flex-shrink:0;
+              white-space:nowrap; overflow:hidden; }
+  .row .bar { flex:1; position:relative; height:100%; }
+  .row .axis { position:absolute; left:50%; top:0; bottom:0; width:1px; background:#333947; }
+  .row .b { position:absolute; top:3px; bottom:3px; border-radius:3px; transition:all .3s; }
+  .row .b.pos { left:50%; background:#4ade80; }
+  .row .b.neg { right:50%; background:#f87171; }
+  .row .val { width:52px; color:#767c88; font-size:10px; white-space:nowrap; flex-shrink:0; }
+  svg#curve { width:100%; height:96px; display:block; }
+  .legend { display:flex; gap:12px; font-size:10.5px; color:#8b8f98; margin-top:2px; }
+  .legend i { display:inline-block; width:10px; height:3px; border-radius:2px;
+              vertical-align:middle; margin-right:4px; }
+  #panel .empty { font-size:11.5px; color:#5c626e; text-align:center; padding:4px 0; }
+  @media (max-width:880px) {
+    #wrap { flex-direction:column; align-items:center; }
+    #panel { width:min(92vw,400px); }
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="left">
+    <header>
+      <h1>역삼 스와이프</h1>
+      <div class="stat" id="stat">·</div>
+    </header>
+    <div id="stage"><div id="msg"></div></div>
+    <div id="btns">
+      <button id="nope" title="별로 (←)">✕</button>
+      <button id="like" title="좋아 (→)">♥</button>
+    </div>
+    <footer><a id="reset">새 세션으로 초기화</a></footer>
+  </div>
+
+  <aside id="panel">
+    <div>
+      <h3>추천 구성 <small>스와이프가 쌓일수록 개인화로 이동</small></h3>
+      <div class="gauge"><i class="q" id="gq"></i><i class="p" id="gp"></i></div>
+      <div class="gauge-lab"><b class="q" id="gqt">품질 100%</b><b class="p" id="gpt">개인화 0%</b></div>
+    </div>
+    <div>
+      <h3>카테고리 취향 <small>가중치 · (선호/노출)</small></h3>
+      <div class="rows" id="catRows"><div class="empty">스와이프하면 학습이 시작됩니다</div></div>
+    </div>
+    <div>
+      <h3>가격대 취향 <small>메뉴 중앙가 기준</small></h3>
+      <div class="rows" id="priceRows"></div>
+    </div>
+    <div>
+      <h3>학습 곡선 <small>스와이프 진행</small></h3>
+      <svg id="curve" viewBox="0 0 300 96" preserveAspectRatio="none"></svg>
+      <div class="legend">
+        <span><i style="background:#f59e0b"></i>품질 가중</span>
+        <span><i style="background:#4ade80"></i>선호율(최근 10장)</span>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script>
+const stage = document.getElementById('stage');
+const won = n => n == null ? '' : n.toLocaleString('ko-KR') + '원';
+let sid = localStorage.getItem('swipe_sid') || '';
+let cur = null;
+let busy = false;
+
+async function api(path, opts) {
+  const r = await fetch(path, opts);
+  if (r.status === 410) { showMsg('카드를 전부 보셨습니다 🎉<br>새 세션으로 초기화해 주세요'); return null; }
+  if (!r.ok) { showMsg('서버 오류: ' + r.status); return null; }
+  return r.json();
+}
+function showMsg(html) {
+  const m = document.getElementById('msg');
+  m.innerHTML = html; m.style.display = 'flex';
+}
+
+/* ───── 학습 패널 렌더 ───── */
+function bars(el, items, scale) {
+  el.innerHTML = items.map(it => {
+    const pct = Math.min(48, Math.abs(it.w) / scale * 48);
+    const cls = it.w >= 0 ? 'pos' : 'neg';
+    const cnt = it.shown != null ? ` (${it.liked}/${it.shown})` : '';
+    return `<div class="row" title="가중치 ${it.w} ± ${it.sd}">
+      <div class="lab">${it.name}</div>
+      <div class="bar"><div class="axis"></div>
+        <div class="b ${cls}" style="width:${pct}%"></div></div>
+      <div class="val">${it.w > 0 ? '+' : ''}${it.w.toFixed(1)}${cnt}</div>
+    </div>`;
+  }).join('');
+}
+
+function curve(hist) {
+  const svg = document.getElementById('curve');
+  if (!hist || hist.length < 2) { svg.innerHTML = ''; return; }
+  const W = 300, H = 96, n = hist.length;
+  const x = i => i / (n - 1) * (W - 6) + 3;
+  const y = v => H - 6 - v * (H - 12);
+  // 최근 10장 이동 선호율
+  const roll = hist.map((_, i) => {
+    const win = hist.slice(Math.max(0, i - 9), i + 1);
+    return win.filter(h => h.like).length / win.length;
+  });
+  const path = arr => arr.map((v, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ',' + y(v).toFixed(1)).join('');
+  svg.innerHTML = `
+    <line x1="3" y1="${y(0.5)}" x2="${W-3}" y2="${y(0.5)}" stroke="#2a2f3a" stroke-width="1"/>
+    <path d="${path(hist.map(h => h.wq))}" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <path d="${path(roll)}" fill="none" stroke="#4ade80" stroke-width="2"/>`;
+}
+
+function renderPanel(L) {
+  const q = Math.round(L.quality_weight * 100);
+  document.getElementById('gq').style.width = q + '%';
+  document.getElementById('gp').style.width = (100 - q) + '%';
+  document.getElementById('gqt').textContent = `품질 ${q}%`;
+  document.getElementById('gpt').textContent = `개인화 ${100 - q}%`;
+  if (L.cats) {
+    const cats = [...L.cats].sort((a, b) => b.w - a.w);
+    const scale = Math.max(1, ...L.cats.map(c => Math.abs(c.w)),
+                              ...L.price.map(c => Math.abs(c.w)));
+    bars(document.getElementById('catRows'), cats, scale);
+    bars(document.getElementById('priceRows'), L.price, scale);
+    curve(L.hist);
+  }
+}
+
+/* ───── 카드 ───── */
+function render(data) {
+  sid = data.session_id; localStorage.setItem('swipe_sid', sid);
+  const p = data.progress;
+  document.getElementById('stat').textContent =
+    `${p.n}장 · 선호 ${p.n ? Math.round(100 * p.likes / p.n) : 0}% · 남은 ${p.remaining.toLocaleString()}`;
+  renderPanel(data.learn);
+
+  const c = data.card;
+  const el = document.createElement('div');
+  el.className = 'card';
+  const ph = c.photo_urls || [];
+  el.innerHTML = `
+    <img class="bg" src="${ph[0] || ''}" draggable="false">
+    <div class="shade"></div>
+    ${ph.length > 1 ? '<div class="dots">' + ph.map((_, i) =>
+        `<i class="${i ? '' : 'on'}"></i>`).join('') + '</div>' : ''}
+    <div class="stamp like">좋아</div><div class="stamp nope">별로</div>
+    <div class="info">
+      <div class="top"><h2>${c.name || ''}</h2>
+        <span class="badge">${c.cat3 || c.cat2 || ''}</span>
+        ${c.open_headline ? `<span class="badge">${c.open_headline}</span>` : ''}</div>
+      ${c.ai_title ? `<div style="font-size:12.5px;color:#c9cdd6;margin-top:2px">${c.ai_title}</div>` : ''}
+      <div class="score">★ ${c.kakao_avg_score ?? '-'} <small style="color:#8b8f98">(${c.kakao_review_count})</small>
+        ${c.review_tags && Object.keys(c.review_tags).length ? `<small style="color:#8b8f98"> · ` +
+          Object.entries(c.review_tags).slice(0, 3).map(([k, v]) => `${k} ${v}`).join(' · ') + `</small>` : ''}
+        ${c.subway ? `<small style="color:#8b8f98"> · 🚇 ${c.subway}</small>` : ''}</div>
+      ${c.menus && c.menus.length ? `<div class="menus">` + c.menus.map(m =>
+          `<b>${m.menu_name}</b> ${won(m.price)}`).join(' · ') + `</div>` : ''}
+      ${c.tags && c.tags.length ? `<div class="tags">` + c.tags.map(t =>
+          `<span>${t}</span>`).join('') + `</div>` : ''}
+      ${c.review ? `<div class="quote">"${c.review.content}"</div>` : ''}
+    </div>`;
+  stage.appendChild(el);
+  attachDrag(el);
+  let pi = 0;
+  el.addEventListener('click', e => {
+    if (Math.abs(dragDX) > 6 || ph.length < 2) return;
+    pi = (pi + 1) % ph.length;
+    el.querySelector('img.bg').src = ph[pi];
+    el.querySelectorAll('.dots i').forEach((d, i) => d.classList.toggle('on', i === pi));
+  });
+  cur = { card: c, el };
+}
+
+let dragDX = 0;
+function attachDrag(el) {
+  let sx = 0, sy = 0, dx = 0, dy = 0, dragging = false;
+  el.addEventListener('pointerdown', e => {
+    dragging = true; sx = e.clientX; sy = e.clientY; dx = dy = 0;
+    el.classList.add('drag'); el.setPointerCapture(e.pointerId);
+  });
+  el.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    dx = e.clientX - sx; dy = e.clientY - sy; dragDX = dx;
+    el.style.transform = `translate(${dx}px,${dy * .4}px) rotate(${dx / 14}deg)`;
+    el.querySelector('.stamp.like').style.opacity = Math.max(0, dx / 90);
+    el.querySelector('.stamp.nope').style.opacity = Math.max(0, -dx / 90);
+  });
+  el.addEventListener('pointerup', () => {
+    if (!dragging) return;
+    dragging = false; el.classList.remove('drag');
+    if (dx > 110) commit(true);
+    else if (dx < -110) commit(false);
+    else { el.style.transform = ''; el.querySelectorAll('.stamp').forEach(s => s.style.opacity = 0); }
+    setTimeout(() => dragDX = 0, 50);
+  });
+}
+
+async function commit(like) {
+  if (busy || !cur) return;
+  busy = true;
+  const el = cur.el, storeId = cur.card.store_id;
+  el.classList.add(like ? 'out-r' : 'out-l');
+  setTimeout(() => el.remove(), 260);
+  const data = await api('/swipe/feedback', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ session_id: sid, store_id: storeId, like }),
+  });
+  busy = false;
+  if (data) render(data);
+}
+
+document.getElementById('like').onclick = () => commit(true);
+document.getElementById('nope').onclick = () => commit(false);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') commit(true);
+  if (e.key === 'ArrowLeft') commit(false);
+});
+document.getElementById('reset').onclick = () => {
+  localStorage.removeItem('swipe_sid'); location.reload();
+};
+
+(async () => {
+  const data = await api('/swipe/next' + (sid ? `?session_id=${sid}` : ''));
+  if (data) render(data);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+{
+  "status": "frozen",
+  "artifact": "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/context-audit.json",
+  "sha256": "b5d4c95d3f8780fc38684036e02d8517f63eaca3a587471375235142f553dbab",
+  "source_sha256": {
+    "/home/ubuntu/matchuri-data/kakao/serving/pool_ids.json": "68b274b5452fd88b7ea0133005b70bb013c4b6f081643791462fc51ea6ce363b",
+    "/home/ubuntu/matchuri-data/kakao/stores.jsonl": "a8b5c19e63f4ea85c52f7ec5b992513f6758e029827f36c367e7bf7a1b5212e2",
+    "/home/ubuntu/matchuri-data/kakao/menus.jsonl": "c24f2ef9e5771dd7a9580dee7d47704b48aed05529cbf67c51a8e968c754ce82",
+    "/home/ubuntu/matchuri-data/kakao/serving/brand_key.json": "2fa4f2b37e8696e7c9aaca26583ccdecb4a74f4e5c15d3b08c40c9b132c0b580",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/cuisine-audit.json": "eebe38212682c9614a3afec756c8437dbd112948be870b50ea34d48395b8a475",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/form-audit.json": "616c216670f92517908da04ed5aca468de00a3875be2d9b9e2fa87c71caa440d",
+    "/home/ubuntu/matchuri-changes/history-depth-20260922/food-catalog.json": "1941599fb60c2028fceba1cb8dbd2bfa8618da0709ff2ec43576711cbb05e348",
+    "/home/ubuntu/matchuri-changes/history-depth-20260922/salad-catalog.json": "0972e85bfbe513570780fc39315cd2b2a269d01ce607fb46013f6cbed00a2e25",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/build-context-audit.py": "69d75a6e53f95fa85e9c8e834fa393058510021ebd5db7e4d78fdaff44a3d9ed"
+  },
+  "validation_script_sha256": "2c5e3d27f62696bd351171e3915c7520f8556a2049ca7ee780c46cea3096c731",
+  "catalogue_size": 1498,
+  "model_scores_consulted": false,
+  "checks": "Source hashes, per-context1498 exact partition, nested denominators, side exclusion, direct/reused evidence, row/platform references, targeted false-positive checks passed.",
+  "counts": {
+    "noodle": {
+      "principal": 62,
+      "co_main": 46,
+      "confirmed": 108,
+      "confirmed_brands": 100,
+      "manually_supported": 91,
+      "explicit_standalone": 585,
+      "any_signal_excluding_side_only": 620,
+      "side_only": 3
+    },
+    "rice": {
+      "principal": 55,
+      "co_main": 14,
+      "confirmed": 69,
+      "confirmed_brands": 66,
+      "manually_supported": 36,
+      "explicit_standalone": 566,
+      "any_signal_excluding_side_only": 593,
+      "side_only": 2
+    },
+    "soup": {
+      "principal": 89,
+      "co_main": 7,
+      "confirmed": 96,
+      "confirmed_brands": 91,
+      "manually_supported": 20,
+      "explicit_standalone": 605,
+      "any_signal_excluding_side_only": 636,
+      "side_only": 2
+    },
+    "cutlet": {
+      "principal": 31,
+      "co_main": 7,
+      "confirmed": 38,
+      "confirmed_brands": 37,
+      "manually_supported": 38,
+      "explicit_standalone": 79,
+      "any_signal_excluding_side_only": 86,
+      "side_only": 36
+    },
+    "grill": {
+      "principal": 13,
+      "co_main": 5,
+      "confirmed": 18,
+      "confirmed_brands": 18,
+      "manually_supported": 5,
+      "explicit_standalone": 335,
+      "any_signal_excluding_side_only": 395,
+      "side_only": 0
+    },
+    "salad": {
+      "principal": 13,
+      "co_main": 16,
+      "confirmed": 29,
+      "confirmed_brands": 29,
+      "manually_supported": 29,
+      "explicit_standalone": 118,
+      "any_signal_excluding_side_only": 144,
+      "side_only": 42
+    }
+  },
+  "category_context_confirmed_counts": {
+    "noodle": {
+      "양식": 26,
+      "한식": 41,
+      "일식": 24,
+      "중식": 14,
+      "샤브샤브": 2,
+      "아시아음식": 1
+    },
+    "rice": {
+      "양식": 7,
+      "한식": 30,
+      "일식": 25,
+      "중식": 7
+    },
+    "soup": {
+      "한식": 76,
+      "중식": 15,
+      "일식": 5
+    },
+    "cutlet": {
+      "일식": 32,
+      "한식": 4,
+      "술집": 2
+    },
+    "grill": {
+      "중식": 13,
+      "한식": 3,
+      "양식": 2
+    },
+    "salad": {
+      "샐러드": 20,
+      "패스트푸드": 1,
+      "카페": 3,
+      "양식": 5
+    }
+  },
+  "cuisine_context_counts": {
+    "japanese": {
+      "noodle": {
+        "confirmed": 12,
+        "explicit_standalone": 36
+      },
+      "rice": {
+        "confirmed": 19,
+        "explicit_standalone": 56
+      },
+      "soup": {
+        "confirmed": 5,
+        "explicit_standalone": 21
+      },
+      "cutlet": {
+        "confirmed": 6,
+        "explicit_standalone": 8
+      },
+      "grill": {
+        "confirmed": 0,
+        "explicit_standalone": 14
+      },
+      "salad": {
+        "confirmed": 0,
+        "explicit_standalone": 0
+      }
+    },
+    "korean": {
+      "noodle": {
+        "confirmed": 38,
+        "explicit_standalone": 199
+      },
+      "rice": {
+        "confirmed": 23,
+        "explicit_standalone": 224
+      },
+      "soup": {
+        "confirmed": 71,
+        "explicit_standalone": 348
+      },
+      "cutlet": {
+        "confirmed": 0,
+        "explicit_standalone": 6
+      },
+      "grill": {
+        "confirmed": 3,
+        "explicit_standalone": 132
+      },
+      "salad": {
+        "confirmed": 0,
+        "explicit_standalone": 2
+      }
+    },
+    "chinese": {
+      "noodle": {
+        "confirmed": 13,
+        "explicit_standalone": 19
+      },
+      "rice": {
+        "confirmed": 7,
+        "explicit_standalone": 21
+      },
+      "soup": {
+        "confirmed": 15,
+        "explicit_standalone": 23
+      },
+      "cutlet": {
+        "confirmed": 0,
+        "explicit_standalone": 0
+      },
+      "grill": {
+        "confirmed": 5,
+        "explicit_standalone": 5
+      },
+      "salad": {
+        "confirmed": 0,
+        "explicit_standalone": 0
+      }
+    },
+    "western": {
+      "noodle": {
+        "confirmed": 23,
+        "explicit_standalone": 28
+      },
+      "rice": {
+        "confirmed": 7,
+        "explicit_standalone": 19
+      },
+      "soup": {
+        "confirmed": 0,
+        "explicit_standalone": 2
+      },
+      "cutlet": {
+        "confirmed": 6,
+        "explicit_standalone": 6
+      },
+      "grill": {
+        "confirmed": 2,
+        "explicit_standalone": 23
+      },
+      "salad": {
+        "confirmed": 0,
+        "explicit_standalone": 19
+      }
+    },
+    "mixed": {
+      "noodle": {
+        "confirmed": 14,
+        "explicit_standalone": 210
+      },
+      "rice": {
+        "confirmed": 11,
+        "explicit_standalone": 168
+      },
+      "soup": {
+        "confirmed": 3,
+        "explicit_standalone": 142
+      },
+      "cutlet": {
+        "confirmed": 7,
+        "explicit_standalone": 26
+      },
+      "grill": {
+        "confirmed": 8,
+        "explicit_standalone": 107
+      },
+      "salad": {
+        "confirmed": 10,
+        "explicit_standalone": 54
+      }
+    },
+    "unknown": {
+      "noodle": {
+        "confirmed": 8,
+        "explicit_standalone": 93
+      },
+      "rice": {
+        "confirmed": 2,
+        "explicit_standalone": 78
+      },
+      "soup": {
+        "confirmed": 2,
+        "explicit_standalone": 69
+      },
+      "cutlet": {
+        "confirmed": 19,
+        "explicit_standalone": 33
+      },
+      "grill": {
+        "confirmed": 0,
+        "explicit_standalone": 54
+      },
+      "salad": {
+        "confirmed": 19,
+        "explicit_standalone": 43
+      }
+    }
+  }
+}

@@ -1,0 +1,1538 @@
+{
+  "sources": {
+    "absolute": {
+      "path": "/home/ubuntu/matchuri-changes/history-depth-20260922/context-depth-results.json",
+      "sha256": "c198af1f00e2dfb52a7513a8334e8ebd7b5537c70b50e3ee9a1cdd8c6b19cd96"
+    },
+    "centered": {
+      "path": "/home/ubuntu/matchuri-changes/history-depth-20260922/context-centered-depth-results.json",
+      "sha256": "e15921b5cad44a0b7a0bae050990ddb842d5592d260122b85cfcbec2b42b86f6"
+    },
+    "floor": {
+      "path": "/home/ubuntu/matchuri-changes/history-depth-20260922/context-floor-depth-results.json",
+      "sha256": "c8eb8dbad24223b73af3b44f3f65cc4f2d92ee855c8b48ed24571bf349b3b234"
+    }
+  },
+  "data_kind": "Actual catalogue/vector computations under hypothetical feedback; posthoc paired four-policy comparison, not human accuracy or fresh heldout validation.",
+  "independent_checks": "222endpoint card uniqueness/counts, original labels/confirmed-food denominators, unseen store+brand counting, feedback status, fallback reasons/full-slate equality, context strict-conflict assertions, pair counts/ranges verified directly against fixed fixtures. Full/context posterior vector identity also verified. No model executed. Repeated on centered results; all222 full-baseline predictions/cards/counts/vectors/diversity and scenario metadata exactly equal across runs. Policy-specific heldout current_qualified diagnostics are excluded from baseline equality. Floor result independently checked by the same fixtures/masks, plus exact full-baseline payload equality excluding policy-specific current_qualified and supplementary current_only_mean/sd/conservative_score diagnostics. Recomputed every current baseline floor and checked every context-selected card against it.",
+  "catalogue_denominators": {
+    "cutlet": 38,
+    "ramen_korean_hot_noodle": 51,
+    "salad_poke": 29
+  },
+  "policy_meanings": {
+    "full": "Full posterior ordering and existing selector.",
+    "absolute": "Current-only posterior mean > 0 and existing current qualification; order eligible candidates with full posterior.",
+    "centered": "Current-only mean minus learned common intercept > 0 and unchanged qualification quantile; order eligible candidates with full posterior. No model vector or full prediction changed.",
+    "floor": "Use the worst current-only conservative score among its actual strict diverse slate as the current candidate floor, then rank eligible candidates by the unchanged full posterior. No category or target labels enter selection."
+  },
+  "main": {
+    "states": 150,
+    "cards": 600,
+    "pair_count": 900,
+    "policies": {
+      "full": {
+        "food_cards": 335,
+        "new_food_cards": 104,
+        "new_cards": 332,
+        "food_states": 150,
+        "new_food_states": 78,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 197,
+        "known_pairs": 900,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.8878450727462769,
+        "food_status_counts": {
+          "principal": 234,
+          "no_evidence": 106,
+          "adjacent": 4,
+          "mixed": 18,
+          "co_main": 101,
+          "secondary": 2,
+          "unknown": 7,
+          "outside_scope": 43,
+          "absent": 85
+        }
+      },
+      "absolute": {
+        "food_cards": 393,
+        "new_food_cards": 122,
+        "new_cards": 296,
+        "food_states": 150,
+        "new_food_states": 90,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 318,
+        "known_pairs": 900,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.9356604480743408,
+        "food_status_counts": {
+          "principal": 238,
+          "no_evidence": 106,
+          "adjacent": 4,
+          "mixed": 14,
+          "co_main": 155,
+          "secondary": 1,
+          "unknown": 11,
+          "outside_scope": 43,
+          "absent": 28
+        },
+        "context_used": 42,
+        "fallback": 108,
+        "fallback_reasons": {
+          "fewer_than_requested_current_qualified": 81,
+          "context_selector_did_not_return_strictly_diverse_slate": 27
+        },
+        "changed_slates": 36
+      },
+      "centered": {
+        "food_cards": 334,
+        "new_food_cards": 105,
+        "new_cards": 355,
+        "food_states": 150,
+        "new_food_states": 78,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 198,
+        "known_pairs": 900,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.888005381822586,
+        "food_status_counts": {
+          "principal": 232,
+          "no_evidence": 97,
+          "adjacent": 4,
+          "mixed": 22,
+          "co_main": 102,
+          "secondary": 2,
+          "unknown": 8,
+          "outside_scope": 50,
+          "absent": 83
+        },
+        "context_used": 150,
+        "fallback": 0,
+        "fallback_reasons": {},
+        "changed_slates": 31
+      },
+      "floor": {
+        "food_cards": 432,
+        "new_food_cards": 150,
+        "new_cards": 313,
+        "food_states": 150,
+        "new_food_states": 102,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 338,
+        "known_pairs": 900,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.9614771036307017,
+        "food_status_counts": {
+          "principal": 264,
+          "no_evidence": 43,
+          "adjacent": 8,
+          "mixed": 22,
+          "secondary": 3,
+          "co_main": 168,
+          "unknown": 15,
+          "outside_scope": 49,
+          "absent": 28
+        },
+        "context_used": 150,
+        "fallback": 0,
+        "fallback_reasons": {},
+        "changed_slates": 89
+      }
+    }
+  },
+  "families": {
+    "cutlet": {
+      "label": "돈까스\n54상태 · 216장",
+      "states": 54,
+      "cards": 216,
+      "pair_count": 324,
+      "policies": {
+        "full": {
+          "food_cards": 140,
+          "new_food_cards": 50,
+          "new_cards": 109,
+          "food_states": 54,
+          "new_food_states": 32,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 134,
+          "known_pairs": 324,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.9196162234853815,
+          "food_status_counts": {
+            "principal": 134,
+            "no_evidence": 68,
+            "adjacent": 4,
+            "mixed": 2,
+            "co_main": 6,
+            "secondary": 1,
+            "unknown": 1
+          }
+        },
+        "absolute": {
+          "food_cards": 140,
+          "new_food_cards": 50,
+          "new_cards": 109,
+          "food_states": 54,
+          "new_food_states": 32,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 134,
+          "known_pairs": 324,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.9196162234853815,
+          "food_status_counts": {
+            "principal": 134,
+            "no_evidence": 68,
+            "adjacent": 4,
+            "mixed": 2,
+            "co_main": 6,
+            "secondary": 1,
+            "unknown": 1
+          },
+          "context_used": 0,
+          "fallback": 54,
+          "fallback_reasons": {
+            "fewer_than_requested_current_qualified": 27,
+            "context_selector_did_not_return_strictly_diverse_slate": 27
+          },
+          "changed_slates": 0
+        },
+        "centered": {
+          "food_cards": 140,
+          "new_food_cards": 51,
+          "new_cards": 118,
+          "food_states": 54,
+          "new_food_states": 33,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 135,
+          "known_pairs": 324,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.9194406624193545,
+          "food_status_counts": {
+            "principal": 133,
+            "no_evidence": 67,
+            "adjacent": 4,
+            "mixed": 3,
+            "co_main": 7,
+            "secondary": 1,
+            "unknown": 1
+          },
+          "context_used": 54,
+          "fallback": 0,
+          "fallback_reasons": {},
+          "changed_slates": 12
+        },
+        "floor": {
+          "food_cards": 166,
+          "new_food_cards": 71,
+          "new_cards": 118,
+          "food_states": 54,
+          "new_food_states": 45,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 161,
+          "known_pairs": 324,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.9687137438191308,
+          "food_status_counts": {
+            "principal": 153,
+            "no_evidence": 34,
+            "adjacent": 8,
+            "mixed": 4,
+            "secondary": 3,
+            "co_main": 13,
+            "unknown": 1
+          },
+          "context_used": 54,
+          "fallback": 0,
+          "fallback_reasons": {},
+          "changed_slates": 19
+        }
+      }
+    },
+    "ramen_korean_noodle": {
+      "label": "라멘·한식 국수\n54상태 · 216장",
+      "states": 54,
+      "cards": 216,
+      "pair_count": 324,
+      "policies": {
+        "full": {
+          "food_cards": 130,
+          "new_food_cards": 38,
+          "new_cards": 108,
+          "food_states": 54,
+          "new_food_states": 31,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 42,
+          "known_pairs": 324,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.9157239607086888,
+          "food_status_counts": {
+            "co_main": 55,
+            "principal": 75,
+            "outside_scope": 43,
+            "no_evidence": 38,
+            "mixed": 5
+          }
+        },
+        "absolute": {
+          "food_cards": 130,
+          "new_food_cards": 38,
+          "new_cards": 108,
+          "food_states": 54,
+          "new_food_states": 31,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 42,
+          "known_pairs": 324,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.9157239607086888,
+          "food_status_counts": {
+            "co_main": 55,
+            "principal": 75,
+            "outside_scope": 43,
+            "no_evidence": 38,
+            "mixed": 5
+          },
+          "context_used": 0,
+          "fallback": 54,
+          "fallback_reasons": {
+            "fewer_than_requested_current_qualified": 54
+          },
+          "changed_slates": 0
+        },
+        "centered": {
+          "food_cards": 129,
+          "new_food_cards": 38,
+          "new_cards": 120,
+          "food_states": 54,
+          "new_food_states": 30,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 42,
+          "known_pairs": 324,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.9161447518401675,
+          "food_status_counts": {
+            "co_main": 55,
+            "principal": 74,
+            "outside_scope": 50,
+            "no_evidence": 30,
+            "mixed": 7
+          },
+          "context_used": 54,
+          "fallback": 0,
+          "fallback_reasons": {},
+          "changed_slates": 15
+        },
+        "floor": {
+          "food_cards": 147,
+          "new_food_cards": 49,
+          "new_cards": 116,
+          "food_states": 54,
+          "new_food_states": 34,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 43,
+          "known_pairs": 324,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.9381383017257408,
+          "food_status_counts": {
+            "co_main": 65,
+            "principal": 82,
+            "outside_scope": 49,
+            "mixed": 11,
+            "no_evidence": 9
+          },
+          "context_used": 54,
+          "fallback": 0,
+          "fallback_reasons": {},
+          "changed_slates": 34
+        }
+      }
+    },
+    "salad_shift": {
+      "label": "샐러드·포케\n42상태 · 168장",
+      "states": 42,
+      "cards": 168,
+      "pair_count": 252,
+      "policies": {
+        "full": {
+          "food_cards": 65,
+          "new_food_cards": 16,
+          "new_cards": 115,
+          "food_states": 42,
+          "new_food_states": 15,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 21,
+          "known_pairs": 252,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.8111521658443269,
+          "food_status_counts": {
+            "principal": 25,
+            "co_main": 40,
+            "absent": 85,
+            "mixed": 11,
+            "secondary": 1,
+            "unknown": 6
+          }
+        },
+        "absolute": {
+          "food_cards": 123,
+          "new_food_cards": 34,
+          "new_cards": 79,
+          "food_states": 42,
+          "new_food_states": 27,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 142,
+          "known_pairs": 252,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.9819213634445554,
+          "food_status_counts": {
+            "principal": 29,
+            "co_main": 94,
+            "unknown": 10,
+            "absent": 28,
+            "mixed": 7
+          },
+          "context_used": 42,
+          "fallback": 0,
+          "fallback_reasons": {},
+          "changed_slates": 36
+        },
+        "centered": {
+          "food_cards": 65,
+          "new_food_cards": 16,
+          "new_cards": 117,
+          "food_states": 42,
+          "new_food_states": 15,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 21,
+          "known_pairs": 252,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.811409402461279,
+          "food_status_counts": {
+            "principal": 25,
+            "co_main": 40,
+            "absent": 83,
+            "mixed": 12,
+            "secondary": 1,
+            "unknown": 7
+          },
+          "context_used": 42,
+          "fallback": 0,
+          "fallback_reasons": {},
+          "changed_slates": 4
+        },
+        "floor": {
+          "food_cards": 119,
+          "new_food_cards": 30,
+          "new_cards": 79,
+          "food_states": 42,
+          "new_food_states": 23,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 134,
+          "known_pairs": 252,
+          "unknown_pairs": 0,
+          "mean_max_redundancy_percentile": 0.9821798829805284,
+          "food_status_counts": {
+            "principal": 29,
+            "co_main": 90,
+            "unknown": 14,
+            "absent": 28,
+            "mixed": 7
+          },
+          "context_used": 42,
+          "fallback": 0,
+          "fallback_reasons": {},
+          "changed_slates": 36
+        }
+      }
+    }
+  },
+  "max_history_cutlet": {
+    "states": 12,
+    "cards": 48,
+    "pair_count": 72,
+    "policies": {
+      "full": {
+        "food_cards": 13,
+        "new_food_cards": 0,
+        "new_cards": 22,
+        "food_states": 12,
+        "new_food_states": 0,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 0,
+        "known_pairs": 72,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.792126456896464,
+        "food_status_counts": {
+          "principal": 13,
+          "no_evidence": 35
+        }
+      },
+      "absolute": {
+        "food_cards": 13,
+        "new_food_cards": 0,
+        "new_cards": 22,
+        "food_states": 12,
+        "new_food_states": 0,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 0,
+        "known_pairs": 72,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.792126456896464,
+        "food_status_counts": {
+          "principal": 13,
+          "no_evidence": 35
+        },
+        "context_used": 0,
+        "fallback": 12,
+        "fallback_reasons": {
+          "fewer_than_requested_current_qualified": 6,
+          "context_selector_did_not_return_strictly_diverse_slate": 6
+        },
+        "changed_slates": 0
+      },
+      "centered": {
+        "food_cards": 12,
+        "new_food_cards": 0,
+        "new_cards": 31,
+        "food_states": 12,
+        "new_food_states": 0,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 0,
+        "known_pairs": 72,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.7760359197854996,
+        "food_status_counts": {
+          "principal": 12,
+          "no_evidence": 35,
+          "mixed": 1
+        },
+        "context_used": 12,
+        "fallback": 0,
+        "fallback_reasons": {},
+        "changed_slates": 9
+      },
+      "floor": {
+        "food_cards": 28,
+        "new_food_cards": 12,
+        "new_cards": 31,
+        "food_states": 12,
+        "new_food_states": 8,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 12,
+        "known_pairs": 72,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.9459118594725927,
+        "food_status_counts": {
+          "principal": 23,
+          "no_evidence": 13,
+          "secondary": 2,
+          "mixed": 2,
+          "adjacent": 3,
+          "co_main": 5
+        },
+        "context_used": 12,
+        "fallback": 0,
+        "fallback_reasons": {},
+        "changed_slates": 12
+      }
+    }
+  },
+  "all_endpoints": {
+    "states": 222,
+    "cards": 888,
+    "pair_count": 1332,
+    "policies": {
+      "full": {
+        "food_cards": 448,
+        "new_food_cards": 120,
+        "new_cards": 495,
+        "food_states": 219,
+        "new_food_states": 94,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 235,
+        "known_pairs": 1332,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.8780718056468276,
+        "food_status_counts": {
+          "principal": 329,
+          "no_evidence": 258,
+          "adjacent": 6,
+          "mixed": 26,
+          "co_main": 119,
+          "secondary": 8,
+          "unknown": 9,
+          "outside_scope": 48,
+          "absent": 85
+        }
+      },
+      "absolute": {
+        "food_cards": 506,
+        "new_food_cards": 141,
+        "new_cards": 475,
+        "food_states": 219,
+        "new_food_states": 109,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 356,
+        "known_pairs": 1332,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.9050649613947481,
+        "food_status_counts": {
+          "principal": 334,
+          "no_evidence": 253,
+          "adjacent": 5,
+          "mixed": 22,
+          "co_main": 172,
+          "secondary": 7,
+          "unknown": 13,
+          "outside_scope": 54,
+          "absent": 28
+        },
+        "context_used": 99,
+        "fallback": 123,
+        "fallback_reasons": {
+          "fewer_than_requested_current_qualified": 90,
+          "context_selector_did_not_return_strictly_diverse_slate": 33
+        },
+        "changed_slates": 60
+      },
+      "centered": {
+        "food_cards": 448,
+        "new_food_cards": 123,
+        "new_cards": 531,
+        "food_states": 219,
+        "new_food_states": 96,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 236,
+        "known_pairs": 1332,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.8740687219946234,
+        "food_status_counts": {
+          "principal": 329,
+          "no_evidence": 242,
+          "adjacent": 6,
+          "mixed": 30,
+          "co_main": 119,
+          "secondary": 8,
+          "unknown": 10,
+          "outside_scope": 61,
+          "absent": 83
+        },
+        "context_used": 222,
+        "fallback": 0,
+        "fallback_reasons": {},
+        "changed_slates": 57
+      },
+      "floor": {
+        "food_cards": 559,
+        "new_food_cards": 182,
+        "new_cards": 503,
+        "food_states": 219,
+        "new_food_states": 130,
+        "strict_conflicts": 0,
+        "same_brand_pairs": 0,
+        "high_redundancy_pairs": 393,
+        "known_pairs": 1332,
+        "unknown_pairs": 0,
+        "mean_max_redundancy_percentile": 0.9285184939702352,
+        "food_status_counts": {
+          "principal": 370,
+          "no_evidence": 177,
+          "adjacent": 11,
+          "mixed": 30,
+          "secondary": 8,
+          "co_main": 189,
+          "unknown": 17,
+          "outside_scope": 58,
+          "absent": 28
+        },
+        "context_used": 222,
+        "fallback": 0,
+        "fallback_reasons": {},
+        "changed_slates": 134
+      }
+    }
+  },
+  "examples": [
+    {
+      "id": "cutlet-100-n40-japanese",
+      "seed": 100,
+      "prior": "japanese",
+      "history_n": 40,
+      "contexts": {
+        "absolute": {
+          "qualified_count": 3,
+          "cutoff": -1.1105212014598516,
+          "used_context": false,
+          "fallback_reason": "fewer_than_requested_current_qualified"
+        },
+        "centered": {
+          "origin": "intercept",
+          "learned_current_intercept": -0.5978577156445987,
+          "qualified_count": 375,
+          "cutoff": -0.5126634858152528,
+          "used_context": true,
+          "fallback_reason": null
+        },
+        "floor": {
+          "origin": "current_only_conservative_slate_floor",
+          "current_baseline_ids": [
+            "850873071",
+            "316697838",
+            "1652831780",
+            "1377492683"
+          ],
+          "current_baseline_cards": [
+            {
+              "store_id": "850873071",
+              "name": "정돈 강남점",
+              "mean": 0.24552750182515237,
+              "sd": 0.8437959952909792,
+              "conservative_score": -0.1763704958203372
+            },
+            {
+              "store_id": "316697838",
+              "name": "흥부이가정육식당 본점",
+              "mean": -0.43312343701759887,
+              "sd": 1.1061290511673256,
+              "conservative_score": -0.9861879626012617
+            },
+            {
+              "store_id": "1652831780",
+              "name": "한마음분식",
+              "mean": -0.4489760909178254,
+              "sd": 1.0769410771962895,
+              "conservative_score": -0.9874466295159702
+            },
+            {
+              "store_id": "1377492683",
+              "name": "멘야 유메미루",
+              "mean": -0.45053837977327454,
+              "sd": 1.0767236533968767,
+              "conservative_score": -0.988900206471713
+            }
+          ],
+          "qualified_count": 57,
+          "cutoff": -0.988900206471713,
+          "used_context": true,
+          "fallback_reason": null
+        }
+      },
+      "cards": {
+        "full": [
+          {
+            "store_id": "850873071",
+            "name": "정돈 강남점",
+            "rank": 1,
+            "mean": 0.4469429089109619,
+            "sd": 0.8357029865502831,
+            "rank_score": 0.02909141563582035,
+            "food_status": "principal",
+            "style": "japanese",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 3
+            }
+          },
+          {
+            "store_id": "16057055",
+            "name": "제이돈까스",
+            "rank": 14,
+            "mean": 0.1086739236683838,
+            "sd": 1.0082817829275708,
+            "rank_score": -0.3954669677954016,
+            "food_status": "principal",
+            "style": "western",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 18
+            }
+          },
+          {
+            "store_id": "1815309929",
+            "name": "멘노아지",
+            "rank": 24,
+            "mean": 0.06485194268615163,
+            "sd": 1.044812703355861,
+            "rank_score": -0.45755440899177885,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          },
+          {
+            "store_id": "1889239698",
+            "name": "오모시로이규카츠",
+            "rank": 32,
+            "mean": 0.027314542989899104,
+            "sd": 1.0328789554435889,
+            "rank_score": -0.48912493473189533,
+            "food_status": "adjacent",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          }
+        ],
+        "absolute": [
+          {
+            "store_id": "850873071",
+            "name": "정돈 강남점",
+            "rank": 1,
+            "mean": 0.4469429089109619,
+            "sd": 0.8357029865502831,
+            "rank_score": 0.02909141563582035,
+            "food_status": "principal",
+            "style": "japanese",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 3
+            }
+          },
+          {
+            "store_id": "16057055",
+            "name": "제이돈까스",
+            "rank": 14,
+            "mean": 0.1086739236683838,
+            "sd": 1.0082817829275708,
+            "rank_score": -0.3954669677954016,
+            "food_status": "principal",
+            "style": "western",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 18
+            }
+          },
+          {
+            "store_id": "1815309929",
+            "name": "멘노아지",
+            "rank": 24,
+            "mean": 0.06485194268615163,
+            "sd": 1.044812703355861,
+            "rank_score": -0.45755440899177885,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          },
+          {
+            "store_id": "1889239698",
+            "name": "오모시로이규카츠",
+            "rank": 32,
+            "mean": 0.027314542989899104,
+            "sd": 1.0328789554435889,
+            "rank_score": -0.48912493473189533,
+            "food_status": "adjacent",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          }
+        ],
+        "centered": [
+          {
+            "store_id": "850873071",
+            "name": "정돈 강남점",
+            "rank": 1,
+            "mean": 0.4469429089109619,
+            "sd": 0.8357029865502831,
+            "rank_score": 0.02909141563582035,
+            "food_status": "principal",
+            "style": "japanese",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 3
+            }
+          },
+          {
+            "store_id": "16057055",
+            "name": "제이돈까스",
+            "rank": 14,
+            "mean": 0.1086739236683838,
+            "sd": 1.0082817829275708,
+            "rank_score": -0.3954669677954016,
+            "food_status": "principal",
+            "style": "western",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 18
+            }
+          },
+          {
+            "store_id": "1815309929",
+            "name": "멘노아지",
+            "rank": 24,
+            "mean": 0.06485194268615163,
+            "sd": 1.044812703355861,
+            "rank_score": -0.45755440899177885,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          },
+          {
+            "store_id": "1889239698",
+            "name": "오모시로이규카츠",
+            "rank": 32,
+            "mean": 0.027314542989899104,
+            "sd": 1.0328789554435889,
+            "rank_score": -0.48912493473189533,
+            "food_status": "adjacent",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          }
+        ],
+        "floor": [
+          {
+            "store_id": "850873071",
+            "name": "정돈 강남점",
+            "rank": 1,
+            "mean": 0.4469429089109619,
+            "sd": 0.8357029865502831,
+            "rank_score": 0.02909141563582035,
+            "current_only_mean": 0.24552750182515237,
+            "current_only_sd": 0.8437959952909792,
+            "current_only_conservative_score": -0.1763704958203372,
+            "food_status": "principal",
+            "style": "japanese",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 3
+            }
+          },
+          {
+            "store_id": "16057055",
+            "name": "제이돈까스",
+            "rank": 14,
+            "mean": 0.1086739236683838,
+            "sd": 1.0082817829275708,
+            "rank_score": -0.3954669677954016,
+            "current_only_mean": -0.08482741802241456,
+            "current_only_sd": 1.0217819793718081,
+            "current_only_conservative_score": -0.5957184077083186,
+            "food_status": "principal",
+            "style": "western",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 18
+            }
+          },
+          {
+            "store_id": "1815309929",
+            "name": "멘노아지",
+            "rank": 24,
+            "mean": 0.06485194268615163,
+            "sd": 1.044812703355861,
+            "rank_score": -0.45755440899177885,
+            "current_only_mean": -0.38167038600797676,
+            "current_only_sd": 1.0752421156158305,
+            "current_only_conservative_score": -0.919291443815892,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          },
+          {
+            "store_id": "1889239698",
+            "name": "오모시로이규카츠",
+            "rank": 32,
+            "mean": 0.027314542989899104,
+            "sd": 1.0328789554435889,
+            "rank_score": -0.48912493473189533,
+            "current_only_mean": -0.3420451036423362,
+            "current_only_sd": 1.0539422733491266,
+            "current_only_conservative_score": -0.8690162403168995,
+            "food_status": "adjacent",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          }
+        ]
+      },
+      "measured_counts": {
+        "full": {
+          "food_cards": 2,
+          "new_food_cards": 0,
+          "new_cards": 2,
+          "food_states": 1,
+          "new_food_states": 0,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 1,
+          "known_pairs": 6,
+          "unknown_pairs": 0,
+          "max_redundancy_percentile": 0.9624737501144409,
+          "food_status_counts": {
+            "principal": 2,
+            "no_evidence": 1,
+            "adjacent": 1
+          }
+        },
+        "absolute": {
+          "food_cards": 2,
+          "new_food_cards": 0,
+          "new_cards": 2,
+          "food_states": 1,
+          "new_food_states": 0,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 1,
+          "known_pairs": 6,
+          "unknown_pairs": 0,
+          "max_redundancy_percentile": 0.9624737501144409,
+          "food_status_counts": {
+            "principal": 2,
+            "no_evidence": 1,
+            "adjacent": 1
+          }
+        },
+        "centered": {
+          "food_cards": 2,
+          "new_food_cards": 0,
+          "new_cards": 2,
+          "food_states": 1,
+          "new_food_states": 0,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 1,
+          "known_pairs": 6,
+          "unknown_pairs": 0,
+          "max_redundancy_percentile": 0.9624737501144409,
+          "food_status_counts": {
+            "principal": 2,
+            "no_evidence": 1,
+            "adjacent": 1
+          }
+        },
+        "floor": {
+          "food_cards": 2,
+          "new_food_cards": 0,
+          "new_cards": 2,
+          "food_states": 1,
+          "new_food_states": 0,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 1,
+          "known_pairs": 6,
+          "unknown_pairs": 0,
+          "max_redundancy_percentile": 0.9624737501144409,
+          "food_status_counts": {
+            "principal": 2,
+            "no_evidence": 1,
+            "adjacent": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "cutlet-103-n80-western",
+      "seed": 103,
+      "prior": "western",
+      "history_n": 80,
+      "contexts": {
+        "absolute": {
+          "qualified_count": 4,
+          "cutoff": -1.118855271873095,
+          "used_context": false,
+          "fallback_reason": "context_selector_did_not_return_strictly_diverse_slate"
+        },
+        "centered": {
+          "origin": "intercept",
+          "learned_current_intercept": -0.6054623544772335,
+          "qualified_count": 374,
+          "cutoff": -0.5133929173958615,
+          "used_context": true,
+          "fallback_reason": null
+        },
+        "floor": {
+          "origin": "current_only_conservative_slate_floor",
+          "current_baseline_ids": [
+            "633394651",
+            "584812754",
+            "1652831780",
+            "584934177"
+          ],
+          "current_baseline_cards": [
+            {
+              "store_id": "633394651",
+              "name": "계몽돈까스 2호점",
+              "mean": 0.2367264092249447,
+              "sd": 0.8431977682284353,
+              "conservative_score": -0.18487247488927294
+            },
+            {
+              "store_id": "584812754",
+              "name": "유메",
+              "mean": -0.41640602654866554,
+              "sd": 1.0574779456441212,
+              "conservative_score": -0.9451449993707262
+            },
+            {
+              "store_id": "1652831780",
+              "name": "한마음분식",
+              "mean": -0.4690191883660292,
+              "sd": 1.070921797057603,
+              "conservative_score": -1.0044800868948307
+            },
+            {
+              "store_id": "584934177",
+              "name": "스아게 강남점",
+              "mean": -0.4699034514516646,
+              "sd": 1.0824323584438102,
+              "conservative_score": -1.0111196306735697
+            }
+          ],
+          "qualified_count": 60,
+          "cutoff": -1.0111196306735697,
+          "used_context": true,
+          "fallback_reason": null
+        }
+      },
+      "cards": {
+        "full": [
+          {
+            "store_id": "633394651",
+            "name": "계몽돈까스 2호점",
+            "rank": 1,
+            "mean": 0.4226649328839779,
+            "sd": 0.8345111486061245,
+            "rank_score": 0.005409358580915624,
+            "food_status": "principal",
+            "style": "western",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 3
+            }
+          },
+          {
+            "store_id": "1946159236",
+            "name": "브루클린더버거조인트 역삼점",
+            "rank": 21,
+            "mean": 0.15049251077813816,
+            "sd": 1.0412895955755748,
+            "rank_score": -0.3701522870096492,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "history",
+              "age": 85
+            }
+          },
+          {
+            "store_id": "808443746",
+            "name": "랩스피자 강남본점",
+            "rank": 31,
+            "mean": 0.1268252382424188,
+            "sd": 1.0341538077285173,
+            "rank_score": -0.3902516656218399,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "history",
+              "age": 25
+            }
+          },
+          {
+            "store_id": "405367531",
+            "name": "프라텔리",
+            "rank": 45,
+            "mean": 0.12052298650916629,
+            "sd": 1.0561310703472686,
+            "rank_score": -0.40754254866446804,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          }
+        ],
+        "absolute": [
+          {
+            "store_id": "633394651",
+            "name": "계몽돈까스 2호점",
+            "rank": 1,
+            "mean": 0.4226649328839779,
+            "sd": 0.8345111486061245,
+            "rank_score": 0.005409358580915624,
+            "food_status": "principal",
+            "style": "western",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 3
+            }
+          },
+          {
+            "store_id": "1946159236",
+            "name": "브루클린더버거조인트 역삼점",
+            "rank": 21,
+            "mean": 0.15049251077813816,
+            "sd": 1.0412895955755748,
+            "rank_score": -0.3701522870096492,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "history",
+              "age": 85
+            }
+          },
+          {
+            "store_id": "808443746",
+            "name": "랩스피자 강남본점",
+            "rank": 31,
+            "mean": 0.1268252382424188,
+            "sd": 1.0341538077285173,
+            "rank_score": -0.3902516656218399,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "history",
+              "age": 25
+            }
+          },
+          {
+            "store_id": "405367531",
+            "name": "프라텔리",
+            "rank": 45,
+            "mean": 0.12052298650916629,
+            "sd": 1.0561310703472686,
+            "rank_score": -0.40754254866446804,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          }
+        ],
+        "centered": [
+          {
+            "store_id": "633394651",
+            "name": "계몽돈까스 2호점",
+            "rank": 1,
+            "mean": 0.4226649328839779,
+            "sd": 0.8345111486061245,
+            "rank_score": 0.005409358580915624,
+            "food_status": "principal",
+            "style": "western",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 3
+            }
+          },
+          {
+            "store_id": "1677141511",
+            "name": "기네스72 역삼",
+            "rank": 8,
+            "mean": 0.2556952003462404,
+            "sd": 1.0552584451838913,
+            "rank_score": -0.2719340222457053,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          },
+          {
+            "store_id": "495293596",
+            "name": "BHC치킨 역삼점",
+            "rank": 96,
+            "mean": 0.07124498209380425,
+            "sd": 1.0517143064305003,
+            "rank_score": -0.4546121711214459,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          },
+          {
+            "store_id": "228788240",
+            "name": "금성커피 역삼점",
+            "rank": 152,
+            "mean": 0.0505267467817925,
+            "sd": 1.0592486946352435,
+            "rank_score": -0.4790976005358293,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          }
+        ],
+        "floor": [
+          {
+            "store_id": "633394651",
+            "name": "계몽돈까스 2호점",
+            "rank": 1,
+            "mean": 0.4226649328839779,
+            "sd": 0.8345111486061245,
+            "rank_score": 0.005409358580915624,
+            "current_only_mean": 0.2367264092249447,
+            "current_only_sd": 0.8431977682284353,
+            "current_only_conservative_score": -0.18487247488927294,
+            "food_status": "principal",
+            "style": "western",
+            "already_observed": true,
+            "latest_feedback": {
+              "like": true,
+              "source": "current",
+              "age": 3
+            }
+          },
+          {
+            "store_id": "16767854",
+            "name": "호또치킨 강남본점",
+            "rank": 58,
+            "mean": 0.09682184624084542,
+            "sd": 1.0481909789823844,
+            "rank_score": -0.4272736432503468,
+            "current_only_mean": -0.45248130188190905,
+            "current_only_sd": 1.0877658438625781,
+            "current_only_conservative_score": -0.9963642238131981,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          },
+          {
+            "store_id": "23293789",
+            "name": "꼬끼꼬끼 치킨호프",
+            "rank": 150,
+            "mean": 0.04637117752631367,
+            "sd": 1.049741260805403,
+            "rank_score": -0.47849945287638784,
+            "current_only_mean": -0.43890689853455855,
+            "current_only_sd": 1.0883017067253054,
+            "current_only_conservative_score": -0.9830577518972112,
+            "food_status": "no_evidence",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          },
+          {
+            "store_id": "1691893902",
+            "name": "카츠쇼신 강남점",
+            "rank": 168,
+            "mean": 0.02232642617264949,
+            "sd": 1.0144695586965353,
+            "rank_score": -0.4849083531756182,
+            "current_only_mean": -0.20246961111764716,
+            "current_only_sd": 1.0309181780664354,
+            "current_only_conservative_score": -0.7179287001508649,
+            "food_status": "principal",
+            "style": "not_established",
+            "already_observed": false,
+            "latest_feedback": null
+          }
+        ]
+      },
+      "measured_counts": {
+        "full": {
+          "food_cards": 1,
+          "new_food_cards": 0,
+          "new_cards": 1,
+          "food_states": 1,
+          "new_food_states": 0,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 0,
+          "known_pairs": 6,
+          "unknown_pairs": 0,
+          "max_redundancy_percentile": 0.6886439323425293,
+          "food_status_counts": {
+            "principal": 1,
+            "no_evidence": 3
+          }
+        },
+        "absolute": {
+          "food_cards": 1,
+          "new_food_cards": 0,
+          "new_cards": 1,
+          "food_states": 1,
+          "new_food_states": 0,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 0,
+          "known_pairs": 6,
+          "unknown_pairs": 0,
+          "max_redundancy_percentile": 0.6886439323425293,
+          "food_status_counts": {
+            "principal": 1,
+            "no_evidence": 3
+          }
+        },
+        "centered": {
+          "food_cards": 1,
+          "new_food_cards": 0,
+          "new_cards": 3,
+          "food_states": 1,
+          "new_food_states": 0,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 0,
+          "known_pairs": 6,
+          "unknown_pairs": 0,
+          "max_redundancy_percentile": 0.5443525314331055,
+          "food_status_counts": {
+            "principal": 1,
+            "no_evidence": 3
+          }
+        },
+        "floor": {
+          "food_cards": 2,
+          "new_food_cards": 1,
+          "new_cards": 3,
+          "food_states": 1,
+          "new_food_states": 1,
+          "strict_conflicts": 0,
+          "same_brand_pairs": 0,
+          "high_redundancy_pairs": 0,
+          "known_pairs": 6,
+          "unknown_pairs": 0,
+          "max_redundancy_percentile": 0.940792441368103,
+          "food_status_counts": {
+            "principal": 2,
+            "no_evidence": 2
+          }
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Current-food labels count only principal/co-main collected-menu evidence. Other food cards are not automatically wrong.",
+    "N/seed states reuse restaurants and fixed current traces. Rates are proportions of returned cards, not confidence or preference probabilities.",
+    "Same model/posterior; policy changes eligibility only.",
+    "High redundancy means at least one modality similarity percentile>=0.95, not95%pairwise identity. Strict selector conflict is a different rule.",
+    "All222endpoints include negative-only avoid probes; food ratios there must not be read as overall improvement. Main150endpoints are used in the figure.",
+    "Absolute and centered policies were developed after inspecting the original N study; all before/after comparisons are posthoc.",
+    "The centered policy changes only eligibility score origin; it does not establish human preference calibration.",
+    "The current-slate-floor policy is also a posthoc candidate, evaluated on already inspected scenarios. A change in card-food inclusion is not demonstrated human preference accuracy.",
+    "At N80 cutlet, the floor keeps Japanese-style confirmed cards at2/24 under Japanese history; its first restaurant is identical across opposing history labels in all6 matched seeds. Current-food inclusion gains do not demonstrate robust transfer of fine historical style."
+  ],
+  "floor_invariant_checks": {
+    "current_slate_floor_equalities": 222,
+    "final_cards_at_or_above_current_floor": 888,
+    "minimum_score_margin": 0.0,
+    "current_conservative_formula": "current mean - 0.5 * current latent sd",
+    "applies_to": "used_context only; this is a score floor, not a food or satisfaction guarantee"
+  },
+  "high_history_cutlet_style_audit": {
+    "scope": "N80 cutlet; 6 matched seeds per prior; each current trace is identical across opposing historical labels. All returned cards, not an accuracy metric.",
+    "profiles": {
+      "japanese": {
+        "states": 6,
+        "cards": 24,
+        "policies": {
+          "full": {
+            "confirmed_cutlet_cards": 7,
+            "cutlet_styles": {
+              "japanese": 2,
+              "western": 5
+            },
+            "prior_style_confirmed_cards": 2,
+            "first_card_styles": {
+              "japanese": 2,
+              "western": 4
+            },
+            "first_cards_confirmed_cutlet": 6
+          },
+          "floor": {
+            "confirmed_cutlet_cards": 11,
+            "cutlet_styles": {
+              "japanese": 2,
+              "not_established": 5,
+              "western": 4
+            },
+            "prior_style_confirmed_cards": 2,
+            "first_card_styles": {
+              "japanese": 2,
+              "western": 4
+            },
+            "first_cards_confirmed_cutlet": 6
+          }
+        }
+      },
+      "western": {
+        "states": 6,
+        "cards": 24,
+        "policies": {
+          "full": {
+            "confirmed_cutlet_cards": 6,
+            "cutlet_styles": {
+              "japanese": 2,
+              "western": 4
+            },
+            "prior_style_confirmed_cards": 4,
+            "first_card_styles": {
+              "japanese": 2,
+              "western": 4
+            },
+            "first_cards_confirmed_cutlet": 6
+          },
+          "floor": {
+            "confirmed_cutlet_cards": 17,
+            "cutlet_styles": {
+              "japanese": 4,
+              "western": 6,
+              "not_established": 5,
+              "both_or_mixed": 2
+            },
+            "prior_style_confirmed_cards": 6,
+            "first_card_styles": {
+              "japanese": 2,
+              "western": 4
+            },
+            "first_cards_confirmed_cutlet": 6
+          }
+        }
+      }
+    },
+    "same_first_store_across_opposite_priors": 6,
+    "matched_seed_pairs": 6,
+    "meaning": "The floor increases confirmed current-food inclusion but does not establish faithful historical style retention. With Japanese prior, only2/24 returned cards have strict Japanese-cutlet evidence,4 have Western evidence and5 confirmed cutlet cards have no established style. Both historical priors produce the same first store in each of6 matched seeds. The underlying full posterior/order is unchanged by the eligibility policy."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "tested_at": "2026-09-23T08:38:37.838074+00:00",
+  "integrated_base": "e55f5dd203139b05a8fad1218b478291709e57c9",
+  "tests": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 python -m pytest analysis/temporal_taste -q",
+    "passed": 203,
+    "seconds": 0.83
+  },
+  "independent_measurement_assertions": 1570092,
+  "vector_reconstruction_max_error": 7.771561172376096e-16,
+  "current_code_compatibility": "16 states bitwise equal operating mean/std,64 exact slate orders; see current-code-audit.json",
+  "production_code_modified": false,
+  "outputs": "Offline replay of frozen catalogue, hypothetical responses, no online A/B",
+  "scope": "No original menu/review/catalogue vector/user DB in exported artifacts."
+}

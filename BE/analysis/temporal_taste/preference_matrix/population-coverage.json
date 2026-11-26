@@ -1,0 +1,62 @@
+{
+  "japanese": {
+    "cuisine_stores": 80,
+    "primary": {
+      "rice": 9,
+      "noodle": 9,
+      "meat": 6,
+      "seafood": 8
+    },
+    "any_menu_tag": {
+      "rice": 55,
+      "noodle": 38,
+      "meat": 34,
+      "seafood": 59
+    }
+  },
+  "korean": {
+    "cuisine_stores": 488,
+    "primary": {
+      "rice": 5,
+      "noodle": 14,
+      "meat": 71,
+      "seafood": 6
+    },
+    "any_menu_tag": {
+      "rice": 229,
+      "noodle": 205,
+      "meat": 449,
+      "seafood": 251
+    }
+  },
+  "chinese": {
+    "cuisine_stores": 42,
+    "primary": {
+      "rice": 0,
+      "noodle": 3,
+      "meat": 3,
+      "seafood": 0
+    },
+    "any_menu_tag": {
+      "rice": 21,
+      "noodle": 20,
+      "meat": 31,
+      "seafood": 24
+    }
+  },
+  "western": {
+    "cuisine_stores": 65,
+    "primary": {
+      "rice": 0,
+      "noodle": 1,
+      "meat": 10,
+      "seafood": 0
+    },
+    "any_menu_tag": {
+      "rice": 19,
+      "noodle": 30,
+      "meat": 50,
+      "seafood": 38
+    }
+  }
+}

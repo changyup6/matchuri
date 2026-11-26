@@ -1,0 +1,7165 @@
+{
+  "verdict": "pass",
+  "fixture_sha256": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5",
+  "source_files_verified": 14,
+  "runs": 3168,
+  "matched_groups": 792,
+  "cells": 132,
+  "planned_contrasts": 26,
+  "axes": 10,
+  "all_requested_contracts_passed": true,
+  "dummy_brands_used": false,
+  "matched_pairs_with_unknown_cat2": 0,
+  "heldout_minimum_brands": 2,
+  "before_after_store_and_evaluation_support_unchanged": true,
+  "shards_exact_disjoint_union": true,
+  "model_or_scores_imported": false,
+  "group_details": [
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_00",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_00",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_00",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_00",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_00",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_00",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_00",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 32,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_00",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 32,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_00",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 32,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_00",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 32,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_00",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 32,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_00",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 32,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_00",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 191,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_00",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 191,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_00",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 190,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_00",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 191,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_00",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 190,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_00",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 191,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_00",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_00",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_00",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_00",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_00",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_00",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_00",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 218,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_00",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 217,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_00",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 218,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_00",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 218,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_00",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 217,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_00",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 218,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_00",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 66,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_00",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 66,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_00",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 66,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_00",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 66,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_00",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 66,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_00",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 66,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_00",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 333,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_00",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 334,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_00",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 334,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_00",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 334,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_00",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 334,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_00",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 334,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_00",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 128,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_00",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 128,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_00",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 128,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_00",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 128,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_00",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 128,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_00",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 128,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "cuisine_01",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "cuisine_01",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "cuisine_01",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "cuisine_01",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "cuisine_01",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "cuisine_01",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_01",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_01",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_01",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_01",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_01",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "cuisine_01",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_01",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_01",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_01",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_01",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_01",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_01",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_01",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_01",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_01",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_01",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_01",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_01",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 34,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_01",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_01",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_01",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_01",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_01",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_01",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_01",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_01",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_01",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_01",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_01",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_01",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 54,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_01",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_01",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_01",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_01",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_01",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_01",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_02",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 32,
+      "heldout_b_brands": 11,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_02",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 32,
+      "heldout_b_brands": 11,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_02",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 32,
+      "heldout_b_brands": 11,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_02",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 32,
+      "heldout_b_brands": 11,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_02",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 32,
+      "heldout_b_brands": 11,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_02",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 32,
+      "heldout_b_brands": 11,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_02",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 191,
+      "heldout_b_brands": 17,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_02",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 190,
+      "heldout_b_brands": 17,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_02",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 191,
+      "heldout_b_brands": 17,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_02",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 190,
+      "heldout_b_brands": 17,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_02",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 191,
+      "heldout_b_brands": 17,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_02",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 191,
+      "heldout_b_brands": 17,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_02",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_02",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_02",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_02",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_02",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_02",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_02",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 218,
+      "heldout_b_brands": 18,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_02",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 218,
+      "heldout_b_brands": 18,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_02",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 217,
+      "heldout_b_brands": 19,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_02",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 218,
+      "heldout_b_brands": 18,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_02",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 218,
+      "heldout_b_brands": 18,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_02",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 218,
+      "heldout_b_brands": 19,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_02",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 66,
+      "heldout_b_brands": 12,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_02",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 66,
+      "heldout_b_brands": 12,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_02",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 66,
+      "heldout_b_brands": 12,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_02",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 66,
+      "heldout_b_brands": 12,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_02",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 66,
+      "heldout_b_brands": 12,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cuisine_02",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 66,
+      "heldout_b_brands": 12,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_02",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 334,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_02",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 334,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_02",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 333,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_02",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 334,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_02",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 334,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cuisine_02",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 334,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_02",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 128,
+      "heldout_b_brands": 3,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_02",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 128,
+      "heldout_b_brands": 3,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_02",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 128,
+      "heldout_b_brands": 3,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_02",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 127,
+      "heldout_b_brands": 3,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_02",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 127,
+      "heldout_b_brands": 3,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_02",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 127,
+      "heldout_b_brands": 3,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_03",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_03",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_03",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_03",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_03",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cuisine_03",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 20,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_03",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_03",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_03",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_03",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_03",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cuisine_03",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_03",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_03",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_03",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_03",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_03",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 5,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cuisine_03",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 4,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_03",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_03",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_03",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_03",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_03",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cuisine_03",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 16,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_03",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_03",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_03",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_03",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_03",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cuisine_03",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 21,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_05",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 176,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_05",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 176,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_05",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 176,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_05",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 176,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_05",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 176,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_05",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 175,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_05",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 148,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_05",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 146,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_05",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 148,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_05",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 147,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_05",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 148,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_05",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 148,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_07",
+      "seed": 200,
+      "history_n": 8,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_07",
+      "seed": 201,
+      "history_n": 8,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_07",
+      "seed": 202,
+      "history_n": 8,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_07",
+      "seed": 203,
+      "history_n": 8,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_07",
+      "seed": 204,
+      "history_n": 8,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_07",
+      "seed": 205,
+      "history_n": 8,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_07",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_07",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_07",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_07",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_07",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_07",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_07",
+      "seed": 200,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_07",
+      "seed": 201,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_07",
+      "seed": 202,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_07",
+      "seed": 203,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_07",
+      "seed": 204,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_07",
+      "seed": 205,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_07",
+      "seed": 200,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_07",
+      "seed": 201,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_07",
+      "seed": 202,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_07",
+      "seed": 203,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_07",
+      "seed": 204,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_07",
+      "seed": 205,
+      "history_n": 8,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_08",
+      "seed": 200,
+      "history_n": 8,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 28,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_08",
+      "seed": 201,
+      "history_n": 8,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 28,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_08",
+      "seed": 202,
+      "history_n": 8,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 28,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_08",
+      "seed": 203,
+      "history_n": 8,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 28,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_08",
+      "seed": 204,
+      "history_n": 8,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 28,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "taste_08",
+      "seed": 205,
+      "history_n": 8,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 28,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_08",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 34,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_08",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 34,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_08",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 34,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_08",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 34,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_08",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 34,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "taste_08",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 34,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_08",
+      "seed": 200,
+      "history_n": 8,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_08",
+      "seed": 201,
+      "history_n": 8,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_08",
+      "seed": 202,
+      "history_n": 8,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_08",
+      "seed": 203,
+      "history_n": 8,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_08",
+      "seed": 204,
+      "history_n": 8,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "taste_08",
+      "seed": 205,
+      "history_n": 8,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_08",
+      "seed": 200,
+      "history_n": 8,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 15,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_08",
+      "seed": 201,
+      "history_n": 8,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 15,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_08",
+      "seed": 202,
+      "history_n": 8,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 15,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_08",
+      "seed": 203,
+      "history_n": 8,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 15,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_08",
+      "seed": 204,
+      "history_n": 8,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 15,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "taste_08",
+      "seed": 205,
+      "history_n": 8,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 15,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_09",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_09",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_09",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_09",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_09",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_09",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_09",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 128,
+      "heldout_b_brands": 114,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_09",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 114,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_09",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 114,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_09",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 114,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_09",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 114,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_09",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 114,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_09",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_09",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_09",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_09",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_09",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_09",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_09",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 124,
+      "heldout_b_brands": 117,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_09",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 123,
+      "heldout_b_brands": 117,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_09",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 124,
+      "heldout_b_brands": 117,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_09",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 124,
+      "heldout_b_brands": 117,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_09",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 124,
+      "heldout_b_brands": 117,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_09",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 124,
+      "heldout_b_brands": 117,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_09",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_09",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_09",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_09",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_09",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_09",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_09",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 96,
+      "heldout_b_brands": 137,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_09",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 97,
+      "heldout_b_brands": 137,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_09",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 97,
+      "heldout_b_brands": 137,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_09",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 97,
+      "heldout_b_brands": 137,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_09",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 96,
+      "heldout_b_brands": 137,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_09",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 97,
+      "heldout_b_brands": 137,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_09",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 172,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_09",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 172,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_09",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 172,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_09",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 172,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_09",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 172,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_09",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 172,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_09",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 26,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_09",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 26,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_09",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 26,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_09",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 26,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_09",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 26,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_09",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 26,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_10",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_10",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_10",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_10",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_10",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_10",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_10",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 175,
+      "heldout_b_brands": 65,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_10",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 175,
+      "heldout_b_brands": 65,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_10",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 174,
+      "heldout_b_brands": 64,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_10",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 175,
+      "heldout_b_brands": 64,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_10",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 175,
+      "heldout_b_brands": 65,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_10",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 175,
+      "heldout_b_brands": 65,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_10",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 166,
+      "heldout_b_brands": 82,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_10",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 166,
+      "heldout_b_brands": 82,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_10",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 165,
+      "heldout_b_brands": 81,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_10",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 166,
+      "heldout_b_brands": 82,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_10",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 166,
+      "heldout_b_brands": 82,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_10",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 166,
+      "heldout_b_brands": 82,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_10",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_10",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_10",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_10",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_10",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_10",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_10",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 128,
+      "heldout_b_brands": 121,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_10",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 121,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_10",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 121,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_10",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 128,
+      "heldout_b_brands": 121,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_10",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 128,
+      "heldout_b_brands": 121,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_10",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 127,
+      "heldout_b_brands": 121,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_10",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 86,
+      "heldout_b_brands": 54,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_10",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 86,
+      "heldout_b_brands": 54,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_10",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 87,
+      "heldout_b_brands": 54,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_10",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 87,
+      "heldout_b_brands": 54,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_10",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 87,
+      "heldout_b_brands": 54,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_10",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 87,
+      "heldout_b_brands": 54,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_11",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_11",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_11",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_11",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_11",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_11",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_11",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 127,
+      "heldout_b_brands": 49,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_11",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 127,
+      "heldout_b_brands": 50,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_11",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 126,
+      "heldout_b_brands": 50,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_11",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 127,
+      "heldout_b_brands": 50,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_11",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 127,
+      "heldout_b_brands": 49,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_11",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 126,
+      "heldout_b_brands": 50,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_11",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_11",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_11",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_11",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_11",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_11",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 5,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_11",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 121,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_11",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 122,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_11",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 122,
+      "heldout_b_brands": 72,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_11",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 122,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_11",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 122,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_11",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 122,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_11",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_11",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_11",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_11",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_11",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_11",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_11",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 125,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_11",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 125,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_11",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 125,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_11",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 125,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_11",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 125,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_11",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 125,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_11",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 180,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_11",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 179,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_11",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 180,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_11",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 180,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_11",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 179,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_11",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 179,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_11",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 37,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_11",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 37,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_11",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 37,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_11",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 37,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_11",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 37,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_11",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 37,
+      "heldout_b_brands": 3,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_12",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 18,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_12",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 18,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_12",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 18,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_12",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 18,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_12",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 18,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "cooking_12",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 18,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_12",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 178,
+      "heldout_b_brands": 74,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_12",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 178,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_12",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 178,
+      "heldout_b_brands": 74,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_12",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 178,
+      "heldout_b_brands": 74,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_12",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 178,
+      "heldout_b_brands": 74,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "cooking_12",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 178,
+      "heldout_b_brands": 72,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_12",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 12,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_12",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 12,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_12",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 12,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_12",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 12,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_12",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 12,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "cooking_12",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 12,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_12",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 191,
+      "heldout_b_brands": 97,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_12",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 191,
+      "heldout_b_brands": 95,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_12",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 191,
+      "heldout_b_brands": 95,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_12",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 191,
+      "heldout_b_brands": 96,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_12",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 190,
+      "heldout_b_brands": 97,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "cooking_12",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 191,
+      "heldout_b_brands": 97,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_12",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 22,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_12",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 22,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_12",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 22,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_12",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 22,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_12",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 22,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "cooking_12",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 22,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_12",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 185,
+      "heldout_b_brands": 99,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_12",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 185,
+      "heldout_b_brands": 98,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_12",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 185,
+      "heldout_b_brands": 98,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_12",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 185,
+      "heldout_b_brands": 98,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_12",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 185,
+      "heldout_b_brands": 99,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "cooking_12",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 185,
+      "heldout_b_brands": 98,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_12",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 95,
+      "heldout_b_brands": 49,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_12",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 95,
+      "heldout_b_brands": 50,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_12",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 95,
+      "heldout_b_brands": 50,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_12",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 94,
+      "heldout_b_brands": 50,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_12",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 95,
+      "heldout_b_brands": 50,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "cooking_12",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 95,
+      "heldout_b_brands": 50,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_12",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_12",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_12",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_12",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_12",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "cooking_12",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "temperature_13",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "temperature_13",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "temperature_13",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "temperature_13",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "temperature_13",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "temperature_13",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "temperature_13",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 102,
+      "heldout_b_brands": 56,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "temperature_13",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 102,
+      "heldout_b_brands": 56,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "temperature_13",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 102,
+      "heldout_b_brands": 56,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "temperature_13",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 102,
+      "heldout_b_brands": 56,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "temperature_13",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 102,
+      "heldout_b_brands": 56,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "temperature_13",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 102,
+      "heldout_b_brands": 56,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "temperature_13",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "temperature_13",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "temperature_13",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "temperature_13",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "temperature_13",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "temperature_13",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "temperature_13",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 162,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "temperature_13",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 162,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "temperature_13",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 161,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "temperature_13",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 162,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "temperature_13",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 162,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "temperature_13",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 162,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "temperature_13",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 300,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "temperature_13",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 299,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "temperature_13",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 300,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "temperature_13",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 300,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "temperature_13",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 300,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "temperature_13",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 300,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "temperature_13",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 83,
+      "heldout_b_brands": 16,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "temperature_13",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 83,
+      "heldout_b_brands": 16,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "temperature_13",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 83,
+      "heldout_b_brands": 16,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "temperature_13",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 83,
+      "heldout_b_brands": 16,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "temperature_13",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 83,
+      "heldout_b_brands": 16,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "temperature_13",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 83,
+      "heldout_b_brands": 15,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "broth_14",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "broth_14",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "broth_14",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "broth_14",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "broth_14",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "broth_14",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "broth_14",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "broth_14",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "broth_14",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "broth_14",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "broth_14",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "broth_14",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "broth_14",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 158,
+      "heldout_b_brands": 64,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "broth_14",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 158,
+      "heldout_b_brands": 64,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "broth_14",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 158,
+      "heldout_b_brands": 64,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "broth_14",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 158,
+      "heldout_b_brands": 64,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "broth_14",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 157,
+      "heldout_b_brands": 64,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "broth_14",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 158,
+      "heldout_b_brands": 64,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "broth_14",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "broth_14",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "broth_14",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "broth_14",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "broth_14",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "broth_14",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "broth_14",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 62,
+      "heldout_b_brands": 102,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "broth_14",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 62,
+      "heldout_b_brands": 103,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "broth_14",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 62,
+      "heldout_b_brands": 100,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "broth_14",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 62,
+      "heldout_b_brands": 102,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "broth_14",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 62,
+      "heldout_b_brands": 102,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "broth_14",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 62,
+      "heldout_b_brands": 103,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "broth_14",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 58,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "broth_14",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 58,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "broth_14",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 58,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "broth_14",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 58,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "broth_14",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 58,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "broth_14",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 58,
+      "heldout_b_brands": 6,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "broth_14",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 269,
+      "heldout_b_brands": 20,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "broth_14",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 270,
+      "heldout_b_brands": 20,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "broth_14",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 270,
+      "heldout_b_brands": 20,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "broth_14",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 270,
+      "heldout_b_brands": 20,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "broth_14",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 270,
+      "heldout_b_brands": 20,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "broth_14",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 270,
+      "heldout_b_brands": 20,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "broth_14",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 84,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "broth_14",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 84,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "broth_14",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 83,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "broth_14",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 84,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "broth_14",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 84,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "broth_14",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 84,
+      "heldout_b_brands": 46,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "broth_14",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 56,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "broth_14",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 57,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "broth_14",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 57,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "broth_14",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 57,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "broth_14",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 57,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "broth_14",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 57,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_15",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 10,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_15",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 10,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_15",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 10,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_15",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 10,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_15",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 10,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_15",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 10,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_15",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 44,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_15",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 128,
+      "heldout_b_brands": 44,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_15",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 44,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_15",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 44,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_15",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 44,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_15",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 129,
+      "heldout_b_brands": 44,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_15",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 16,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_15",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 16,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_15",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 16,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_15",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 16,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_15",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 16,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_15",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 7,
+      "heldout_b_brands": 16,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_15",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 115,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_15",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 115,
+      "heldout_b_brands": 74,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_15",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 115,
+      "heldout_b_brands": 74,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_15",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 115,
+      "heldout_b_brands": 74,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_15",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 115,
+      "heldout_b_brands": 73,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_15",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 115,
+      "heldout_b_brands": 74,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_15",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 43,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_15",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 43,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_15",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 43,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_15",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 43,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_15",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 43,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_15",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 43,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_15",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 174,
+      "heldout_b_brands": 52,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_15",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 175,
+      "heldout_b_brands": 51,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_15",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 175,
+      "heldout_b_brands": 52,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_15",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 175,
+      "heldout_b_brands": 52,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_15",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 175,
+      "heldout_b_brands": 52,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_15",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 175,
+      "heldout_b_brands": 52,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_15",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 74,
+      "heldout_b_brands": 31,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_15",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 74,
+      "heldout_b_brands": 31,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_15",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 74,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_15",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 74,
+      "heldout_b_brands": 31,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_15",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 74,
+      "heldout_b_brands": 29,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_15",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 74,
+      "heldout_b_brands": 31,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_16",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 45,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_16",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 45,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_16",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 45,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_16",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 45,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_16",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 45,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "ingredient_16",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 45,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_16",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 290,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_16",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 290,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_16",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 290,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_16",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 290,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_16",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 290,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "ingredient_16",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 289,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_16",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 24,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_16",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 24,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_16",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 24,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_16",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 24,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_16",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 24,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "ingredient_16",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 3,
+      "heldout_b_brands": 24,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_16",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 270,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_16",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 270,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_16",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 270,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_16",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 269,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_16",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 270,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "ingredient_16",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 17,
+      "heldout_b_brands": 270,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_16",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_16",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_16",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_16",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_16",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "ingredient_16",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_16",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 15,
+      "heldout_b_brands": 354,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_16",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 15,
+      "heldout_b_brands": 355,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_16",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 15,
+      "heldout_b_brands": 355,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_16",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 15,
+      "heldout_b_brands": 355,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_16",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 15,
+      "heldout_b_brands": 355,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "ingredient_16",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 15,
+      "heldout_b_brands": 355,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_16",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 157,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_16",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 157,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_16",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 157,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_16",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 156,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_16",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 157,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "ingredient_16",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 2,
+      "heldout_b_brands": 157,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "texture_17",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "texture_17",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "texture_17",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "texture_17",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "texture_17",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "texture_17",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 2,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_17",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 27,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_17",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 28,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_17",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 28,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_17",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 28,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_17",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 28,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_17",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 28,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_17",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 21,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_17",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 21,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_17",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 21,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_17",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 21,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_17",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 21,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_17",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 24,
+      "heldout_b_brands": 21,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_17",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_17",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_17",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_17",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_17",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_17",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 16,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_17",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_17",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_17",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_17",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_17",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_17",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 21,
+      "heldout_b_brands": 11,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "texture_17",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "texture_17",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "texture_17",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 11,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "texture_17",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "texture_17",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "texture_17",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_18",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_18",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_18",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_18",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_18",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "texture_18",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 23,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_18",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 33,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_18",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 33,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_18",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 33,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_18",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 33,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_18",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 33,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "texture_18",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 33,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_18",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 17,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_18",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 17,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_18",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 17,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_18",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 17,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_18",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 17,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "texture_18",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 17,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_18",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_18",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_18",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_18",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_18",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "texture_18",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 18,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "dining_19",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "dining_19",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "dining_19",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "dining_19",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "dining_19",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "dining_19",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "dining_19",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 41,
+      "heldout_b_brands": 51,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "dining_19",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 41,
+      "heldout_b_brands": 51,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "dining_19",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 41,
+      "heldout_b_brands": 51,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "dining_19",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 41,
+      "heldout_b_brands": 51,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "dining_19",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 41,
+      "heldout_b_brands": 51,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "dining_19",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 41,
+      "heldout_b_brands": 51,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "dining_19",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 52,
+      "heldout_b_brands": 57,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "dining_19",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 52,
+      "heldout_b_brands": 57,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "dining_19",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 52,
+      "heldout_b_brands": 57,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "dining_19",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 52,
+      "heldout_b_brands": 57,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "dining_19",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 52,
+      "heldout_b_brands": 57,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "dining_19",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 52,
+      "heldout_b_brands": 57,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "dining_19",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "dining_19",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "dining_19",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "dining_19",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "dining_19",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "dining_19",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "dining_19",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 65,
+      "heldout_b_brands": 77,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "dining_19",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 65,
+      "heldout_b_brands": 76,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "dining_19",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 65,
+      "heldout_b_brands": 77,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "dining_19",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 65,
+      "heldout_b_brands": 77,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "dining_19",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 65,
+      "heldout_b_brands": 77,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "dining_19",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 65,
+      "heldout_b_brands": 77,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "dining_19",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 25,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "dining_19",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 25,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "dining_19",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 25,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "dining_19",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 25,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "dining_19",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 25,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "dining_19",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 25,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_20",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_20",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_20",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_20",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_20",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_20",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 7,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "form_20",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "form_20",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "form_20",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "form_20",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "form_20",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_core",
+      "dimension": "form_20",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 6,
+      "heldout_b_brands": 19,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "form_20",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 108,
+      "heldout_b_brands": 133,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "form_20",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 108,
+      "heldout_b_brands": 133,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "form_20",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 108,
+      "heldout_b_brands": 133,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "form_20",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 108,
+      "heldout_b_brands": 133,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "form_20",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 107,
+      "heldout_b_brands": 133,
+      "cat2_matched": true
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "form_20",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 108,
+      "heldout_b_brands": 133,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "form_20",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 60,
+      "heldout_b_brands": 59,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "form_20",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 60,
+      "heldout_b_brands": 59,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "form_20",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 60,
+      "heldout_b_brands": 59,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "form_20",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 60,
+      "heldout_b_brands": 59,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "form_20",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 60,
+      "heldout_b_brands": 59,
+      "cat2_matched": true
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "form_20",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 60,
+      "heldout_b_brands": 58,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_core",
+      "dimension": "form_20",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_core",
+      "dimension": "form_20",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_core",
+      "dimension": "form_20",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_core",
+      "dimension": "form_20",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_core",
+      "dimension": "form_20",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_core",
+      "dimension": "form_20",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 8,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_20",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 29,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_20",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 29,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_20",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 29,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_20",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 29,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_20",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 29,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_20",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 29,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "form_21",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "form_21",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "form_21",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "form_21",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "form_21",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_core",
+      "dimension": "form_21",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 9,
+      "heldout_b_brands": 4,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_21",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_21",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_21",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_21",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_21",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "cutlet_menu",
+      "dimension": "form_21",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 23,
+      "heldout_b_brands": 9,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "form_21",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 27,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "form_21",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 27,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "form_21",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 27,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "form_21",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 27,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "form_21",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 27,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "form_21",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 27,
+      "heldout_b_brands": 13,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "form_21",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 188,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "form_21",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 188,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "form_21",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 188,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "form_21",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 187,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "form_21",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 188,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "form_21",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 188,
+      "heldout_b_brands": 67,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "form_21",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "form_21",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "form_21",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "form_21",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "form_21",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_core",
+      "dimension": "form_21",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 19,
+      "heldout_b_brands": 5,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "form_21",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 208,
+      "heldout_b_brands": 61,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "form_21",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 209,
+      "heldout_b_brands": 61,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "form_21",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 209,
+      "heldout_b_brands": 61,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "form_21",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 209,
+      "heldout_b_brands": 61,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "form_21",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 208,
+      "heldout_b_brands": 61,
+      "cat2_matched": true
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "form_21",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 209,
+      "heldout_b_brands": 61,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_21",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_21",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_21",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_21",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_21",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "salad_menu",
+      "dimension": "form_21",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 10,
+      "heldout_b_brands": 30,
+      "cat2_matched": true
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "category_22",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "category_22",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "category_22",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "category_22",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "category_22",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_core",
+      "dimension": "category_22",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "category_22",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "category_22",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "category_22",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "category_22",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "category_22",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "noodle_menu",
+      "dimension": "category_22",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 4,
+      "heldout_b_brands": 14,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "category_23",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 8,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "category_23",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 8,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "category_23",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 10,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "category_23",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 10,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "category_23",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 10,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_core",
+      "dimension": "category_23",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 9,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "category_23",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 13,
+      "heldout_b_brands": 11,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "category_23",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 10,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "category_23",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 10,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "category_23",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 14,
+      "heldout_b_brands": 10,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "category_23",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 10,
+      "cat2_matched": false
+    },
+    {
+      "context": "rice_menu",
+      "dimension": "category_23",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 10,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "category_24",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 23,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "category_24",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 23,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "category_24",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 23,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "category_24",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 23,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "category_24",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 22,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_core",
+      "dimension": "category_24",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 24,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "category_24",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 22,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "category_24",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 23,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "category_24",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 22,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "category_24",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 22,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "category_24",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 22,
+      "cat2_matched": false
+    },
+    {
+      "context": "soup_menu",
+      "dimension": "category_24",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 12,
+      "heldout_b_brands": 22,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "category_25",
+      "seed": 200,
+      "history_n": 16,
+      "heldout_a_brands": 64,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "category_25",
+      "seed": 201,
+      "history_n": 16,
+      "heldout_a_brands": 62,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "category_25",
+      "seed": 202,
+      "history_n": 16,
+      "heldout_a_brands": 63,
+      "heldout_b_brands": 26,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "category_25",
+      "seed": 203,
+      "history_n": 16,
+      "heldout_a_brands": 63,
+      "heldout_b_brands": 27,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "category_25",
+      "seed": 204,
+      "history_n": 16,
+      "heldout_a_brands": 60,
+      "heldout_b_brands": 25,
+      "cat2_matched": false
+    },
+    {
+      "context": "grill_menu",
+      "dimension": "category_25",
+      "seed": 205,
+      "history_n": 16,
+      "heldout_a_brands": 62,
+      "heldout_b_brands": 26,
+      "cat2_matched": false
+    }
+  ],
+  "scope_history_counts": {
+    "('menu', 8)": 498,
+    "('core', 8)": 258,
+    "('menu', 4)": 36
+  },
+  "limits": [
+    "Source labels are accepted as bounded menu evidence; absence is unknown, not an opposite attribute.",
+    "Cat2 pairing controls source category counts, not every correlated menu property or a pure causal taste factor.",
+    "Two heldout brands is measurement eligibility, not strong statistical evidence.",
+    "Deterministic feasibility sampling is not an exhaustive proof that rejected cells are intrinsically impossible."
+  ],
+  "audit_sha256": {
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/audit-attribute-fixtures.py": "bead7e292a2a0cb3122464567ced0c5ea041788c17cd611d58dbd0666b542a80",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/build-fixtures.py": "f578f6055fc22611e43fa5914d93dcbbfbcbf8e6ecd8c8386520309da2be4e3d",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/protocol.md": "6396593acff97e2816a4e56ab348043343c62167e09f48c326d11dcfacfda375",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/attribute-labels.json": "9960183562651cd4d6502621c4b94ffa55bc6067781cadbf513fedecd8cf5ae3",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/context-audit.json": "b5d4c95d3f8780fc38684036e02d8517f63eaca3a587471375235142f553dbab"
+  }
+}

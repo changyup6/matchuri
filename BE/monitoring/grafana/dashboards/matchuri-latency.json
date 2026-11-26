@@ -1,0 +1,521 @@
+{
+  "uid": "matchuri-latency",
+  "title": "맛추리 지연 상세",
+  "description": "운영 대시보드의 p95 가 올랐을 때 '어느 라우트가' 를 찾는 곳. 라우트 변수로 좁혀 보면서 쓴다.",
+  "tags": [
+    "맛추리",
+    "운영",
+    "지연"
+  ],
+  "timezone": "browser",
+  "editable": true,
+  "graphTooltip": 1,
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "version": 1,
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "1h"
+    ]
+  },
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": false,
+      "title": "운영 대시보드",
+      "tooltip": "트래픽 · 추천 · 시스템",
+      "type": "link",
+      "url": "/grafana/d/matchuri-ops"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "templating": {
+    "list": [
+      {
+        "name": "route",
+        "label": "라우트",
+        "type": "query",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "definition": "label_values(matchuri_http_request_seconds_count, route)",
+        "query": {
+          "qryType": 1,
+          "query": "label_values(matchuri_http_request_seconds_count, route)",
+          "refId": "route"
+        },
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "includeAll": true,
+        "allValue": ".*",
+        "multi": true,
+        "refresh": 2,
+        "sort": 1,
+        "hide": 0,
+        "options": []
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "라우트별 p95",
+      "description": "위의 운영 대시보드는 전체를 합친 p95 만 보여 준다 — 그 값이 오를 때 '어느 호출이 끌어올렸나' 를 여기서 찾는다. GET /cards 가 늘 가장 느리다(두 정책이 성분을 다시 계산한다). 나머지가 /cards 를 따라 올라가면 원인은 라우트가 아니라 서버다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0.5
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "s",
+          "min": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.95, sum by (le, route) (rate(matchuri_http_request_seconds_bucket{route=~\"$route\"}[$__rate_interval])))",
+          "legendFormat": "{{route}}",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "heatmap",
+      "title": "지연 분포 (전체 라우트)",
+      "description": "백분위 선 셋이 감추는 것을 보여 준다 — 응답 시간이 한 덩어리인지 두 덩어리인지. 캐시가 있는 호출과 없는 호출이 섞이면 띠가 둘로 갈라진다. y축 눈금이 고르지 않은 것은 히스토그램 버킷(5ms~5s)이 로그 간격이기 때문이고, 그것이 이 지표의 실제 해상도다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "scaleDistribution": {
+              "type": "linear"
+            }
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "calculate": false,
+        "cellGap": 1,
+        "cellValues": {
+          "unit": "short"
+        },
+        "color": {
+          "mode": "scheme",
+          "scheme": "Oranges",
+          "steps": 64,
+          "reverse": false,
+          "exponent": 0.5,
+          "fill": "dark-orange",
+          "scale": "exponential"
+        },
+        "exemplars": {
+          "color": "rgba(255,0,255,0.7)"
+        },
+        "filterValues": {
+          "le": 1e-09
+        },
+        "legend": {
+          "show": true
+        },
+        "rowsFrame": {
+          "layout": "auto",
+          "value": "요청 수/s"
+        },
+        "showValue": "never",
+        "tooltip": {
+          "mode": "single",
+          "showColorScale": true,
+          "yHistogram": true
+        },
+        "yAxis": {
+          "axisPlacement": "left",
+          "reverse": false,
+          "unit": "s"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum by (le) (rate(matchuri_http_request_seconds_bucket{route=~\"$route\"}[$__rate_interval]))",
+          "legendFormat": "{{le}}",
+          "range": true,
+          "instant": false,
+          "format": "heatmap"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "라우트별 p50 · p99 (선택한 라우트)",
+      "description": "p50 과 p99 를 같은 축에 놓으면 둘 사이의 벌어짐이 곧 꼬리의 두께다. p50 은 그대로인데 p99 만 튀면 특정 조건(빈 필터·먼 반경)에서만 느린 것이다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "s",
+          "min": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.5, sum by (le, route) (rate(matchuri_http_request_seconds_bucket{route=~\"$route\"}[$__rate_interval])))",
+          "legendFormat": "p50 {{route}}",
+          "range": true,
+          "instant": false
+        },
+        {
+          "refId": "B",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.99, sum by (le, route) (rate(matchuri_http_request_seconds_bucket{route=~\"$route\"}[$__rate_interval])))",
+          "legendFormat": "p99 {{route}}",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "시간당 느린 요청 (500ms 초과)",
+      "description": "앱이 event=http.slow 로 경고를 남기는 바로 그 문턱(SLOW_MS=500)이다. 백분위와 달리 '몇 건이나' 를 세므로, 하루에 세 건인지 삼백 건인지가 여기서 갈린다. 여기서 라우트를 찾고 로그에서 그 요청의 request_id 로 따라간다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 18
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short",
+          "min": 0,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum by (route) (rate(matchuri_http_slow_total{route=~\"$route\"}[$__rate_interval])) * 3600",
+          "legendFormat": "{{route}}",
+          "range": true,
+          "instant": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "시간당 처리 못 한 예외",
+      "description": "5xx 중에서도 앱이 잡지 못한 예외만 센다 — 여기 올라온 라우트는 traceback 이 로그에 남아 있다(`jq 'select(.event==\"error\")'`). 평상시 0 이어야 하는 유일한 패널이다.",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 18
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "short",
+          "min": 0,
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum by (route) (rate(matchuri_errors_total{route=~\"$route\"}[$__rate_interval])) * 3600",
+          "legendFormat": "{{route}}",
+          "range": true,
+          "instant": false
+        }
+      ]
+    }
+  ]
+}

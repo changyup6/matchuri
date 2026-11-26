@@ -1,0 +1,61 @@
+{
+  "measured_base": "f287fa4a7af4dcb00a8a35ed5f0639f5bb0a4ead",
+  "source_sha256": {
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/fixtures.json": "4c2b6d1f4451b61f73ae080842dd82eeae5628891aa5773b2a7e6d75accc820c",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/run/results.json": "dd46d9046e3721e9d87996a4bf7b47703c2ca454b831d8f84ef33109eddf69b6",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/run/predictions.npz": "96e85379c80ef0d8fb4f107674c8eca328e1c98ac6908b9a5a551d304539c4a0",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/summary.json": "90755c80be21c6fa574311d37fa345580c1ffc80bc3f8271011d0f0c1db02b09",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/build-matrix-fixtures.py": "42876c5925e6c92b8be457c971623339d84d25c71a28396e67c5e4efc22f33e6",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/analyze-matrix.py": "099fb63e9654a0c5e8dfc7d5e263cdf2a687e814fdaea0bd488d80f2a2e460c6",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/plot-matrix.py": "405e1b57040419ab7d1e20611287743a20a9750556f1d7e3c49d451086f8c5b2",
+    "/home/ubuntu/matchuri-changes/preference-matrix-20260922/analyze-overlap-tags.py": "50455364fa59ddce330988443d504eb635df85024e43eda6562ed8b04dac0779"
+  },
+  "git_files": {
+    "measurement-summary.json": "df3c586ccb050e36c56b6e7ec5f2fe04b41454571bb2613fb762057ec502e890",
+    "overlap-tags.csv": "11bf3ba64e65c1243d5c4442382fec583360532d8ad58106420042a7c376ec92",
+    "result-audit.json": "43c1abfbe69d456110ec77f82eba4f4366ef272c3cc6c785277983b20ba336d5",
+    "operational-scope.md": "4dc662ed5c4eae5f48cdb766df1f0ffb5b3ecec87f6d1d0a8ca933209f662739",
+    "matrix-cutlet.png": "91284ce4dc08ca9e5e12c4aebeae8ff2c5c109d0a7fffab6c362ef7309c8bb66",
+    "overlap-result-audit.json": "56fe173acd44e0370683879a45b4b43a6c210a1aaa4b3456e8199a21450cbbf7",
+    "population-coverage.json": "1915ca6308e8727685641166268063fbfe75ea002614f6bdd76f26dcbf0e90b0",
+    "master-compatibility.json": "95e74809758e0a94f34389ed051f9a05c166e20350789d6903b7416c8769480a",
+    "tag-supplement-protocol.md": "ae46ea75f15e52d4f357477a605bd7b965ece1f95d34af5011d6dd6e4b375877",
+    "matrix-forms.png": "1c36187f1c41653daefd148f0a7a07bbc3da839e72cb042db25ec7ce59b91850",
+    "README.md": "b829bcbff0b2ccfb937e3e40cd34b50d2e35518395aa4d99a61d31a44cf53533",
+    "actual-cards.csv": "9f26df795323cb1fcf9a14bd8cde31d1c97b54b4d4418bd4780bfb872c8bfe59",
+    "fixtures.json": "4c2b6d1f4451b61f73ae080842dd82eeae5628891aa5773b2a7e6d75accc820c",
+    "cutlet-comparison.csv": "ec584f9935acc110ecf7c8bfcea669aa2eb305aa05e09a29d4138f2a981e72a3",
+    "matrix-cutlet.svg": "d0c87bb58e177a073367064013ed7543542375959570dd93faeed6ed761dc12d",
+    "matrix-forms.svg": "316c93476109d2c90f1f981fe4c4714198eaf218e3b3af987fafd8e7a755595f",
+    "form-comparison.csv": "b904bdc103a9c06ac594cbe62b04e634c3cc0e8530c9e146c997193caf5d2430",
+    "protocol.md": "30ef22594d24a5f580c9bdad873f5d996b1ccdbb94b652f91f9f1f22eb4d6574",
+    "fixture-audit.json": "1347876037d0f1186472cfe7a4e5b9eb678d510da4a113e8341e89f67095bf42"
+  },
+  "scope": "180 hypothetical cases on 1498 real restaurants; 3 paths; 2160 cards. No production model or API changes. Original data and user state excluded.",
+  "git_output_normalization": {
+    "actual-cards.csv": {
+      "frozen_output_sha256": "a9c835c818e12f73559ef65a8dae687f78349e534c2d6c250f4388bb1161b1a0",
+      "change": "LF line endings / trailing whitespace only; parsed CSV values or SVG tokens unchanged"
+    },
+    "cutlet-comparison.csv": {
+      "frozen_output_sha256": "ce8dff01a776bbf55052c6cdf3c644f9ee8c7281bbcde1145fc0fb29aa44e2ee",
+      "change": "LF line endings / trailing whitespace only; parsed CSV values or SVG tokens unchanged"
+    },
+    "form-comparison.csv": {
+      "frozen_output_sha256": "36b7c35fef5f20028339bbd9ed3bc2fcb6189642ded41fee0a7a34175ce014ac",
+      "change": "LF line endings / trailing whitespace only; parsed CSV values or SVG tokens unchanged"
+    },
+    "matrix-cutlet.svg": {
+      "frozen_output_sha256": "5ad5f21b2e8d873cb91fb785c216a3761dc87d3944477d59421adbfbf1de5bdd",
+      "change": "LF line endings / trailing whitespace only; parsed CSV values or SVG tokens unchanged"
+    },
+    "matrix-forms.svg": {
+      "frozen_output_sha256": "107bfd457e744315821aa0b9e8b813be0babe879f0614ac46a62e001cba8be56",
+      "change": "LF line endings / trailing whitespace only; parsed CSV values or SVG tokens unchanged"
+    },
+    "overlap-tags.csv": {
+      "frozen_output_sha256": "cdc00089619b592b11e4a59a2d132428b4396067b780a8e11ff845835c9cbcbb",
+      "change": "LF line endings / trailing whitespace only; parsed CSV values or SVG tokens unchanged"
+    }
+  }
+}

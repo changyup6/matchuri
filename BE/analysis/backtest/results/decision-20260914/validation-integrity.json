@@ -1,0 +1,33 @@
+{
+  "sha256_checks": [
+    {
+      "file": "BE/analysis/decision_validation.py",
+      "matches": true
+    },
+    {
+      "file": "BE/server/recsys/decision.py",
+      "matches": true
+    },
+    {
+      "file": "BE/server/recsys/taste.py",
+      "matches": true
+    },
+    {
+      "file": "BE/server/recsys/policy.py",
+      "matches": true
+    },
+    {
+      "file": "BE/data/kakao/serving/manifest.json",
+      "matches": true
+    },
+    {
+      "file": "FE/app/lib/screens/home_screen.dart",
+      "matches": true
+    }
+  ],
+  "tests": "312 passed, 2 dependency deprecation warnings",
+  "test_seconds": 16.88,
+  "rule_violations": 0,
+  "split": "holdout",
+  "seed_start": 2000
+}

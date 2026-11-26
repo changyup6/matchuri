@@ -1,0 +1,53 @@
+{
+  "verified_at": "2026-09-14T14:11:39.380401+09:00",
+  "base_url": "http://api.example.com",
+  "deployment_commit": "7b345e76e616aee0207bd73aef1778989d1963fc",
+  "image_id": "sha256:47b89753847017a28a47f8cdf191eb1891a6e4950cfafd9bb29581ad6b280b01",
+  "healthy": true,
+  "production_read_only_checks": {
+    "/healthz": 200,
+    "/readyz": 200,
+    "schema_and_meaning_fields": true,
+    "metrics_http": 200,
+    "restored_feedback_count": 296,
+    "candidate_total": 1629,
+    "meaning_entries": 27,
+    "current_reading_present": true,
+    "download_attachment": true,
+    "stable_read_only_snapshot": true
+  },
+  "preserved_state_files": 6,
+  "all_existing_state_prefixes_preserved": true,
+  "existing_read_only_data_mount_preserved": true,
+  "existing_state_volume_preserved": true,
+  "isolated_integration": {
+    "/healthz": 200,
+    "/readyz": 200,
+    "schema_and_meaning_fields": true,
+    "isolated_existing_card_filter_location_preference_flow": true,
+    "metrics_http": 200,
+    "restored_feedback_count": 2,
+    "candidate_total": 203,
+    "meaning_entries": 27,
+    "current_reading_present": true,
+    "download_attachment": true,
+    "stable_read_only_snapshot": true
+  },
+  "isolated_restoration": {
+    "/healthz": 200,
+    "/readyz": 200,
+    "schema_and_meaning_fields": true,
+    "metrics_http": 200,
+    "restored_feedback_count": 296,
+    "candidate_total": 1629,
+    "meaning_entries": 27,
+    "current_reading_present": true,
+    "download_attachment": true,
+    "stable_read_only_snapshot": true
+  },
+  "tests": "323 passed, 2 dependency deprecation warnings",
+  "test_seconds": 10.83,
+  "production_test_writes": false,
+  "mobile_ui_changed": false,
+  "mr_merged": false
+}

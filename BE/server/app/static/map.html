@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>맛추리 취향 지형도</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0f1116; color:#e6e8ec; font-family:'Malgun Gothic',system-ui,sans-serif;
+         font-size:13px; line-height:1.5; height:100vh; display:flex; flex-direction:column;
+         overflow:hidden; }
+  a { color:#5b8cff; text-decoration:none; }
+  header { padding:12px 20px; border-bottom:1px solid #21252e; flex-shrink:0;
+           display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+  header h1 { font-size:16px; letter-spacing:.5px; }
+  header .stats { display:flex; gap:16px; margin-left:auto; flex-wrap:wrap; }
+  header .stat b { color:#fff; font-size:14px; } header .stat span { color:#7d838f; font-size:11px; }
+  #wrap { display:flex; flex:1; min-height:0; }
+
+  /* ── 사용자 목록 (관리자 화면과 같은 규칙) ─────────────────────────── */
+  #side { width:214px; flex-shrink:0; border-right:1px solid #21252e; overflow-y:auto; }
+  #side h2 { font-size:11px; color:#7d838f; padding:12px 14px 6px; letter-spacing:.5px; }
+  .u { padding:8px 14px; border-bottom:1px solid #191d25; cursor:pointer; }
+  .u.on { background:#1c2230; border-left:2px solid #5b8cff; padding-left:12px; }
+  .u .id { font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .u .meta { color:#7d838f; font-size:11px; display:flex; gap:8px; margin-top:2px; }
+  .bar-mini { height:3px; background:#252a34; border-radius:2px; margin-top:5px; overflow:hidden; }
+  .bar-mini i { display:block; height:100%; background:#4ade80; }
+
+  /* ── 캔버스 ─────────────────────────────────────────────────────── */
+  #stage { flex:1; position:relative; min-width:0; overflow:hidden; }
+  #cv { display:block; width:100%; height:100%; cursor:grab; }
+  #cv.drag { cursor:grabbing; }
+  .ov { position:absolute; background:rgba(15,17,22,.82); border:1px solid #222732;
+        border-radius:8px; padding:8px 10px; font-size:11px; backdrop-filter:blur(2px); }
+  #legend { left:12px; top:12px; max-width:220px; }
+  #legend .lrow { display:flex; align-items:center; gap:6px; margin-top:3px; color:#aeb4c0; }
+  #legend i { width:9px; height:9px; border-radius:2px; flex-shrink:0; display:block; }
+  #legend .ttl { color:#7d838f; font-size:10.5px; letter-spacing:.3px; }
+  #legend .grad { height:9px; border-radius:2px; margin:5px 0 3px;
+                  background:linear-gradient(90deg,#16181f,#282a54,#5b3a76,#a1416c,#e06b3c,#ffd166); }
+  #tools { right:12px; top:12px; display:flex; flex-direction:column; gap:6px; align-items:flex-start; }
+  #tools label { display:flex; align-items:center; gap:6px; color:#aeb4c0; cursor:pointer; }
+  #stat { left:12px; bottom:12px; color:#8a9099; max-width:60%; }
+  #stat b { color:#c9cfda; }
+  #tip { position:absolute; pointer-events:none; display:none; z-index:5; max-width:280px;
+         background:#161a21; border:1px solid #2f3541; border-radius:8px; padding:7px 10px;
+         font-size:11.5px; box-shadow:0 6px 20px rgba(0,0,0,.5); }
+  #tip b { font-size:12.5px; } #tip .s { color:#7d838f; font-size:10.5px; }
+  #tip .p { color:#aeb4c0; margin-top:3px; }
+  button { background:#1b2029; color:#c9cfda; border:1px solid #2f3541; border-radius:6px;
+           padding:4px 9px; font-size:11px; cursor:pointer; font-family:inherit; }
+  button:hover { background:#232a36; } button:disabled { opacity:.45; cursor:default; }
+  button.go { background:#1e3a2a; border-color:#2c6b45; color:#7fe0a5; }
+  button.no { background:#3a1e1e; border-color:#6b2c2c; color:#f5a3a3; }
+
+  /* ── 오른쪽 패널 ─────────────────────────────────────────────────── */
+  #panel { width:336px; flex-shrink:0; border-left:1px solid #21252e; overflow-y:auto;
+           padding:12px 14px 30px; }
+  #panel section { margin-bottom:18px; }
+  h3 { font-size:11.5px; color:#9aa1ad; margin-bottom:8px; letter-spacing:.4px;
+       display:flex; align-items:baseline; gap:6px; }
+  h3 small { color:#5c626e; font-weight:400; font-size:10px; }
+  .hint { color:#5c626e; font-size:10.5px; margin-top:5px; line-height:1.6; }
+  .empty { color:#7d838f; padding:26px 0; text-align:center; line-height:2; font-size:11.5px; }
+  .srow { display:flex; align-items:center; gap:7px; height:20px; font-size:11px; }
+  .srow .lab { width:56px; text-align:right; color:#aeb4c0; flex-shrink:0; white-space:nowrap;
+               overflow:hidden; text-overflow:ellipsis; }
+  .srow input[type=range] { flex:1; min-width:0; height:3px; accent-color:#5b8cff; }
+  .srow .v { width:46px; text-align:right; color:#7d838f; font-size:10.5px; flex-shrink:0; }
+  .srow .v.mod { color:#f0a868; }
+  .swipe { background:#161a21; border:1px solid #222732; border-radius:8px; padding:9px 10px; }
+  .swipe .nm { font-weight:600; font-size:13px; }
+  .swipe .sub { color:#7d838f; font-size:10.5px; margin-top:1px; }
+  .swipe .why { color:#c9cfda; font-size:11px; margin-top:6px; border-left:2px solid #3b6bd6;
+                padding-left:7px; }
+  .swipe .btns { display:flex; gap:8px; margin-top:9px; }
+  .swipe .btns button { flex:1; padding:7px; font-size:12px; font-weight:600; }
+  .delta { display:flex; flex-direction:column; gap:2px; margin-top:7px; font-size:10.5px;
+           color:#8a9099; }
+  .delta u { text-decoration:none; color:#c9cfda; }
+  .scrub { display:flex; align-items:center; gap:8px; }
+  .scrub input[type=range] { flex:1; accent-color:#5b8cff; }
+  .tops { display:flex; flex-direction:column; gap:4px; }
+  .tp { display:flex; align-items:center; gap:7px; background:#161a21; border:1px solid #222732;
+        border-radius:6px; padding:5px 8px; cursor:pointer; }
+  .tp.on { border-color:#3b6bd6; background:#182034; }
+  .tp .rk { width:16px; color:#7d838f; font-size:10.5px; flex-shrink:0; }
+  .tp .nm { flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+            font-size:11.5px; }
+  .tp .sc { color:#8a9099; font-size:10.5px; flex-shrink:0; }
+  .links { margin-top:6px; display:flex; flex-direction:column; gap:5px; }
+  .lk { background:#141821; border-left:2px solid #3b6bd6; border-radius:5px; padding:5px 8px; }
+  .lk .h { display:flex; gap:6px; align-items:baseline; font-size:11px; }
+  .lk .h b { color:#e6e8ec; } .lk .h span { color:#7d838f; font-size:10px; margin-left:auto; }
+  .lk .q { color:#9aa1ad; font-size:10.5px; margin-top:2px; line-height:1.5; }
+  .lk .k { color:#5c626e; font-size:9.5px; margin-top:2px; }
+  select { background:#1b2029; color:#e6e8ec; border:1px solid #384252; border-radius:6px; padding:5px; font:inherit; }
+  .change-head { font-size:18px; font-weight:700; margin:7px 0; }
+  .change-metrics { display:flex; gap:10px; margin:10px 0; }
+  .change-metrics > div { flex:1; padding:9px; background:#1b2230; border-radius:8px; }
+  .change-metrics b { display:block; font-size:22px; color:#fff; }
+  .change-metrics span { font-size:10px; color:#aeb4c0; }
+  .mover { display:flex; justify-content:space-between; gap:8px; padding:4px 0; font-size:11px; cursor:pointer; }
+  .mover span:first-child { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .mover span:last-child { white-space:nowrap; }
+  .rise { color:#49dbc2; } .fall { color:#f7a46b; }
+  #panel .hint { color:#929bad; }
+  .warn { color:#e2c07a; font-size:10.5px; margin-top:5px; }
+  /* 비교 → 반응 → 결과를 한 시야에서 읽는다. 모델 실험은 아래에 접어 둔다. */
+  header { align-items:center; padding:12px 18px; }
+  header h1 { font-size:18px; letter-spacing:-.5px; }
+  #side { width:178px; background:#11151d; }
+  #user-search { width:calc(100% - 20px); margin:4px 10px 10px; padding:8px; }
+  input[type=search], input[type=number] { background:#161d29; color:#e6e8ec; border:1px solid #384252; border-radius:6px; font:inherit; }
+  #workspace { flex:1; min-width:0; display:flex; flex-direction:column; }
+  #context { padding:16px 22px; border-bottom:1px solid #28303d; background:#141a24; }
+  .eyebrow { font-size:10px; letter-spacing:1px; color:#9aa9c0; text-transform:uppercase; }
+  .context-title { display:flex; align-items:center; gap:10px; margin:4px 0 12px; }
+  .context-title strong { font-size:20px; letter-spacing:-.7px; }
+  .badge { border:1px solid #3d526a; color:#b8c9e0; border-radius:20px; padding:2px 8px; font-size:10px; }
+  .controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .controls input { width:63px; padding:5px; }
+  .controls label { color:#a8b4c6; font-size:11px; }
+  #stage { min-height:240px; }
+  #timeline { padding:12px 22px; background:#141a24; border-top:1px solid #28303d; }
+  .timeline-head { display:flex; justify-content:space-between; gap:12px; color:#c6cfdd; font-size:11px; }
+  .reactions { display:flex; gap:4px; margin:10px 0; }
+  .reaction { flex:1; min-width:0; padding:5px 0; border-radius:4px; position:relative; }
+  .reaction.like { color:#80e7c9; border-color:#31584f; background:#19332e; }
+  .reaction.dislike { color:#f9b99a; border-color:#614337; background:#32231f; }
+  .reaction.outside { opacity:.38; }
+  .reaction.on { outline:2px solid #e6e8ec; outline-offset:1px; }
+  .reaction .rn { display:block; font-size:9px; }
+  #panel { width:380px; padding:18px; background:#11151d; }
+  #panel section { padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid #252d3a; }
+  h3 { color:#d0d9e8; font-size:12px; letter-spacing:0; justify-content:space-between; }
+  h3 .seq { color:#71839b; font-size:10px; }
+  .summary-copy { font-size:13px; color:#dae3ef; line-height:1.7; }
+  .change-metrics { gap:8px; }
+  .change-metrics > div { border:1px solid #2a3545; padding:10px; background:#192130; }
+  .change-metrics b { font-size:25px; font-weight:600; }
+  .change-metrics small { font-size:12px; color:#aab8cb; font-weight:400; }
+  .change-metrics span { display:block; font-size:11px; }
+  .tabs { display:flex; gap:4px; margin-bottom:7px; }
+  .tabs button { flex:1; padding:6px 4px; }
+  .tabs button.active { color:#def8ef; background:#233e3a; border-color:#427369; }
+  .mover { width:100%; border:0; border-bottom:1px solid #232c39; border-radius:0; padding:8px 4px; background:transparent; text-align:left; }
+  .mover.on { background:#202d3b; border-radius:5px; }
+  .mover .movement { font-size:10px; display:block; color:#9aa9bc; }
+  .mover .rank { text-align:right; }
+  .focus-name { font-size:17px; font-weight:600; margin-bottom:5px; }
+  .rank-track { position:relative; height:22px; margin:12px 6px 0; border-top:3px solid #344255; }
+  .rank-track i { position:absolute; top:-7px; width:11px; height:11px; border-radius:50%; transform:translateX(-50%); border:2px solid #99a9c0; background:#141a24; }
+  .rank-track i.after { border-color:#72e4c9; background:#72e4c9; }
+  .rank-track .join { position:absolute; top:-3px; height:3px; background:#72e4c9; }
+  .rank-ends { display:flex; justify-content:space-between; color:#8c9bb2; font-size:10px; }
+  .rank-pair { font-size:19px; font-weight:600; margin:8px 0; }
+  .rank-pair small { font-size:11px; color:#91a2b9; font-weight:400; }
+  .part-row { display:grid; grid-template-columns:68px 1fr 55px; gap:6px; align-items:center; font-size:11px; margin:4px 0; }
+  .part-track { height:7px; position:relative; background:linear-gradient(90deg,transparent 49.5%,#778498 50%,transparent 50.5%); }
+  .part-track i { position:absolute; top:0; height:7px; border-radius:2px; }
+  .part-row b { text-align:right; font-weight:500; }
+  details { margin-top:12px; }
+  summary { cursor:pointer; color:#a9b7cb; font-size:11px; }
+  .notice { padding:8px 10px; margin:8px 0; border-left:2px solid #ddae67; background:#2b251d; color:#e9ca9c; font-size:11px; }
+  .scope { color:#8ea0b8; font-size:10px; margin-top:9px; }
+  .hint { color:#8a97ab; }
+  #legend { max-width:210px; }
+  #stat { max-width:75%; }
+  #tools summary { margin-bottom:6px; }
+  #focus-loading { color:#9aa9bc; padding:12px 0; }
+  #map-depth { padding:9px 16px; background:#171e29; border-bottom:1px solid #2a3442;
+    display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  .depth-steps,.depth-actions,#browse-path { display:flex; gap:5px; align-items:center; flex-wrap:wrap; }
+  .depth-steps button { background:transparent; color:#8e9eb5; border-color:transparent; }
+  .depth-steps button.active { background:#26473f; color:#a4efd9; border-color:#416f60; }
+  .depth-steps span { color:#607089; } #depth-caption { color:#9aa9be; font-size:10px; }
+  #browse-path { margin-bottom:10px; color:#7387a1; font-size:11px; }
+  #browse-path button { border:0; padding:3px 0; background:transparent; color:#bdd9f3; }
+  .category-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:5px; width:100%;
+    padding:10px; margin-top:5px; background:#182330; border-color:#2b3a4e; text-align:left; }
+  .category-row .category-name { font-size:12px; color:#e0e8f2; font-weight:600; overflow-wrap:anywhere; }
+  .category-row .category-meta { color:#95a6bd; font-size:10px; display:block; margin-top:3px; }
+  .category-row .category-score { text-align:right; white-space:nowrap; font-size:15px; }
+  .category-row .category-score small { display:block; font-size:10px; }
+  .category-meter { display:block; height:3px; background:#2c3b4d; margin-top:7px; }
+  .category-meter i { display:block; height:3px; background:#7bb5d8; }
+  #hierarchy-list { max-height:330px; overflow:auto; padding-right:3px; }
+  #hierarchy-detail .scope { margin-top:0; }
+  #panel-body { display:flex; flex-direction:column; }
+  #panel-body > * { flex-shrink:0; }
+  #hierarchy-detail { order:-3; }
+  #panel[data-depth="2"] #hierarchy-list { max-height:140px; }
+  #panel[data-depth="2"] #focus-detail { order:-2; }
+  #panel[data-depth="0"] #candidate-changes, #panel[data-depth="1"] #candidate-changes,
+  #panel[data-depth="0"] #focus-detail, #panel[data-depth="1"] #focus-detail { display:none; }
+  @media (max-width:1200px) {
+    #side { width:146px; } #panel { width:324px; padding:14px; }
+    #context,#timeline { padding:12px 14px; } header .stat:nth-child(2) { display:none; }
+  }
+  @media (max-width:850px) {
+    body { overflow:auto; height:auto; min-height:100vh; }
+    #wrap { display:grid; grid-template-columns:130px minmax(0,1fr); overflow:visible; }
+    #side { width:auto; grid-row:1 / 3; max-height:100vh; position:sticky; top:0; }
+    #workspace { min-height:660px; } #panel { width:auto; border-top:1px solid #28303d; overflow:visible; }
+    header .stats { display:none; } #legend { max-width:180px; } #stat { max-width:95%; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>취향 변화 지도</h1>
+  <a href="/admin">관리자 화면</a>
+  <a href="/docs">API 문서</a>
+  <div class="stats" id="stats"></div>
+</header>
+
+<div id="wrap">
+  <aside id="side">
+    <h2>사용자 <span id="ucount"></span></h2>
+    <input id="user-search" type="search" placeholder="이름·ID 검색" aria-label="사용자 검색">
+    <div id="users"></div>
+  </aside>
+
+  <main id="workspace">
+  <div id="context"><div class="eyebrow">TASTE OBSERVATORY</div><div class="context-title"><strong>취향이 바뀌는 순간을 읽습니다</strong></div><div class="hint">사용자를 선택하면 같은 가게들의 전후 순위와 반응 이력을 비교합니다.</div></div>
+  <nav id="map-depth" aria-label="취향 지도 상세 단계">
+    <div class="depth-steps"><button data-depth="0" class="active">큰 업종 · cat2</button><span>›</span><button data-depth="1">세부 업종 · cat3</button><span>›</span><button data-depth="2">가게</button></div>
+    <div class="depth-actions"><span id="depth-caption">확대하면 더 자세히 보입니다</span><button id="zoom-out" aria-label="지도 축소">−</button><button id="zoom-in" aria-label="지도 확대">＋</button></div>
+  </nav>
+  <div id="stage">
+    <canvas id="cv"></canvas>
+    <div id="legend" class="ov"></div>
+    <div id="tools" class="ov">
+      <select id="color-mode" aria-label="지도 색상"><option value="change">취향 변화</option><option value="score">현재 순위</option></select>
+      <label><input type="checkbox" id="trace-toggle" checked> 취향 변화 경로</label>
+      <details><summary>지도 표시</summary><label><input type="checkbox" id="edges"> 실제 유사도 이웃 선</label>
+      <label><input type="checkbox" id="pins"> 좋아요·별로 핀</label>
+      <label><input type="checkbox" id="links-toggle"> 현재 유사 근거 연결선</label></details>
+      <button id="reset">화면 맞춤</button>
+    </div>
+    <div id="stat" class="ov"></div>
+    <div id="tip"></div>
+  </div>
+  <div id="timeline"><div class="hint">최근 반응을 클릭하면 그 한 번의 전후 변화로 이동합니다.</div></div>
+  </main>
+
+  <aside id="panel">
+    <div id="panel-body"><div class="empty">왼쪽에서 사용자를 고르면<br>지형도에 그 사람의 점수가 얹힙니다.</div></div>
+  </aside>
+</div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const fmt = (n) => n == null ? '-' : (typeof n === 'number' ? n.toLocaleString('ko-KR') : n);
+const pct = (n) => n == null ? '-' : Math.round(n * 100) + '%';
+const sig = (n) => (n >= 0 ? '+' : '') + Number(n).toFixed(2);
+const clamp = (v, a, b) => v < a ? a : (v > b ? b : v);
+function esc(s) { return String(s == null ? '' : s)
+  .replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c])); }
+
+async function api(p) {
+  const r = await fetch(p);
+  if (!r.ok) throw new Error(p + ' -> ' + r.status);
+  return r.json();
+}
+
+/* 업종 색. 지도의 범례는 **빈도 상위 10개 + 기타** 다 — 20종을 다 칠하면 구분이 안 된다. */
+const PALETTE = ['#5b8cff','#f59e0b','#22d3ee','#c084fc','#f472b6','#facc15',
+                 '#4ade80','#fb923c','#2dd4bf','#e879f9'];
+const OTHER = '#6b7280';
+const LEGEND_N = 10;
+const catColor = (ci) => ci < LEGEND_N ? PALETTE[ci] : OTHER;
+
+/* 슬라이더가 걷는 범위. 학습값은 이 밖으로 나갈 수 있다(그때는 막대가 끝에 붙는다). */
+const W_MIN = -1.5, W_MAX = 2;
+
+/* 점수 램프 — 낮은 쪽이 배경으로 잠기고(어둡고 투명) 높은 쪽이 타오른다. */
+const RAMP = [[0.00,[22,24,31]],[0.22,[40,42,84]],[0.44,[91,58,118]],
+              [0.64,[161,65,108]],[0.82,[224,107,60]],[1.00,[255,209,102]]];
+function ramp(t) {
+  t = clamp(t, 0, 1);
+  for (let i = 1; i < RAMP.length; i++) {
+    if (t <= RAMP[i][0]) {
+      const [a, ca] = RAMP[i - 1], [b, cb] = RAMP[i];
+      const f = (t - a) / (b - a || 1);
+      return [0, 1, 2].map(k => Math.round(ca[k] + (cb[k] - ca[k]) * f));
+    }
+  }
+  return RAMP[RAMP.length - 1][1];
+}
+
+/* ───────── 상태 ───────── */
+let L = null;                 // 지형도 (한 번만 읽는다)
+let U = null;                 // 지금 그려진 사용자 응답
+let current = null;           // recommendation session ID (legacy user_id)
+let overrideOn = false;       // 슬라이더를 건드렸는가
+let sliderVals = null;        // 성분 순서 그대로의 배열
+let uptoVal = null;           // 이력 스크러버 (null = 지금)
+let selTop = 0;               // 강조 중인 상위 카드
+let hoverTop = null;          // 마우스가 올라간 상위 카드 (연결선을 잠깐 바꾼다)
+let hoverIdx = -1;            // 마우스가 올라간 가게
+let playing = null;           // 재생 타이머
+let beforeW = null;           // 스와이프 직전 가중치 (변화량 표시)
+let lastDelta = null;
+let baseline = null, comparison = null;
+let compareMode = 'recent', customFrom = 0, focusIdx = null; // 처음 또는 직전 스와이프와 같은 후보 풀을 비교
+let T = null, traceKey = null, traceVersion = 0, traceState = '', hoverTrace = null;
+let requestVersion = 0, swiping = false, fetchPending = false, playVersion = 0;
+let browse = {cat2:null, cat3:null}, groupSets = [[], []], groupHits = [], hoverGroup = null;
+let renderedDepth = -1;
+const category2 = i => (L.cat2 ? L.cat2[i] : L.cats[L.cat[i]]) || '분류 없음';
+const category3 = i => L.cat3?.[i] || '세부분류 없음';
+const detailDepth = () => view.k / k0 < 1.8 ? 0 : view.k / k0 < 4.5 ? 1 : 2;
+const inScope = i => (!browse.cat2 || category2(i) === browse.cat2) &&
+  (!browse.cat3 || category3(i) === browse.cat3);
+const changeView = () => $('#color-mode').value === 'change';
+// 동점은 평균 순위. 배열 순서 때문에 가짜 취향 차이를 만들지 않는다.
+function ranks(scores) {
+  const order = scores.map((_, i) => i).sort((a, b) => scores[b] - scores[a] || a - b);
+  const rank = new Float64Array(scores.length);
+  for (let a = 0; a < order.length;) {
+    let b = a + 1;
+    while (b < order.length && scores[order[b]] === scores[order[a]]) b++;
+    for (let j = a; j < b; j++) rank[order[j]] = (a + b - 1) / 2;
+    a = b;
+  }
+  return {order, rank};
+}
+function compareScores(before, after) {
+  if (before.length !== after.length) throw new Error('비교 후보 수가 달라졌습니다. 새로고침해 주세요.');
+  const a = ranks(before), b = ranks(after), n = before.length;
+  const delta = Array.from(a.rank, (r, i) => n > 1 ? (r - b.rank[i]) / (n - 1) * 100 : 0);
+  const size = Math.min(10, n), oldTop = new Set(a.order.slice(0, size));
+  return {before: a.rank, after: b.rank, beforeOrder:a.order, afterOrder:b.order, delta, size,
+    mean: delta.reduce((sum, d) => sum + Math.abs(d), 0) / (n || 1),
+    entered: b.order.slice(0, size).filter(i => !oldTop.has(i)).length,
+    rises: b.order.filter(i => delta[i] > 0).sort((i, j) => delta[j] - delta[i]).slice(0, 3),
+    falls: b.order.filter(i => delta[i] < 0).sort((i, j) => delta[i] - delta[j]).slice(0, 3)};
+}
+function changeColor(d) {
+  const f = Math.min(1, Math.abs(d) / 25), neutral = [71, 80, 98];
+  const end = d >= 0 ? [73, 219, 194] : [247, 164, 107];
+  return neutral.map((v, i) => Math.round(v + (end[i] - v) * f));
+}
+
+/* 확대는 표시 정보만 바꾼다. 원래 좌표·개인 점수·시간 경로는 그대로 유지한다. */
+function buildHierarchy() {
+  groupSets = [new Map(), new Map()];
+  for (let i=0;i<L.count;i++) {
+    const parent=category2(i), child=category3(i);
+    for (const depth of [0,1]) {
+      const key=JSON.stringify(depth===0?[parent]:[parent,child]), map=groupSets[depth];
+      if(!map.has(key))map.set(key,{key,depth,parent,name:depth===0?parent:child,ids:[]});
+      map.get(key).ids.push(i);
+    }
+  }
+  groupSets=groupSets.map(map=>[...map.values()].map(g=>({...g,
+    x:g.ids.reduce((s,i)=>s+L.x[i],0)/g.ids.length,
+    y:g.ids.reduce((s,i)=>s+L.y[i],0)/g.ids.length})));
+}
+function groupStats(ids) {
+  if(!U||!comparison)return null;
+  const mean=values=>ids.reduce((s,i)=>s+values[i],0)/ids.length;
+  const scale=Math.max(1,L.count-1), likes=new Set(U.like_ids), dislikes=new Set(U.dislike_ids);
+  return {percentile:L.count>1?100*(1-mean(comparison.after)/scale):50,
+    delta:mean(comparison.delta), likes:ids.filter(i=>likes.has(i)).length,
+    dislikes:ids.filter(i=>dislikes.has(i)).length};
+}
+function shownGroups() {
+  const depth=detailDepth();
+  if(depth===2)return [];
+  return groupSets[depth].filter(g=>!browse.cat2||g.parent===browse.cat2)
+    .map(g=>({...g,stats:groupStats(g.ids)}))
+    .sort((a,b)=>U?(changeView()?Math.abs(b.stats.delta)-Math.abs(a.stats.delta):b.stats.percentile-a.stats.percentile)||b.ids.length-a.ids.length:b.ids.length-a.ids.length);
+}
+function setDetailDepth(depth, ids=null) {
+  if(!L)return;
+  const x=ids?.length?ids.reduce((s,i)=>s+L.x[i],0)/ids.length:(W/2-view.tx)/view.k;
+  const y=ids?.length?ids.reduce((s,i)=>s+L.y[i],0)/ids.length:(H/2-view.ty)/view.k;
+  if(depth===0){browse={cat2:null,cat3:null};fitView();}
+  else {if(depth===1)browse.cat3=null;view.k=k0*[1,2.5,6][depth];view.tx=W/2-x*view.k;view.ty=H/2-y*view.k;}
+  hoverIdx=-1;hoverGroup=null;hoverTrace=null;$('#tip').style.display='none';
+  syncDepth();renderHierarchy();schedule();
+  $('#panel').scrollTop=0;
+  if(depth===2&&U&&!inScope(focusIdx)) {
+    const candidates=Array.from({length:L.count},(_,i)=>i).filter(inScope);
+    if(candidates.length)chooseFocus(candidates.sort((a,b)=>U.rank[a]-U.rank[b]||a-b)[0]);
+  }
+}
+function enterGroup(g) {
+  browse.cat2=g.parent;browse.cat3=g.depth===1?g.name:null;
+  setDetailDepth(g.depth+1,g.ids);
+}
+function syncDepth() {
+  const depth=detailDepth();
+  if(depth===renderedDepth)return;
+  if(depth===0)browse={cat2:null,cat3:null};
+  else if(depth===1)browse.cat3=null;
+  renderedDepth=depth;$('#panel').dataset.depth=String(depth);
+  document.querySelectorAll('.depth-steps button').forEach(el=>{
+    el.classList.toggle('active',+el.dataset.depth===depth);
+    el.setAttribute('aria-pressed',String(+el.dataset.depth===depth));
+  });
+  $('#depth-caption').textContent=['큰 업종별 흐름','세부 업종별 차이','가게별 순위와 변화 근거'][depth];
+  renderHierarchy();
+  if(depth===2&&U&&!inScope(focusIdx)) {
+    const candidates=Array.from({length:L.count},(_,i)=>i).filter(inScope);
+    if(candidates.length)chooseFocus(candidates.sort((a,b)=>U.rank[a]-U.rank[b]||a-b)[0]);
+  }
+}
+function renderHierarchy() {
+  if(!L)return;
+  let el=$('#hierarchy-detail');
+  if(!el) {
+    if(U||current)return;
+    $('#panel-body').innerHTML='<section id="hierarchy-detail"></section><div class="empty">사용자를 선택하면<br>분류별 취향과 변화량이 나타납니다.</div>';
+    el=$('#hierarchy-detail');
+  }
+  const depth=detailDepth(), indices=Array.from({length:L.count},(_,i)=>i).filter(inScope);
+  const groups=shownGroups();
+  const summary=groupStats(indices);
+  el.innerHTML=`<div id="browse-path"><button data-up="0">전체</button>${browse.cat2?`<span>›</span><button data-up="1">${esc(browse.cat2)}</button>`:''}${browse.cat3?`<span>›</span><span>${esc(browse.cat3)}</span>`:''}</div>
+    <h3>${['큰 업종의 취향','세부 업종의 취향','범위 안의 가게'][depth]}<small>${fmt(indices.length)}곳</small></h3>
+    <div class="scope">${depth<2?'분류를 선택하면 다음 단계로 확대합니다.':'가게를 선택하면 아래에서 변화 근거를 확인합니다.'}</div>
+    ${U&&depth<2?`<div class="hint">평균 순위 백분위 · 변화(%p)<br>${changeView()?'평균 변화의 절대값이 큰 분류부터':'현재 평균 순위가 높은 분류부터'} 표시합니다.</div>`:''}
+    ${summary&&depth===2?`<div class="hint">범위의 평균 순위 백분위 ${summary.percentile.toFixed(1)} · 변화 ${sig(summary.delta)}%p</div>`:''}
+    <div id="hierarchy-list">${depth<2?groups.map((g,n)=>{
+      const s=g.stats;
+      return `<button class="category-row" data-group="${n}"><span><span class="category-name">${esc(g.name)}</span><span class="category-meta">${depth===1&&!browse.cat2?esc(g.parent)+' · ':''}${fmt(g.ids.length)}곳${s?` · 좋아요 ${s.likes} · 별로 ${s.dislikes}`:''}</span>${s?`<span class="category-meter"><i style="width:${s.percentile}%"></i></span>`:''}</span><span class="category-score">${s?s.percentile.toFixed(1):'›'}${s?`<small class="${s.delta>=0?'rise':'fall'}">${sig(s.delta)}%p</small>`:''}</span></button>`;
+    }).join(''):indices.sort((a,b)=>U?U.rank[a]-U.rank[b]||a-b:a-b).slice(0,30).map(i=>`<button class="category-row" data-store="${i}"><span class="category-name">${esc(L.name[i])}<span class="category-meta">${esc(category2(i))} › ${esc(category3(i))}</span></span><span class="category-score">${U?fmt(U.rank[i]+1)+'위':'›'}${comparison?`<small class="${comparison.delta[i]>=0?'rise':'fall'}">${sig(comparison.delta[i])}%p</small>`:''}</span></button>`).join('')}</div>
+    <div class="hint">${depth<2?'큰 숫자는 소속 가게들의 전체 후보 내 순위 백분위 평균입니다. 높을수록 현재 모델이 우선하며, ±%p는 같은 가게들의 전후 변화 평균입니다. 선호 확률이 아니며 서로 다른 취향이 평균에 가려질 수 있습니다.':`범위 안에서 ${Math.min(30,indices.length)}곳까지 표시합니다. 순위는 항상 전체 ${fmt(L.count)}곳 기준입니다.`}</div>`;
+  el.querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>enterGroup(groups[+b.dataset.group]));
+  el.querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>setDetailDepth(+b.dataset.up));
+  el.querySelectorAll('[data-store]').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.store;view.tx=W/2-L.x[i]*view.k;view.ty=H/2-L.y[i]*view.k;
+    if(U)chooseFocus(i);else {hoverIdx=i;schedule();}
+  });
+}
+function drawHierarchy() {
+  groupHits=[];
+  const depth=detailDepth(), boxes=[];
+  const overlays=['#legend','#tools','#stat'].map(sel=>{
+    const a=$(sel).getBoundingClientRect(),b=cv.getBoundingClientRect();return {x:a.x-b.x,y:a.y-b.y,w:a.width,h:a.height};
+  });
+  const overlaps=(a,b)=>a.x<b.x+b.w+5&&a.x+a.w+5>b.x&&a.y<b.y+b.h+5&&a.y+a.h+5>b.y;
+  ctx.save();ctx.textAlign='left';ctx.textBaseline='middle';
+  const groups=depth<2?shownGroups():Array.from({length:L.count},(_,i)=>i).filter(inScope)
+    .sort((a,b)=>U?U.rank[a]-U.rank[b]||a-b:a-b).map(i=>({ids:[i],name:L.name[i],store:i}));
+  for(const g of groups) {
+    if(depth===2&&U&&g.store===focusIdx)continue;
+    const visible=g.ids.filter(i=>{const x=sx(L.x[i]),y=sy(L.y[i]);return x>0&&x<W&&y>0&&y<H;});
+    if(!visible.length)continue;
+    const anchor=depth===2?visible[0]:visible.reduce((a,b)=>
+      Math.hypot(L.x[a]-g.x,L.y[a]-g.y)<Math.hypot(L.x[b]-g.x,L.y[b]-g.y)?a:b);
+    const label=depth===2?g.name:`${g.name} · ${g.ids.length}곳`;
+    const subtitle=depth===2?'':g.stats?`${g.stats.percentile.toFixed(1)} · ${sig(g.stats.delta)}%p`:g.depth===1?g.parent:'선택해 확대';
+    ctx.font='600 12px system-ui,sans-serif';const w=Math.min(230,Math.max(ctx.measureText(label).width+20,subtitle.length*6+20)),h=depth===2?25:43;
+    const x=sx(L.x[anchor]),y=sy(L.y[anchor]);
+    const positions=[[12,-h/2],[-w-12,-h/2],[-w/2,-h-13],[-w/2,13]];
+    const box=positions.map(([dx,dy])=>({x:x+dx,y:y+dy,w,h})).find(b=>b.x>=4&&b.y>=4&&b.x+b.w<W-4&&b.y+b.h<H-4&&[...boxes,...overlays].every(a=>!overlaps(a,b)));
+    if(!box)continue;
+    boxes.push(box);
+    ctx.fillStyle='rgba(20,30,43,.95)';ctx.strokeStyle=hoverGroup?.key===g.key&&g.key?'#d7ebfc':'#4a647b';ctx.lineWidth=1;
+    ctx.beginPath();ctx.roundRect(box.x,box.y,w,h,6);ctx.fill();ctx.stroke();
+    ctx.fillStyle='#dce9f5';ctx.fillText(label,box.x+10,box.y+13,w-20);
+    if(subtitle){ctx.font='10px system-ui,sans-serif';ctx.fillStyle=g.stats?(g.stats.delta>=0?'#7edbc6':'#f0b28e'):'#94a9c0';ctx.fillText(subtitle,box.x+10,box.y+31,w-20);}
+    groupHits.push({...box,group:g});
+    if(boxes.length>=(depth===2?30:18))break;
+  }
+  ctx.restore();
+}
+function pickGroup(x,y){return groupHits.find(b=>x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h)?.group||null;}
+
+/* ───────── 캔버스 뷰 ───────── */
+const cv = $('#cv'), ctx = cv.getContext('2d');
+let W = 0, H = 0, DPR = 1, k0 = 1;
+const view = { k: 1, tx: 0, ty: 0 };
+let grid = null, GN = 72;     // 간단한 격자 색인 (마우스 근처 점 찾기)
+
+let bbox = null;                 // 좌표의 실제 경계상자 (짧은 축은 [0,1] 을 안 채운다)
+function fitView() {
+  const b = bbox || { x0: 0, y0: 0, x1: 1, y1: 1 };
+  // 두 축을 **같은 배율**로 맞춘다 — 축마다 늘리면 UMAP 이 지키는 국소 모양이 찌그러진다.
+  k0 = Math.min(W * 0.94 / (b.x1 - b.x0 || 1), H * 0.94 / (b.y1 - b.y0 || 1));
+  view.k = k0;
+  view.tx = (W - (b.x1 - b.x0) * k0) / 2 - b.x0 * k0;
+  view.ty = (H - (b.y1 - b.y0) * k0) / 2 - b.y0 * k0;
+}
+const sx = (x) => view.tx + x * view.k;
+const sy = (y) => view.ty + y * view.k;
+
+function resize() {
+  const r = $('#stage').getBoundingClientRect();
+  DPR = window.devicePixelRatio || 1;
+  W = Math.max(10, Math.round(r.width)); H = Math.max(10, Math.round(r.height));
+  cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  const zoom = k0 ? view.k / k0 : 1;      // 보고 있던 배율은 유지한다
+  const cx = (W / 2 - view.tx) / (view.k || 1), cy = (H / 2 - view.ty) / (view.k || 1);
+  fitView();
+  if (bbox && zoom !== 1) {               // 확대 중이었다면 같은 자리를 같은 배율로
+    view.k = k0 * zoom; view.tx = W / 2 - cx * view.k; view.ty = H / 2 - cy * view.k;
+  }
+  schedule();
+}
+
+function buildGrid() {
+  bbox = { x0: Math.min(...L.x), y0: Math.min(...L.y),
+           x1: Math.max(...L.x), y1: Math.max(...L.y) };
+  grid = new Map();
+  for (let i = 0; i < L.count; i++) {
+    const key = (Math.min(GN - 1, Math.floor(L.x[i] * GN)) * GN) +
+                Math.min(GN - 1, Math.floor(L.y[i] * GN));
+    let a = grid.get(key); if (!a) grid.set(key, a = []); a.push(i);
+  }
+}
+
+function pick(mx, my) {
+  if (!grid) return -1;
+  const wx = (mx - view.tx) / view.k, wy = (my - view.ty) / view.k;
+  const rad = 9 / view.k, cell = 1 / GN;
+  const c0 = Math.max(0, Math.floor((wx - rad) / cell)), c1 = Math.min(GN - 1, Math.floor((wx + rad) / cell));
+  const r0 = Math.max(0, Math.floor((wy - rad) / cell)), r1 = Math.min(GN - 1, Math.floor((wy + rad) / cell));
+  let best = -1, bd = rad * rad;
+  for (let c = c0; c <= c1; c++) for (let r = r0; r <= r1; r++) {
+    const a = grid.get(c * GN + r); if (!a) continue;
+    for (const i of a) {
+      if(!inScope(i))continue;
+      const dx = L.x[i] - wx, dy = L.y[i] - wy, d = dx * dx + dy * dy;
+      if (d < bd) { bd = d; best = i; }
+    }
+  }
+  return best;
+}
+
+/* ───────── 점수 -> 색 (분위수로 편다) ───────── */
+let qTo = null, qFrom = null, animT0 = 0;
+const ANIM = 600;
+function quantiles(scores) {
+  const n = scores.length, {rank} = ranks(scores);
+  const q = Float32Array.from(rank, r => n > 1 ? 1 - r / (n - 1) : 0.5);
+  return q;
+}
+function setScores(scores) {
+  const t = animPhase();
+  const prev = qTo, prevFrom = qFrom;
+  qFrom = prev ? Float32Array.from(prev, (v, i) => (prevFrom ? prevFrom[i] + (v - prevFrom[i]) * t : v * t)) : null;
+  qTo = scores ? quantiles(scores) : null;
+  animT0 = performance.now();
+  schedule();
+}
+const ease = (t) => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+function animPhase() { return ease(clamp((performance.now() - animT0) / ANIM, 0, 1)); }
+
+/* ───────── 그리기 ───────── */
+let pending = false;
+function schedule() { if (!pending) { pending = true; requestAnimationFrame(draw); } }
+
+function pointRadius(i, zoom) {
+  const base = 1.35 + Math.min(2.1, Math.log1p(L.reviews[i]) * 0.34);
+  return base * clamp(Math.sqrt(zoom), 0.8, 2.4);
+}
+
+function draw() {
+  pending = false;
+  if (!L) return;
+  syncDepth();
+  const t = animPhase(), zoom = view.k / k0;
+  ctx.fillStyle = '#0f1116'; ctx.fillRect(0, 0, W, H);
+
+  if ($('#edges').checked) drawEdges();
+
+  if(browse.cat2) {
+    ctx.fillStyle='#354052';ctx.globalAlpha=.25;ctx.beginPath();
+    for(let i=0;i<L.count;i++)if(!inScope(i)){const x=sx(L.x[i]),y=sy(L.y[i]);ctx.moveTo(x+2,y);ctx.arc(x,y,2,0,Math.PI*2);}
+    ctx.fill();ctx.globalAlpha=1;
+  }
+
+  // 점 — 색 버킷마다 한 번씩만 칠한다 (2,216개를 개별로 칠하면 프레임이 무너진다)
+  const buckets = new Map();
+  for (let i = 0; i < L.count; i++) {
+    if(!inScope(i))continue;
+    let key, alpha;
+    if (changeView() && comparison) {
+      key = 'd' + Math.round(clamp(comparison.delta[i], -25, 25)); alpha = 0.95;
+    } else if (qTo) {
+      const q = (qFrom ? qFrom[i] + (qTo[i] - qFrom[i]) * t : qTo[i] * t);
+      key = 'q' + Math.round(q * 23); alpha = 0.22 + 0.78 * q;
+    } else { key = 'c' + L.cat[i]; alpha = 0.82; }
+    let a = buckets.get(key); if (!a) buckets.set(key, a = { alpha, list: [] });
+    a.list.push(i);
+  }
+  for (const [key, b] of buckets) {
+    if (key[0] === 'q') { const c = ramp(+key.slice(1) / 23); ctx.fillStyle = `rgb(${c[0]},${c[1]},${c[2]})`; }
+    else if (key[0] === 'd') ctx.fillStyle = `rgb(${changeColor(+key.slice(1)).join(',')})`;
+    else ctx.fillStyle = catColor(+key.slice(1));
+    ctx.globalAlpha = b.alpha*(detailDepth()<2?.4:1);
+    ctx.beginPath();
+    for (const i of b.list) {
+      const X = sx(L.x[i]), Y = sy(L.y[i]);
+      if (X < -8 || X > W + 8 || Y < -8 || Y > H + 8) continue;
+      const r = pointRadius(i, zoom);
+      ctx.moveTo(X + r, Y); ctx.arc(X, Y, r, 0, 6.2832);
+    }
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+
+  drawHierarchy();
+  drawTrace();
+  if (U && $('#pins').checked) drawPins(t);
+  if (U && detailDepth()===2) drawTops(t, zoom);
+  if ($('#links-toggle').checked) drawLinks(t);
+  if (focusIdx != null && U && detailDepth()===2) drawFocus();
+  if (hoverIdx >= 0) {
+    const X = sx(L.x[hoverIdx]), Y = sy(L.y[hoverIdx]);
+    ctx.strokeStyle = '#e6e8ec'; ctx.lineWidth = 1.4;
+    ctx.beginPath(); ctx.arc(X, Y, pointRadius(hoverIdx, zoom) + 4.5, 0, 6.2832); ctx.stroke();
+  }
+  if (t < 1) schedule();
+}
+
+function drawEdges() {
+  const same = new Path2D(), cross = new Path2D();
+  for (let i = 0; i < L.count; i++) {
+    const X = sx(L.x[i]), Y = sy(L.y[i]);
+    if (X < -40 || X > W + 40 || Y < -40 || Y > H + 40) continue;
+    for (let j = 0; j < L.nbr[i].length; j++) {
+      const n = L.nbr[i][j], p = L.nbr_cross[i][j] ? cross : same;
+      p.moveTo(X, Y); p.lineTo(sx(L.x[n]), sy(L.y[n]));
+    }
+  }
+  ctx.lineWidth = 0.6;
+  ctx.globalAlpha = 0.42; ctx.strokeStyle = '#59647d'; ctx.stroke(same);
+  ctx.globalAlpha = 0.55; ctx.strokeStyle = '#f0a868'; ctx.stroke(cross);
+  ctx.globalAlpha = 1;
+}
+
+function pin(X, Y, color, halo) {
+  if (halo) {
+    const g = ctx.createRadialGradient(X, Y, 0, X, Y, 26);
+    g.addColorStop(0, color + '44'); g.addColorStop(1, color + '00');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(X, Y, 26, 0, 6.2832); ctx.fill();
+  }
+  ctx.fillStyle = color; ctx.strokeStyle = '#0f1116'; ctx.lineWidth = 1.2;
+  ctx.beginPath();
+  ctx.moveTo(X, Y); ctx.lineTo(X - 4.2, Y - 8.5); ctx.lineTo(X + 4.2, Y - 8.5);
+  ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.beginPath(); ctx.arc(X, Y - 10.5, 3.6, 0, 6.2832); ctx.fill(); ctx.stroke();
+}
+
+function drawPins() {
+  for (const i of U.dislike_ids) pin(sx(L.x[i]), sy(L.y[i]), '#f87171', false);
+  for (const i of U.like_ids) pin(sx(L.x[i]), sy(L.y[i]), '#4ade80', true);
+}
+
+function drawTops(t, zoom) {
+  ctx.save();
+  for (const c of U.top) {
+    const X = sx(L.x[c.idx]), Y = sy(L.y[c.idx]);
+    const on = c.idx === focusIdx;
+    const r = (7 + pointRadius(c.idx, zoom)) * (0.6 + 0.4 * t);
+    ctx.shadowColor = on ? '#ffd166' : '#5b8cff'; ctx.shadowBlur = on ? 16 : 9;
+    ctx.strokeStyle = on ? '#ffd166' : '#8db2ff'; ctx.lineWidth = on ? 2.2 : 1.4;
+    ctx.globalAlpha = t;
+    ctx.beginPath(); ctx.arc(X, Y, r, 0, 6.2832); ctx.stroke();
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = on ? '#ffd166' : '#c9cfda'; ctx.font = '10px system-ui,sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(String(c.rank), X, Y - r - 7);
+  }
+  ctx.restore();
+  ctx.globalAlpha = 1;
+}
+
+function drawFocus() {
+  const i=focusIdx, x=sx(L.x[i]), y=sy(L.y[i]);
+  ctx.save();
+  ctx.strokeStyle='#fff'; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.arc(x,y,12,0,Math.PI*2); ctx.stroke();
+  ctx.font='12px system-ui,sans-serif'; ctx.textAlign='left'; ctx.textBaseline='middle';
+  const name=L.name[i].slice(0,22), width=ctx.measureText(name).width+18;
+  const lx=clamp(x+18,4,W-width-4), ly=clamp(y+20,14,H-18);
+  ctx.fillStyle='#e2ecf9'; ctx.fillRect(lx,ly-13,width,26);
+  ctx.fillStyle='#152132'; ctx.fillText(name,lx+9,ly);
+  ctx.restore();
+}
+
+function tracePoints() {
+  if (!T || !U || overrideOn || !$('#trace-toggle').checked) return [];
+  const at=U.upto ?? U.prefs, points=T.points.filter(p=>p.n<at);
+  points.push({n:at,idx:U.anchor});
+  return points;
+}
+function drawTrace() {
+  const points=tracePoints(); if(!points.length) return;
+  ctx.save();
+  for(let j=1;j<points.length;j++) {
+    const a=points[j-1], b=points[j];
+    if(a.idx==null||b.idx==null||a.idx===b.idx) continue;
+    const x=sx(L.x[a.idx]),y=sy(L.y[a.idx]),x2=sx(L.x[b.idx]),y2=sy(L.y[b.idx]);
+    const dx=x2-x,dy=y2-y,len=Math.hypot(dx,dy),f=j/(points.length-1);
+    const color=`rgb(${Math.round(168-73*f)},${Math.round(145+85*f)},${Math.round(246-40*f)})`;
+    ctx.strokeStyle='#0f1116';ctx.lineWidth=6;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x2,y2);ctx.stroke();
+    ctx.strokeStyle=color;ctx.lineWidth=2.5;ctx.stroke();
+    if(len>30) {
+      const mx=x+dx*.62,my=y+dy*.62,ux=dx/len,uy=dy/len;
+      ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(mx+ux*7,my+uy*7);
+      ctx.lineTo(mx-ux*5-uy*4,my-uy*5+ux*4);ctx.lineTo(mx-ux*5+uy*4,my-uy*5-ux*4);ctx.closePath();ctx.fill();
+    }
+  }
+  const nodes=new Map(); points.forEach(p=>{if(p.idx!=null){if(!nodes.has(p.idx))nodes.set(p.idx,[]);nodes.get(p.idx).push(p.n);}});
+  const labels=[];
+  for(const [i,ns] of nodes) {
+    const x=sx(L.x[i]),y=sy(L.y[i]),current=ns.includes(U.upto??U.prefs);
+    ctx.fillStyle=current?'#ffe08a':'#bfa8ff';ctx.strokeStyle='#151923';ctx.lineWidth=2;
+    ctx.beginPath();ctx.arc(x,y,current?8:6,0,Math.PI*2);ctx.fill();ctx.stroke();
+    const label=(ns.length>2?ns[0]+'…'+ns.at(-1):ns.join('·'))+'회';
+    ctx.font='bold 11px system-ui,sans-serif';ctx.textAlign='left';ctx.textBaseline='middle';
+    const width=ctx.measureText(label).width;
+    const options=[[11,-12],[11,14],[-width-11,-12],[-width-11,14],[11,-30],[11,32]]
+      .map(([dx,dy])=>({x:clamp(x+dx,4,W-width-4),y:clamp(y+dy,12,H-12),w:width}));
+    const box=options.find(b=>labels.every(a=>b.x+b.w+5<a.x || a.x+a.w+5<b.x || Math.abs(b.y-a.y)>17)) || options.at(-1);
+    labels.push(box);
+    ctx.lineWidth=4;ctx.strokeStyle='#10141c';ctx.strokeText(label,box.x,box.y);
+    ctx.fillStyle=current?'#ffe08a':'#dacfff';ctx.fillText(label,box.x,box.y);
+  }
+  ctx.restore();
+}
+function pickTrace(mx,my) {
+  return tracePoints().filter(p=>p.idx!=null).reverse().find(p=>Math.hypot(sx(L.x[p.idx])-mx,sy(L.y[p.idx])-my)<10) || null;
+}
+function renderTraceStatus() {
+  const el=$('#trace-status'); if(!el) return;
+  el.innerHTML=overrideOn?'가중치 실험 중에는 실제 학습 경로를 숨깁니다.':T?
+    `선: 개인화 상위 ${T.top_count}곳의 대표를 <b>${T.stride}회 간격</b>으로 연결합니다. 모든 반응을 학습하고 표시점만 줄였습니다. 선 길이는 변화량이 아닙니다.`:
+    traceState==='error'?'경로를 불러오지 못했습니다. <button id="trace-retry">경로 재시도</button>':'전체 이력의 취향 변화 경로를 계산하는 중…';
+  if($('#trace-retry'))$('#trace-retry').onclick=()=>{traceKey=null;loadTrace();};
+}
+async function loadTrace() {
+  if(!U) return;
+  const uid=current,sid=U.session_id,at=U.prefs,key=uid+'/'+sid+'/'+at;
+  if(traceKey===key) return;
+  traceKey=key;T=null;traceState='loading';const version=++traceVersion;renderTraceStatus();
+  try {
+    const path='/admin/api/map/user/'+encodeURIComponent(uid)+'/trace?upto='+at+'&session_id='+encodeURIComponent(sid);
+    const data=await api(path);
+    if(version!==traceVersion||uid!==current||!U||U.session_id!==sid||U.prefs!==at) return;
+    T=data;traceState='ready';renderTraceStatus();schedule();
+  } catch(e) {
+    if(version!==traceVersion||uid!==current) return;
+    traceState='error';renderTraceStatus();
+  }
+}
+
+/* 연결선 — 상위 카드에서 '그 성분을 밀어올린 좋아요 가게' 로. 라벨은 맞은 쌍의 문장. */
+function drawLinks(t) {
+  if (!U || !U.top.length) return;
+  const c = U.top.find(c=>c.idx===focusIdx);
+  if (!c || !c.links.length) return;
+  const X = sx(L.x[c.idx]), Y = sy(L.y[c.idx]);
+  ctx.save();
+  ctx.globalAlpha = t;
+  ctx.font = '10.5px system-ui,sans-serif'; ctx.textBaseline = 'middle';
+  c.links.slice(0, 4).forEach((lk, n) => {
+    const X2 = sx(L.x[lk.idx]), Y2 = sy(L.y[lk.idx]);
+    const mx = (X + X2) / 2, my = (Y + Y2) / 2;
+    const dx = X2 - X, dy = Y2 - Y, len = Math.hypot(dx, dy) || 1;
+    const bend = (clamp(len * 0.16, 14, 54) + n * 11) * (n % 2 ? -1 : 1);
+    const cx = mx - dy / len * bend, cy = my + dx / len * bend;
+    ctx.strokeStyle = '#ffd166'; ctx.lineWidth = 1.3;
+    ctx.beginPath(); ctx.moveTo(X, Y); ctx.quadraticCurveTo(cx, cy, X2, Y2); ctx.stroke();
+    ctx.fillStyle = '#4ade80';
+    ctx.beginPath(); ctx.arc(X2, Y2, 3.4, 0, 6.2832); ctx.fill();
+    const lx = (X + 2 * cx + X2) / 4, ly = (Y + 2 * cy + Y2) / 4;
+    const label = lk.name + (lk.pair ? ' · ' + lk.pair[0].slice(0, 22) : '');
+    const w = ctx.measureText(label).width + 10;
+    ctx.fillStyle = 'rgba(15,17,22,.86)'; ctx.strokeStyle = '#3a4152'; ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(lx - w / 2, ly - 9, w, 18, 5);
+    else ctx.rect(lx - w / 2, ly - 9, w, 18);
+    ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#e2c07a'; ctx.textAlign = 'center'; ctx.fillText(label, lx, ly);
+  });
+  ctx.restore();
+}
+
+/* ───────── 툴팁 ───────── */
+function showTip(i, mx, my) {
+  const tip = $('#tip');
+  if (i < 0) { tip.style.display = 'none'; return; }
+  let extra = '';
+  if (U) {
+    const rank = U.rank[i] + 1;
+    const card = U.top.find(c => c.idx === i);
+    extra = `<div class="p">점수 <b>${U.scores[i].toFixed(2)}</b> · 전체 ${fmt(rank)}위 / ${fmt(L.count)}</div>`;
+    if (comparison) extra += `<div class="p">비교 순위 ${fmt(comparison.before[i] + 1)} → ${fmt(comparison.after[i] + 1)}위<br>
+      <span class="${comparison.delta[i] >= 0 ? 'rise' : 'fall'}">${sig(comparison.delta[i])}%p</span> · 원점수 ${baseline.scores[i].toFixed(4)} → ${U.scores[i].toFixed(4)}</div>`;
+    if (card) extra += `<div class="p" style="color:#e2c07a">아직 안 본 카드 중 ${card.rank}위</div>
+      <div class="p">${esc(topParts(card, 3))}</div>`;
+    if (U.like_ids.indexOf(i) >= 0) extra += `<div class="p" style="color:#4ade80">♥ 좋아요한 가게</div>`;
+    if (U.dislike_ids.indexOf(i) >= 0) extra += `<div class="p" style="color:#f87171">✕ 별로라고 한 가게</div>`;
+  }
+  tip.innerHTML = `<b>${esc(L.name[i])}</b>
+    <div class="s">${esc(category2(i))} › ${esc(category3(i))} · 리뷰 ${fmt(L.reviews[i])}개 ·
+      ★${L.rating[i] == null ? '-' : L.rating[i]}</div>${extra}`;
+  tip.style.display = 'block';
+  const r = tip.getBoundingClientRect();
+  tip.style.left = clamp(mx + 14, 4, W - r.width - 6) + 'px';
+  tip.style.top = clamp(my + 14, 4, H - r.height - 6) + 'px';
+}
+
+function topParts(card, n) {
+  return Object.entries(card.parts)
+    .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1])).slice(0, n)
+    .filter(([, v]) => Math.abs(v) >= 0.005)
+    .map(([key, v]) => `${nameOfKey(key)} ${sig(v)}`).join(' · ');
+}
+function nameOfKey(key) {
+  const w = (U && U.weights || []).find(x => x.key === key);
+  return w ? w.name : key;
+}
+
+/* ───────── 마우스 ───────── */
+let dragging = null, dragMoved = false;
+cv.addEventListener('mousedown', (e) => {
+  dragMoved = false;
+  dragging = { x: e.offsetX, y: e.offsetY, tx: view.tx, ty: view.ty, moved: false };
+  cv.classList.add('drag');
+});
+window.addEventListener('mouseup', () => { dragging = null; cv.classList.remove('drag'); });
+cv.addEventListener('mousemove', (e) => {
+  const mx = e.offsetX, my = e.offsetY;
+  if (dragging) {
+    view.tx = dragging.tx + (mx - dragging.x); view.ty = dragging.ty + (my - dragging.y);
+    if (Math.abs(mx - dragging.x) + Math.abs(my - dragging.y) > 3) dragging.moved = dragMoved = true;
+    $('#tip').style.display = 'none'; schedule(); return;
+  }
+  const group=pickGroup(mx,my);
+  hoverGroup=group;
+  if(group&&group.store==null) {
+    hoverIdx=-1;hoverTrace=null;hoverTop=null;$('#tip').style.display='none';schedule();return;
+  }
+  const i = group?.store ?? pick(mx, my);
+  hoverTrace=pickTrace(mx,my);
+  if(hoverTrace) {
+    hoverIdx=hoverTrace.idx;schedule();showTip(hoverTrace.idx,mx,my);
+    $('#tip').innerHTML=`<b>${hoverTrace.n}회 · 취향 대표 가게</b><div class="p">${esc(L.name[hoverTrace.idx])}<br>클릭하면 이 시점으로 이동합니다.<br>상위 개인화 후보의 고차원 유사도로 고른 대표입니다.</div>`;
+    return;
+  }
+  const n = (U && i >= 0) ? U.top.findIndex(c => c.idx === i) : -1;
+  const ht = n >= 0 ? n : null;
+  if (i !== hoverIdx || ht !== hoverTop) { hoverIdx = i; hoverTop = ht; schedule(); }
+  showTip(i, mx, my);
+});
+cv.addEventListener('mouseleave', () => {
+  hoverIdx = -1; hoverTop = null; hoverTrace=null; hoverGroup=null; $('#tip').style.display = 'none'; schedule(); });
+cv.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const f = Math.exp(-e.deltaY * 0.0015);
+  const nk = clamp(view.k * f, k0 * 0.6, k0 * 40);
+  const wx = (e.offsetX - view.tx) / view.k, wy = (e.offsetY - view.ty) / view.k;
+  view.k = nk; view.tx = e.offsetX - wx * nk; view.ty = e.offsetY - wy * nk;
+  schedule();
+}, { passive: false });
+cv.addEventListener('click', (e) => {
+  if (dragMoved) return;
+  const group=pickGroup(e.offsetX,e.offsetY);
+  if(group&&group.store==null){enterGroup(group);return;}
+  const index=group?.store ?? pick(e.offsetX,e.offsetY);
+  if(index<0&&!hoverTrace)return;
+  if(hoverTrace) {
+    const point=hoverTrace, points=tracePoints(), j=points.findIndex(p=>p.n===point.n);
+    focusIdx=point.idx;compareMode='custom';customFrom=j>0?points[j-1].n:0;hoverTrace=null;
+    $('#tip').style.display='none';setTime(point.n);return;
+  }
+  if(detailDepth()<2) {
+    const depth=detailDepth(),g=groupSets[depth].find(g=>g.ids.includes(index));
+    if(g)enterGroup(g);return;
+  }
+  if(U&&inScope(index))chooseFocus(index);
+});
+$('#color-mode').onchange = () => { renderLegend();renderHierarchy();schedule(); };
+$('#reset').onclick = () => setDetailDepth(0);
+document.querySelectorAll('.depth-steps button').forEach(el=>el.onclick=()=>setDetailDepth(+el.dataset.depth));
+function zoomCenter(factor) {
+  const x=(W/2-view.tx)/view.k,y=(H/2-view.ty)/view.k;
+  view.k=clamp(view.k*factor,k0*.6,k0*40);view.tx=W/2-x*view.k;view.ty=H/2-y*view.k;schedule();
+}
+$('#zoom-in').onclick=()=>zoomCenter(1.6);
+$('#zoom-out').onclick=()=>zoomCenter(1/1.6);
+$('#edges').onchange = () => { renderLegend(); schedule(); };
+$('#pins').onchange = () => schedule();
+$('#links-toggle').onchange = () => schedule();
+$('#trace-toggle').onchange = () => {hoverTrace=null;schedule();};
+window.addEventListener('resize', resize);
+new ResizeObserver(resize).observe($('#stage'));
+
+/* ───────── 범례·상태줄 ───────── */
+function renderLegend() {
+  if (U) {
+    if (changeView() && comparison) {
+      $('#legend').innerHTML = `<div class="ttl">${baseline.upto} → ${U.upto ?? U.prefs}회 · ${overrideOn ? '가중치 실험 포함' : '취향 순위 변화'}</div>
+        <div class="grad" style="background:linear-gradient(90deg,#f7a46b,#475062,#49dbc2)"></div>
+        <div class="lrow" style="justify-content:space-between"><span>하락 −25%p</span><span>0</span><span>상승 +25%p</span></div>
+        <div class="hint">색 범위 고정 · 양끝은 25%p 이상<br>같은 가게의 전체 후보 내 상대 순위 변화<br>취향 확신도나 선호 확률이 아닙니다.</div>
+        <div class="lrow"><i style="background:#8db2ff"></i>고리: 아직 안 본 상위 ${U.top.length}곳</div>`;
+      return;
+    }
+    $('#legend').innerHTML = `<div class="ttl">현재 순위 · 전체 후보 기준</div>
+      <div class="grad"></div>
+      <div class="lrow" style="justify-content:space-between;color:#7d838f">
+        <span>낮음 (어둡게 잠김)</span><span>높음</span></div>
+      <div class="lrow"><i style="background:#4ade80"></i>좋아요 ${U.like_ids.length}곳</div>
+      <div class="lrow"><i style="background:#f87171"></i>별로 ${U.dislike_ids.length}곳</div>
+      <div class="lrow"><i style="background:#8db2ff"></i>상위 ${U.top.length}장 (고리·순위)</div>`;
+  } else {
+    const rows = L.cats.slice(0, LEGEND_N).map((c, i) =>
+      `<div class="lrow"><i style="background:${catColor(i)}"></i>${esc(c)}</div>`).join('');
+    const rest = L.cats.length - LEGEND_N;
+    $('#legend').innerHTML = `<div class="ttl">업종(cat2) 상위 ${LEGEND_N}</div>${rows}` +
+      (rest > 0 ? `<div class="lrow"><i style="background:${OTHER}"></i>기타 ${rest}종</div>` : '');
+  }
+}
+
+function renderStat() {
+  const share = L.stats.cross_category_share;
+  const edges = $('#edges').checked;
+  $('#stat').innerHTML =
+    `<b>${fmt(L.count)}곳</b>을 결합 유사도로 편 지도 · 이웃 ${L.neighbors}개 중 ` +
+    `<b>업종을 넘는 이웃 선 ${(share * 100).toFixed(1)}%</b>` +
+    (edges ? ` <span style="color:#f0a868">— 주황 선이 그것</span>` : '') +
+    `<br><span style="color:#5c626e">${esc(L.caveat)}</span>`;
+}
+
+/* ───────── 사용자 목록 ───────── */
+function filterUsers() {
+  const q=$('#user-search').value.trim().toLowerCase();
+  document.querySelectorAll('.u').forEach(el=>el.hidden=!(el.textContent+' '+el.dataset.id+' '+el.dataset.owner+' '+el.parentElement.textContent.split('세션 ·')[0]).toLowerCase().includes(q));
+  document.querySelectorAll('.person-group').forEach(el=>el.hidden=![...el.querySelectorAll('.u')].some(row=>!row.hidden));
+}
+$('#user-search').oninput=filterUsers;
+async function loadUsers() {
+  const us = await api('/admin/api/users');
+  $('#ucount').textContent = us.length ? `(${new Set(us.map(u=>u.owner_user_id || u.user_id)).size}명 · ${us.length}세션)` : '';
+  if (!us.length) {
+    $('#users').innerHTML = `<div class="empty" style="padding:20px 14px">
+      아직 스와이프한 사용자가 없습니다.<br><br>
+      <code style="color:#9aa1ad">POST /user</code> → 세션 생성 후<br>
+      <code style="color:#9aa1ad">POST /user/{uid}/session/{sid}/preferences</code> 로 기록을 보내세요.</div>`;
+    return;
+  }
+  const groups = new Map();
+  us.forEach(u => {const owner=u.owner_user_id || u.user_id;if(!groups.has(owner))groups.set(owner,[]);groups.get(owner).push(u);});
+  $('#users').innerHTML = [...groups].map(([owner, rows]) => `
+    <section class="person-group">
+      <div style="padding:12px 12px 5px;color:#c8cfdb;font-size:12px"><b>${esc(rows.find(u=>u.name)?.name || '이름 없는 사용자')}</b> · ${rows.length}세션<br><code style="font-size:10px;color:#8994a8;overflow-wrap:anywhere">${esc(owner)}</code></div>
+      ${rows.map((u,i) => `<div class="u ${u.user_id === current ? 'on' : ''}" data-id="${encodeURIComponent(u.user_id)}" data-owner="${esc(owner)}">
+        <div class="id">세션 · ${esc(u.session_id || u.user_id)}</div>
+        <div class="meta"><span>${u.swipes}회</span><span>선호 ${pct(u.like_rate)}</span></div>
+        <div class="bar-mini"><i style="width:${(u.like_rate || 0) * 100}%"></i></div>
+      </div>`).join('')}
+    </section>`).join('');
+  document.querySelectorAll('.u').forEach(el =>
+    el.onclick = () => selectUser(decodeURIComponent(el.dataset.id)));
+  filterUsers();
+}
+
+/* ───────── 헤더 ───────── */
+async function loadStats() {
+  const s = await api('/admin/api/stats');
+  $('#stats').innerHTML = [
+    ['후보 풀', fmt(L.count) + '곳'],
+    ['지도', `${esc(L.method)} · ${esc((L.built_at || '').slice(0, 16))}`],
+    ['정책', esc(s.policy) + (s.policy !== s.configured_policy ? ` (설정 ${esc(s.configured_policy)})` : '')],
+    ['사용자 / 세션', fmt(s.users) + '명 / ' + fmt(s.sessions) + '개'],
+  ].map(([k, v]) => `<div class="stat"><b>${v}</b><br><span>${k}</span></div>`).join('');
+}
+
+/* ───────── 사용자 데이터 ───────── */
+function query() {
+  const q = [];
+  if (overrideOn && sliderVals) q.push('weights=' + sliderVals.map(v => v.toFixed(2)).join(','));
+  if (uptoVal != null) q.push('upto=' + uptoVal);
+  if (focusIdx != null) q.push('focus=' + focusIdx);
+  return q.length ? '?' + q.join('&') : '';
+}
+
+async function fetchUser(keepSel) {
+  const uid = current, version = ++requestVersion, queryString = query();
+  fetchPending = true;
+  $('#context').setAttribute('aria-busy', 'true');
+  $('#panel-body').style.opacity = '.55';
+  try {
+  const d = await api('/admin/api/map/user/' + encodeURIComponent(uid) + queryString);
+  const at = d.upto ?? d.prefs;
+  const baseAt = compareMode === 'previous' ? Math.max(0, at - 1) : compareMode === 'recent' ? Math.max(0,at - (d.history_effect?.half_life_swipes || 10)) : compareMode === 'custom' ? Math.min(at,customFrom) : 0;
+  const base = await api('/admin/api/map/user/' + encodeURIComponent(uid) + '?upto=' + baseAt + '&focus=' + d.focus.idx + '&session_id=' + encodeURIComponent(d.session_id));
+  if (uid !== current || version !== requestVersion) return;
+  if (d.scores.length !== L.count) throw new Error('지도와 후보 수가 다릅니다. 새로고침해 주세요.');
+  if (d.session_id !== base.session_id) throw new Error('세션이 변경됐습니다. 다시 불러와 주세요.');
+  baseline = base; comparison = compareScores(base.scores, d.scores);
+  U = d; U.rank = comparison.after; focusIdx = d.focus.idx;
+  if(detailDepth()===2&&!inScope(focusIdx)) {
+    browse={cat2:category2(focusIdx),cat3:category3(focusIdx)};
+    view.tx=W/2-L.x[focusIdx]*view.k;view.ty=H/2-L.y[focusIdx]*view.k;
+  }
+  if (!overrideOn) sliderVals = d.weights.map(w => w.w);
+  if (!keepSel) selTop = 0;
+  setScores(d.scores);
+  renderLegend(); renderPanel();
+  loadTrace();
+  } catch (error) {
+    if (version !== requestVersion || uid !== current) return;
+    stopPlaying();
+    U = null; baseline = null; comparison = null; setScores(null); renderLegend();
+    $('#context').innerHTML = '<div class="hint">비교 데이터를 불러오지 못했습니다.</div>';
+    $('#timeline').innerHTML = '';
+    $('#panel-body').innerHTML = `<div class="empty">${esc(error.message)}<br><button id="retry-user">다시 불러오기</button></div>`;
+    $('#retry-user').onclick = () => fetchUser(false);
+  } finally { if (version === requestVersion) {
+    fetchPending = false; $('#context').setAttribute('aria-busy', 'false');
+    $('#panel-body').style.opacity = '1';
+  } }
+}
+
+async function selectUser(uid) {
+  stopPlaying(); clearTimeout(wTimer); requestVersion++;
+  U = null; baseline = null; comparison = null; renderLegend(); schedule();
+  $('#context').innerHTML = '<div class="hint">사용자의 비교 시점을 불러오는 중…</div>';
+  $('#timeline').innerHTML = '';
+  current = uid; overrideOn = false; sliderVals = null; uptoVal = null;
+  browse={cat2:null,cat3:null};fitView();renderedDepth=-1;
+  T=null;traceKey=null;traceVersion++;hoverTrace=null;
+  selTop = 0; focusIdx = null; lastDelta = null; qTo = null; qFrom = null;
+  document.querySelectorAll('.u').forEach(el =>
+    el.classList.toggle('on', decodeURIComponent(el.dataset.id) === uid));
+  $('#panel-body').innerHTML = `<div class="empty">불러오는 중…</div>`;
+  await fetchUser(false);
+}
+
+/* ───────── 오른쪽 패널 ───────── */
+/* 비교 시점과 반응은 지도에, 판단에 필요한 결과는 사이드바에 둔다. */
+let wTimer = null, moverMode = 'entered';
+function chooseFocus(i) {
+  stopPlaying(); focusIdx = i; requestVersion++;
+  if(!inScope(i))browse={cat2:category2(i),cat3:category3(i)};
+  if(detailDepth()<2)setDetailDepth(2,[i]);
+  $('#panel').scrollTop=0;
+  $('#tip').style.display='none';
+  $('#focus-detail').innerHTML = '<div id="focus-loading">선택한 가게의 전후 점수 확인 중…</div>';
+  fetchUser(true);
+}
+function renderContext() {
+  const at = U.upto ?? U.prefs, from = baseline.upto;
+  $('#context').innerHTML = `<div class="eyebrow">TASTE OBSERVATORY · 현재 추천 세션</div>
+    <div class="context-title"><strong>${esc(U.name || U.user_id)}</strong><span class="badge">${uptoVal == null ? '현재' : '이력 재생'} · ${at}회</span>${overrideOn ? '<span class="badge">가중치 실험</span>' : ''}</div>
+    <div class="controls"><select id="compare-mode" aria-label="비교 기준">
+      ${[['recent','최근 ' + (U.history_effect?.half_life_swipes || 10) + '회'],['previous','직전 1회'],['start','세션 시작'],['custom','직접 비교']].map(([v,t])=>`<option value="${v}" ${compareMode===v?'selected':''}>${t}</option>`).join('')}</select>
+      <label>기준 <input id="compare-from" type="number" min="0" max="${at}" value="${from}" aria-label="기준 스와이프"></label><span>→</span>
+      <label>조회 <input id="compare-to" type="number" min="0" max="${U.prefs}" value="${at}" aria-label="조회 스와이프"></label>
+      <button id="to-live">현재로</button></div>
+    <div class="scope">취향 모델 · 동일한 ${fmt(L.count)}곳 비교 · 이미 본 가게 포함 · 위치·필터·탐색 혼합 적용 전</div>
+    <div class="hint" id="trace-status"></div>`;
+  renderTraceStatus();
+  $('#compare-mode').onchange = e => { stopPlaying(); compareMode=e.target.value; customFrom=from; fetchUser(true); };
+  $('#compare-from').onchange = e => { stopPlaying(); compareMode='custom'; customFrom=clamp(Math.floor(Number(e.target.value)||0),0,at); fetchUser(true); };
+  $('#compare-to').onchange = e => setTime(clamp(Math.floor(Number(e.target.value)||0),0,U.prefs));
+  $('#to-live').onclick = () => setTime(U.prefs);
+  const feedback=U.feedback || [], interval=feedback.filter(f=>f.n>from);
+  $('#timeline').innerHTML = `<div class="timeline-head"><b>반응으로 변화 되짚기</b><span>${feedback.length ? feedback[0].n+'–'+at+'회 표시' : '아직 반응 없음'} · ${interval.filter(f=>f.like).length} 좋아요 / ${interval.filter(f=>!f.like).length} 별로${from < at-feedback.length ? ' (표시 구간)' : ''}</span></div>
+    <div class="reactions">${feedback.map(f=>`<button class="reaction ${f.like?'like':'dislike'} ${f.n<=from?'outside':''} ${f.n===at?'on':''}" data-n="${f.n}" title="${f.n}회 · ${esc(f.idx==null?'지도 밖 가게':L.name[f.idx])} · ${f.like?'좋아요':'별로'} · ${f.weight ? '시간 가중치 '+(f.weight<.001?'<0.1':(f.weight*100).toFixed(1))+'% (기여율 아님)' : '현재 근거에서 제외'}"><span>${f.like?'♥':'×'}</span><span class="rn">${f.n}</span></button>`).join('')}</div>
+    <div class="scrub"><button id="play" aria-label="${playing?'재생 중지':'이력 재생'}">${playing?'■':'▶'}</button><input type="range" id="scrub" min="0" max="${U.prefs}" value="${at}" aria-label="스와이프 시점" ${U.prefs?'':'disabled'}><span>${at} / ${U.prefs}회</span></div>
+    <div class="hint">반응을 누르면 직전 1회와 비교합니다. 최근 최대 30회 표시 · 같은 가게의 재평가는 마지막 반응만 유지됩니다.</div>`;
+  $('#scrub').oninput = e => { stopPlaying(); requestVersion++; uptoVal=+e.target.value>=U.prefs?null:+e.target.value; clearTimeout(wTimer); wTimer=setTimeout(()=>fetchUser(true),130); };
+  $('#play').onclick=play;
+  document.querySelectorAll('.reaction').forEach(el=>el.onclick=()=>{
+    const f=feedback.find(f=>f.n===+el.dataset.n); compareMode='previous'; if(f.idx!=null)focusIdx=f.idx; setTime(f.n);
+  });
+}
+function setTime(n) { stopPlaying(); clearTimeout(wTimer); uptoVal=n>=U.prefs?null:n; fetchUser(true); }
+function renderPanel() {
+  if (!U) return;
+  const advancedOpen = $('#advanced')?.open || false;
+  renderContext();
+  const card=U.top.find(c=>c.idx===focusIdx) || U.top[Math.min(selTop,U.top.length-1)];
+  const past=uptoVal!=null;
+  $('#panel-body').innerHTML = `<section id="hierarchy-detail"></section>${comparisonBlock()}
+    <section id="candidate-changes"><h3>달라진 후보 <span class="seq">02</span></h3>
+      <div class="tabs">${[['entered','상위 진입·이탈'],['moved','큰 순위 이동']].map(([v,t])=>`<button data-mode="${v}" class="${moverMode===v?'active':''}">${t}</button>`).join('')}</div>
+      ${moversBlock()}<div class="hint">각 상위 2곳 · 선택하면 지도와 아래 근거가 함께 바뀝니다.</div></section>
+    <section id="focus-detail">${focusBlock()}</section>
+    <details><summary>아직 안 본 상위 ${U.top.length}곳 · 현재 유사 근거</summary>
+      <div class="tops">${U.top.map((c,n)=>`<button class="tp ${c.idx===focusIdx?'on':''}" data-n="${n}"><span class="rk">${c.rank}</span><span class="nm">${esc(c.name)}</span><span class="sc">전체 ${fmt(U.rank[c.idx]+1)}위</span></button>`).join('')}</div>
+      ${card && card.idx===focusIdx ? linksBlock(card) : ''}
+      <div class="hint">유사한 좋아요 사례이며 변화의 인과 기여도를 뜻하지 않습니다. 실제 제공 카드는 위치·필터·혼합 정책에 따라 다릅니다.</div></details>
+    <details><summary>해석 기준 · 최근 반응의 영향</summary><div class="hint">
+      두 시점 모두 같은 ${fmt(L.count)}곳을 채점합니다. 1%p는 순위 약 ${((L.count-1)/100).toFixed(1)}곳의 차이입니다. 동점은 평균 순위이며 상위 10곳 경계의 동점은 고정 순서로 정합니다.<br><br>
+      이전 반응도 모두 유지하며 시간 가중치는 ${U.history_effect?.half_life_swipes || 10}회마다 절반이 됩니다. 동일 가게의 재평가는 마지막 반응이 우선합니다. 이전 세션 특징 혼합 비중은 현재 ${((U.history_effect?.previous_share||0)*100).toFixed(1)}%입니다. 각각 시간 감쇠와 특징 혼합의 계수이며 실제 점수 기여율이 아닙니다.<br><br>
+      경로의 점은 인기·평판을 제외한 개인화 점수 상위 최대 20곳 중, 고차원 성분 유사도가 평균적으로 가장 가까운 실제 가게입니다. 여러 취향을 대표 하나로 요약하므로 전체 분포는 지도 색과 함께 보세요. 화살표는 시간 방향이며 이동 거리·방향을 취향의 강도나 의미로 해석하지 않습니다.<br><br>
+      점 위치는 고정된 고차원 유사도의 2차원 투영입니다. 가까운 이웃은 참고할 수 있지만 지도에서 먼 거리나 이동 방향으로 취향의 의미를 단정할 수 없습니다.</div></details>
+    <details id="advanced" ${advancedOpen?'open':''}><summary>모델 실험 · 실제 반응 기록</summary>
+      <section><h3>가중치 재채점</h3><div id="sliders">${U.weights.map((w,j)=>sliderRow(w,j)).join('')}</div>
+        <button id="reset-w" ${overrideOn?'':'disabled'}>학습값으로 되돌리기</button>
+        <div class="hint">슬라이더는 모델을 바꾸지 않습니다. 실험 중에는 색과 변화 근거에 가중치 조작 효과도 포함됩니다. 범위를 벗어난 학습값은 숫자로 확인하세요.</div></section>
+      <section><h3>실제 스와이프 기록</h3>${card?`<div class="swipe"><div class="nm">${esc(card.name)}</div><div class="why">${esc(card.reason)}</div><div class="btns"><button class="go" id="sw-like" ${past||swiping?'disabled':''}>♥ 좋아요</button><button class="no" id="sw-dis" ${past||swiping?'disabled':''}>✕ 별로</button></div></div>`:''}
+        <div class="warn">이 버튼은 실제 사용자 이력에 저장하고 모델을 학습시킵니다.${past?' 과거 조회 중에는 사용할 수 없습니다.':''}</div>${lastDelta?deltaBlock():''}</section></details>`;
+  document.querySelectorAll('.tabs button').forEach(el=>el.onclick=()=>{moverMode=el.dataset.mode;renderPanel();});
+  document.querySelectorAll('.mover').forEach(el=>el.onclick=()=>chooseFocus(+el.dataset.idx));
+  document.querySelectorAll('.tp').forEach(el=>el.onclick=()=>{selTop=+el.dataset.n;chooseFocus(U.top[selTop].idx);});
+  document.querySelectorAll('#sliders input').forEach(el=>el.oninput=()=>{
+    requestVersion++; overrideOn=true; sliderVals=sliderVals.slice(); sliderVals[+el.dataset.j]=+el.value;
+    el.parentElement.querySelector('.v').textContent=sig(+el.value);
+    clearTimeout(wTimer); wTimer=setTimeout(()=>fetchUser(true),260);
+  });
+  $('#reset-w').onclick=()=>{overrideOn=false;fetchUser(true);};
+  if($('#sw-like'))$('#sw-like').onclick=()=>swipe(true);
+  if($('#sw-dis'))$('#sw-dis').onclick=()=>swipe(false);
+  renderHierarchy();
+}
+function comparisonBlock() {
+  const c=comparison, at=U.upto??U.prefs;
+  const unchanged=c.mean===0;
+  return `<section id="taste-change"><h3>변화 요약 <span class="seq">01</span></h3>
+    <div class="summary-copy">${unchanged?'순위 변화가 없습니다.':`상위 ${c.size}곳 중 <b>${c.entered}곳</b>이 바뀌었습니다.`}</div>
+    <div class="change-head" style="font-size:11px;color:#94a4ba;font-weight:400">${baseline.upto}회 → ${at}회 · 같은 후보의 전후 비교</div>
+    <div class="change-metrics"><div><b>${c.entered}<small> / ${c.size}</small></b><span>상위 후보 교체</span></div><div><b>${c.mean.toFixed(1)}<small>%p</small></b><span>전체 평균 순위 이동</span></div></div>
+    <div class="hint">${unchanged?'반응이 없거나 반응 후 순서가 유지된 상태입니다.':c.entered===0?'상위 후보는 유지됐습니다. 그 밖의 순위 변화를 확인하세요.':'새로 올라온 후보가 실제 반응과 연결되는지 아래에서 확인하세요.'} 이 수치는 추천의 변화량이며 확신도·결정 준비 점수가 아닙니다.</div>
+    ${U.cold?'<div class="notice">좋아요 근거 부족 · 인기·평판과 기피 근거로 채점 중입니다.</div>':baseline.cold?'<div class="notice">이 구간에는 인기·평판 중심에서 개인 취향 채점으로 전환된 효과도 포함됩니다.</div>':''}
+    ${overrideOn?'<div class="notice">가중치 실험 중 · 실제 학습 변화와 구분해서 보세요.</div>':''}</section>`;
+}
+function moversBlock() {
+  const c=comparison, entered=c.afterOrder.slice(0,c.size).filter(i=>!c.beforeOrder.slice(0,c.size).includes(i)),
+    exited=c.beforeOrder.slice(0,c.size).filter(i=>!c.afterOrder.slice(0,c.size).includes(i));
+  const groups=moverMode==='entered'?[[entered.slice(0,2),'진입'],[exited.slice(0,2),'이탈']]:[[c.rises.slice(0,2),'상승'],[c.falls.slice(0,2),'하락']];
+  return groups.map(([ids,label])=>ids.map(i=>`<button class="mover ${focusIdx===i?'on':''}" data-idx="${i}">
+    <span><span class="${c.delta[i]>=0?'rise':'fall'}">${label}</span> · ${esc(L.name[i])}<small class="movement">${esc(L.cats[L.cat[i]])}${U.like_ids.includes(i)?' · 좋아요':U.dislike_ids.includes(i)?' · 별로':''}</small></span>
+    <span class="rank">${fmt(c.before[i]+1)} → ${fmt(c.after[i]+1)}위<small class="movement ${c.delta[i]>=0?'rise':'fall'}">${sig(c.delta[i])}%p</small></span></button>`).join('')).join('') || '<div class="hint">이 구간에서 해당하는 후보 변화가 없습니다.</div>';
+}
+function focusBlock() {
+  if(!U.focus||!baseline.focus||U.focus.idx!==baseline.focus.idx)return '<div class="hint">지도에서 가게를 선택해 주세요.</div>';
+  const i=focusIdx, c=comparison, b=c.before[i]+1,a=c.after[i]+1;
+  const rows=Object.keys(U.focus.parts).map(key=>({key,delta:U.focus.parts[key]-baseline.focus.parts[key]})).sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta));
+  const max=Math.max(.000001,...rows.map(r=>Math.abs(r.delta)));
+  const p0=100*c.before[i]/Math.max(1,L.count-1),p1=100*c.after[i]/Math.max(1,L.count-1);
+  return `<h3>선택 가게 · 변화 근거 <span class="seq">03</span></h3>
+    <div class="focus-name">${esc(L.name[i])}</div><div class="hint">${esc(category2(i))} › ${esc(category3(i))} · ${U.like_ids.includes(i)?'좋아요한 가게':U.dislike_ids.includes(i)?'별로라고 한 가게':'현재 반응 없음'}</div>
+    <div class="rank-pair">${fmt(b)} <small>→</small> ${fmt(a)}위 <small class="${c.delta[i]>=0?'rise':'fall'}">${sig(c.delta[i])}%p</small></div>
+    <div class="rank-track"><span class="join" style="left:${Math.min(p0,p1)}%;width:${Math.abs(p1-p0)}%"></span><i style="left:${p0}%" title="기준 ${fmt(b)}위"></i><i class="after" style="left:${p1}%" title="조회 ${fmt(a)}위"></i></div>
+    <div class="rank-ends"><span>1위 · 상위</span><span>○ 기준　● 조회</span><span>${fmt(L.count)}위</span></div>
+    <h3 style="margin-top:16px">무슨 점수 성분이 바뀌었나 <small>원점수 증감</small></h3>
+    ${rows.map(r=>`<div class="part-row"><span>${esc(nameOfKey(r.key))}</span><div class="part-track"><i style="left:${r.delta<0?50-Math.abs(r.delta)/max*50:50}%;width:${Math.abs(r.delta)/max*50}%;background:${r.delta>=0?'#49dbc2':'#f7a46b'}"></i></div><b class="${r.delta>=0?'rise':'fall'}">${sig(r.delta)}</b></div>`).join('')}
+    <div class="hint">총점 ${baseline.scores[i].toFixed(2)} → ${U.scores[i].toFixed(2)} (${sig(U.scores[i]-baseline.scores[i])})<br>성분 증감의 합이 총점 변화입니다. 학습 가중치·유사 근거·정규화 변화가 함께 반영되며, 특정 반응 하나의 인과 효과로 분리한 값은 아닙니다.</div>`;
+}
+
+function sliderRow(w, j) {
+  const val = sliderVals ? sliderVals[j] : w.w;
+  const mod = overrideOn && Math.abs(val - w.w) > 0.005;
+  const out = val < W_MIN || val > W_MAX;      // 학습값이 슬라이더 밖에 있다
+  return `<div class="srow" title="${esc(w.name)} — 학습값 ${sig(w.w)} ± ${w.sd}${
+      out ? ' (슬라이더 범위 밖)' : ''}">
+    <span class="lab">${esc(w.name)}</span>
+    <input type="range" min="${W_MIN}" max="${W_MAX}" step="0.01"
+      value="${clamp(val, W_MIN, W_MAX)}" data-j="${j}">
+    <span class="v ${mod ? 'mod' : ''}" ${out ? 'style="color:#e2c07a"' : ''}
+      >${out ? '↦' : ''}${sig(val)}</span></div>`;
+}
+
+function linksBlock(card) {
+  if (!card.links.length)
+    return `<div class="hint">표시할 현재 세션의 좋아요 연결 사례가 없습니다. 이전 세션 근거는 연결선에서 제외됩니다.</div>`;
+  return `<div class="links">` + card.links.map(lk => `
+    <div class="lk">
+      <div class="h"><b>${esc(lk.name)}</b> ${sig(lk.part)}
+        <span>← ${esc(lk.store_name)}</span></div>
+      ${lk.pair ? `<div class="q">"${esc(lk.pair[0])}"<br>"${esc(lk.pair[1])}"</div>` : ''}
+      ${lk.pair_label ? `<div class="k">${esc(lk.pair_label)}${lk.cos != null ? ` · 코사인 ${lk.cos}` : ''}</div>` : ''}
+    </div>`).join('') + `</div>
+    <div class="hint">연결선은 그 성분에서 <b style="color:#aeb4c0">가장 닮은 좋아요 사례</b>로 갑니다.</div>`;
+}
+
+function deltaBlock() {
+  // 학습값은 소수 셋째 자리까지 온다 — 0.001 이 '움직였다' 의 최소 단위다.
+  const rows = lastDelta.rows.filter(r => Math.abs(r.after - r.before) >= 0.001)
+    .sort((a, b) => Math.abs(b.after - b.before) - Math.abs(a.after - a.before)).slice(0, 5);
+  if (!rows.length) return `<div class="delta">가중치가 거의 안 움직였습니다.</div>`;
+  return `<div class="delta"><span>방금 ${lastDelta.like ? '♥ 좋아요' : '✕ 별로'} —
+    <u>${esc(lastDelta.name)}</u> 로 움직인 가중치</span>` +
+    rows.map(r => `<span>${esc(r.name)} ${sig(r.before)} → <u>${sig(r.after)}</u>
+      (${sig(r.after - r.before)})</span>`).join('') + `</div>`;
+}
+
+/* ───────── 스와이프 (유일한 쓰기) ───────── */
+async function swipe(like) {
+  if (!U || swiping || fetchPending) return;
+  const card = U.top.find(c=>c.idx===focusIdx) || U.top[Math.min(selTop, U.top.length - 1)], uid = current;
+  if (!card || card.card_id == null || uptoVal != null) return;
+  const weights = U.weights.map(w => w.w);
+  swiping = true; renderPanel();
+  try {
+    const r = await fetch('/preferences', {method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({user_id: uid, session_id: U.session_id, card_id: card.card_id, prefer: like ? 'like' : 'dislike'})});
+    if (!r.ok) throw new Error('스와이프 저장 실패 (' + r.status + ')');
+    if (uid !== current) return;
+    uptoVal = null; selTop = 0;
+    await fetchUser(false);
+    if (uid !== current || !U) return;
+    lastDelta = {like, name: card.name,
+      rows: U.weights.map((w, j) => ({name: w.name, before: weights[j], after: w.w}))};
+    await loadUsers();
+  } catch (error) { alert(error.message); }
+  finally { swiping = false; if (U) renderPanel(); }
+}
+
+/* 한 응답을 그린 뒤 다음 시점으로 이동한다. 느린 요청끼리 역전되지 않는다. */
+function stopPlaying() { playVersion++; if (playing) clearTimeout(playing); playing = null; }
+async function play() {
+  if (playing) { stopPlaying(); renderPanel(); return; }
+  uptoVal = 0;
+  const token = ++playVersion;
+  async function step() {
+    await fetchUser(true);
+    if (token !== playVersion || !playing || !U) return;
+    if (uptoVal == null || uptoVal >= U.prefs) { stopPlaying(); uptoVal = null; await fetchUser(true); return; }
+    playing = setTimeout(() => { uptoVal += 1; step(); }, 800);
+  }
+  playing = -1;
+  await step();
+}
+
+/* ───────── 시작 ───────── */
+async function start() {
+  try {
+    L = await api('/admin/api/map/layout');
+  } catch (e) {
+    document.body.innerHTML = `<div class="empty" style="padding:60px">
+      지형도 산출물을 읽지 못했습니다 (${esc(e.message)}).<br>
+      <code style="color:#9aa1ad">python -m analysis.build_serving --only layout</code> 로 만드세요.</div>`;
+    return;
+  }
+  buildHierarchy();buildGrid(); resize(); renderLegend(); renderStat();renderHierarchy();
+  await loadStats(); await loadUsers();
+  $('#edges').addEventListener('change', renderStat);
+}
+start();
+</script>
+</body>
+</html>

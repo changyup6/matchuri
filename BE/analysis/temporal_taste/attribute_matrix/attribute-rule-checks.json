@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "cases": 26,
+  "interpretation": "Focused actual-wording and synthetic grammar regression checks, not estimated extraction precision or recall.",
+  "model_scores_consulted": false
+}

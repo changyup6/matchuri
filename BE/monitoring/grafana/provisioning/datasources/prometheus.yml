@@ -1,0 +1,23 @@
+# 데이터소스는 화면에서 만들지 않고 이 파일로 넣는다.
+# 이유는 재현성이다 — grafana-data 볼륨을 날리고 다시 띄워도 같은 상태로 돌아온다.
+# uid 를 손으로 고정해 두는 것이 요점: 대시보드 JSON 이 이 uid 를 참조하므로
+# Grafana 가 자동 생성한 uid 를 쓰면 대시보드가 '데이터소스 없음' 이 된다.
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    uid: prometheus
+    type: prometheus
+    access: proxy
+    # 컨테이너 이름이 그대로 호스트명이다(같은 도커 네트워크). 9090 은 호스트에
+    # 열지 않으므로 Grafana 를 거치지 않으면 아무도 이 주소에 닿지 못한다.
+    url: http://prometheus:9090
+    isDefault: true
+    jsonData:
+      # 수집 주기와 같은 값. Grafana 가 $__rate_interval 을 계산할 때 이 값을 쓴다 —
+      # 어긋나면 rate() 창이 너무 좁아져 그래프가 뚝뚝 끊긴다.
+      timeInterval: 15s
+      httpMethod: POST
+      prometheusType: Prometheus
+      prometheusVersion: 2.55.1
+    editable: false

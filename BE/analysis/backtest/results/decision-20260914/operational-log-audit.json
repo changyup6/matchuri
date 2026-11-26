@@ -1,0 +1,23 @@
+{
+  "valid_records_current_pool": 2218,
+  "profiles_current_pool": 71,
+  "invalid_or_out_of_pool_records": 367,
+  "eligibility_cutoff": "2026-09-11T16:00:00+09:00",
+  "eligible_profiles": 5,
+  "first_30_recorded_feedback_events": {
+    "ready": 0,
+    "first_times": [],
+    "last_status_counts": {
+      "learning": 5
+    }
+  },
+  "proposed_stores_with_later_recorded_feedback": 0,
+  "exposure_records": 14566,
+  "has_logged_propensity": false,
+  "limitations": [
+    "Profiles may be test scripts; not verified human users.",
+    "No historical filter/location reconstruction; unfiltered diagnostic only.",
+    "No randomized logging probabilities: unbiased policy comparison is unavailable.",
+    "Sparse future feedback is not counterfactual ground truth for the four proposed stores."
+  ]
+}

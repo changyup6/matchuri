@@ -1,0 +1,8 @@
+{
+  "old_fixture_sha256": "3b199dd8afc886c93cd124206a6ea7c269f80cca6aa5b92df9769b145cabfda9",
+  "new_fixture_sha256": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5",
+  "states": 3168,
+  "same_restaurants_evaluation_and_history_order": true,
+  "same_total_likes": true,
+  "change": "Past response labels keep one like per matched pair; current positive A/B order counterbalanced. No prediction was available when making this correction."
+}

@@ -1,0 +1,800 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "posthoc": true,
+  "model_rerun": false,
+  "production_changed": false,
+  "source_sha256": {
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/fixtures.json": "470f765c4634d44eba121daf0e131ac075220399af6dfcaf35981048bec325c5",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/actual-cards.csv": "f1ab7433c1838d8e7e6fd4edca32862bcd68890114b8c6824d8bf22cf98853ed",
+    "/home/ubuntu/matchuri-changes/attribute-matrix-20260922/audit-posthoc-card-decomposition.py": "931c2a08d96de0ac28bd999010a488c92473470fbe4a8c301db9878d2848d223"
+  },
+  "definitions": {
+    "purpose": "Posthoc decomposition of existing final-four outputs; not a prespecified primary endpoint.",
+    "unit": "One card slot per hypothetical state and model; duplicated catalogue/seeds are not independent users.",
+    "new_store_new_brand": "Neither this store nor its brand occurs in the actual past or current feedback for that arm.",
+    "current_liked": "This exact store was liked in the current session.",
+    "past_liked": "This exact store was liked in the past history, not the current session.",
+    "samebrand_new_store": "This store was not observed, but its brand was observed; not automatically a liked store.",
+    "current_disliked": "This exact store was disliked in the current session.",
+    "past_disliked": "This exact store was disliked in past history, not current session.",
+    "context_cards": "Cards with principal/co-main evidence for core or standalone menu evidence for menu; other-attribute evidence may come from another menu.",
+    "novel_card_balance": "Among the actual four cards, count(new A-group cards) minus count(new B-group cards).",
+    "direction": "Novel card balance in A-preferred history minus balance in B-preferred history. Positive is a directional count response, not accuracy or exposure probability.",
+    "unchanged": "Same A-minus-B novel-card count balance, not necessarily the same store names or ranking.",
+    "comparison_limit": "Operational excludes self feedback from similarity components for observed stores; research outputs here used full posterior predictions including self feedback. New-card decomposition does not make full-slate policies equivalent.",
+    "scope_limit": "Core and menu share catalogue stores; all_axes includes same-food category generalization as well as cross-food contrasts."
+  },
+  "audits": {
+    "novelty_flags_verified": 38016,
+    "context_flags_verified": 38016,
+    "evaluation_group_flags_verified": 38016,
+    "unique_four_card_slates_verified": 9504
+  },
+  "breakdowns": [
+    {
+      "scope": "core",
+      "model": "operational",
+      "all_card_slots": 4128,
+      "context_cards": 1197,
+      "all_cards_by_status": {
+        "new_store_new_brand": 3914,
+        "current_liked": 75,
+        "past_liked": 29,
+        "samebrand_new_store": 76,
+        "current_disliked": 15,
+        "past_disliked": 19
+      },
+      "context_cards_by_status": {
+        "new_store_new_brand": 1058,
+        "current_liked": 75,
+        "past_liked": 8,
+        "samebrand_new_store": 48,
+        "current_disliked": 0,
+        "past_disliked": 8
+      }
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "all_card_slots": 4128,
+      "context_cards": 2771,
+      "all_cards_by_status": {
+        "new_store_new_brand": 1763,
+        "current_liked": 2110,
+        "past_liked": 226,
+        "samebrand_new_store": 29,
+        "current_disliked": 0,
+        "past_disliked": 0
+      },
+      "context_cards_by_status": {
+        "new_store_new_brand": 600,
+        "current_liked": 2110,
+        "past_liked": 41,
+        "samebrand_new_store": 20,
+        "current_disliked": 0,
+        "past_disliked": 0
+      }
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "all_card_slots": 4128,
+      "context_cards": 2947,
+      "all_cards_by_status": {
+        "new_store_new_brand": 1753,
+        "current_liked": 2286,
+        "past_liked": 53,
+        "samebrand_new_store": 32,
+        "current_disliked": 0,
+        "past_disliked": 4
+      },
+      "context_cards_by_status": {
+        "new_store_new_brand": 613,
+        "current_liked": 2286,
+        "past_liked": 25,
+        "samebrand_new_store": 23,
+        "current_disliked": 0,
+        "past_disliked": 0
+      }
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "all_card_slots": 8544,
+      "context_cards": 3884,
+      "all_cards_by_status": {
+        "new_store_new_brand": 8165,
+        "current_liked": 100,
+        "past_liked": 97,
+        "samebrand_new_store": 74,
+        "current_disliked": 64,
+        "past_disliked": 44
+      },
+      "context_cards_by_status": {
+        "new_store_new_brand": 3711,
+        "current_liked": 100,
+        "past_liked": 16,
+        "samebrand_new_store": 45,
+        "current_disliked": 0,
+        "past_disliked": 12
+      }
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "all_card_slots": 8544,
+      "context_cards": 6343,
+      "all_cards_by_status": {
+        "new_store_new_brand": 3283,
+        "current_liked": 4558,
+        "past_liked": 684,
+        "samebrand_new_store": 19,
+        "current_disliked": 0,
+        "past_disliked": 0
+      },
+      "context_cards_by_status": {
+        "new_store_new_brand": 1717,
+        "current_liked": 4558,
+        "past_liked": 60,
+        "samebrand_new_store": 8,
+        "current_disliked": 0,
+        "past_disliked": 0
+      }
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "all_card_slots": 8544,
+      "context_cards": 6731,
+      "all_cards_by_status": {
+        "new_store_new_brand": 3498,
+        "current_liked": 4817,
+        "past_liked": 198,
+        "samebrand_new_store": 26,
+        "current_disliked": 0,
+        "past_disliked": 5
+      },
+      "context_cards_by_status": {
+        "new_store_new_brand": 1856,
+        "current_liked": 4817,
+        "past_liked": 41,
+        "samebrand_new_store": 17,
+        "current_disliked": 0,
+        "past_disliked": 0
+      }
+    }
+  ],
+  "novel_card_directions": [
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "all_axes",
+      "matched_groups": 258,
+      "positive": 21,
+      "negative": 20,
+      "unchanged": 217,
+      "sum_card_balance_change": 2
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "broth",
+      "matched_groups": 18,
+      "positive": 1,
+      "negative": 1,
+      "unchanged": 16,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "category",
+      "matched_groups": 18,
+      "positive": 1,
+      "negative": 2,
+      "unchanged": 15,
+      "sum_card_balance_change": -1
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "cooking",
+      "matched_groups": 66,
+      "positive": 5,
+      "negative": 4,
+      "unchanged": 57,
+      "sum_card_balance_change": 1
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "cuisine",
+      "matched_groups": 66,
+      "positive": 4,
+      "negative": 7,
+      "unchanged": 55,
+      "sum_card_balance_change": -3
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "dining",
+      "matched_groups": 12,
+      "positive": 1,
+      "negative": 1,
+      "unchanged": 10,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "form",
+      "matched_groups": 30,
+      "positive": 3,
+      "negative": 2,
+      "unchanged": 25,
+      "sum_card_balance_change": 1
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "ingredient",
+      "matched_groups": 36,
+      "positive": 6,
+      "negative": 3,
+      "unchanged": 27,
+      "sum_card_balance_change": 4
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "temperature",
+      "matched_groups": 6,
+      "positive": 0,
+      "negative": 0,
+      "unchanged": 6,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "core",
+      "model": "operational",
+      "axis": "texture",
+      "matched_groups": 6,
+      "positive": 0,
+      "negative": 0,
+      "unchanged": 6,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "all_axes",
+      "matched_groups": 258,
+      "positive": 33,
+      "negative": 21,
+      "unchanged": 204,
+      "sum_card_balance_change": 12
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "broth",
+      "matched_groups": 18,
+      "positive": 1,
+      "negative": 0,
+      "unchanged": 17,
+      "sum_card_balance_change": 2
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "category",
+      "matched_groups": 18,
+      "positive": 4,
+      "negative": 2,
+      "unchanged": 12,
+      "sum_card_balance_change": 2
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "cooking",
+      "matched_groups": 66,
+      "positive": 3,
+      "negative": 3,
+      "unchanged": 60,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "cuisine",
+      "matched_groups": 66,
+      "positive": 16,
+      "negative": 8,
+      "unchanged": 42,
+      "sum_card_balance_change": 7
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "dining",
+      "matched_groups": 12,
+      "positive": 1,
+      "negative": 0,
+      "unchanged": 11,
+      "sum_card_balance_change": 1
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "form",
+      "matched_groups": 30,
+      "positive": 0,
+      "negative": 5,
+      "unchanged": 25,
+      "sum_card_balance_change": -5
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "ingredient",
+      "matched_groups": 36,
+      "positive": 7,
+      "negative": 3,
+      "unchanged": 26,
+      "sum_card_balance_change": 4
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "temperature",
+      "matched_groups": 6,
+      "positive": 0,
+      "negative": 0,
+      "unchanged": 6,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "core",
+      "model": "regularized",
+      "axis": "texture",
+      "matched_groups": 6,
+      "positive": 1,
+      "negative": 0,
+      "unchanged": 5,
+      "sum_card_balance_change": 1
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "all_axes",
+      "matched_groups": 258,
+      "positive": 27,
+      "negative": 19,
+      "unchanged": 212,
+      "sum_card_balance_change": 7
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "broth",
+      "matched_groups": 18,
+      "positive": 1,
+      "negative": 0,
+      "unchanged": 17,
+      "sum_card_balance_change": 1
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "category",
+      "matched_groups": 18,
+      "positive": 5,
+      "negative": 2,
+      "unchanged": 11,
+      "sum_card_balance_change": 4
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "cooking",
+      "matched_groups": 66,
+      "positive": 2,
+      "negative": 3,
+      "unchanged": 61,
+      "sum_card_balance_change": -1
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "cuisine",
+      "matched_groups": 66,
+      "positive": 14,
+      "negative": 9,
+      "unchanged": 43,
+      "sum_card_balance_change": 3
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "dining",
+      "matched_groups": 12,
+      "positive": 0,
+      "negative": 0,
+      "unchanged": 12,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "form",
+      "matched_groups": 30,
+      "positive": 0,
+      "negative": 2,
+      "unchanged": 28,
+      "sum_card_balance_change": -2
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "ingredient",
+      "matched_groups": 36,
+      "positive": 4,
+      "negative": 3,
+      "unchanged": 29,
+      "sum_card_balance_change": 1
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "temperature",
+      "matched_groups": 6,
+      "positive": 0,
+      "negative": 0,
+      "unchanged": 6,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "core",
+      "model": "regularized_context_floor",
+      "axis": "texture",
+      "matched_groups": 6,
+      "positive": 1,
+      "negative": 0,
+      "unchanged": 5,
+      "sum_card_balance_change": 1
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "all_axes",
+      "matched_groups": 534,
+      "positive": 80,
+      "negative": 93,
+      "unchanged": 361,
+      "sum_card_balance_change": -17
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "broth",
+      "matched_groups": 36,
+      "positive": 5,
+      "negative": 10,
+      "unchanged": 21,
+      "sum_card_balance_change": -5
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "category",
+      "matched_groups": 24,
+      "positive": 1,
+      "negative": 6,
+      "unchanged": 17,
+      "sum_card_balance_change": -5
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "cooking",
+      "matched_groups": 114,
+      "positive": 21,
+      "negative": 22,
+      "unchanged": 71,
+      "sum_card_balance_change": -4
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "cuisine",
+      "matched_groups": 96,
+      "positive": 21,
+      "negative": 16,
+      "unchanged": 59,
+      "sum_card_balance_change": -1
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "dining",
+      "matched_groups": 24,
+      "positive": 2,
+      "negative": 3,
+      "unchanged": 19,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "form",
+      "matched_groups": 48,
+      "positive": 11,
+      "negative": 10,
+      "unchanged": 27,
+      "sum_card_balance_change": 8
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "ingredient",
+      "matched_groups": 48,
+      "positive": 6,
+      "negative": 11,
+      "unchanged": 31,
+      "sum_card_balance_change": -7
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "taste",
+      "matched_groups": 60,
+      "positive": 3,
+      "negative": 4,
+      "unchanged": 53,
+      "sum_card_balance_change": -2
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "temperature",
+      "matched_groups": 30,
+      "positive": 6,
+      "negative": 7,
+      "unchanged": 17,
+      "sum_card_balance_change": -1
+    },
+    {
+      "scope": "menu",
+      "model": "operational",
+      "axis": "texture",
+      "matched_groups": 54,
+      "positive": 4,
+      "negative": 4,
+      "unchanged": 46,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "all_axes",
+      "matched_groups": 534,
+      "positive": 97,
+      "negative": 54,
+      "unchanged": 383,
+      "sum_card_balance_change": 50
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "broth",
+      "matched_groups": 36,
+      "positive": 5,
+      "negative": 3,
+      "unchanged": 28,
+      "sum_card_balance_change": 3
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "category",
+      "matched_groups": 24,
+      "positive": 8,
+      "negative": 1,
+      "unchanged": 15,
+      "sum_card_balance_change": 8
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "cooking",
+      "matched_groups": 114,
+      "positive": 23,
+      "negative": 12,
+      "unchanged": 79,
+      "sum_card_balance_change": 14
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "cuisine",
+      "matched_groups": 96,
+      "positive": 31,
+      "negative": 11,
+      "unchanged": 54,
+      "sum_card_balance_change": 24
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "dining",
+      "matched_groups": 24,
+      "positive": 2,
+      "negative": 2,
+      "unchanged": 20,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "form",
+      "matched_groups": 48,
+      "positive": 5,
+      "negative": 6,
+      "unchanged": 37,
+      "sum_card_balance_change": -3
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "ingredient",
+      "matched_groups": 48,
+      "positive": 11,
+      "negative": 8,
+      "unchanged": 29,
+      "sum_card_balance_change": 2
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "taste",
+      "matched_groups": 60,
+      "positive": 3,
+      "negative": 2,
+      "unchanged": 55,
+      "sum_card_balance_change": 1
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "temperature",
+      "matched_groups": 30,
+      "positive": 3,
+      "negative": 4,
+      "unchanged": 23,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "menu",
+      "model": "regularized",
+      "axis": "texture",
+      "matched_groups": 54,
+      "positive": 6,
+      "negative": 5,
+      "unchanged": 43,
+      "sum_card_balance_change": 1
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "all_axes",
+      "matched_groups": 534,
+      "positive": 82,
+      "negative": 40,
+      "unchanged": 412,
+      "sum_card_balance_change": 50
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "broth",
+      "matched_groups": 36,
+      "positive": 2,
+      "negative": 2,
+      "unchanged": 32,
+      "sum_card_balance_change": 0
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "category",
+      "matched_groups": 24,
+      "positive": 4,
+      "negative": 2,
+      "unchanged": 18,
+      "sum_card_balance_change": 3
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "cooking",
+      "matched_groups": 114,
+      "positive": 17,
+      "negative": 9,
+      "unchanged": 88,
+      "sum_card_balance_change": 12
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "cuisine",
+      "matched_groups": 96,
+      "positive": 28,
+      "negative": 10,
+      "unchanged": 58,
+      "sum_card_balance_change": 20
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "dining",
+      "matched_groups": 24,
+      "positive": 4,
+      "negative": 0,
+      "unchanged": 20,
+      "sum_card_balance_change": 4
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "form",
+      "matched_groups": 48,
+      "positive": 3,
+      "negative": 7,
+      "unchanged": 38,
+      "sum_card_balance_change": -5
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "ingredient",
+      "matched_groups": 48,
+      "positive": 14,
+      "negative": 6,
+      "unchanged": 28,
+      "sum_card_balance_change": 8
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "taste",
+      "matched_groups": 60,
+      "positive": 2,
+      "negative": 0,
+      "unchanged": 58,
+      "sum_card_balance_change": 2
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "temperature",
+      "matched_groups": 30,
+      "positive": 3,
+      "negative": 2,
+      "unchanged": 25,
+      "sum_card_balance_change": 3
+    },
+    {
+      "scope": "menu",
+      "model": "regularized_context_floor",
+      "axis": "texture",
+      "matched_groups": 54,
+      "positive": 5,
+      "negative": 2,
+      "unchanged": 47,
+      "sum_card_balance_change": 3
+    }
+  ]
+}

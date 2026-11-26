@@ -1,0 +1,27 @@
+{
+  "source": "actual HTTP handlers, isolated state, explicit function call counter",
+  "production_writes": false,
+  "tests_passed": 391,
+  "rows": [
+    {
+      "request": "기존 스와이프 저장",
+      "http_status": 200,
+      "detail_export_calls": 0
+    },
+    {
+      "request": "기존 선택 제안 옵션",
+      "http_status": 200,
+      "detail_export_calls": 0
+    },
+    {
+      "request": "기존 선택 제안 조회",
+      "http_status": 200,
+      "detail_export_calls": 0
+    },
+    {
+      "request": "별도 판단 수치 조회",
+      "http_status": 200,
+      "detail_export_calls": 1
+    }
+  ]
+}

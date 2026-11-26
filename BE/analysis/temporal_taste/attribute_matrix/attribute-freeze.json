@@ -1,0 +1,13 @@
+{
+  "model_scores_consulted": false,
+  "sha256": {
+    "attribute-labels.json": "9960183562651cd4d6502621c4b94ffa55bc6067781cadbf513fedecd8cf5ae3",
+    "attribute-evidence.private.json": "3bd80dde3e41bc5f940bd95b46881151a482d4a2d736749c3cbecfb5da60ce1d",
+    "manual-attribute-review.private.json": "281f3e8dd5bb1fad118c5e6ae1ccbf125e85fedc5b24f20e851cc99a95779845",
+    "attribute-rule-checks.json": "113507322eb85a447cd089f7123135745849baddd17fa58cd42ea5e8d2e4ba16",
+    "build-attribute-audit.py": "af71d67f39dac4b7dd28cee3d1f6a7d5dde35974d3de5a70ca28faf10b93e2c0",
+    "test-attribute-rules.py": "3113a804a05a71075d505478a6c8d82a47450151cb78c63a72ed8f12b814f872",
+    "attribute-audit.md": "30a374281ba9578adad30dcfd8cf0df0f96a9922b3ada0354822d07ec363d04c"
+  },
+  "source_sha256_verified": 6
+}

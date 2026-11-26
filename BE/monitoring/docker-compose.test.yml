@@ -1,0 +1,88 @@
+# 관측 스택 검증용 — **운영과 무관한 일회용 사본**이다.
+#
+# 왜 따로 두나. 실서비스(`-p backmock`)를 건드리지 않고 Prometheus·Grafana·규칙·대시보드가
+# 실제로 도는지 보려면, 같은 설정 파일을 그대로 쓰되 **다른 프로젝트 이름·다른 볼륨**으로
+# 띄워야 한다. 이 파일은 그 조건을 못 박아 둔 것이다:
+#   · 프로젝트 이름이 다르므로 컨테이너·볼륨 이름이 겹치지 않는다(prom-data-test 등)
+#   · 살아 있는 네트워크(backmock_default)에 external 로 **끼어들기만** 한다 —
+#     그래야 실서버의 app:8000/metrics 를 읽을 수 있다. 읽기뿐이고 아무것도 바꾸지 않는다
+#   · Grafana 만 127.0.0.1:13000 에 연다(루프백이라 인터넷에서는 못 닿는다)
+#
+#   docker compose -f monitoring/docker-compose.test.yml -p backmock-obs-test up -d
+#   …확인…
+#   docker compose -f monitoring/docker-compose.test.yml -p backmock-obs-test down -v
+#
+# **끝나면 반드시 `down -v` 로 볼륨까지 지운다.** 남겨 두면 실서비스와 같은 지표를
+# 두 번 긁는 수집기가 조용히 계속 돈다.
+services:
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    volumes:
+      - ../monitoring/prometheus:/etc/prometheus:ro
+      - prom-data-test:/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=30d
+    networks: [live]
+
+  node-exporter:
+    image: prom/node-exporter:v1.8.2
+    command:
+      - --path.procfs=/host/proc
+      - --path.sysfs=/host/sys
+      - --path.rootfs=/rootfs
+      - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|rootfs/(dev|proc|sys)|var/lib/docker/.+)($$|/)
+      - --collector.filesystem.fs-types-exclude=^(autofs|binfmt_misc|cgroup.*|devpts|overlay|proc|squashfs|sysfs|tmpfs|tracefs)$$
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro,rslave
+    pid: host
+    networks: [live]
+
+  # 실서버의 nginx 를 가리킨다. **아직 /nginx_status 가 배포되지 않았으므로 이 대상은
+  # DOWN 이 정상이다** — 배포 뒤에 UP 으로 바뀌는 것으로 설정이 먹었는지 확인한다.
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter:1.4.0
+    command:
+      - --nginx.scrape-uri=http://nginx:80/nginx_status
+    networks: [live]
+
+  grafana:
+    image: grafana/grafana-oss:11.3.1
+    environment:
+      # 검증에서는 루프백이 곧 주소다. 하위 경로(/grafana/)는 운영과 똑같이 둬야
+      # 대시보드 링크와 스크린샷 URL 이 운영에서도 그대로 통한다.
+      GF_SERVER_ROOT_URL: http://127.0.0.1:13000/grafana/
+      GF_SERVER_SERVE_FROM_SUB_PATH: "true"
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD__FILE: /run/secrets/grafana_admin
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+      GF_SECURITY_COOKIE_SECURE: "false"
+    secrets:
+      - grafana_admin
+    volumes:
+      - grafana-data-test:/var/lib/grafana
+      - ../monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ../monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    ports:
+      # 루프백에만 묶는다. 0.0.0.0 이면 검증하는 몇 분 동안 인터넷에 열린다.
+      - "127.0.0.1:13000:3000"
+    networks: [live]
+
+volumes:
+  prom-data-test:
+  grafana-data-test:
+
+networks:
+  live:
+    external: true
+    name: backmock_default
+
+secrets:
+  grafana_admin:
+    file: /home/ubuntu/matchuri-secrets/grafana-admin-password

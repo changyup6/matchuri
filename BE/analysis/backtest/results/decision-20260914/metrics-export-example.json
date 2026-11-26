@@ -1,0 +1,1342 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "407110b7b38980c76a3f8d649cd40320cc45d0fca7a0d8a41d8d325d7c09eee0",
+  "feedback_count": 16,
+  "context": {
+    "categories": [],
+    "tags": [],
+    "within_m": null,
+    "has_position": false,
+    "location_required": false
+  },
+  "provenance": {
+    "manifest_sha256": "93014eca15a2c3e5e2f2da2d74b15c2f34b3cec90d19d12651538e85d331b99c",
+    "vectors": {
+      "menus": "300760226351defdf6d1c391e4220516659af1d4eb547324d521ee857d1431cf",
+      "store_text": "ba201c21b1fc8691feeb09da2b5eca0cfa8a2172e1f5258185aaf36ad5aecaf2",
+      "reviews": "d9bc8b343b06f94678fd06ed6235d0c9f367e432c0cc29cf831ff9251a9422c2",
+      "photo_food": "61632ab98ad39b3e2c132ae75ab79473d02cc6c4c3d33569953d2737e58be4e0",
+      "photo_space": "4ae2c80eace8137aaaa01683c82a28b925bcd64c7d3302afacbc7361cf6b6f3a"
+    },
+    "built_at": "2026-09-11T14:37:41+0900",
+    "code_sha256": {
+      "decision.py": "5b0c5d6cd2fbdc3c1f7fa62044a6f70c1cbe0330d5441adfbee648763a3325c8",
+      "decision_metrics.py": "5115079495b6951bffb7d09e5740655e4ef71d3f84b979f4f769f9de03dac834",
+      "decision_meanings.py": "9c12b1f49a37db106ab2e81790a56bdd4f9548f547c03b03ca947335275c67c4",
+      "content.py": "4a490bbd17e14ccb657abc1c33c529e060166a797617d154608bf02f59fa6c77",
+      "taste.py": "88983889db1010817d4250cd80390d06a040a32e25d11bc9f672e14a75283300"
+    }
+  },
+  "config": {
+    "count": 4,
+    "min_rated": 16,
+    "min_likes": 3,
+    "min_validation_each": 3,
+    "min_validation_auc": 0.8,
+    "stable_top": 20,
+    "min_overlap": 0.6,
+    "fit_quantile": 0.75,
+    "uncertainty_weight": 0.5,
+    "max_menu_similarity": 0.85,
+    "max_mean_similarity": 0.8,
+    "search_limit": 60
+  },
+  "interpretation": {
+    "personalization": "prequential rank AUC and rank stability are diagnostics, not confidence",
+    "fit": "relative z-score contribution minus model SD penalty; not acceptance probability",
+    "uncertainty": "diagonal model approximation; not calibrated; correlated feedback/features omitted",
+    "similarity": "vector-derived raw modality scores; scales differ; null means unknown",
+    "candidate_history": "self feedback excluded only from feature aggregation, not trained weights",
+    "selection": "first feasible four inside search_limit; not optimal slate utility",
+    "scope": "diagnostic measurements continue after failed gates; they do not authorize a proposal"
+  },
+  "reading": [
+    "현재 수치는 실험용 판정의 작동 근거입니다. 실제 사용자 만족도에 보정된 척도는 아닙니다.",
+    "구분력 0.833: 응답 전 순위를 남긴 긍정 8건과 부정 6건의 48개 비교쌍에서 긍정 순위가 더 높은 정도입니다(동점은 절반). 이 비교쌍들이 각각 독립 표본은 아닙니다.",
+    "순위 유지율 75%: 현재 상위 20곳이 한 번 전·세 번 전 목록과 최소 15곳 겹칩니다. 최근 변화가 작다는 근거이며 예측의 정확성은 별도로 확인해야 합니다.",
+    "적합도 기준 0.840: 미평가 1613곳의 차감 점수 75% 분위수입니다. 자격 후보 1629곳 중 410곳이 이 기준과 양수 개인화 조건을 통과했습니다. 상대적인 선별이며 절대 만족을 보장하지 않습니다.",
+    "조합 탐색은 적합 후보 중 60곳까지 수행했습니다. 탐색 범위 제한 여부는 true입니다.",
+    "현행 규칙을 만족하는 네 곳을 찾아 판정상 제안했습니다. 이것만으로 취향의 충분한 이해나 사람이 느끼는 다양성이 검증된 것은 아닙니다."
+  ],
+  "metric_guide": [
+    {
+      "path": "feedback_count / candidate_total / candidate_offset / next_offset",
+      "name": "관찰 시점과 내보낸 범위",
+      "meaning": "누적 학습 피드백 횟수, 전체 자격 후보 수, 현재/다음 페이지 시작점",
+      "unit": "회 / 곳 / 0부터 시작하는 위치",
+      "reading": "feedback_count는 재평가도 포함하는 누적 횟수이며 고유 평가 수와 다르다. next_offset까지 이어받아 후보 전체 확인",
+      "limitation": "현재 세션에서 새로 넘긴 횟수로 자동 해석하지 않는다. 한 페이지나 쌍 범위를 전체 카탈로그로 오인하지 않는다",
+      "missing": "next_offset=null이면 마지막 페이지"
+    },
+    {
+      "path": "personalization.validation_auc",
+      "name": "반응 구분력",
+      "meaning": "응답 전에 매긴 순위가 이후 좋아요 기록을 싫어요 기록보다 높게 두었는지",
+      "unit": "0~1",
+      "reading": "두 종류 기록의 모든 비교쌍에서 높은 순위=1, 동점=.5로 평균. .5는 구분 없는 수준",
+      "limitation": "시점마다 모델이 다르고 노출이 선택되어 있다. 표본 수와 함께 읽어야 하며 만족 확률로 해석할 수 없다",
+      "missing": "긍정 또는 부정의 유효 예측이 없음"
+    },
+    {
+      "path": "personalization.stability",
+      "name": "추천 순위 유지율",
+      "meaning": "현재 미평가 풀에서 상위 후보가 최근 학습 상태와 얼마나 겹치는지",
+      "unit": "0~1",
+      "reading": "n−1/n−3 각각의 상위20 겹침 중 작은 비율. .75는 비교 중 최소15곳 유지",
+      "limitation": "틀린 순위도 안정될 수 있어 정확도와 별도다. 상위 개수는 config.stable_top을 확인",
+      "missing": "체크포인트 또는 미평가 후보 부족"
+    },
+    {
+      "path": "personalization.*_count / *_predictions",
+      "name": "근거의 양",
+      "meaning": "고유 평가 수와, 실제로 답변 전 예측을 남긴 긍정/부정 기록 수",
+      "unit": "건/곳",
+      "reading": "유효 예측 수는 평가 수보다 작을 수 있다. 두 종류가 얼마나 확보됐는지 함께 읽는다",
+      "limitation": "같은 가게 재평가나 한 반응에서 만든 비교쌍을 독립 사용자 수로 세면 안 된다",
+      "missing": "산출물 없으면 personalization 전체 null"
+    },
+    {
+      "path": "personalization.validation_window[].predicted_rank",
+      "name": "답변 전 예상 위치",
+      "meaning": "그 응답을 보기 직전 개인화 점수가 전체 풀에서 차지한 위치",
+      "unit": "0~1",
+      "reading": "그보다 낮은 점수의 비율에 동점 비율의 절반을 더한다. 클수록 당시 높게 평가",
+      "limitation": "각 기록은 다른 시점의 모델 예측이다. 현재 후보의 수락 확률을 뜻하지 않는다",
+      "missing": "유효 예측만 window에 포함"
+    },
+    {
+      "path": "personalization.checkpoint_overlaps",
+      "name": "시점별 순위 겹침",
+      "meaning": "몇 번 전 학습 상태와 현재 상위 후보가 겹치는지",
+      "unit": "feedback_lag=회, overlap=0~1",
+      "reading": "1과3은 각각 한 번 전/세 번 전 피드백 상태",
+      "limitation": "짧은 구간의 안정성 관찰이다. 장기 취향 안정성을 증명하지 않는다",
+      "missing": "비교 불가능하면 빈 배열"
+    },
+    {
+      "path": "model[].weight",
+      "name": "성분 가중치",
+      "meaning": "각 고차원 유사도 집계 등이 전체 점수에 영향을 주는 방향과 크기",
+      "unit": "모델 계수",
+      "reading": "양수면 해당 z가 클수록 점수를 올리고, 음수면 내린다. 실제 영향은 weight×z",
+      "limitation": "메뉴 가중치가 .4라고 취향의40%가 메뉴라는 뜻은 아니다. 성분끼리 상관될 수 있다",
+      "missing": "비유한 값은 null"
+    },
+    {
+      "path": "model[].variance / sd",
+      "name": "가중치의 모델 불확실성",
+      "meaning": "현재 온라인 모델이 근사하는 가중치 분산과 그 제곱근",
+      "unit": "계수² / 계수",
+      "reading": "같은 모델과 조건에서 작아질수록 그 계수의 추정 폭이 좁아진 상태",
+      "limitation": "대각 근사와 선택한 사전값에 의존한다. 실제 오류율에 보정된 신뢰구간은 아니다",
+      "missing": "비유한 값은 null"
+    },
+    {
+      "path": "candidates[].components.*.z",
+      "name": "정규화 성분 값",
+      "meaning": "이력과의 유사도 등을 후보 풀 안에서 표준화한 뒤 ±3으로 제한한 값",
+      "unit": "표준화 점수 [-3,3]",
+      "reading": "양수는 기준 풀 평균 위, 음수는 아래. 성분별 기여 계산의 입력",
+      "limitation": "결측도 정규화 뒤0이 되므로 evidence의 결측 여부를 함께 확인해야 한다",
+      "missing": "비유한 값은 null"
+    },
+    {
+      "path": "candidates[].components.*.contribution",
+      "name": "성분의 실제 기여",
+      "meaning": "그 후보의 성분 값과 사용자 가중치를 곱해 전체 점수에 더한 값",
+      "unit": "모델 점수",
+      "reading": "weight×z. 양수는 점수를 올리고 음수는 내리며 합계가 total_score",
+      "limitation": "점수 분해이며 특정 속성이 선호의 원인이라는 인과 설명은 아니다",
+      "missing": "비유한 값은 null"
+    },
+    {
+      "path": "candidates[].components.*.variance_contribution",
+      "name": "성분별 불확실성 기여",
+      "meaning": "가중치 분산과 후보 성분 값 제곱의 곱",
+      "unit": "점수²",
+      "reading": "개인화 성분만 더한 뒤 제곱근을 취하면 model_sd",
+      "limitation": "성분 간 공분산과 모델 구조의 오류를 포함하지 않는다",
+      "missing": "비유한 값은 null"
+    },
+    {
+      "path": "candidates[].total_score / personal_score",
+      "name": "전체 점수 / 개인화 기여",
+      "meaning": "전체 성분의 합계 / 그중 공방문·메뉴·요약·리뷰·사진·기피 성분의 합계",
+      "unit": "모델 점수",
+      "reading": "동일 시점·기준 풀에서 클수록 해당 모델이 높게 평가. personal_score는 인기·평판을 제외",
+      "limitation": "상한이 정해진 만족도 척도가 아니다. 시점·기준 풀 변경 시 단순 절대 비교에 주의",
+      "missing": "비유한 값은 null"
+    },
+    {
+      "path": "candidates[].model_sd",
+      "name": "후보 점수의 추정 폭",
+      "meaning": "후보의 개인화 성분과 가중치 분산으로 계산한 점수 표준편차 근사",
+      "unit": "모델 점수",
+      "reading": "같은 조건에서 크면 모델이 그 점수를 더 불확실하게 취급",
+      "limitation": "특징 결측·성분 상관·취향 변화 등 모든 불확실성을 포괄하지 않는다",
+      "missing": "비유한 값은 null"
+    },
+    {
+      "path": "candidates[].conservative_score",
+      "name": "불확실성 차감 점수",
+      "meaning": "개인화 점수에서 모델 불확실성에 비례한 값을 차감한 현재 판정 점수",
+      "unit": "모델 점수",
+      "reading": "personal_score − config.uncertainty_weight×model_sd",
+      "limitation": "현재 차감 계수는 실험 가정이다. 확률 보정된 적합도 하한은 아니다",
+      "missing": "비유한 값은 null"
+    },
+    {
+      "path": "fit.threshold / candidates[].fit_margin",
+      "name": "현재 적합도 기준 / 기준 초과분",
+      "meaning": "미평가 풀의 설정 분위수 점수 / 후보 차감 점수에서 그 기준을 뺀 값",
+      "unit": "모델 점수",
+      "reading": "margin≥0이며 personal_score>0이면 현재 적합도 규칙 통과",
+      "limitation": "상대 상위 후보라는 의미다. 전체 풀이 부적합해도 상대 기준은 생긴다",
+      "missing": "미평가 기준 풀이 없으면 null"
+    },
+    {
+      "path": "candidates[].reference_percentile",
+      "name": "기준 풀 내 상대 위치",
+      "meaning": "미평가 풀에서 이 후보의 차감 점수 이하인 가게의 비율",
+      "unit": "0~1",
+      "reading": ".9면 기준 풀90%의 점수 이상. 동점을 모두 이하로 포함",
+      "limitation": "사용자가90% 확률로 좋아한다는 해석은 성립하지 않는다",
+      "missing": "기준 풀이 없으면 null"
+    },
+    {
+      "path": "candidates[].evidence",
+      "name": "판단에 사용 가능한 근거",
+      "meaning": "성분 보유 여부, 좋아요/싫어요 참조 중 관측되는 수와 가장 가까운 참조",
+      "unit": "보유 여부·건수·원시 유사도",
+      "reading": "known_count/total_count로 근거량을 확인. nearest는 관측 참조 중 최대 유사도",
+      "limitation": "nearest 하나가 전체 집계를 대표하지는 않는다. 요약은 lse, 리뷰는 평균 등 집계가 다르다",
+      "missing": "가까운 참조를 알 수 없으면 ID/유사도 null"
+    },
+    {
+      "path": "candidates[].qualified / selected / rank",
+      "name": "적합 규칙 통과 / 실제 제안 / 진단 순서",
+      "meaning": "후보별 규칙 통과, 실제 제안에 포함됐는지, 진단 목록에서의 위치",
+      "unit": "참·거짓 / 1부터 시작",
+      "reading": "통과 후보 우선으로 정렬하고 그 안에서 tier·rank_score·ID 순. selected는 결정 결과를 따른다",
+      "limitation": "qualified만으로 제안하지 않는다. 다양성과 개인화 근거도 필요하다",
+      "missing": "해당 없음"
+    },
+    {
+      "path": "candidates[].tier / distance_bonus / rank_score",
+      "name": "태그·거리 정렬 보정",
+      "meaning": "태그 우선 등급, 거리 점수 보정, 차감 점수에 거리 보정을 더한 값",
+      "unit": "등급 / 모델 점수",
+      "reading": "먼저 tier가 큰 후보, 그다음 rank_score가 큰 후보 순",
+      "limitation": "거리 보정은 취향 적합성의 직접 증거가 아니다",
+      "missing": "보정이 없으면0"
+    },
+    {
+      "path": "pairs[].similarities.*",
+      "name": "성분별 가게 유사도",
+      "meaning": "고차원 벡터에서 계산해 저장한 두 가게의 메뉴·요약문·리뷰·음식사진 유사도",
+      "unit": "원시 유사도",
+      "reading": "같은 성분·모델 안에서 클수록 표현이 가까움. 비교에는 해당 성분의 분포/결측도 필요",
+      "limitation": ".8은 취향80% 일치가 아니다. 메뉴 .4와 사진 .8을 직접 비교해 사진이 두 배 닮았다고 읽지 않는다",
+      "missing": "해당 성분을 계산할 근거가 없으면 null"
+    },
+    {
+      "path": "pairs[].co_visit_similarity",
+      "name": "공방문 유사도",
+      "meaning": "두 가게의 공방문 패턴을 나타내는 저장 유사도",
+      "unit": "원시 유사도",
+      "reading": "공방문 성분을 진단하는 보조 값. 현재 다양성 평균에는 포함하지 않는다",
+      "limitation": "방문은 선호나 만족과 동일하지 않고 인기·희소성 영향을 받을 수 있다",
+      "missing": "계산 불가능하면 null"
+    },
+    {
+      "path": "pairs[].raw_mean_similarity / known_modalities / missing_modalities",
+      "name": "현재 평균 규칙과 근거량",
+      "meaning": "관측된 메뉴·요약문·리뷰·사진 점수의 단순 평균 및 관측/결측 성분",
+      "unit": "원시 평균 / 개수 / 성분명",
+      "reading": "현행 코드는2개 이상 관측과 평균 기준 미만을 요구. 어떤 성분이 빠졌는지도 확인",
+      "limitation": "성분별 눈금이 달라 평균의 의미 보정이 부족하다. 결측 조합이 다르면 같은 평균도 근거가 다르다",
+      "missing": "모두 결측이면 평균 null"
+    },
+    {
+      "path": "pairs[].same_brand / same_fine_category / blocking_reasons",
+      "name": "중복 정책과 차단 이유",
+      "meaning": "브랜드·세부 업종 키 일치 여부와 현재 수치 규칙을 막은 조건",
+      "unit": "참·거짓·알 수 없음 / 사유 목록",
+      "reading": "passes_current_rule=true는 현행 규칙을 통과했다는 뜻",
+      "limitation": "사용자가 서로 다른 대안으로 느낀다는 보장은 없다. 업종/브랜드 키의 품질에도 의존",
+      "missing": "어느 한쪽 키가 없으면 일치 여부 null"
+    },
+    {
+      "path": "fit.*_count / search_truncated",
+      "name": "후보 수와 탐색 범위",
+      "meaning": "자격 후보, 상대 적합도 통과 후보, 실제 조합 탐색 후보 수와 범위 제한 여부",
+      "unit": "곳 / 참·거짓",
+      "reading": "qualified_count와 searched_count의 차이가 크면 탐색 바깥의 후보도 많다",
+      "limitation": "제한 범위에서 조합을 못 찾았다고 전체 풀에 해가 없다고 단정할 수 없다",
+      "missing": "산출물이 없으면 fit 전체 null"
+    },
+    {
+      "path": "slate",
+      "name": "네 곳 조합의 진단",
+      "meaning": "조건을 만족하는 조합의 최소 적합도 여유와 가장 높은 쌍 평균 유사도",
+      "unit": "모델 점수 / 원시 유사도",
+      "reading": "약한 후보와 가장 겹치는 쌍을 확인. is_proposal=true일 때만 실제 판정상 제안",
+      "limitation": "개인화 근거 미충족 시 조합만 있어도 제안하지 않는다. 최고 효용 조합의 보장은 없다",
+      "missing": "조합이 없으면 요약 수치 null"
+    },
+    {
+      "path": "gates / config",
+      "name": "현재 조건 판정과 설정값",
+      "meaning": "측정값이 설정된 비교 조건을 충족하는지 및 사용한 숫자",
+      "unit": "조건별 단위",
+      "reading": "passed는 현행 코드의 통과 여부. 값의 방향·연산·기준을 함께 읽는다",
+      "limitation": "네 곳은 제품 요구. 개인화/적합도/다양성 임계값은 아직 제품 실증 전의 가정",
+      "missing": "측정 근거가 없으면 passed=null"
+    },
+    {
+      "path": "snapshot_id / provenance / context / pair_scope",
+      "name": "같은 조건에서 비교하기 위한 정보",
+      "meaning": "학습/설정/버전의 식별자, 적용 맥락, 쌍의 대상 범위",
+      "unit": "식별자·설정·범위",
+      "reading": "페이지 병합 시 snapshot_id 일치 확인. 쌍의 범위는 후보 페이지와 독립",
+      "limitation": "해시는 품질 점수가 아니다. 식별자가 같다는 것은 좋은 추천이라는 뜻이 아니다",
+      "missing": "미제공 버전이나 위치는 unknown으로 남음"
+    }
+  ],
+  "decision": {
+    "ready": true,
+    "status": "ready",
+    "store_ids": [
+      "911844578",
+      "1665647241",
+      "684678858",
+      "900672400"
+    ],
+    "rated_count": 16,
+    "liked_count": 9,
+    "stability": 0.75,
+    "validation_auc": 0.8333,
+    "qualified_count": 410
+  },
+  "gates": [
+    {
+      "name": "location_available_if_required",
+      "value": true,
+      "operator": "==",
+      "threshold": true,
+      "passed": true,
+      "explanation": "반경 필터에 필요한 위치: 현행 조건 통과. 측정값 True, 비교 조건 == True."
+    },
+    {
+      "name": "rated_count",
+      "value": 16.0,
+      "operator": ">=",
+      "threshold": 16.0,
+      "passed": true,
+      "explanation": "고유 평가 수: 현행 조건 통과. 측정값 16, 비교 조건 >= 16."
+    },
+    {
+      "name": "liked_count",
+      "value": 9.0,
+      "operator": ">=",
+      "threshold": 3.0,
+      "passed": true,
+      "explanation": "긍정 근거 수: 현행 조건 통과. 측정값 9, 비교 조건 >= 3."
+    },
+    {
+      "name": "positive_predictions",
+      "value": 8.0,
+      "operator": ">=",
+      "threshold": 3.0,
+      "passed": true,
+      "explanation": "긍정 유효 예측 수: 현행 조건 통과. 측정값 8, 비교 조건 >= 3."
+    },
+    {
+      "name": "negative_predictions",
+      "value": 6.0,
+      "operator": ">=",
+      "threshold": 3.0,
+      "passed": true,
+      "explanation": "부정 유효 예측 수: 현행 조건 통과. 측정값 6, 비교 조건 >= 3."
+    },
+    {
+      "name": "validation_auc",
+      "value": 0.8333333333333334,
+      "operator": ">=",
+      "threshold": 0.8,
+      "passed": true,
+      "explanation": "반응 구분력: 현행 조건 통과. 측정값 0.8333333333333334, 비교 조건 >= 0.8."
+    },
+    {
+      "name": "checkpoint_count",
+      "value": 4.0,
+      "operator": ">=",
+      "threshold": 4.0,
+      "passed": true,
+      "explanation": "비교 학습 상태 수: 현행 조건 통과. 측정값 4, 비교 조건 >= 4."
+    },
+    {
+      "name": "eligible_count",
+      "value": 1629.0,
+      "operator": ">=",
+      "threshold": 4.0,
+      "passed": true,
+      "explanation": "현재 자격 후보 수: 현행 조건 통과. 측정값 1629, 비교 조건 >= 4."
+    },
+    {
+      "name": "probe_count",
+      "value": 1613.0,
+      "operator": ">=",
+      "threshold": 20.0,
+      "passed": true,
+      "explanation": "순위 비교용 미평가 후보 수: 현행 조건 통과. 측정값 1613, 비교 조건 >= 20."
+    },
+    {
+      "name": "stability",
+      "value": 0.75,
+      "operator": ">=",
+      "threshold": 0.6,
+      "passed": true,
+      "explanation": "최근 순위 유지율: 현행 조건 통과. 측정값 0.75, 비교 조건 >= 0.6."
+    },
+    {
+      "name": "diverse_fit_count",
+      "value": 4.0,
+      "operator": "==",
+      "threshold": 4.0,
+      "passed": true,
+      "explanation": "적합성과 다양성 규칙을 통과한 조합 수: 현행 조건 통과. 측정값 4, 비교 조건 == 4."
+    }
+  ],
+  "model": [
+    {
+      "component": "pop",
+      "weight": 0.42647472802715,
+      "variance": 0.10473703496416867,
+      "sd": 0.3236310166905649,
+      "used_for_personal_fit": false
+    },
+    {
+      "component": "quality",
+      "weight": -0.5601816231880447,
+      "variance": 0.18598789049461634,
+      "sd": 0.4312631337068082,
+      "used_for_personal_fit": false
+    },
+    {
+      "component": "cf",
+      "weight": 0.5898231713358264,
+      "variance": 0.18086641923710828,
+      "sd": 0.425283927790727,
+      "used_for_personal_fit": true
+    },
+    {
+      "component": "menu",
+      "weight": 0.05484466761124177,
+      "variance": 0.09606551803919637,
+      "sd": 0.309944378944346,
+      "used_for_personal_fit": true
+    },
+    {
+      "component": "text",
+      "weight": 1.0710949740828837,
+      "variance": 0.0695673210035777,
+      "sd": 0.2637561771856305,
+      "used_for_personal_fit": true
+    },
+    {
+      "component": "review",
+      "weight": 0.3440040980608222,
+      "variance": 0.1622032463652472,
+      "sd": 0.4027446416344322,
+      "used_for_personal_fit": true
+    },
+    {
+      "component": "food",
+      "weight": 0.6940279626173491,
+      "variance": 0.0903331817464202,
+      "sd": 0.3005547899242669,
+      "used_for_personal_fit": true
+    },
+    {
+      "component": "neg",
+      "weight": -0.6714570840669438,
+      "variance": 0.10145882137056222,
+      "sd": 0.31852601364811983,
+      "used_for_personal_fit": true
+    }
+  ],
+  "personalization": {
+    "rated_count": 16,
+    "liked_count": 9,
+    "disliked_count": 7,
+    "positive_predictions": 8,
+    "negative_predictions": 6,
+    "validation_auc": 0.8333333333333334,
+    "stability": 0.75,
+    "checkpoint_overlaps": [
+      {
+        "feedback_lag": 1,
+        "overlap": 0.85
+      },
+      {
+        "feedback_lag": 3,
+        "overlap": 0.75
+      }
+    ],
+    "validation_window": [
+      {
+        "feedback_index": 3,
+        "store_id": "1101448385",
+        "like": false,
+        "predicted_rank": 0.93646408839779
+      },
+      {
+        "feedback_index": 4,
+        "store_id": "1525647525",
+        "like": true,
+        "predicted_rank": 0.8167587476979742
+      },
+      {
+        "feedback_index": 5,
+        "store_id": "1227343872",
+        "like": false,
+        "predicted_rank": 0.029158993247391036
+      },
+      {
+        "feedback_index": 6,
+        "store_id": "59004414",
+        "like": true,
+        "predicted_rank": 0.9554941682013505
+      },
+      {
+        "feedback_index": 7,
+        "store_id": "930539138",
+        "like": true,
+        "predicted_rank": 0.8830570902394107
+      },
+      {
+        "feedback_index": 8,
+        "store_id": "16058098",
+        "like": false,
+        "predicted_rank": 0.5368324125230203
+      },
+      {
+        "feedback_index": 9,
+        "store_id": "16421356",
+        "like": true,
+        "predicted_rank": 0.2667280540208717
+      },
+      {
+        "feedback_index": 10,
+        "store_id": "660156981",
+        "like": true,
+        "predicted_rank": 0.9573357888275016
+      },
+      {
+        "feedback_index": 11,
+        "store_id": "1862318770",
+        "like": false,
+        "predicted_rank": 0.0187231430325353
+      },
+      {
+        "feedback_index": 12,
+        "store_id": "2126087688",
+        "like": false,
+        "predicted_rank": 0.054941682013505216
+      },
+      {
+        "feedback_index": 13,
+        "store_id": "1176601357",
+        "like": true,
+        "predicted_rank": 0.5791896869244936
+      },
+      {
+        "feedback_index": 14,
+        "store_id": "1210092309",
+        "like": true,
+        "predicted_rank": 0.9094536525475752
+      },
+      {
+        "feedback_index": 15,
+        "store_id": "1417211002",
+        "like": false,
+        "predicted_rank": 0.44659300184162065
+      },
+      {
+        "feedback_index": 16,
+        "store_id": "1424086789",
+        "like": true,
+        "predicted_rank": 0.6068139963167587
+      }
+    ],
+    "probe_count": 1613,
+    "checkpoint_count": 4
+  },
+  "fit": {
+    "eligible_count": 1629,
+    "qualified_count": 410,
+    "reference_pool": "currently_unrated_catalog",
+    "reference_count": 1613,
+    "threshold": 0.8403407098287301,
+    "quantile": 0.75,
+    "score_quantiles": {
+      "0": -5.542245653603682,
+      "0.25": -1.5675307332557826,
+      "0.5": -0.07868022157447147,
+      "0.75": 0.8403407098287301,
+      "0.9": 1.7300873435494362,
+      "1": 4.003150664191877
+    },
+    "searched_count": 60,
+    "search_truncated": true
+  },
+  "candidates": [
+    {
+      "store_id": "911844578",
+      "rank": 1,
+      "qualified": true,
+      "selected": true,
+      "total_score": 4.7501086566105615,
+      "personal_score": 4.720776296946174,
+      "model_sd": 1.4352512655085936,
+      "conservative_score": 4.003150664191877,
+      "fit_margin": 3.162809954363147,
+      "reference_percentile": 1.0,
+      "tier": 0,
+      "distance_bonus": 0.0,
+      "rank_score": 4.003150664191877,
+      "self_excluded_from_features": false,
+      "components": {
+        "pop": {
+          "z": 0.24925755858034612,
+          "contribution": 0.10630204950426451,
+          "variance_contribution": 0.006507241861867051
+        },
+        "quality": {
+          "z": 0.13740131174213824,
+          "contribution": -0.07696968983987754,
+          "variance_contribution": 0.003511287790322656
+        },
+        "cf": {
+          "z": 1.9760993912354923,
+          "contribution": 1.165549209813314,
+          "variance_contribution": 0.7062777248195601
+        },
+        "menu": {
+          "z": 2.155433956562511,
+          "contribution": 0.11821405890565465,
+          "variance_contribution": 0.4463103619120254
+        },
+        "text": {
+          "z": 2.3203403903288087,
+          "contribution": 2.4853049302427035,
+          "variance_contribution": 0.37454903203089057
+        },
+        "review": {
+          "z": 1.3291027071286414,
+          "contribution": 0.4572167779959854,
+          "variance_contribution": 0.28653430653856005
+        },
+        "food": {
+          "z": 1.443799540961551,
+          "contribution": 1.002037253841409,
+          "variance_contribution": 0.188304676683186
+        },
+        "neg": {
+          "z": 0.7558873767162313,
+          "contribution": -0.5075459338528922,
+          "variance_contribution": 0.057970093159797106
+        }
+      },
+      "evidence": {
+        "menu": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "1525647525",
+            "nearest_similarity": 0.642578125
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "1417211002",
+            "nearest_similarity": 0.48583984375
+          }
+        },
+        "text": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "660156981",
+            "nearest_similarity": 0.7802734375
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "1417211002",
+            "nearest_similarity": 0.626953125
+          }
+        },
+        "review": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "930539138",
+            "nearest_similarity": 0.93212890625
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "1862318770",
+            "nearest_similarity": 0.876953125
+          }
+        },
+        "food": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 6,
+            "total_count": 9,
+            "nearest_store_id": "16421356",
+            "nearest_similarity": 0.94970703125
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "16058098",
+            "nearest_similarity": 0.89208984375
+          }
+        }
+      }
+    },
+    {
+      "store_id": "1955177050",
+      "rank": 2,
+      "qualified": true,
+      "selected": false,
+      "total_score": 4.897643463599342,
+      "personal_score": 4.487799826008155,
+      "model_sd": 1.1807970173328577,
+      "conservative_score": 3.897401317341726,
+      "fit_margin": 3.0570606075129962,
+      "reference_percentile": 0.9993800371977681,
+      "tier": 0,
+      "distance_bonus": 0.0,
+      "rank_score": 3.897401317341726,
+      "self_excluded_from_features": false,
+      "components": {
+        "pop": {
+          "z": 2.8151346344893797,
+          "contribution": 1.2005837776036685,
+          "variance_contribution": 0.830039222640407
+        },
+        "quality": {
+          "z": 1.4115781512294296,
+          "contribution": -0.790740140012481,
+          "variance_contribution": 0.37059070629747115
+        },
+        "cf": {
+          "z": 1.851519889075455,
+          "contribution": 1.0920693327658424,
+          "variance_contribution": 0.6200328561622362
+        },
+        "menu": {
+          "z": 1.298825355391278,
+          "contribution": 0.07123364490148762,
+          "variance_contribution": 0.16205746664507192
+        },
+        "text": {
+          "z": 2.15170157675407,
+          "contribution": 2.3046767445875003,
+          "variance_contribution": 0.3220841515476457
+        },
+        "review": {
+          "z": 0.979569758338789,
+          "contribution": 0.3369760112049927,
+          "variance_contribution": 0.1556432461097104
+        },
+        "food": {
+          "z": 1.1974214342864165,
+          "contribution": 0.8310439584321456,
+          "variance_contribution": 0.12952135023167288
+        },
+        "neg": {
+          "z": 0.22071383175553544,
+          "contribution": -0.14819986588381384,
+          "variance_contribution": 0.004942525445835929
+        }
+      },
+      "evidence": {
+        "menu": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "660156981",
+            "nearest_similarity": 0.58935546875
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "1862318770",
+            "nearest_similarity": 0.451171875
+          }
+        },
+        "text": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "660156981",
+            "nearest_similarity": 0.77978515625
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "1417211002",
+            "nearest_similarity": 0.61328125
+          }
+        },
+        "review": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "660156981",
+            "nearest_similarity": 0.91845703125
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "16058098",
+            "nearest_similarity": 0.865234375
+          }
+        },
+        "food": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 6,
+            "total_count": 9,
+            "nearest_store_id": "16421356",
+            "nearest_similarity": 0.93408203125
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "16058098",
+            "nearest_similarity": 0.85546875
+          }
+        }
+      }
+    },
+    {
+      "store_id": "1347944544",
+      "rank": 3,
+      "qualified": true,
+      "selected": false,
+      "total_score": 4.1382180869919125,
+      "personal_score": 4.491967855927526,
+      "model_sd": 1.4383507448029162,
+      "conservative_score": 3.772792483526068,
+      "fit_margin": 2.9324517736973377,
+      "reference_percentile": 0.9987600743955363,
+      "tier": 0,
+      "distance_bonus": 0.0,
+      "rank_score": 3.772792483526068,
+      "self_excluded_from_features": false,
+      "components": {
+        "pop": {
+          "z": 1.3896078198549031,
+          "contribution": 0.5926326170370206,
+          "variance_contribution": 0.20224825067949526
+        },
+        "quality": {
+          "z": 1.6894206214525307,
+          "contribution": -0.9463823859726338,
+          "variance_contribution": 0.5308358564828112
+        },
+        "cf": {
+          "z": 3.0,
+          "contribution": 1.7694695140074792,
+          "variance_contribution": 1.6277977731339746
+        },
+        "menu": {
+          "z": 0.9923323696511122,
+          "contribution": 0.05442413897339115,
+          "variance_contribution": 0.0945979762132674
+        },
+        "text": {
+          "z": 1.8087756296168138,
+          "contribution": 1.937370486126173,
+          "variance_contribution": 0.22760126690074042
+        },
+        "review": {
+          "z": 0.7012207539151663,
+          "contribution": 0.24122281299211654,
+          "variance_contribution": 0.07975704678803094
+        },
+        "food": {
+          "z": 0.6556473074649481,
+          "contribution": 0.4550375649954486,
+          "variance_contribution": 0.03883183122815811
+        },
+        "neg": {
+          "z": -0.05129641141664284,
+          "contribution": 0.03444333883291729,
+          "variance_contribution": 0.0002669708109325555
+        }
+      },
+      "evidence": {
+        "menu": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "1525647525",
+            "nearest_similarity": 0.5703125
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "16058098",
+            "nearest_similarity": 0.458251953125
+          }
+        },
+        "text": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "660156981",
+            "nearest_similarity": 0.7685546875
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "16058098",
+            "nearest_similarity": 0.57763671875
+          }
+        },
+        "review": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "660156981",
+            "nearest_similarity": 0.8896484375
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "16058098",
+            "nearest_similarity": 0.8447265625
+          }
+        },
+        "food": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 6,
+            "total_count": 9,
+            "nearest_store_id": "59004414",
+            "nearest_similarity": 0.8955078125
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "16058098",
+            "nearest_similarity": 0.88671875
+          }
+        }
+      }
+    },
+    {
+      "store_id": "1665647241",
+      "rank": 4,
+      "qualified": true,
+      "selected": true,
+      "total_score": 4.655233149212332,
+      "personal_score": 4.518286708381739,
+      "model_sd": 1.6867461657487035,
+      "conservative_score": 3.6749136255073873,
+      "fit_margin": 2.834572915678657,
+      "reference_percentile": 0.9981401115933044,
+      "tier": 0,
+      "distance_bonus": 0.0,
+      "rank_score": 3.6749136255073873,
+      "self_excluded_from_features": false,
+      "components": {
+        "pop": {
+          "z": 0.9743674616144999,
+          "contribution": 0.41554309819054835,
+          "variance_contribution": 0.09943649788835754
+        },
+        "quality": {
+          "z": 0.4973327325063529,
+          "contribution": -0.27859665735995437,
+          "variance_contribution": 0.046002216345729124
+        },
+        "cf": {
+          "z": 3.0,
+          "contribution": 1.7694695140074792,
+          "variance_contribution": 1.6277977731339746
+        },
+        "menu": {
+          "z": 2.9727485852029534,
+          "contribution": 0.16303940804724523,
+          "variance_contribution": 0.8489534767327928
+        },
+        "text": {
+          "z": 1.7648310252379429,
+          "contribution": 1.8903016412379035,
+          "variance_contribution": 0.2166763639807464
+        },
+        "review": {
+          "z": 0.9184241768751424,
+          "contribution": 0.31594168060318645,
+          "variance_contribution": 0.13681891983679997
+        },
+        "food": {
+          "z": 0.2725771942730239,
+          "contribution": 0.18917619479726014,
+          "variance_contribution": 0.006711604261689745
+        },
+        "neg": {
+          "z": -0.28350027753923407,
+          "contribution": 0.1903582696886634,
+          "variance_contribution": 0.00815448972194961
+        }
+      },
+      "evidence": {
+        "menu": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "1210092309",
+            "nearest_similarity": 0.693359375
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "1862318770",
+            "nearest_similarity": 0.50341796875
+          }
+        },
+        "text": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "1210092309",
+            "nearest_similarity": 0.75537109375
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "382622582",
+            "nearest_similarity": 0.56298828125
+          }
+        },
+        "review": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 9,
+            "total_count": 9,
+            "nearest_store_id": "1210092309",
+            "nearest_similarity": 0.9052734375
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "16058098",
+            "nearest_similarity": 0.87158203125
+          }
+        },
+        "food": {
+          "candidate_has_feature": true,
+          "like_references": {
+            "known_count": 6,
+            "total_count": 9,
+            "nearest_store_id": "930539138",
+            "nearest_similarity": 0.88916015625
+          },
+          "dislike_references": {
+            "known_count": 7,
+            "total_count": 7,
+            "nearest_store_id": "16058098",
+            "nearest_similarity": 0.79296875
+          }
+        }
+      }
+    }
+  ],
+  "candidate_total": 1629,
+  "candidate_offset": 0,
+  "candidate_limit": 4,
+  "next_offset": 4,
+  "pairs": [
+    {
+      "store_ids": [
+        "911844578",
+        "1665647241"
+      ],
+      "similarities": {
+        "menu": 0.43505859375,
+        "text": 0.63720703125,
+        "review": 0.8623046875,
+        "food": 0.88671875
+      },
+      "co_visit_similarity": 0.0,
+      "known_modalities": 4,
+      "missing_modalities": [],
+      "raw_mean_similarity": 0.705322265625,
+      "same_brand": false,
+      "same_fine_category": null,
+      "passes_current_rule": true,
+      "blocking_reasons": []
+    },
+    {
+      "store_ids": [
+        "911844578",
+        "684678858"
+      ],
+      "similarities": {
+        "menu": 0.435546875,
+        "text": 0.62060546875,
+        "review": 0.78369140625,
+        "food": 0.94189453125
+      },
+      "co_visit_similarity": 0.0,
+      "known_modalities": 4,
+      "missing_modalities": [],
+      "raw_mean_similarity": 0.6954345703125,
+      "same_brand": false,
+      "same_fine_category": null,
+      "passes_current_rule": true,
+      "blocking_reasons": []
+    },
+    {
+      "store_ids": [
+        "911844578",
+        "900672400"
+      ],
+      "similarities": {
+        "menu": 0.378173828125,
+        "text": 0.7041015625,
+        "review": 0.88916015625,
+        "food": 0.95166015625
+      },
+      "co_visit_similarity": 0.0,
+      "known_modalities": 4,
+      "missing_modalities": [],
+      "raw_mean_similarity": 0.73077392578125,
+      "same_brand": false,
+      "same_fine_category": false,
+      "passes_current_rule": true,
+      "blocking_reasons": []
+    },
+    {
+      "store_ids": [
+        "1665647241",
+        "684678858"
+      ],
+      "similarities": {
+        "menu": 0.60205078125,
+        "text": 0.72705078125,
+        "review": 0.84130859375,
+        "food": 0.88525390625
+      },
+      "co_visit_similarity": 0.0,
+      "known_modalities": 4,
+      "missing_modalities": [],
+      "raw_mean_similarity": 0.763916015625,
+      "same_brand": false,
+      "same_fine_category": null,
+      "passes_current_rule": true,
+      "blocking_reasons": []
+    },
+    {
+      "store_ids": [
+        "1665647241",
+        "900672400"
+      ],
+      "similarities": {
+        "menu": 0.473876953125,
+        "text": 0.62109375,
+        "review": 0.88330078125,
+        "food": 0.87939453125
+      },
+      "co_visit_similarity": 0.0,
+      "known_modalities": 4,
+      "missing_modalities": [],
+      "raw_mean_similarity": 0.71441650390625,
+      "same_brand": false,
+      "same_fine_category": null,
+      "passes_current_rule": true,
+      "blocking_reasons": []
+    },
+    {
+      "store_ids": [
+        "684678858",
+        "900672400"
+      ],
+      "similarities": {
+        "menu": 0.54248046875,
+        "text": 0.6728515625,
+        "review": 0.80859375,
+        "food": 0.9248046875
+      },
+      "co_visit_similarity": 0.0,
+      "known_modalities": 4,
+      "missing_modalities": [],
+      "raw_mean_similarity": 0.7371826171875,
+      "same_brand": false,
+      "same_fine_category": null,
+      "passes_current_rule": true,
+      "blocking_reasons": []
+    }
+  ],
+  "pair_store_ids": [
+    "911844578",
+    "1665647241",
+    "684678858",
+    "900672400"
+  ],
+  "pair_scope": "proposed_four",
+  "slate": {
+    "diagnostic_store_ids": [
+      "911844578",
+      "1665647241",
+      "684678858",
+      "900672400"
+    ],
+    "is_proposal": true,
+    "min_fit_margin": 2.5533813571180293,
+    "max_pair_mean_similarity": 0.763916015625,
+    "pairs": [
+      {
+        "store_ids": [
+          "911844578",
+          "1665647241"
+        ],
+        "similarities": {
+          "menu": 0.43505859375,
+          "text": 0.63720703125,
+          "review": 0.8623046875,
+          "food": 0.88671875
+        },
+        "co_visit_similarity": 0.0,
+        "known_modalities": 4,
+        "missing_modalities": [],
+        "raw_mean_similarity": 0.705322265625,
+        "same_brand": false,
+        "same_fine_category": null,
+        "passes_current_rule": true,
+        "blocking_reasons": []
+      },
+      {
+        "store_ids": [
+          "911844578",
+          "684678858"
+        ],
+        "similarities": {
+          "menu": 0.435546875,
+          "text": 0.62060546875,
+          "review": 0.78369140625,
+          "food": 0.94189453125
+        },
+        "co_visit_similarity": 0.0,
+        "known_modalities": 4,
+        "missing_modalities": [],
+        "raw_mean_similarity": 0.6954345703125,
+        "same_brand": false,
+        "same_fine_category": null,
+        "passes_current_rule": true,
+        "blocking_reasons": []
+      },
+      {
+        "store_ids": [
+          "911844578",
+          "900672400"
+        ],
+        "similarities": {
+          "menu": 0.378173828125,
+          "text": 0.7041015625,
+          "review": 0.88916015625,
+          "food": 0.95166015625
+        },
+        "co_visit_similarity": 0.0,
+        "known_modalities": 4,
+        "missing_modalities": [],
+        "raw_mean_similarity": 0.73077392578125,
+        "same_brand": false,
+        "same_fine_category": false,
+        "passes_current_rule": true,
+        "blocking_reasons": []
+      },
+      {
+        "store_ids": [
+          "1665647241",
+          "684678858"
+        ],
+        "similarities": {
+          "menu": 0.60205078125,
+          "text": 0.72705078125,
+          "review": 0.84130859375,
+          "food": 0.88525390625
+        },
+        "co_visit_similarity": 0.0,
+        "known_modalities": 4,
+        "missing_modalities": [],
+        "raw_mean_similarity": 0.763916015625,
+        "same_brand": false,
+        "same_fine_category": null,
+        "passes_current_rule": true,
+        "blocking_reasons": []
+      },
+      {
+        "store_ids": [
+          "1665647241",
+          "900672400"
+        ],
+        "similarities": {
+          "menu": 0.473876953125,
+          "text": 0.62109375,
+          "review": 0.88330078125,
+          "food": 0.87939453125
+        },
+        "co_visit_similarity": 0.0,
+        "known_modalities": 4,
+        "missing_modalities": [],
+        "raw_mean_similarity": 0.71441650390625,
+        "same_brand": false,
+        "same_fine_category": null,
+        "passes_current_rule": true,
+        "blocking_reasons": []
+      },
+      {
+        "store_ids": [
+          "684678858",
+          "900672400"
+        ],
+        "similarities": {
+          "menu": 0.54248046875,
+          "text": 0.6728515625,
+          "review": 0.80859375,
+          "food": 0.9248046875
+        },
+        "co_visit_similarity": 0.0,
+        "known_modalities": 4,
+        "missing_modalities": [],
+        "raw_mean_similarity": 0.7371826171875,
+        "same_brand": false,
+        "same_fine_category": null,
+        "passes_current_rule": true,
+        "blocking_reasons": []
+      }
+    ]
+  }
+}
